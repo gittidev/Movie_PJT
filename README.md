@@ -26,8 +26,10 @@
 - Javscript
     - ECMA5 +
     - Vue.js
+      -라이브러리 :  
 - Database
     - sqlite3
+   
 
 ## 4. 개요
 - 본 서비스는 TMDB API를 활용하여 데이터를 수집, 가공하여 데이터 베이스에 저장하였다.
