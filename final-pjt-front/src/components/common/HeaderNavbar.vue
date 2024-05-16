@@ -1,18 +1,19 @@
 <template>
     <header>
  <!-- 컴포넌트 최상위 -->
- <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-            <RouterLink :to="{name:'movie'}"> 
-                <img src="@/assets/MarchMovie_Title.png" alt="MarshMovieLogo" class="logo"/> 
-            </RouterLink>
-        
-            <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon primary-second"></span>
-            </button>
+    <nav class="navbar navbar-expand-md ">
+      <div class="container-fluid">
+            
+          <RouterLink :to="{name:'movie'}"> 
+              <img src="@/assets/MarchMovie_Title.png" alt="MarshMovieLogo" class="logo"/> 
+          </RouterLink>
+      
+          <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon primary-second"></span>
+          </button>
 
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse link-handler" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <RouterLink :to="{name:'movie'}" class="nav-link link-font">영화</RouterLink>
@@ -36,8 +37,19 @@
                 </ul>
               </li>
             </ul>
-            <RouterLink :to="{name:'login'}" class="nav-link link-font" >로그인</RouterLink>
-            <RouterLink :to="{name:'signup'}" class="nav-link link-font">회원가입</RouterLink>
+            <ul class="" ></ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <RouterLink :to="{name:'login'}" class="nav-link link-font" >로그인</RouterLink>
+              </li>
+              <li class="nav-item">
+                <RouterLink :to="{name:'signup'}" class="nav-link link-font">회원가입</RouterLink>
+              </li>
+            </ul>
+
+
+            
+            
           </div>
         </div>
       </nav>
@@ -51,12 +63,42 @@ import { RouterLink, RouterView } from "vue-router";
 
 <style scoped>
 
-.navbar {
-    background-color: rgb(32, 32, 32);
+/*  눈누 폰트  */
+@font-face {
+    font-family: 'PyeongChangPeace-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+nav {
+  position: relative;
+  height: 5rem;
+  background-color:rgba(255,255,255,0.1);
+  backdrop-filter: blur(50px);
+}
+
+img {
+  height: 4rem;
+  margin: 0;
+}
+
+
+.link-handler {
+  position: absolute;
+  width: 60rem;
+  bottom: 0;
+  right: 0rem;
 }
 
 .link-font {
-    color : white
+  bottom: 0;
+  color : white;
+  font-family: 'PyeongChangPeace-Bold';
+  font-size: 20px;
 }
 
+.link-font:hover {
+  color : rgb(255, 0, 0);
+}
 </style>

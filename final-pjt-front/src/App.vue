@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from "vue-router";
 <style>
 
 .app-body {
-  background-color: rgb(253, 253, 253);
+  background-color: rgb(30, 30, 30);
   width: 100vw;
   height: 100vh;
 }
