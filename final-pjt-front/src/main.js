@@ -2,6 +2,7 @@
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+//캐러셀
 
 import App from './App.vue'
 import router from './router'

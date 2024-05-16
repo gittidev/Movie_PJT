@@ -1,17 +1,14 @@
 <template>
     <header>
- <!-- 컴포넌트 최상위 -->
     <nav class="navbar navbar-expand-md ">
       <div class="container-fluid">
-            
-          <RouterLink :to="{name:'movie'}"> 
+          <RouterLink :to="{name:'home'}"> 
               <img src="@/assets/MarchMovie_Title.png" alt="MarshMovieLogo" class="logo"/> 
           </RouterLink>
       
           <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon primary-second"></span>
           </button>
-
 
           <div class="collapse navbar-collapse link-handler" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -46,13 +43,10 @@
                 <RouterLink :to="{name:'signup'}" class="nav-link link-font">회원가입</RouterLink>
               </li>
             </ul>
-
-
-            
-            
           </div>
         </div>
       </nav>
+  
     </header>
 </template>
 
@@ -71,7 +65,8 @@ import { RouterLink, RouterView } from "vue-router";
     font-style: normal;
 }
 
-nav {
+header{
+  z-index: 1;
   position: relative;
   height: 5rem;
   background-color:rgba(255,255,255,0.1);

@@ -36,13 +36,13 @@ const router = createRouter({
       children:[
         {path: 'random',
         name: 'random',
-        component: () => import('@/components/Recommend/RandomRecommend.vue'),},
+        component: () => import('@/components/recommend/RandomRecommend.vue'),},
         {path: 'marshchat',
         name: 'marshchat',
-        component: () => import('@/components/Recommend/ChatbotRecommend.vue'),},
+        component: () => import('@/components/recommend/ChatbotRecommend.vue'),},
         {path: 'bestreview',
         name: 'bestreview',
-        component: () => import('@/components/Recommend/ReviewRecommend.vue'),},
+        component: () => import('@/components/recommend/ReviewRecommend.vue'),},
       ]
     },
     {

@@ -5,7 +5,6 @@
       <div class='popcorn' @click="openModal" data-bs-toggle="modal" data-bs-target="#random">
       <img :src="popcornIconPath" alt="popcron그림">
     </div>
-    <p class="arrow_box">말풍선 등장!</p>
     </div>
     
   </div>

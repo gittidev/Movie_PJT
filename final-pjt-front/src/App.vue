@@ -15,8 +15,8 @@ import { RouterLink, RouterView } from "vue-router";
 
 .app-body {
   background-color: rgb(30, 30, 30);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 /* 라이트 다크 테마 토글 */
