@@ -46,27 +46,6 @@
 
 
 - 프로젝트 구성
-```
-
-```
-
-
-
-## 영화 추천 기능
-- 
-- 
-- 
-- 
-: json viewer를 활용할것
-##### 2.이중 for문에서 List 초기화 하기
-: for문을 기준으로 어느 부분에서 list와 dictionary를 초기화해야할지 감이 잡히지 않았다.
-
-## 배운점 및 느낀점
-
-
-
-
-
 <details>
     <summary>코드 확인</summary>
     <div markdown>
@@ -90,3 +69,22 @@
       return JsonResponse(context)
     </div>
 </detail>
+
+
+
+
+## 영화 추천 기능
+- 
+- 
+- 
+- 
+: json viewer를 활용할것
+##### 2.이중 for문에서 List 초기화 하기
+: for문을 기준으로 어느 부분에서 list와 dictionary를 초기화해야할지 감이 잡히지 않았다.
+
+## 배운점 및 느낀점
+
+
+
+
+
