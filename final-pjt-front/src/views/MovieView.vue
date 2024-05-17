@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div class="movie-container">
     <div class="movie-section">
       <TodayMovie />
     </div>
@@ -32,7 +32,7 @@ onMounted(()=>{
 <style scoped>
 
 
-.main-container {
+.movie-container {
   display: flex;
   flex-direction: column;
   gap: 20px; /* 각 섹션 사이에 간격을 둠 */

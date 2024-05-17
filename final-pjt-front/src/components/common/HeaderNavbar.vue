@@ -73,7 +73,7 @@ header{
   z-index: 1;
   position: relative;
   height: 5rem;
-  background-color:rgba(255,255,255,0.1);
+  background-color:rgb(0, 0, 0);
   backdrop-filter: blur(50px);
 }
 

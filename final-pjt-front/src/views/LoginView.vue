@@ -1,24 +1,33 @@
 <template>
   <div class="login">
-    <div class="login-body">
-      <div>
-        <h1>로그인</h1>
-        <form @submit.prevent="logIn">
-          <label for="username">username: </label>
-          <input type="text" id="username" v-model.trim="username" /><br />
+      <div class="card login-body" style="width: 25rem; height:30rem; padding: 1rem;">
+        <div class="card-body">
+            <form @submit.prevent="logIn">
+              <div class="d-grid gap-2 col-12 mx-auto">
+                <label for="username">username: </label>
+                <input class="form-control mx-auto" type="text" id="username" v-model.trim="username" />
+              </div>
+              <div class="d-grid gap-2 m-2 col-12 mx-auto">
+                <label for="password">password: </label>
+                <input  class="form-control"
+                  type="password"
+                  id="password"
+                  v-model.trim="password"
+                />
+              </div>
 
-          <label for="password">password: </label>
-          <input type="password" id="password" v-model.trim="password" /><br />
-
-          <input type="submit" value="login" />
-        </form>
+              <div class="d-grid gap-2 m-3 col-12 mx-auto">
+              <input type="submit"  class="btn btn-primary" value="login" />
+              </div>
+              
+              <div class="d-grid gap-2 m-3 col-12 mx-auto">
+                <KakaoLogin />
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <KakaoLogin />
-      </div>
-    </div>
-  </div>
 </template>
 
 <script setup>
@@ -49,13 +58,11 @@ const logIn = function () {
 .login-body {
   position: absolute;
   top: 5rem;
-  background-color: blanchedalmond;
+  /* background-color:rgba(255,255,255,0.1); */
+  backdrop-filter: blur(80px);
   width: 30rem;
   height: 40rem;
   text-align: center;
 }
 
-h1 {
-  color: white;
-}
 </style>

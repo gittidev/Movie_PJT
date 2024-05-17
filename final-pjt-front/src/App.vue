@@ -1,6 +1,6 @@
 <template>
   <div class="app-body">
-    <HeaderNavbar />
+    <HeaderNavbar class="header"/>
     <!-- 라우터 뷰 구성 -->
     <RouterView/>
   </div>
@@ -14,7 +14,6 @@ import { RouterLink, RouterView } from "vue-router";
 <style>
 
 .app-body {
-  background-color: rgb(30, 30, 30);
   width: 100%;
   height: 100%;
 }

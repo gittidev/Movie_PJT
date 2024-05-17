@@ -1,7 +1,10 @@
 <template>
   <div class="community">
     <h1>커뮤니티</h1>
+    <CommunityCreate class="communitycreate"/>
+    <CommunityCreateDetail/>
     <div v-if="store.communities">
+      
       <CommunityList />
     </div>
     <div v-else>
@@ -15,6 +18,8 @@
 import { RouterLink } from "vue-router";
 import { onMounted } from "vue";
 import { useCounterStore } from "@/stores/counter";
+import CommunityCreate from "@/components/community/CommunityCreate.vue";
+import CommunityCreateDetail from "@/components/community/CommunityCreateDetail.vue";
 import CommunityList from "@/components/community/CommunityList.vue";
 
 const store = useCounterStore();

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="community-card">
     <h5>{{ community.id }}</h5>
     <p>{{ community.title }}</p>
     <p>{{ community.content }}</p>
@@ -19,4 +19,10 @@ defineProps({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.community-card {
+  background-color: aliceblue;
+}
+
+</style>

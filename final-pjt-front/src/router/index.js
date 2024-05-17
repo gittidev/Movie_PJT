@@ -36,18 +36,18 @@ const router = createRouter({
         {
           path: "random",
           name: "random",
-          component: () => import("@/components/recommend/RandomRecommend.vue"),
+          component: () => import("@/components/Recommend/RandomRecommend.vue"),
         },
         {
           path: "marshchat",
           name: "marshchat",
           component: () =>
-            import("@/components/recommend/ChatbotRecommend.vue"),
+            import("@/components/Recommend/ChatbotRecommend.vue"),
         },
         {
           path: "bestreview",
           name: "bestreview",
-          component: () => import("@/components/recommend/ReviewRecommend.vue"),
+          component: () => import("@/components/Recommend/ReviewRecommend.vue"),
         },
       ],
     },
