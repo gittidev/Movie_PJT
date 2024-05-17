@@ -13,10 +13,10 @@ from .models import Community
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def community_list(request):
     if request.method == 'GET':
-        communities = get_list_or_404(Community)
+        communities = Community.objects.all()
         serializer = CommunityListSerializer(communities, many=True)
         return Response(serializer.data)
 

@@ -9,7 +9,6 @@
                     </div>
                 </Slide>
         </Carousel>
-
     </div>
 </template>
 

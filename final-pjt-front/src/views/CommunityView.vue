@@ -1,8 +1,13 @@
 <template>
-  <div class="checking">
+  <div class="community">
     <h1>커뮤니티</h1>
-    <!-- <RouterLink :to="{name:'communitydetail'}">커뮤니티 공간 이미지</RouterLink> -->
-    <CommunityList />
+    <div v-if="store.communities">
+      <CommunityList />
+    </div>
+    <div v-else>
+      <img src="@/assets/sample1.jpg" alt="">
+    </div>
+
   </div>
 </template>
 
@@ -16,11 +21,14 @@ const store = useCounterStore();
 
 onMounted(() => {
   store.getCommunities();
+  console.log(store.communities)
 });
+
 </script>
 
 <style scoped>
-.checking {
-  color: white;
+.community {
+  background-color: none;
+  
 }
 </style>

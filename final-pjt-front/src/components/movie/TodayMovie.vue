@@ -4,31 +4,46 @@
 
         <div class="carousel-container">
             <Carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide" :transition="0">
-                <Slide v-for="slide in 3" :key="slide">
+                <Slide v-for="todayMovie in store.todayMovies" :key="todayMovie.id">
                     <div class="carousel__item" style="color :white;">
-                        {{ slide }}
-                        <img src="@/assets/sample1.jpg" alt="#" style="width: 400px;">
+                        <img :src="getMoviePoster(todayMovie)" alt="#" style="width: 25rem;">
                     </div>
                 </Slide>
             </Carousel>
         </div>
         <div style="margin-top: 10px;">
-        <Carousel id="thumbnails" :items-to-show="5" :wrap-around="true" v-model="currentSlide" ref="carousel"
-                :autoplay="2800" :transition="700">
-                <Slide v-for="slide in 3" :key="slide">
+        <Carousel id="thumbnails" :items-to-show="7" :wrap-around="true" v-model="currentSlide" ref="carousel"
+                :autoplay="2500" :transition="600">
+                <Slide v-for="todayMovie in store.todayMovies" :key="todayMovie.id">
                     <div class="carousel__item" style="color :white;">
-                        <img class='first-img' src="@/assets/sample1.jpg" alt="#" style="width: 150px;">
+                        <img :src="getMoviePoster(todayMovie)" alt="#" style="width: 10rem; height: 15rem;">
                     </div>
                 </Slide>
         </Carousel>
         </div>
     </div>
 
-
 </template>
 
+
+<script setup >
+import { useMovieStore } from '@/stores/movies';
+import { ref } from 'vue';
+const store = useMovieStore()
+const imgBaseURL = "https://image.tmdb.org/t/p/w500";
+
+const getMoviePoster = movie => {
+  if (movie.poster_path) {
+    return imgBaseURL + movie.poster_path;
+  } else {
+    return ""; // 포스터 경로가 없는 경우 빈 문자열 반환 나중에 빈 이미지 asset 찾아서 반영하기
+  }
+}; 
+
+</script>
+
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, defineProps } from 'vue'
 import { Carousel, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
@@ -49,6 +64,7 @@ export default defineComponent({
         },
     },
 })
+
 </script>
 
 <style scoped>

@@ -1,18 +1,21 @@
 <template>
-  <div>
-    <h1>회원가입</h1>
-    <form @submit.prevent="signUp">
-      <label for="username">username: </label>
-      <input type="text" id="username" v-model.trim="username" /><br />
+  <div class="signup">
+    <div class="signup-handler">
+      <h1>회원가입</h1>
+      <form @submit.prevent="signUp">
+        <label for="username">username: </label>
+        <input type="text" id="username" v-model.trim="username" /><br />
 
-      <label for="password1">password: </label>
-      <input type="password" id="password1" v-model.trim="password1" /><br />
+        <label for="password1">password: </label>
+        <input type="password" id="password1" v-model.trim="password1" /><br />
 
-      <label for="password2">password confirmation: </label>
-      <input type="password" id="password2" v-model.trim="password2" />
+        <label for="password2">password confirmation: </label>
+        <input type="password" id="password2" v-model.trim="password2" />
 
-      <input type="submit" value="signup" />
-    </form>
+        <input type="submit" value="signup" />
+      </form>
+    </div>
+   
   </div>
 </template>
 
@@ -36,4 +39,14 @@ const signUp = function () {
 };
 </script>
 
-<style scoped></style>
+
+
+<style scoped>
+.signup {
+  position: relative;
+}
+
+.signuphandler {
+  
+}
+</style>

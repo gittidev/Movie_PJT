@@ -13,9 +13,20 @@
 </template>
 
 <script setup>
+
+import { useMovieStore } from "@/stores/movies";
+import { onMounted, ref } from "vue";
 import TodayMovie from "@/components/movie/TodayMovie.vue";
 import WeeklyMovie from "@/components/movie/WeeklyMovie.vue";
 import GenreMovie from "@/components/movie/GenreMovie.vue";
+
+const store = useMovieStore()
+
+onMounted(()=>{
+  store.getMovies()
+  store.getWeeklyMovies()
+})
+
 </script>
 
 <style scoped>

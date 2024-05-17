@@ -1,13 +1,9 @@
 <template>
   <!--서비스 소개 화면 -->
   <div>
-    
-
-
     <div class="side">
       <random />
       <chatbot />
-      <slider />
       <div class="handler">
         <Popcorn class="popcorn-handler" />
         <ChatbotIcon class="chatbot-handler" />
@@ -21,6 +17,8 @@ import Popcorn from "@/components/Popcorn.vue";
 import ChatbotIcon from "@/components/ChatbotIcon.vue";
 import Random from "@/components/Random.vue";
 import Chatbot from "@/components/Chatbot.vue";
+
+
 
 </script>
 
