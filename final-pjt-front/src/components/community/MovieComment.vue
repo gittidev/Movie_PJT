@@ -1,13 +1,7 @@
 <template>
-    <div>
-        영화커뮤니티별 코멘트
-    </div>
+  <div>영화커뮤니티별 코멘트</div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>
