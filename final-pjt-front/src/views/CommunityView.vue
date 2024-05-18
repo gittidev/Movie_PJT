@@ -1,12 +1,12 @@
 <template>
   <div class="community">
-    <h1>커뮤니티</h1>
     <CommunityCreate class="communitycreate"/>
     <CommunityCreateDetail/>
+    
     <div v-if="store.communities">
-      
       <CommunityList />
     </div>
+    
     <div v-else>
       <img src="@/assets/sample1.jpg" alt="">
     </div>
