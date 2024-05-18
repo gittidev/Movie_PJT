@@ -9,6 +9,15 @@
 <script setup>
 import HeaderNavbar from '@/components/common/HeaderNavbar.vue'
 import { RouterLink, RouterView } from "vue-router";
+import { onMounted } from 'vue'
+import { useMovieStore } from "@/stores/movies";
+
+const store = useMovieStore()
+
+onMounted(() => {
+  store.getGenres()
+})
+
 </script>
 
 <style>

@@ -8,10 +8,18 @@ from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import get_object_or_404, get_list_or_404
 
-from .serializers import CommunityListSerializer, CommunitySerializer
-from .models import Community
+from .serializers import CommunityListSerializer, CommunitySerializer, MovieListSerializer
+from .models import Community, Movie
 
+# 영화목록 가져오기/로그인 하지 않아도 가져올수 있음
+@api_view(['GET'])
+def movies_list(request):
+    if request.method == 'GET':
+        movies = Movie.objects.all()
+        serializer = MovieListSerializer(movies, many=True)
+        return Response(serializer.data)
 
+# 커뮤니티 목록 가져오기
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def community_list(request):
@@ -36,3 +44,6 @@ def community_detail(request, community_pk):
         serializer = CommunitySerializer(community)
         print(serializer.data)
         return Response(serializer.data)
+
+
+

@@ -25,6 +25,7 @@ const store = useMovieStore()
 onMounted(()=>{
   store.getMovies()
   store.getWeeklyMovies()
+  store.getDatabaseMovie()
 })
 
 </script>
