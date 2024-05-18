@@ -72,7 +72,7 @@ export const useMovieStore = defineStore("movie", () => {
     })
       .then((res) => {
         weeklyMovies.value = res.data.results;
-        console.log(weeklyMovies.value)
+        // console.log(weeklyMovies.value)
       })
       .catch((err) => console.log(err));
   };
@@ -93,7 +93,7 @@ export const useMovieStore = defineStore("movie", () => {
     TMDB_TOKEN,
     API_URL,
     getGenres,
-
+    genres,
     getMovies,
     todayMovies,
     getWeeklyMovies,

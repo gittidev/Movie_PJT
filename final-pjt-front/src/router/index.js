@@ -12,6 +12,19 @@ const router = createRouter({
       path: "/movie",
       name: "movie",
       component: () => import("../views/MovieView.vue"),
+      children:[
+        {
+          path: "genres",
+          name: "genres",
+          component: () => import("@/components/movie/GenreMovie.vue"),
+          children: [
+            {
+              path: ":genreId",
+              name: "genredetail",
+              component: () => import("@/components/movie/GenreDetail.vue"),
+            }]
+        },
+      ]
     },
     {
       path: "/search",
