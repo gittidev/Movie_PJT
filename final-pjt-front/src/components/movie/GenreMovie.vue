@@ -44,7 +44,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-h1 {
-    color: white;
-}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div style="padding: 5rem;">
-        <div class="modal-body" style="text-align: center; color:white; font-size: 5rem;">
+        <div class="modal-body" style="text-align: center; font-size: 5rem;">
             오늘의 영화를 뽑아보세요!
             <div class="popcorn-img-bg">
               <img :src="popcornIconPath" alt="popcron그림" class="popcorn-img">

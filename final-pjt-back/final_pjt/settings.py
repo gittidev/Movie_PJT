@@ -31,14 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # app
     'accounts',
     'movies',
     'django_extensions',
     'rest_framework',
     'rest_framework.authtoken',
+    # rest auth
     'dj_rest_auth',
     'corsheaders',
     'django.contrib.sites',
+    # all auth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -57,13 +60,17 @@ REST_FRAMEWORK = {
     # Authentication
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
 
     ],
     # permission
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
+}
+
+REST_AUTH = {
+ 'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer',
 }
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'

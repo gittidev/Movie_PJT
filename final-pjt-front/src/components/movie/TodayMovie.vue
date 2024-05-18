@@ -68,9 +68,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-h1 {
-    color: white;
-}
+
 
 .first-img {
     width: 50px;
