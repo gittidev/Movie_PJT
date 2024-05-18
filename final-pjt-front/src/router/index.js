@@ -12,19 +12,13 @@ const router = createRouter({
       path: "/movie",
       name: "movie",
       component: () => import("../views/MovieView.vue"),
-      children:[
-        {
-          path: "genres",
-          name: "genres",
-          component: () => import("@/components/movie/GenreMovie.vue"),
-          children: [
-            {
-              path: ":genreId",
-              name: "genredetail",
-              component: () => import("@/components/movie/GenreDetail.vue"),
-            }]
-        },
-      ]
+      redirect: "/movie/28",
+      children:[{
+        path: ":genreId",
+        name: "genredetail",
+        component: () => import("@/components/movie/GenreDetail.vue"),
+        props: true,
+      }]
     },
     {
       path: "/search",

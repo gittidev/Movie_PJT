@@ -84,7 +84,12 @@ export const useMovieStore = defineStore("movie", () => {
       url: `${API_URL}/marshmovie/movies/`,
     })
       .then((res) => {
+        res.data.forEach((genre) => {
+          // 장르 아이디를 배열로 변환
+          genre.genre_ids = JSON.parse(genre.genre_ids).map(String);
+        });
         Movies.value = res.data;
+        // console.log(Movies.value);
       })
       .catch((err) => console.log(err));
   };

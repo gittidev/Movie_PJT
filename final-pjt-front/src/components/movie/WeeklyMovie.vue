@@ -1,11 +1,11 @@
 <template>
     <div>
         <h1>금주의 영화</h1>
-        <Carousel id="thumbnails" :items-to-show="5" :wrap-around="true" v-model="currentSlide" ref="carousel"
-                :autoplay="2800" :transition="700">
+        <Carousel id="thumbnails" :items-to-show="4.5" :wrap-around="true" v-model="currentSlide" ref="carousel"
+                :autoplay="0.1" :transition="10000">
                 <Slide v-for="weeklyMovie in store.weeklyMovies" :key="weeklyMovie.id">
-                    <div class="carousel__item" style="color :white;">
-                        <img :src="getMoviePoster(weeklyMovie)" alt="#" style="width: 10rem; height: 15rem;">
+                    <div class="carousel__item img-handler" style="color :white;">
+                        <img :src="getMoviePoster(weeklyMovie)" alt="#">
                     </div>
                 </Slide>
         </Carousel>
@@ -64,5 +64,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+.img-handler{
+    width: 28rem;
+    height: 40rem;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
 
 </style>
