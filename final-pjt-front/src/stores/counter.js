@@ -6,6 +6,9 @@ import { useRouter } from 'vue-router'
 export const useCounterStore = defineStore('counter', () => {
   const communities = ref([])
   const API_URL = 'http://127.0.0.1:8000'
+  const router = useRouter() 
+
+
   const getCommunities = function () {
     axios({
       method: 'get',
@@ -24,13 +27,13 @@ export const useCounterStore = defineStore('counter', () => {
     // const username = payload.username
     // const password1 = payload.password1
     // const password2 = payload.password2
-    const { username, password1, password2, email } = payload
+    const { username, password1, password2, email, nickname } = payload
 
     axios({
       method: 'post',
       url: `${API_URL}/accounts/signup/`,
       data: {
-        username, password1, password2, email
+        username, password1, password2, email, nickname
       }
     })
       .then((response) => {

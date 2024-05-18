@@ -5,22 +5,31 @@
         <form @submit.prevent="signUp">
           <div class="d-grid gap-2 col-12 mx-auto">
             <label for="username">아이디</label>
-            <input class="form-control mx-auto" type="text" id="username" v-model.trim="username" />
+            <input class="form-control mx-auto" type="text" id="username" v-model.trim="username" 
+            placeholder="사용할 아이디를 입력하세요"/>
           </div>
           <div class="d-grid gap-2 m-2 col-12 mx-auto">
             <label for="email">이메일</label>
-            <input class="form-control" type="email" id="email" v-model.trim="email" />
+            <input class="form-control" type="email" id="email" v-model.trim="email" 
+            placeholder="사용할 이메일을 입력하세요(선택사항)"/>
+          </div>
+          <div class="d-grid gap-2 m-2 col-12 mx-auto">
+            <label for="nickname">사용자명</label>
+            <input class="form-control" type="text" id="nickname" v-model.trim="nickname" 
+            placeholder="사용할 닉네임을 알려주세요(선택사항)">
           </div>
           <div class="d-grid gap-2 m-2 col-12 mx-auto">
             <label for="password1">비밀번호 </label>
-            <input class="form-control" type="password" id="password1" v-model.trim="password1" />
+            <input class="form-control" type="password" id="password1" v-model.trim="password1" 
+            placeholder="사용할 비밀번호를 입력하세요"/>
           </div>
 
           <div class="d-grid gap-2 m-2 col-12 mx-auto">
             <label for="password2">비밀번호 재확인</label>
-            <input class="form-control" type="password" id="password2" v-model.trim="password2" />
+            <input class="form-control" type="password" id="password2" v-model.trim="password2" 
+            placeholder="비밀번호를 재입력해주세요"/>
           </div>
- 
+
 
 
       <div class="d-grid gap-2 m-3 col-12 mx-auto">
@@ -47,7 +56,8 @@ const store = useCounterStore();
 const username = ref(null);
 const password1 = ref(null);
 const password2 = ref(null);
-const email = ref(null);
+const email = ref('');
+const nickname = ref('');
 
 const signUp = function () {
   const payload = {
@@ -55,7 +65,9 @@ const signUp = function () {
     password1: password1.value,
     password2: password2.value,
     email: email.value,
+    nickname: nickname.value,
   };
+  console.log(payload)
   store.signUp(payload);
 };
 </script>
