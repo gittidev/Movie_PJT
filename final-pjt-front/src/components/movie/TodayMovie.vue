@@ -8,18 +8,18 @@
             <div class="carousel-container">
                 <Carousel id="gallery" :items-to-show="1" :wrap-around="true" v-model="currentSlide" :transition="0">
                     <Slide v-for="todayMovie in store.todayMovies" :key="todayMovie.id">
-                        <div class="carousel__item" style="color :white;">
-                            <img :src="getMoviePoster(todayMovie)" alt="#" style="width: 25rem;">
+                        <div class="carousel__item" style="color :white;" @click="goDetail(todayMovie.id)">
+                            <img :src="getMoviePoster(todayMovie)" alt="#" style="width: 25rem;" >
                         </div>
                     </Slide>
                 </Carousel>
             </div>
             <div>
-                <Carousel id="thumbnails" :items-to-show="7" :wrap-around="true" v-model="currentSlide" ref="carousel"
-                    :autoplay="2500" :transition="600">
+                <Carousel id="thumbnails" :items-to-show="10" :wrap-around="true" v-model="currentSlide" ref="carousel"
+                    :autoplay="2500" :transition="4500">
                     <Slide v-for="todayMovie in store.todayMovies" :key="todayMovie.id">
                         <div class="carousel__item" style="color :white;">
-                            <img :src="getMoviePoster(todayMovie)" alt="#" style="width: 10rem; height: 15rem;">
+                            <img :src="getMoviePoster(todayMovie)" alt="#" style="width: 12rem; height: 18rem;">
                         </div>
                     </Slide>
                 </Carousel>
@@ -32,6 +32,10 @@
 <script setup>
 import { useMovieStore } from '@/stores/movies';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+
+const router=useRouter()
 const store = useMovieStore()
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
@@ -43,12 +47,17 @@ const getMoviePoster = movie => {
     }
 };
 
+const goDetail = function (movieId) {
+    console.log('클릭')
+    router.push({ name: 'moviedetail', params: { movieId: movieId } });
+    // router.push({ name: 'login' });
+}
+
 </script>
 
 <script>
 import { defineComponent, defineProps } from 'vue'
 import { Carousel, Slide } from 'vue3-carousel'
-
 import 'vue3-carousel/dist/carousel.css'
 
 export default defineComponent({

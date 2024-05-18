@@ -13,15 +13,16 @@
   
 <script setup>
 import { useMovieStore } from "@/stores/movies";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, onUpdated } from "vue";
 import { useRoute } from "vue-router";
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
 const store = useMovieStore();
 const route = useRoute();
 
-const genreId = ref('18');
+const genreId = ref('12');
 const genreMovies = ref([]);
+const currentSlide = ref(0);
 
 const fetchMovies = async (id) => {
   await store.getDatabaseMovie(); // 데이터를 가져올 때까지 대기
@@ -50,7 +51,8 @@ const getMoviePoster = movie => {
 }
 
 onMounted(() => {
-    genreId.value = route.params.genreId || "18";
+  currentSlide.value = 0;
+  genreId.value = route.params.genreId || "12";
   fetchMovies(genreId.value);
 });
 
@@ -58,6 +60,8 @@ watch(() => route.params.genreId, (newGenreId) => {
   genreId.value = newGenreId;
   fetchMovies(newGenreId);
 });
+
+
 </script>
 
 <script> 

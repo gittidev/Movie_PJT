@@ -5,7 +5,7 @@
                 :autoplay="0.1" :transition="10000">
                 <Slide v-for="weeklyMovie in store.weeklyMovies" :key="weeklyMovie.id">
                     <div class="carousel__item img-handler" style="color :white;">
-                        <img :src="getMoviePoster(weeklyMovie)" alt="#">
+                        <img :src="getMoviePoster(weeklyMovie)" alt="#" @click="goDetail(weeklyMovie.id)">
                     </div>
                 </Slide>
         </Carousel>
@@ -17,7 +17,9 @@
 <script setup >
 import { useMovieStore } from '@/stores/movies';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 const store = useMovieStore()
+const router = useRouter()
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
 
@@ -28,6 +30,12 @@ const getMoviePoster = movie => {
     return ""; // 포스터 경로가 없는 경우 빈 문자열 반환 나중에 빈 이미지 asset 찾아서 반영하기
   }
 }; 
+
+const goDetail = function (movieId) {
+    console.log('클릭')
+    router.push({ name: 'moviedetail', params: { movieId: movieId } });
+    // router.push({ name: 'login' });
+}
 
 </script>
 

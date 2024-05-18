@@ -77,6 +77,28 @@ export const useMovieStore = defineStore("movie", () => {
       .catch((err) => console.log(err));
   };
 
+  //TMDB 사용해서 상세정보 가져오기
+  const movieDetail = ref([])
+  const getMovieDetail = function (movieId) {
+    return axios({
+      method: "get",
+      url: TMDB_URL + `/${movieId}`,
+      params: {
+        language: "ko-KR",
+      },
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${TMDB_TOKEN}`,
+      },
+    })
+      .then((res) => {
+        // console.log(res.data)
+        movieDetail.value = res.data;
+        // console.log(moviedetail.value)
+      })
+      .catch((err) => console.log(err));
+  };
+
   //  장르별 영화는 DB를 기준으로 가져옴
   const getDatabaseMovie = function () {
     axios({
@@ -94,6 +116,7 @@ export const useMovieStore = defineStore("movie", () => {
       .catch((err) => console.log(err));
   };
 
+  
   return {
     TMDB_TOKEN,
     API_URL,
@@ -104,6 +127,8 @@ export const useMovieStore = defineStore("movie", () => {
     getWeeklyMovies,
     weeklyMovies,
     getDatabaseMovie,
-    Movies
+    Movies,
+    getMovieDetail,
+    movieDetail
   };
 });

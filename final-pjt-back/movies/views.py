@@ -21,7 +21,6 @@ def movies_list(request):
 
 # 커뮤니티 목록 가져오기
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
 def community_list(request):
     if request.method == 'GET':
         communities = Community.objects.all()
@@ -29,10 +28,12 @@ def community_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
+        if not request.user.is_authenticated:
+            return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
         serializer = CommunitySerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
-            # serializer.save(user=request.user)
+            serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 

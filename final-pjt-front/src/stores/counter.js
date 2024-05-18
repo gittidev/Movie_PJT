@@ -7,8 +7,7 @@ export const useCounterStore = defineStore('counter', () => {
   const communities = ref([])
   const API_URL = 'http://127.0.0.1:8000'
   const router = useRouter() 
-
-
+  
   const getCommunities = function () {
     axios({
       method: 'get',
@@ -20,13 +19,10 @@ export const useCounterStore = defineStore('counter', () => {
       .then(res => {
         communities.value = res.data
       })
-      .catch(err => console.log(err))
+      .catch(err => console.err)
   }
 
   const signUp = function (payload) {
-    // const username = payload.username
-    // const password1 = payload.password1
-    // const password2 = payload.password2
     const { username, password1, password2, email, nickname } = payload
 
     axios({
@@ -63,5 +59,5 @@ export const useCounterStore = defineStore('counter', () => {
       .catch(err => console.log(err))
   }
 
-  return { communities, API_URL, getCommunities, signUp, logIn, token }
+  return { communities, API_URL, getCommunities, signUp, logIn, token}
 })
