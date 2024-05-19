@@ -1,0 +1,1602 @@
+[
+{
+    "model": "movies.movie",
+    "pk": 1,
+    "fields": {
+        "adult": false,
+        "movie_id": 823464,
+        "backdrop_path": "/qrGtVFxaD8c7et0jUtaYhyTzzPg.jpg",
+        "genre_ids": "[878, 28, 12]",
+        "overview": "고질라 X 콩, 이번에는 한 팀이다! ‘고질라’ VS ‘콩’, 두 타이탄의 전설적인 대결 이후 할로우 어스에 남은 ‘콩’은 드디어 애타게 찾던 동족을 발견하지만 그 뒤에 도사리고 있는 예상치 못한 위협에 맞닥뜨린다. 한편, 깊은 동면에 빠진 ‘고질라’는 알 수 없는 신호로 인해 깨어나고 푸른 눈의 폭군 ‘스카 킹’의 지배 아래 위기에 처한 할로우 어스를 마주하게 된다. 할로우 어스는 물론, 지구상에도 출몰해 전세계를 초토화시키는 타이탄들의 도발 속에서 ‘고질라’와 ‘콩’은 사상 처음으로 한 팀을 이뤄 반격에 나서기로 하는데…",
+        "poster_path": "/4z1VMmlxHrziG45901esjB4dpIa.jpg",
+        "release_date": "2024-03-27",
+        "original_title": "Godzilla x Kong: The New Empire",
+        "title": "고질라 X 콩: 뉴 엠파이어",
+        "vote_average": 7.079
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 2,
+    "fields": {
+        "adult": false,
+        "movie_id": 653346,
+        "backdrop_path": "/fypydCipcWDKDTTCoPucBsdGYXW.jpg",
+        "genre_ids": "[878, 12, 28]",
+        "overview": "진화한 유인원과 퇴화된 인간들이 살아가는 땅. 유인원 리더 프록시무스는 완전한 군림을 위해 인간들을 사냥하며 자신의 제국을 건설한다. 한편, 또 다른 유인원 노아는 우연히 숨겨진 과거의 이야기와 시저의 가르침을 듣게 되고 인간과 유인원이 함께 할 새로운 세상을 꿈꾼다. 어느 날 그의 앞에 나타난 의문의 한 인간 소녀. 노아는 그녀와 함께 자유를 향한 여정을 시작하게 되는데…",
+        "poster_path": "/plNOSbqkSuGEK2i15A5btAXtB7t.jpg",
+        "release_date": "2024-05-08",
+        "original_title": "Kingdom of the Planet of the Apes",
+        "title": "혹성탈출: 새로운 시대",
+        "vote_average": 7.183
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 3,
+    "fields": {
+        "adult": false,
+        "movie_id": 940721,
+        "backdrop_path": "/fY3lD0jM5AoHJMunjGWqJ0hRteI.jpg",
+        "genre_ids": "[878, 27, 28]",
+        "overview": "고질라 탄생 70주년 기념 작품. 시리즈 사상 최악의 절망이 일본을 습격한다!  전후, 제로가 된 일본을 뒤쫓듯 나타난 고질라가 이 나라를 마이너스로 떨어뜨린다.  사상 최고로 절망적인 상황 속에서의 습격에 누가? 그리고 어떻게?  일본은 맞서게 되는 것인가...",
+        "poster_path": "/buvBq2zLP7CcJth8tjrI4znvfEO.jpg",
+        "release_date": "2023-11-03",
+        "original_title": "ゴジラ-1.0",
+        "title": "고질라: 마이너스 원",
+        "vote_average": 7.66
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 4,
+    "fields": {
+        "adult": false,
+        "movie_id": 1219685,
+        "backdrop_path": "/piLUbWQ3pgkma1nCyjHLEoMCSsN.jpg",
+        "genre_ids": "[18, 10770]",
+        "overview": "",
+        "poster_path": "/4xJd3uwtL1vCuZgEfEc8JXI9Uyx.jpg",
+        "release_date": "2024-04-21",
+        "original_title": "Un père idéal",
+        "title": "Un père idéal",
+        "vote_average": 6.318
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 5,
+    "fields": {
+        "adult": false,
+        "movie_id": 693134,
+        "backdrop_path": "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+        "genre_ids": "[878, 12]",
+        "overview": "황제의 모략으로 멸문한 가문의 유일한 후계자 폴. 어머니 레이디 제시카와 간신히 목숨만 부지한 채 사막으로 도망친다. 그곳에서 만난 반란군들과 숨어 지내다 그들과 함께 황제의 모든 것을 파괴할 전투를 준비한다. 한편 반란군들의 기세가 높아질수록 불안해진 황제와 귀족 가문은 잔혹한 암살자 페이드 로타를 보내 반란군을 몰살하려 하는데…",
+        "poster_path": "/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg",
+        "release_date": "2024-02-27",
+        "original_title": "Dune: Part Two",
+        "title": "듄: 파트 2",
+        "vote_average": 8.2
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 6,
+    "fields": {
+        "adult": false,
+        "movie_id": 967847,
+        "backdrop_path": "/5cCfqeUH2f5Gnu7Lh9xepY9TB6x.jpg",
+        "genre_ids": "[14, 12, 35]",
+        "overview": "무더운 여름의 뉴욕의 어느 날, 고대 유물 속 깨어난 데스칠로 인해 정체불명의 냉기가 몰려오고 마침내 도시는 얼어붙고 만다. 유령을 퇴치하는 그루버슨과 라이즈 버스터즈 멤버들은 얼어붙은 세상을 깨부수기 위해 유령 군단을 쫓기 시작하는데…",
+        "poster_path": "/mGzSIfzmcf9H91DS06cnka1SYrP.jpg",
+        "release_date": "2024-03-20",
+        "original_title": "Ghostbusters: Frozen Empire",
+        "title": "고스트버스터즈: 오싹한 뉴욕",
+        "vote_average": 6.742
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 7,
+    "fields": {
+        "adult": false,
+        "movie_id": 1011985,
+        "backdrop_path": "/kYgQzzjNis5jJalYtIHgrom0gOx.jpg",
+        "genre_ids": "[16, 28, 10751, 35, 14]",
+        "overview": "마침내 내면의 평화… 냉면의 평화…가 찾아왔다고 믿는 용의 전사 ‘포’ 이젠 평화의 계곡의 영적 지도자가 되고, 자신을 대신할 후계자를 찾아야만 한다. “이제 용의 전사는 그만둬야 해요?” 용의 전사로의 모습이 익숙해지고 새로운 성장을 하기보다 지금 이대로가 좋은 ‘포’ 하지만 모든 쿵푸 마스터들의 능력을 그대로 복제하는 강력한 빌런 ‘카멜레온’이 나타나고 그녀를 막기 위해 정체를 알 수 없는 쿵푸 고수 ‘젠’과 함께 모험을 떠나게 되는데… 포는 가장 강력한 빌런과 자기 자신마저 뛰어넘고 진정한 변화를 할 수 있을까?",
+        "poster_path": "/1ZNOOMmILNUzVYbzG1j7GYb5bEV.jpg",
+        "release_date": "2024-03-02",
+        "original_title": "Kung Fu Panda 4",
+        "title": "쿵푸팬더 4",
+        "vote_average": 7.129
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 8,
+    "fields": {
+        "adult": false,
+        "movie_id": 1111873,
+        "backdrop_path": "/ySgY4jBvZ6qchrxKnBg4M8tZp8V.jpg",
+        "genre_ids": "[27, 53]",
+        "overview": "오직 돈을 위해서 업계 최고들로만 모인 납치범들. 정체를 알 수 없는 거부의 딸이자 평범한 소녀 ‘애비게일’을 납치하고, 24시간 동안 저택에서 그녀를 감시하고 거액의 돈을 받기로 한다. 하지만 평범한 소녀 ‘애비게일’은 발레리나 뱀파이어였고 오히려 납치범들은 역으로 저택에 갇혀 그녀의 장난감과 먹이가 되었다. 납치범들은 이제 24시간 안에 살기 위해 저택을 탈출해야 한다.",
+        "poster_path": "/dRCVYbOjhMNghBQgHuqthG5iLH.jpg",
+        "release_date": "2024-04-18",
+        "original_title": "Abigail",
+        "title": "애비게일",
+        "vote_average": 6.942
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 9,
+    "fields": {
+        "adult": false,
+        "movie_id": 1093995,
+        "backdrop_path": "/rmNlWyez5cniGtXkgixG1ezdqVk.jpg",
+        "genre_ids": "[28, 53]",
+        "overview": "",
+        "poster_path": "/uuA01PTtPombRPvL9dvsBqOBJWm.jpg",
+        "release_date": "2024-05-02",
+        "original_title": "Chief of Station",
+        "title": "Chief of Station",
+        "vote_average": 5.154
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 10,
+    "fields": {
+        "adult": false,
+        "movie_id": 1094844,
+        "backdrop_path": "/jnE1GA7cGEfv5DJBoU2t4bZHaP4.jpg",
+        "genre_ids": "[28, 878]",
+        "overview": "NASA는 거대 유인원 아브라함을 모델로 힘과 규모에서 아브라함에 버금가는 기계 유인원을 설계한다. 하지만 첫 번째 실험 결과가 좋지 않게 나오자 미 국방성에서는 난폭한 기계 유인원을 막기 위해 감옥에 갇힌 아브라함을 석방하도록 지시한다. 한편 볼로드레츠카 외국 정보부는 기계 유인원에 핵탄두를 부착해 기계 유인원의 시스템을 교란시켜 미국 시카고를 날려버릴 계략을 꾸민다. 이를 막기 위해 NASA의 관계자들은 아브라함과 소통하는 방법을 통해 기계 유인원을 막으려 하는데....",
+        "poster_path": "/dJaIw8OgACelojyV6YuVsOhtTLO.jpg",
+        "release_date": "2023-03-24",
+        "original_title": "Ape vs. Mecha Ape",
+        "title": "킹 VS. 머신킹",
+        "vote_average": 5.59
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 11,
+    "fields": {
+        "adult": false,
+        "movie_id": 920342,
+        "backdrop_path": "/7kQvHmGyKJv2wSKVfCUux50rd7A.jpg",
+        "genre_ids": "[878]",
+        "overview": "",
+        "poster_path": "/nBVYp2xxx2R02n21EGlDky8CgWR.jpg",
+        "release_date": "2021-12-27",
+        "original_title": "异兽战场",
+        "title": "异兽战场",
+        "vote_average": 7.364
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 12,
+    "fields": {
+        "adult": false,
+        "movie_id": 843527,
+        "backdrop_path": "/6Xfj8wD7GoEysgcFayRKd6QLqai.jpg",
+        "genre_ids": "[10749, 35, 18]",
+        "overview": "세상에서 가장 섹시한 보이밴드 어거스트 문의 리드 싱어인 24세 헤이스 캠벨(니컬러스 갈리친)과 40세 싱글 맘 솔렌(앤 해서웨이)이 펼치는 뜻밖의 로맨스에 관한 이야기",
+        "poster_path": "/6x9gZWCqEGYObUCJPjTKFT2LNqA.jpg",
+        "release_date": "2024-05-02",
+        "original_title": "The Idea of You",
+        "title": "너란 개념",
+        "vote_average": 7.503
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 13,
+    "fields": {
+        "adult": false,
+        "movie_id": 119450,
+        "backdrop_path": "/4TFCA5Lm5miseV3Wy02yxurEQL9.jpg",
+        "genre_ids": "[878, 28, 18, 53]",
+        "overview": "치명적인 바이러스 시미안 플루로 인류가 거의 멸망하고 소수만이 살아남은 시대. 유인원들은 도시를 떠나 숲에서 그들의 세상을 만들었다. 도시는 폐허가 되었고, 10년간 인간과 유인원은 서로 다른 공간에 머물며 마주치지 않고 살아왔기 때문에 유인원들은 인간이 멸종한 것이 아닐까 추정하고 있다. 그 평화가 깨진 것은 도시의 비상전력이 다 소진되면서부터. 전력 공급을 위해서는 유인원이 거주하는 숲에 있는 댐을 재가동해야 한다. 우연히 두 존재가 마주치게 되자, 유인원과 인간은 평화를 지킬 것인가 무력을 써서 주도권을 가져야 하나를 두고 내부 마찰을 겪는데...",
+        "poster_path": "/39kIGCP0mvRc9IZC1oJuIaJOaAb.jpg",
+        "release_date": "2014-07-08",
+        "original_title": "Dawn of the Planet of the Apes",
+        "title": "혹성탈출: 반격의 서막",
+        "vote_average": 7.317
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 14,
+    "fields": {
+        "adult": false,
+        "movie_id": 996154,
+        "backdrop_path": "/tdkCqOQ87ns39bWtzjJYsGTloH9.jpg",
+        "genre_ids": "[28, 80, 9648, 53]",
+        "overview": "마테오는 인질 구출 작전 중, 상사 존의 명령을 무시하고 팀원들을 위기에 몰아넣는다. 그들은 가까스로 인질범들을 소탕하지만, 인질로 위장하고 있던 범인 중 한 명이 존을 사살한다. 그 후 마테오는 전역하고 전 세계를 떠돌며 일용직으로 근근히 살아간다. 존이 세상을 떠난 지 5년이 되던 날, 마테오는 존의 아내 헬렌을 찾아가 사과한다. 헬렌은 홀로 딸 앤지를 키우다가 투자 회사 사장 폴과 작년에 재혼을 했다. 딱히 묵을 곳이 없던 마테오는 헬렌의 집에서 며칠 묵기로 하고, 그의 딸 앤지와 친해진다. 한편, 폴은 폭력조직의 두목 개브리얼 사반의 돈을 관리하다가 투자를 잘못해 1,500만 유로를 날려 버린다. 사반은 돈을 찾아내라며 폴을 압박하고, 폴이 변명만 늘어놓자, 그의 딸 앤지를 납치한다. 이에 마테오는 앤지를 찾아 나서는데…",
+        "poster_path": "/jqHaAESQIA6bpEwPnE2Wulba40D.jpg",
+        "release_date": "2023-04-12",
+        "original_title": "Black Lotus",
+        "title": "블랙 로터스",
+        "vote_average": 6.07
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 15,
+    "fields": {
+        "adult": false,
+        "movie_id": 1147400,
+        "backdrop_path": "/hU1Q9YVzdYhokr8a9gLywnSUMlN.jpg",
+        "genre_ids": "[16, 12, 28, 14, 10751]",
+        "overview": "",
+        "poster_path": "/4wHrXw9zB4wsibWaAPDkvjNGPnQ.jpg",
+        "release_date": "2023-10-21",
+        "original_title": "Miraculous World : Paris, Les Aventures de Toxinelle et Griffe Noire",
+        "title": "Miraculous World : Paris, Les Aventures de Toxinelle et Griffe Noire",
+        "vote_average": 7.713
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 16,
+    "fields": {
+        "adult": false,
+        "movie_id": 1096197,
+        "backdrop_path": "/4woSOUD0equAYzvwhWBHIJDCM88.jpg",
+        "genre_ids": "[28, 27, 53]",
+        "overview": "멕시코 휴양지로 가는 비행기  하지만 비행기의 엔진 문제로 사고가 발생하고 깊은 바닷속으로 추락한다.  주지사의 딸 ‘에이바’와 경호원 ‘브랜드’, 남자친구 ‘제드’, ‘카일’ 그리고 어린 소녀 ‘로자’와 할머니, 승무원 ‘다닐로’까지 단 7명만이 살아남지만 비행기 에어포켓 안 공기가 떨어지면서 점점 깊이 가라앉는다  생존 시간은 턱 끝까지 차오르고 상어 떼마저 이들을 위협하는데…",
+        "poster_path": "/23k6PscthK6bRNOYU3QW4SAED9p.jpg",
+        "release_date": "2024-01-18",
+        "original_title": "No Way Up",
+        "title": "노 웨이 업",
+        "vote_average": 6.4
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 17,
+    "fields": {
+        "adult": false,
+        "movie_id": 934632,
+        "backdrop_path": "/tpiqEVTLRz2Mq7eLq5DT8jSrp71.jpg",
+        "genre_ids": "[878, 28, 18]",
+        "overview": "마더월드의 무자비한 세력에 대항해 전투를 준비하는 반란군들. 서로를 단단히 이어주는 유대가 형성되면서 영웅이 등장하고 전설이 탄생한다.",
+        "poster_path": "/xqHdyufmN0xzGM116dZReFWVwfy.jpg",
+        "release_date": "2024-04-19",
+        "original_title": "Rebel Moon - Part Two: The Scargiver",
+        "title": "Rebel Moon — 파트 2: 스카기버",
+        "vote_average": 6.09
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 18,
+    "fields": {
+        "adult": false,
+        "movie_id": 1057001,
+        "backdrop_path": "/x1Ex090BNIXcmaBYB2US0j3hBUF.jpg",
+        "genre_ids": "[28, 53, 18]",
+        "overview": "필리핀에서 불법 경기장을 전전하며 병든 어머니와 살아가는 복싱 선수 마르코. 어머니의 수술비 마련을 위해 평생 본 적 없는 아버지를 만나러 한국으로 향하던 그의 앞에 정체불명의 남자 귀공자가 나타나 그를 추격하기 시작한다. 마르코 주위를 쑥대밭으로 만들며 숨통을 조여오는 귀공자를 필두로, 아버지의 막대한 유산을 차지하기 위해 마르코를 추격하는 재벌 2세 한이사, 필리핀에 이어 한국에서 우연히 마르코와 재회한 미스터리한 여자 윤주까지. 각기 다른 목적을 가진 이들은 단 하나의 타겟을 쫓아 모여들고, 그 무엇도 예측할 수 없는 혼란과 광기 속 마르코는 충격적인 진실을 마주하게 되는데…  단 하나의 타겟, 광기의 추격이 시작된다!",
+        "poster_path": "/x0PHh4LH5pvp2PeG3qInrfWlG9q.jpg",
+        "release_date": "2023-06-21",
+        "original_title": "The Childe",
+        "title": "귀공자",
+        "vote_average": 7.063
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 19,
+    "fields": {
+        "adult": false,
+        "movie_id": 748783,
+        "backdrop_path": "/vWzJDjLPmycnQ42IppEjMpIhrhc.jpg",
+        "genre_ids": "[16, 35, 10751]",
+        "overview": "세상귀찮 집냥이, 바쁘고 험난한 세상에 던져졌다! 집사 ‘존’과 반려견 ‘오디’를 기르며 평화로운 나날을 보내던 집냥이 ‘가필드’. 어느 날, 험악한 길냥이 무리에게 납치당해 냉혹한 거리로 던져진다. 돌봐주는 집사가 없는 집 밖 세상은 너무나도 정신없게 돌아가고 길에서 우연히 다시 만난 아빠 길냥이 ‘빅’은 오히려 ‘가필드’를 위기에 빠지게 하는데… 험난한 세상, 살아남아야 한다!",
+        "poster_path": "/57g3pHYi3p0JNVO1LkcyYbeMDBf.jpg",
+        "release_date": "2024-04-30",
+        "original_title": "The Garfield Movie",
+        "title": "가필드 더 무비",
+        "vote_average": 6.676
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 20,
+    "fields": {
+        "adult": false,
+        "movie_id": 929590,
+        "backdrop_path": "/uv2twFGMk2qBdyJBJAVcrpRtSa9.jpg",
+        "genre_ids": "[10752, 28, 18]",
+        "overview": "",
+        "poster_path": "/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+        "release_date": "2024-04-10",
+        "original_title": "Civil War",
+        "title": "시빌 워",
+        "vote_average": 7.4
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 21,
+    "fields": {
+        "adult": false,
+        "movie_id": 7451,
+        "backdrop_path": "/qwK9soQmmJ7kRdjLZVXblw3g7AQ.jpg",
+        "genre_ids": "[28, 12, 53, 80]",
+        "overview": "싸이렌이 온 거리를 울려 퍼지며 요란한 추격씬이 벌어지는 도중 한 녀석이 콜벳를 몰고 다리를 돌진, 200미터 높이에서 자동차 번지를 시도한다. 짜릿한 곡예를 선보인 후 낙하산을 펴고 유유히 사라지는 녀석의 이름은 '젠더 케이지'. 인터넷에 생방송된 이 장면은 전세계 네티즌들에게 열렬한 환호를 받는다. 또 한 번의 멋진 프로젝트로 영웅 대접을 받는 젠더 케이지. 그러나 파티가 무르익을 무렵, 갑자기 들이닥친 특수부대는 그에게 신경 안정제를 쏜 후 잠들게 한다. 깨어난 곳은 알 수 없는 레스토랑. 어리둥절한 그 곳은 갑자기 강도들의 침입장으로 돌변하고, 단숨에 상황을 정리해버린 그에게 기븐스가 축하 인사를 전한다. 미국 비밀첩보국 NSA의 1차 테스트를 통과한 것. 이후 또 다시 잠에서 깨어난 곳은 비행기 안. 2번째 테스트로 콜럼비아 마약 밀매상의 아지트에 던져진 젠더 케이지. 때마침 콜럼비아 정부와 마약상들의 충돌로 아수라장이 된 그곳에서 살아남기 위한 치열한 전쟁이 펼쳐지는데...  상황종료 후 유유히 나타난 기븐스는 NSA의 테스트를 유일하게 통과한 그에게 비밀요원이 되어줄 것을 부탁한다. 단 그렇지 않을 경우는 감옥행뿐이라는 단서를 둔다. 젠더 케이지의 코드명은 트리플 X. 첫번째 임무지는 비밀요원의 무덤이라는 별칭을 가지고 있는 도시 프라하. 이제 얼떨결에 비밀요원이 되어버린 트리플 X의 위험한 여정이 시작되는데.",
+        "poster_path": "/xeEw3eLeSFmJgXZzmF2Efww0q3s.jpg",
+        "release_date": "2002-08-09",
+        "original_title": "xXx",
+        "title": "트리플 엑스",
+        "vote_average": 5.932
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 22,
+    "fields": {
+        "adult": false,
+        "movie_id": 872585,
+        "backdrop_path": "/nb3xI8XI3w4pMVZ38VijbsyBqP4.jpg",
+        "genre_ids": "[18, 36]",
+        "overview": "제2차 세계대전 당시 핵무기 개발을 위해 진행되었던 비밀 프로젝트 ‘맨해튼 프로젝트’를 주도한 미국의 물리학자 ‘로버트 오펜하이머’의 이야기",
+        "poster_path": "/jpD6z9fgNe7OqsHoDeAWQWoULde.jpg",
+        "release_date": "2023-07-19",
+        "original_title": "Oppenheimer",
+        "title": "오펜하이머",
+        "vote_average": 8.103
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 23,
+    "fields": {
+        "adult": false,
+        "movie_id": 940551,
+        "backdrop_path": "/2KGxQFV9Wp1MshPBf8BuqWUgVAz.jpg",
+        "genre_ids": "[16, 28, 12, 35, 10751]",
+        "overview": "가족을 과잉보호하는 아빠 ‘맥’ 때문에 평생을 작은 연못에서 안전하게 살아온 말러드 가족. 하지만 호기심 가득한 남매 ‘댁스’와 ‘그웬’을 위해 새로운 세상을 모험하고 싶은 엄마 ‘팸’의 설득으로 가족들은 항상 꿈꿔온 자메이카로 생애 첫 가족 모험을 떠나기로 한다! 설렘 넘치는 시작과 달리 태풍을 만나 길을 잃고, 낯선 친구들을 만나고, 위험 가득한 뉴욕에 불시착하게 된다. 인생 처음으로 모든 계획이 틀어지고 위기에 빠진 말러드 가족은 서툴지만 서로를 의지하며 모험을 계속한다. 새로운 세상, 함께라면 두려울 것 없어!",
+        "poster_path": "/2xE3NI6zElWhwN9WJ92fqbZKmzZ.jpg",
+        "release_date": "2023-12-06",
+        "original_title": "Migration",
+        "title": "인투 더 월드",
+        "vote_average": 7.474
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 24,
+    "fields": {
+        "adult": false,
+        "movie_id": 385687,
+        "backdrop_path": "/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg",
+        "genre_ids": "[28, 80, 53]",
+        "overview": "돔과 그의 패밀리 앞에 나타난 운명의 적 단테. 과거의 그림자는 돔의 모든 것을 파괴하기 위해 달려온다. 단테에 의해 산산히 흩어진 패밀리들은 모두 목숨을 걸고 맞서야 하는 함정에 빠지고 마는데...",
+        "poster_path": "/wXNihLltMCGR7XepN39syIlCt5X.jpg",
+        "release_date": "2023-05-17",
+        "original_title": "Fast X",
+        "title": "분노의 질주: 라이드 오어 다이",
+        "vote_average": 7.124
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 25,
+    "fields": {
+        "adult": false,
+        "movie_id": 438631,
+        "backdrop_path": "/lzWHmYdfeFiMIY4JaMmtR7GEli3.jpg",
+        "genre_ids": "[878, 12]",
+        "overview": "10191년, 아트레이데스 가문의 후계자인 폴은 시간과 공간을 초월해 과거와 미래를 모두 볼 수 있고, 더 나은 미래를 만들 유일한 구원자인 예지된 자의 운명을 타고났다. 그리고 어떤 계시처럼 매일 꿈에서 아라키스의 행성에 있는 한 여인을 만난다. 귀족들이 지지하는 아트레이데스 가문에 대한 황제의 질투는 폴과 그 일족들을 죽음이 기다리는 아라키스로 이끄는데...",
+        "poster_path": "/7zV8FTYofAORGm0Umgh1mNNCym8.jpg",
+        "release_date": "2021-09-15",
+        "original_title": "Dune",
+        "title": "듄",
+        "vote_average": 7.779
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 26,
+    "fields": {
+        "adult": false,
+        "movie_id": 79474,
+        "backdrop_path": "/cEcG1Z32NWJrRKmhmEh13VyPRfk.jpg",
+        "genre_ids": "[35, 18, 10749, 53]",
+        "overview": "",
+        "poster_path": "/e843ZAdn3f5R7SFTRIqoV7Ttk91.jpg",
+        "release_date": "1996-11-15",
+        "original_title": "Más que amor, frenesí",
+        "title": "Más que amor, frenesí",
+        "vote_average": 5.583
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 27,
+    "fields": {
+        "adult": false,
+        "movie_id": 634492,
+        "backdrop_path": "/pwGmXVKUgKN13psUjlhC9zBcq1o.jpg",
+        "genre_ids": "[28, 14]",
+        "overview": "우연한 사고로 미래를 볼 수 있게 된 구급대원 '캐시 웹'이 거미줄처럼 엮인 운명을 마주하며, 같은 예지 능력을 가진 적 '심스'에 맞서 세상을 구할 히어로 '마담 웹'으로 거듭나게 되는 과정을 그린 마블의 NEW 히어로 드라마",
+        "poster_path": "/eqEzpQNusV9XSdnA9HAvlLMeuPs.jpg",
+        "release_date": "2024-02-14",
+        "original_title": "Madame Web",
+        "title": "마담 웹",
+        "vote_average": 5.628
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 28,
+    "fields": {
+        "adult": false,
+        "movie_id": 281338,
+        "backdrop_path": "/qdd5lrgBYL4fMSwYAhfLUwdJRu1.jpg",
+        "genre_ids": "[18, 878, 10752]",
+        "overview": "전 세계에 퍼진 치명적인 바이러스인 시미안 플루로 인해 유인원들은 나날이 진화하는 반면, 살아남은 인간들은 점차 지능을 잃고 퇴화해 간다. 멸종 위기에 처한 인간들은 유인원의 리더 시저를 찾아 없애려 하지만, 숲에 머물고 있다는 시저는 몇 년째 은신한 채 모습을 드러내지 않는다. 어느 날 인간 군대의 리더 대령(우디 해럴슨)이 시저의 거처를 급습해 그의 가족을 죽이는 사건이 일어난다. 분노한 시저는 오랫동안 함께해 온 동료 모리스(카린 코노발), 로켓(테리 노터리) 등과 함께 복수의 여정을 떠난다.",
+        "poster_path": "/c07zzytpPKVjXlEbSiMZFAfxQAa.jpg",
+        "release_date": "2017-07-11",
+        "original_title": "War for the Planet of the Apes",
+        "title": "혹성탈출: 종의 전쟁",
+        "vote_average": 7.184
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 29,
+    "fields": {
+        "adult": false,
+        "movie_id": 346698,
+        "backdrop_path": "/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
+        "genre_ids": "[35, 12]",
+        "overview": "원하는 무엇이든 될 수 있는 바비랜드에서 살아가던 바비가 현실 세계와 이어진 포털의 균열을 발견하게 되고, 이를 해결하기 위해 켄과 예기치 못한 여정을 떠나면서 펼쳐지는 이야기",
+        "poster_path": "/h3mUJ9WEJ8PzA450ad4hrjsaiqG.jpg",
+        "release_date": "2023-07-19",
+        "original_title": "Barbie",
+        "title": "바비",
+        "vote_average": 7.1
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 30,
+    "fields": {
+        "adult": false,
+        "movie_id": 61791,
+        "backdrop_path": "/662Qzyr5puD3MydSOFTCNVMBCnr.jpg",
+        "genre_ids": "[53, 28, 18, 878]",
+        "overview": "아버지의 알츠하이머 치료약 개발을 위해 유인원을 이용, 임상시험에 몰두하는 과학자 윌(제임스 프랭코). 실험에 참가한 한 유인원에게서 어린 시저(앤디 서키스)가 태어나자 연구를 위해 그를 집으로 데려와 가족처럼 함께 지내게 된다. 하지만 시간이 지날수록 시저의 지능은 인간을 능가하게 되고, 어느 날 이웃집 남자와 시비가 붙은 윌의 아버지를 본능적으로 보호하려는 과정에서 인간을 공격한 시저는 결국 유인원 보호시설로 보내진다. 시저는 자신이 인간과 다른 존재라는 것을 서서히 자각하게 되고, 유인원 집단과 그들을 적대시하는 인간과의 전쟁은 피할 수 없게 되는데...",
+        "poster_path": "/ik3cempRee837ETSXUYCGpDyzN7.jpg",
+        "release_date": "2011-08-03",
+        "original_title": "Rise of the Planet of the Apes",
+        "title": "혹성탈출: 진화의 시작",
+        "vote_average": 7.311
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 31,
+    "fields": {
+        "adult": false,
+        "movie_id": 414906,
+        "backdrop_path": "/tRS6jvPM9qPrrnx2KRp3ew96Yot.jpg",
+        "genre_ids": "[80, 9648, 53]",
+        "overview": "지난 2년 간 고담시의 어둠 속에서 범법자들을 응징하며 배트맨으로 살아온 브루스 웨인. 알프레드와 제임스 고든 경위의 도움 아래 그는 도시의 부패한 공직자들과 고위 관료들 사이에서 복수의 화신으로 활약한다. 고담의 시장 선거를 앞두고 고담의 엘리트 집단을 목표로 잔악한 연쇄살인을 저지르는 수수께끼 킬러 리들러가 나타나자, 최고의 탐정 브루스 웨인이 수사에 나서고 남겨진 단서를 풀어가며 캣우먼, 펭귄, 카마인 팔코네, 리들러를 차례대로 만난다. 사이코 범인의 미스터리를 수사하면서 그 모든 증거가 자신을 향한 의도적인 메시지였음을 깨닫고,  리들러에게 농락 당한 배트맨은 광기에 사로잡힌다. 범인의 무자비한 계획을 막고 오랫동안 고담시를 썩게 만든 권력 부패의 고리를 끊어야 하지만, 부모님의 죽음에 얽힌 진실이 밝혀지자 복수와 정의 사이에서 갈등하는데...",
+        "poster_path": "/jicHGaOX5pHs7RKjfexMxvLkwjf.jpg",
+        "release_date": "2022-03-01",
+        "original_title": "The Batman",
+        "title": "더 배트맨",
+        "vote_average": 7.679
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 32,
+    "fields": {
+        "adult": false,
+        "movie_id": 359410,
+        "backdrop_path": "/oe7mWkvYhK4PLRNAVSvonzyUXNy.jpg",
+        "genre_ids": "[28, 53]",
+        "overview": "전직 UFC 파이터 돌턴은 플로리다키스 제도의 로드 하우스에서 경비원으로 일하게 되지만, 이곳이 보이는 것 같은 낙원이 결코 아니라는 걸 알게 된다.",
+        "poster_path": "/bXi6IQiQDHD00JFio5ZSZOeRSBh.jpg",
+        "release_date": "2024-03-08",
+        "original_title": "Road House",
+        "title": "로드 하우스",
+        "vote_average": 7.027
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 33,
+    "fields": {
+        "adult": false,
+        "movie_id": 1041613,
+        "backdrop_path": "/5Eip60UDiPLASyKjmHPMruggTc4.jpg",
+        "genre_ids": "[27, 9648, 53]",
+        "overview": "신앙심이 깊은 미국인 수녀 세실리아는 이탈리아의 한 외딴 수녀원에서 새로운 여정을 시작하게 된다. 처음엔 따뜻한 환영을 받지만 그 곳에 끔찍한 비밀과 말할 수 없는 공포가 도사리고 있음을 깨닫게 되면서 악몽이 시작되는데...",
+        "poster_path": "/fdZpvODTX5wwkD0ikZNaClE4AoW.jpg",
+        "release_date": "2024-03-20",
+        "original_title": "Immaculate",
+        "title": "이매큘레이트",
+        "vote_average": 6.2
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 34,
+    "fields": {
+        "adult": false,
+        "movie_id": 1062807,
+        "backdrop_path": "/zVDJ4cRgSpHlILSm7kGiklHQ6O7.jpg",
+        "genre_ids": "[16, 35, 12, 28]",
+        "overview": "세계 각국이 물밑에서 치열하게 정보전을 펼치고 있는 시대. 서로의 정체를 숨긴 채 결성된 위장 가족의 아버지 '로이드(스파이)'와 어머니 '요르(암살자)’, 딸 '아냐(초능력자)'는 각자의 목표를 위해 비밀스러운 임무를 수행한다. 오퍼레이션 올빼미 작전을 위해 첫 가족 여행을 떠나던 중, ‘아냐’는 열차 안에서 수상한 캐리어를 발견하고 그 안의 초콜릿을 실수로 그만 삼켜버리고 마는데… 엄청난 비밀이 숨겨진 초콜릿과 여행지에서 생기는 해프닝의 연속!! 세계의 명운은, 다시 이 위장 가족에게 맡겨졌다!",
+        "poster_path": "/rlMJfgo8xXHkqgICy9kh4CWyQTu.jpg",
+        "release_date": "2023-12-22",
+        "original_title": "劇場版 SPY×FAMILY CODE: White",
+        "title": "극장판 스파이 패밀리 코드 : 화이트",
+        "vote_average": 7.75
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 35,
+    "fields": {
+        "adult": false,
+        "movie_id": 298618,
+        "backdrop_path": "/yF1eOkaYvwiORauRCPWznV9xVvi.jpg",
+        "genre_ids": "[28, 12, 878]",
+        "overview": "시공간이 붕괴된 세계, 차원이 다른 히어로가 온다! 빛보다 빠른 스피드, 물체 투과, 전기 방출, 자체 회복, 천재적인 두뇌까지 갓벽한 능력을 자랑하지만 존재감은 제로, 저스티스 리그에서 궂은일을 도맡아 하는 히어로 ‘플래시’. 어느 날 자신에게 빛보다 빠른 속도로 달리면 시공간 이동 능력이 있음을 알게 된 그는 ‘브루스 웨인’의 만류를 무시한 채 끔찍한 상처로 얼룩진 과거를 바꾸기 위해 시간을 역행한다. 의도치 않은 장소에 불시착한 ‘플래시’는 멀티버스 세상 속 또 다른 자신과 맞닥뜨리고 메타 휴먼이 흔적도 없이 사라지고 모든 것이 뒤엉킨 세상과 마주하게 된다. ‘플래시’는 자신이 알던 모습과 전혀 달라진 나이 들고 은퇴한 ‘배트맨’과 크립톤 행성에서 온 ‘슈퍼걸’의 도움으로 외계의 침공으로부터 시간과 차원이 붕괴된 지구를 구하려 나서는데…",
+        "poster_path": "/wgjojKrLVoeWhx0C22YjdAkizgH.jpg",
+        "release_date": "2023-06-13",
+        "original_title": "The Flash",
+        "title": "플래시",
+        "vote_average": 6.74
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 36,
+    "fields": {
+        "adult": false,
+        "movie_id": 284053,
+        "backdrop_path": "/kaIfm5ryEOwYg8mLbq8HkPuM1Fo.jpg",
+        "genre_ids": "[28, 12, 878]",
+        "overview": "은하계를 탐험하던 토르는 오딘의 오랜 숙적 수르트와의 대결에서 승리하는데, 수르트는 라그나로크가 이미 시작됐고, 막을 수 없을 것이라는 의미심장한 말을 남긴다. 한편 오딘의 힘이 약해지며 그가 봉인했던 죽음의 여신 헬라가 나타난다. 오딘의 첫째딸인 그녀는 두 동생, 토르와 로키를 가볍게 제압하고 아스가르드를 정복한다. 헬라와의 전쟁에서 묠니르를 잃고 사카아르라는 미지의 행성에 불시착한 토르는 아스가르드 행성으로 돌아가기 위해 고군분투한다. 행성의 통치자 그랜드 마스터는 행성 최고의 투사 챔피언과 싸워 이기면 행성을 떠나게 해주겠다고 토르에게 제안한다.",
+        "poster_path": "/jwswXltzpGaKZCtz1CiDjXHQYAs.jpg",
+        "release_date": "2017-10-02",
+        "original_title": "Thor: Ragnarok",
+        "title": "토르: 라그나로크",
+        "vote_average": 7.593
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 37,
+    "fields": {
+        "adult": false,
+        "movie_id": 601796,
+        "backdrop_path": "/7ZP8HtgOIDaBs12krXgUIygqEsy.jpg",
+        "genre_ids": "[878, 28, 14, 12]",
+        "overview": "2022년 현재, 가드와 썬더는 인간의 몸에 가두어진 외계인 죄수를 관리하며 지구에 살고 있다. 어느 날, 서울 상공에 우주선이 나타나고 형사 문도석은 기이한 광경을 목격하게 되는데.. 한편, 630년 전 고려시대 얼치기 도사 무륵과 천둥 쏘는 처자 이안이 엄청난 현상금이 걸린 신검을 차지하기 위해 서로를 속고 속이는 가운데 신검의 비밀을 찾는 두 신선 흑설과 청운, 가면 속의 자장도 신검 쟁탈전에 나선다. 그리고 우주선이 깊은 계곡에서 빛을 내며 떠오르는데…",
+        "poster_path": "/ynyN9hdxL5vq7GnSX8Fdz3TfoTE.jpg",
+        "release_date": "2022-07-20",
+        "original_title": "외계+인 1부",
+        "title": "외계+인 1부",
+        "vote_average": 6.87
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 38,
+    "fields": {
+        "adult": false,
+        "movie_id": 293660,
+        "backdrop_path": "/en971MEXui9diirXlogOrPKmsEn.jpg",
+        "genre_ids": "[28, 12, 35]",
+        "overview": "특수부대 요원 출신의 용병 웨이드 윌슨은 취향과 장난기마저 똑 닮은 바네사를 만나 행복한 나날을 보낸다. 하지만 행복은 광고처럼 짧은 법. 말기 암 선고를 받은 웨이드는 비밀 임상실험에 참여하며 재기를 노린다. 극한의 고문으로 이뤄진 실험 후 웨이드는 암을 치료할뿐더러 무한한 재생 능력을 얻으며 불사의 존재가 된다. 하지만 동시에 부작용으로 호러영화에 어울릴 법한 외양을 갖는다. 스스로 슈트까지 지어 입고 데드풀이 된 웨이드는 자신을 고문한 자를 찾아 제대로 복수한 뒤 당당히 바네사 앞에 나서려 한다.",
+        "poster_path": "/bzpAD4rd40zZYoh6Lqzrz1O1xh4.jpg",
+        "release_date": "2016-02-09",
+        "original_title": "Deadpool",
+        "title": "데드풀",
+        "vote_average": 7.613
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 39,
+    "fields": {
+        "adult": false,
+        "movie_id": 603,
+        "backdrop_path": "/icmmSD4vTTDKOq2vvdulafOGw93.jpg",
+        "genre_ids": "[28, 878]",
+        "overview": "인간의 기억마저 AI에 의해 입력되고 삭제되는 세상, 진짜보다 더 진짜 같은 가상 현실 매트릭스. 그 속에서 진정한 현실을 인식할 수 없게 재배되는 인간들. 그 매트릭스를 빠져 나오면서 AI에게 가장 위험한 인물이 된 모피어스는 몇 안 되는 동료들과 함께 기계와의 전쟁 전후의의 폐허를 떠돌며 인류를 구할 마지막 영웅을 찾아 헤맨다. 마침내 모피어스는 낮에는 평범한 회사원 앤더슨으로, 밤에는 해커로 활동하는 청년 네오를 그로 지목한다. 모피어스의 지시대로 그를 만나게 된 네오는 두개의 알약 중 하나를 고르는 선택을 하게 되는데...",
+        "poster_path": "/yI9r0iz2XvlevxUzxvdoQmv3yce.jpg",
+        "release_date": "1999-03-31",
+        "original_title": "The Matrix",
+        "title": "매트릭스",
+        "vote_average": 8.215
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 40,
+    "fields": {
+        "adult": false,
+        "movie_id": 11,
+        "backdrop_path": "/4qCqAdHcNKeAHcK8tJ8wNJZa9cx.jpg",
+        "genre_ids": "[12, 28, 878]",
+        "overview": "공화국이 붕괴하고 제국이 수립된 뒤 20년, 제다이 기사단은 전멸하고 강력한 제국군의 횡포에 은하계는 공포에 휩싸여 있다. 그러던 중 공화국 재건을 노리는 반란군이 제국군의 비밀병기 데스스타 설계도를 훔쳐 달아나고 제국군은 이를 쫓는다. 하지만 결국 제국의 손에 붙잡히게 된 그들은 드로이드 R2-D2에 설계도를 넣어서 R2의 친구 C-3PO와 탈출시키는 데 성공하고, 두 드로이드 콤비는 타투인의 시골 마을에서 숙부와 함께 살고 있던 청년 루크 스카이워커에게 오게 되는데...",
+        "poster_path": "/7XFfURIFCJxN1mfBg0SAjk5yGzg.jpg",
+        "release_date": "1977-05-25",
+        "original_title": "Star Wars",
+        "title": "스타워즈 에피소드 4: 새로운 희망",
+        "vote_average": 8.2
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 41,
+    "fields": {
+        "adult": false,
+        "movie_id": 11,
+        "backdrop_path": "/4qCqAdHcNKeAHcK8tJ8wNJZa9cx.jpg",
+        "genre_ids": "[12, 28, 878]",
+        "overview": "공화국이 붕괴하고 제국이 수립된 뒤 20년, 제다이 기사단은 전멸하고 강력한 제국군의 횡포에 은하계는 공포에 휩싸여 있다. 그러던 중 공화국 재건을 노리는 반란군이 제국군의 비밀병기 데스스타 설계도를 훔쳐 달아나고 제국군은 이를 쫓는다. 하지만 결국 제국의 손에 붙잡히게 된 그들은 드로이드 R2-D2에 설계도를 넣어서 R2의 친구 C-3PO와 탈출시키는 데 성공하고, 두 드로이드 콤비는 타투인의 시골 마을에서 숙부와 함께 살고 있던 청년 루크 스카이워커에게 오게 되는데...",
+        "poster_path": "/7XFfURIFCJxN1mfBg0SAjk5yGzg.jpg",
+        "release_date": "1977-05-25",
+        "original_title": "Star Wars",
+        "title": "스타워즈 에피소드 4: 새로운 희망",
+        "vote_average": 8.2
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 42,
+    "fields": {
+        "adult": false,
+        "movie_id": 299537,
+        "backdrop_path": "/qAzYK4YPSWDc7aa4R43LcwRIAyb.jpg",
+        "genre_ids": "[28, 12, 878]",
+        "overview": "외계 크리 문명의 수도 할리, 캐롤 댄버스은 압도적인 능력을 가진 전사다. 그는 멘토 욘 로그로부터 힘을 통제하고 과거의 기억은 묻어야 한다는 가르침을 받고 있다. 그러던 어느 날, 변방 행성 토르파에서 스크럴 종족에게 붙잡혀 뇌를 스캔당한 캐롤은 과거 자신이 낯선 행성의 파일럿이었음을 알게 된다. 스크럴을 따돌리고 탈출하는 과정에서 공교롭게 C-53 행성, 즉 지구에 불시착한 캐롤. 우여곡절 끝에 쉴드 신참 요원 닉 퓨리에게 발견되어 팀을 이룬 그들은 지구로 향하는 더 큰 위협을 감지하고 힘을 합쳐 전쟁을 끝내야 하는데...",
+        "poster_path": "/2JO8X8aT97BwxMMGr9ChrCl4xGQ.jpg",
+        "release_date": "2019-03-06",
+        "original_title": "Captain Marvel",
+        "title": "캡틴 마블",
+        "vote_average": 6.8
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 43,
+    "fields": {
+        "adult": false,
+        "movie_id": 263115,
+        "backdrop_path": "/9X7YweCJw3q8Mcf6GadxReFEksM.jpg",
+        "genre_ids": "[28, 18, 878]",
+        "overview": "2029년 알 수 없는 이유로 돌연변이들이 태어나지 않는 미래, 더이상 엑스맨은 없다. 갈수록 재생력이 약해져 늙고 수척해진 로건은 멕시코 국경지대 은신처에 찰스 교수를 보호 중이다. 뇌에 심각한 손상을 입은 찰스 교수는 과거를 제대로 기억하지 못하는 데다 간헐적으로 주변을 위협하는 발작까지 일으킨다. 찰스 교수와 함께 떠날 배를 사기 위해 리무진 기사로 일하며 돈을 모으는 로건. 어느 날 낯선 여인이 찾아와 돌연변이 소녀 로라를 캐나다 국경까지 데려다 달라고 부탁한다. 로건은 로라를 쫓는 기업의 경호집단을 피해 험난한 여정을 떠난다.",
+        "poster_path": "/tE6tvHXlAZ8hqM4k9ZvtWtBk4pc.jpg",
+        "release_date": "2017-02-28",
+        "original_title": "Logan",
+        "title": "로건",
+        "vote_average": 7.817
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 44,
+    "fields": {
+        "adult": false,
+        "movie_id": 508947,
+        "backdrop_path": "/fOy2Jurz9k6RnJnMUMRDAgBwru2.jpg",
+        "genre_ids": "[16, 10751, 35, 14]",
+        "overview": "엄마의 착한 딸, 아니면 미운 13살? 성적도 우수하고 친구들과 사이도 좋은 데다 부모와도 친밀한 관계를 유지하고 있는, 똑 부러지면서도 엉뚱한 매력의 소유자 메이는 요즘 질풍노도의 시기를 겪느라 고민이 많다. 이 나이에 엄마의 과잉보호를 받자니 스트레스가 이만저만이 아닌 데다, 관심사, 인간관계, 신체 등 그녀의 모든 것이 변하고 있기 때문. 그런데 이 와중에 흥분하면 거대한 레서판다로 변신하는 비밀까지 떠안게 되다니! 아침도 먹어야 하고 학교도 가야 하는데, 이 엄청난 비밀을 어떻게 숨겨야 할까?",
+        "poster_path": "/hsOhOcX7qDy7bPwbrt1OoITngrf.jpg",
+        "release_date": "2022-03-10",
+        "original_title": "Turning Red",
+        "title": "메이의 새빨간 비밀",
+        "vote_average": 7.389
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 45,
+    "fields": {
+        "adult": false,
+        "movie_id": 10138,
+        "backdrop_path": "/7lmBufEG7P7Y1HClYK3gCxYrkgS.jpg",
+        "genre_ids": "[12, 28, 878]",
+        "overview": "세계 최강의 무기업체를 이끄는 CEO이자, 타고난 매력으로 화려한 삶을 살아가던 토니 스타크. 기자회견을 통해 자신이 아이언맨이라고 정체를 밝힌 이후, 정부로부터 아이언맨 수트를 국가에 귀속시키라는 압박을 받지만 이를 거부한다. 스타크 인더스트리의 운영권까지 수석 비서였던 페퍼 포츠에게 일임하고 히어로로서의 인기를 만끽하며 지내던 토니 스타크. 하지만 그 시각, 아이언맨의 수트 기술을 스타크 가문에 빼앗긴 후 쓸쓸히 돌아가신 아버지의 복수를 다짐해 온 위플래시는 수트의 원천 기술 개발에 성공, 치명적인 무기를 들고 직접 토니 스타크를 찾아 나선다.",
+        "poster_path": "/7rUFYRfYV6c4yXiKBvKWOCRjimc.jpg",
+        "release_date": "2010-04-28",
+        "original_title": "Iron Man 2",
+        "title": "아이언맨 2",
+        "vote_average": 6.84
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 46,
+    "fields": {
+        "adult": false,
+        "movie_id": 1064178,
+        "backdrop_path": "/8dDXs208EbTGRnR1BHGl8bMTBEP.jpg",
+        "genre_ids": "[28, 53, 27]",
+        "overview": "",
+        "poster_path": "/qmMazCTqdQNaqeCVeKysT6I3uz4.jpg",
+        "release_date": "2023-04-06",
+        "original_title": "Hunt Club",
+        "title": "Hunt Club",
+        "vote_average": 3.2
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 47,
+    "fields": {
+        "adult": false,
+        "movie_id": 1105407,
+        "backdrop_path": "/fUC5VsQcU3m6zmYMD96R7RqPuMn.jpg",
+        "genre_ids": "[28, 80, 53]",
+        "overview": "시카고의 한 형사는 새롭게 나타난 연쇄 살인범의 범행이 5년 전 그가 조사했던 사건과 유사하다는 사실을 알게되었고, 그 중 하나가 그의 살해된 여자 친구의 범죄 현장이었다는 것을 알게 되어 스코틀랜드로 향하는데...",
+        "poster_path": "/u3aPmYOkd8GclXg8nTvKQ4w1f7L.jpg",
+        "release_date": "2024-04-12",
+        "original_title": "Damaged",
+        "title": "데미지드",
+        "vote_average": 4.841
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 48,
+    "fields": {
+        "adult": false,
+        "movie_id": 218,
+        "backdrop_path": "/6dpnthrofbqWmvapUyvqCrkdHG.jpg",
+        "genre_ids": "[28, 53, 878]",
+        "overview": "1997년, 인간이 만든 인공지능 컴퓨터 전략 방어 네트워크가 스스로의 지능을 갖추고는 인류를 핵전쟁의 참화을 일으켜 30억이라는 인류를 잿더미 속에 묻어버린다. 그리고 남은 인간들은 기계의 지배를 받아 시체를 처리하는 일 등에 동원된다. 이때 비상한 지휘력과 작전으로 인간들을 이끌던 사령관 존 코너는 반기계 연합을 구성, 기계와의 전쟁을 시작하면서 상황은 반전된다. 이에 기계는 존 코너의 탄생 자체를 막기 위해 2029년의 어느 날 타임머신에 터미네이터를 태워서 1984년의 L.A로 보내게 된다.",
+        "poster_path": "/sez4xWeylbYQqiI8HIgnciTP7MY.jpg",
+        "release_date": "1984-10-26",
+        "original_title": "The Terminator",
+        "title": "터미네이터",
+        "vote_average": 7.664
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 49,
+    "fields": {
+        "adult": false,
+        "movie_id": 43074,
+        "backdrop_path": "/3RWsSQlqzRjsuqSRmoyggy74UA7.jpg",
+        "genre_ids": "[28, 14, 35]",
+        "overview": "초자연 현상 전문가 애비, 물리학 박사 에린, 무기 개발자 홀츠먼이 모여 만든 유령 퇴치 전문 회사 ‘고스트버스터즈’. 사람들로부터 비웃음을 사며 먼지만 풀풀 날리던 어느 날, 뉴욕 한복판에서 유령들이 출몰했다는 제보가 들어온다. 뉴욕 지리에 정통한 신참 패티와 금발 섹시 비서 케빈까지 채용한 이들은 본격적으로 유령을 사냥하기 시작하는데…",
+        "poster_path": "/gjKUhygLXLFBpakpeMTH4IWqj50.jpg",
+        "release_date": "2016-07-14",
+        "original_title": "Ghostbusters",
+        "title": "고스트버스터즈",
+        "vote_average": 5.358
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 50,
+    "fields": {
+        "adult": false,
+        "movie_id": 1079810,
+        "backdrop_path": "/iwWSkNdCRjGuyUBolM28xVTcVEg.jpg",
+        "genre_ids": "[18, 10751]",
+        "overview": "",
+        "poster_path": "/eVWHzm6bL4ybAuRLqA10Qo7ACfN.jpg",
+        "release_date": "2024-04-12",
+        "original_title": "The Long Game",
+        "title": "The Long Game",
+        "vote_average": 6.0
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 51,
+    "fields": {
+        "adult": false,
+        "movie_id": 284054,
+        "backdrop_path": "/b6ZJZHUdMEFECvGiDpJjlfUWela.jpg",
+        "genre_ids": "[28, 12, 878]",
+        "overview": "유엔 폭탄 테러로 아버지를 잃은 와칸다의 왕자 티찰라는 시빌 워 이후 고국 와칸다로 돌아가 왕좌에 오른다. 와칸다의 새로운 지도자 블랙팬서가 된 그는 옛 연인이자 와칸다의 스파이 나키아, 호위 무사 오코예와 함께 최강 희귀 금속 비브라늄 폭탄 거래가 이뤄지는 부산을 찾는다. 폭탄 거래의 배후에 있는 인물은 와칸다와 묘종의 연이 있는 정체불명의 남자, 에릭 킬몽거. 그는 놀라운 위력으로 티찰라를 제압하고 와칸다의 새로운 왕이 되려 하고, 이에 블랙 팬서는 피할 수 없는 전쟁에 나서는데...",
+        "poster_path": "/iRkknrX0rRxZHSL79W2Rax0EFsL.jpg",
+        "release_date": "2018-02-13",
+        "original_title": "Black Panther",
+        "title": "블랙 팬서",
+        "vote_average": 7.385
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 52,
+    "fields": {
+        "adult": false,
+        "movie_id": 577922,
+        "backdrop_path": "/yY76zq9XSuJ4nWyPDuwkdV7Wt0c.jpg",
+        "genre_ids": "[28, 53, 878]",
+        "overview": "주도자는 미국의 한 요원으로 우크라이나 국립 오페라 극장의 한 사건에 투입되었다가 우크라이나 요원들에게 붙잡히게 되고 고문을 받지만 CIA가 준 자살 약을 먹고 자살을 택하게 된다. 그러나 이내 다시 눈을 뜬 주인공은 의문의 한 남자로부터 임무를 부여받는다. 그가 주도자에게 줄 수 있는 건 하나의 제스처와 하나의 단어 뿐. 시간의 흐름을 뒤집는 인버전을 통해 현재와 미래를 오가며 세상을 파괴하려는 사토르를 막기 위해 투입된 작전의 주도자는 인버전에 대한 정보를 가진 닐과 미술품 감정사이자 사토르에 대한 복수심이 가득한 그의 아내 캣과 협력해 미래의 공격에 맞서 제3차 세계대전을 막아야 한다.",
+        "poster_path": "/ylQRi3edixhzUiubw7LQP1YhI6W.jpg",
+        "release_date": "2020-08-22",
+        "original_title": "Tenet",
+        "title": "테넷",
+        "vote_average": 7.183
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 53,
+    "fields": {
+        "adult": false,
+        "movie_id": 475557,
+        "backdrop_path": "/n6bUvigpRFqSwmPp1m2YADdbRBc.jpg",
+        "genre_ids": "[80, 53, 18]",
+        "overview": "홀어머니와 사는 아서 플렉은 코미디언을 꿈꾸지만 그의 삶은 좌절과 절망으로 가득 차 있다. 광대 아르바이트는 그에게 모욕을 가져다주기 일쑤고, 긴장하면 웃음을 통제할 수 없는 신경병 증세는 그를 더욱 고립시킨다. 정부 예산 긴축으로 인해 정신과 약물을 지원하던 공공의료 서비스마저 없어져 버린 어느 날, 아서는 지하철에서 시비를 걸어온 증권사 직원들에게 얻어맞던 와중에 동료가 건네준 권총으로 그들을 쏴 버리고 만다. 군중들은 지배계급에 대한 저항의 아이콘이 된 그를 추종하기 시작하며 광대 마스크로 얼굴을 가리고 거리로 쏟아져 나오기 시작하는데...",
+        "poster_path": "/wrCwH6WOvXQvVuqcKNUrLDCDxdw.jpg",
+        "release_date": "2019-10-01",
+        "original_title": "Joker",
+        "title": "조커",
+        "vote_average": 8.161
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 54,
+    "fields": {
+        "adult": false,
+        "movie_id": 348,
+        "backdrop_path": "/AmR3JG1VQVxU8TfAvljUhfSFUOx.jpg",
+        "genre_ids": "[27, 878]",
+        "overview": "2122년, 2천만톤의 광물과 7명의 승무원을 태우고 지구로 귀환중인 화물선 노스트로모호의 메인 컴퓨터 마더는 어떤 위성에서 나오는 알 수 없는 신호를 포착하게 된다. 마더에 의해 동면중 깨어난 승무원들은 이 신호를 조사하기 위해 혹성 LA-426에 착륙한다. 이들 중엔 2등 항해사인 엘렌 리플리도 있다. 혹성에서 정체 불명의 우주선을 발견한 그들은 탐사에 나서지만, 우주선은 이미 오래전에 파괴되어 썩고 있었으며 승무원들은 모두 미이라로 변해 있다. 사고 원인을 찾기 위해 좀 더 안으로 들어간 조사반은 여기저기 계란 모양의 물체가 있는 산란실을 발견하는데...",
+        "poster_path": "/k3m1RdlYUlCx51PxxNMlmbm7QSk.jpg",
+        "release_date": "1979-05-25",
+        "original_title": "Alien",
+        "title": "에이리언",
+        "vote_average": 8.153
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 55,
+    "fields": {
+        "adult": false,
+        "movie_id": 1216299,
+        "backdrop_path": "/v8RgWCgabyym0eVOuQJaxL4GS8p.jpg",
+        "genre_ids": "[37, 53, 28]",
+        "overview": "",
+        "poster_path": "/6Bd17axAG0qJ6YIU3SoootXV0Cz.jpg",
+        "release_date": "2024-01-12",
+        "original_title": "The Night They Came Home",
+        "title": "The Night They Came Home",
+        "vote_average": 6.118
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 56,
+    "fields": {
+        "adult": false,
+        "movie_id": 157336,
+        "backdrop_path": "/xJHokMbljvjADYdit5fK5VQsXEG.jpg",
+        "genre_ids": "[12, 18, 878]",
+        "overview": "세계 각국의 정부와 경제가 완전히 붕괴된 미래가 다가온다. 지난 20세기에 범한 잘못이 전 세계적인 식량 부족을 불러왔고, NASA도 해체되었다. 나사 소속 우주비행사였던 쿠퍼는 지구에 몰아친 식량난으로 옥수수나 키우며 살고 있다. 거센 황사가 몰아친 어느 날 알 수 없는 힘에 이끌려 딸과 함께 도착한 곳은 인류가 이주할 행성을 찾는 나사의 비밀본부. 이 때 시공간에 불가사의한 틈이 열리고, 이 곳을 탐험해 인류를 구해야 하는 임무를 위해 쿠퍼는 만류하는 딸을 뒤로한 채 우주선에 탑승하는데...",
+        "poster_path": "/zDNAeWU0PxKolEX1D8Vn1qWhGjH.jpg",
+        "release_date": "2014-11-05",
+        "original_title": "Interstellar",
+        "title": "인터스텔라",
+        "vote_average": 8.434
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 57,
+    "fields": {
+        "adult": false,
+        "movie_id": 976906,
+        "backdrop_path": "/ilK1JRbMjo4sMJtNKLOKnqRf1RH.jpg",
+        "genre_ids": "[10752, 28, 36]",
+        "overview": "제2차 세계대전, 영국 공군 사진정찰부대 대위인 에드워드는 독일군의 함정에 빠져 공격을 강행하려는 미군을 구하고자 증거 수집 임무를 부여받는다. 서베를린 항공에서 독일군의 정보 사진을 찍고 돌아오는 임무 도중 과거 됭케르크 엄호 작전에서 있었던 일이 떠오른다. 자신의 목숨을 구해준 대장과 함께한 동료를 기억을 안고 임무를 수행하는 그에게 수천 명이 넘는 목숨이 달렸다. 전쟁 실화를 바탕으로 한 이야기",
+        "poster_path": "/wEAnOw8aYWORXEKWzFZ4ndawrW7.jpg",
+        "release_date": "2022-05-13",
+        "original_title": "Spitfire Over Berlin",
+        "title": "미션 투 베를린",
+        "vote_average": 3.85
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 58,
+    "fields": {
+        "adult": false,
+        "movie_id": 609681,
+        "backdrop_path": "/w4pRLYYbhHn3sh9kqRgPZM6GjyS.jpg",
+        "genre_ids": "[878, 12, 28]",
+        "overview": "강력한 힘으로 은하계를 수호하는 최강 히어로 캡틴 마블 캐럴 댄버스. 캡틴 마블의 오랜 친구의 딸이자, 빛의 파장을 조작하는 히어로 모니카 램보. 최애 히어로 캡틴 마블의 열렬한 팬인 미즈 마블 카말라 칸. 캡틴 마블에 대한 복수를 꿈꾸는 냉혹한 크리족 리더 다르-벤의 영향으로 세 명의 히어로는 능력을 사용할 때마다 서로의 위치가 뒤바뀌게 된다. 뜻하지 않게 우주와 지구를 넘나들게 되는 예측 불가하고 통제 불가한 상황 속, 다르-벤은 지구를 포함해 캡틴 마블이 고향이라고 부르는 수많은 행성을 모두 파멸시키려 하고, 이를 저지하기 위해 모인 팀 마블스는 하나로 힘을 모으는데…",
+        "poster_path": "/qApkjVJzZ2nkFUcFhcYkTBaRnNj.jpg",
+        "release_date": "2023-11-08",
+        "original_title": "The Marvels",
+        "title": "더 마블스",
+        "vote_average": 6.146
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 59,
+    "fields": {
+        "adult": false,
+        "movie_id": 297762,
+        "backdrop_path": "/6iUNJZymJBMXXriQyFZfLAKnjO6.jpg",
+        "genre_ids": "[28, 12, 14]",
+        "overview": "수천년 간 존재를 숨긴 채 지구를 수호하던 데미스키라의 공주 다이애나는 어느 날 하늘에서 이상한 움직임을 포착한다. 1차 세계대전에 참전해 스파이 활동을 벌이다가 격추된 미국인 조종사 스티브가 해변에 불시착한 것. 태어나 처음으로 남성을 보게 된 다이애나는 호기심을 감추지 못하고, 데미스키라의 일원들은 그가 파멸을 가져올 수도 있음을 경고한다. 다이애나는 엄마이자 여왕인 히폴리타의 반대에도 불구하고 나치군의 추격을 따돌리면서 그들의 생화학무기 공격을 비밀리에 막아야 하는 스티브를 따라나선다.",
+        "poster_path": "/oZGYR75RaSLQ8XdJIVerYnOdhFx.jpg",
+        "release_date": "2017-05-30",
+        "original_title": "Wonder Woman",
+        "title": "원더 우먼",
+        "vote_average": 7.229
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 60,
+    "fields": {
+        "adult": false,
+        "movie_id": 850888,
+        "backdrop_path": "/AuTfo1lbE8s2Y8RVTmlbJAeLWPK.jpg",
+        "genre_ids": "[28, 53]",
+        "overview": "피스크를 혼자 쓰러트릴 수 없다는 것을 깨달은 사옌은 지하 저항 단체와 팀을 이루어 피스크의 무분별한 약탈을 폭로하고 완전히 끝내 버릴 계획을 세운다.",
+        "poster_path": "/btmngK5iXaxyAEl0ScIWCQG2ITr.jpg",
+        "release_date": "2024-04-26",
+        "original_title": "Sayen: La cazadora",
+        "title": "사옌 3: 사냥꾼",
+        "vote_average": 6.467
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 61,
+    "fields": {
+        "adult": false,
+        "movie_id": 680,
+        "backdrop_path": "/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
+        "genre_ids": "[53, 80]",
+        "overview": "펌프킨와 허니 버니가 레스토랑에서 강도 행각을 벌이기 시작한다. 빈센트와 그 동료 쥴스는 두목의 금가방을 찾기 위해 다른 건달이 사는 아파트를 찾아간다. 마르셀러스는 부치에게 돈을 주며 상대 선수에게 져 주라고 하지만 부치는 상대 선수를 때려 눕히고 도망치다, 어릴 때 아버지에게 물려받은 시계를 찾기 위해 아파트로 향한다. 아무런 상관 없이 보이는 이 사건들이 서로 얽히고 섥히면서 예상치 못한 인과관계가 만들어지는데...",
+        "poster_path": "/6lXRHGoEbnnBUKsuqpL9JxD4DzT.jpg",
+        "release_date": "1994-09-10",
+        "original_title": "Pulp Fiction",
+        "title": "펄프 픽션",
+        "vote_average": 8.489
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 62,
+    "fields": {
+        "adult": false,
+        "movie_id": 62,
+        "backdrop_path": "/w5IDXtifKntw0ajv2co7jFlTQDM.jpg",
+        "genre_ids": "[878, 9648, 12]",
+        "overview": "인류에게 문명의 지혜를 가르쳐 준 검은 돌기둥의 정체를 밝히기 위해서 디스커버리호의 선장 보우만과 승무원 풀은 목성을 향해서 날아간다. 하지만 평온하던 디스커버리호에 갑자기 재난이 찾아온다. 우주선 내부에서 일어난 재난은 컴퓨터 HAL이 반란을 일으킨 것. HAL은 풀을 우주선 밖으로 던져버리고, 보우만까지도 모선 밖으로 끌어내지만 그는 필사의 노력으로 HAL을 제압한다. 보우만은 마침내 목성 궤도에서 문제의 검은 돌기둥을 발견하지만, 그 순간 우주의 급류에 휘말리게 된다. 보우만은 지구로의 귀환을 위해 노력하고, 신비한 시간의 흐름을 경험하는데...",
+        "poster_path": "/2qJjH5mYNlGPdVrPqfEq1J6Mgb4.jpg",
+        "release_date": "1968-04-02",
+        "original_title": "2001: A Space Odyssey",
+        "title": "2001 스페이스 오디세이",
+        "vote_average": 8.078
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 63,
+    "fields": {
+        "adult": false,
+        "movie_id": 799583,
+        "backdrop_path": "/s5znBQmprDJJ553IMQfwEVlfroH.jpg",
+        "genre_ids": "[28, 10752, 18]",
+        "overview": "제2차 세계 대전 중에 일어난 영국 육군은 적진 뒤에 있는 나치 세력에 대항하는 임무를 수행할 유능한 군인들의 그룹을 배정하게 된다. 이 영화는 영국의 제2차 세계 대전 비밀 조직인 특수 작전 집행부에 대한 실화이며, 윈스턴 처칠이 창설한 이 조직의 독일군에 대한 변화무쌍한 전쟁은 전쟁의 방향을 바꾸는데 도움을 주었고 현대적인 비밀 작전(블랙 오퍼레이션)을 탄생시키게 된다.",
+        "poster_path": "/8aF0iAKH9MJMYAZdi0Slg77RYa2.jpg",
+        "release_date": "2024-04-18",
+        "original_title": "The Ministry of Ungentlemanly Warfare",
+        "title": "더 미니스트리 오브 언젠틀맨리 워페어",
+        "vote_average": 7.224
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 64,
+    "fields": {
+        "adult": false,
+        "movie_id": 1366,
+        "backdrop_path": "/kK9v1wclQxug6ZUJucD4DTaHgVF.jpg",
+        "genre_ids": "[18]",
+        "overview": "이탈리아의 종마라는 별명을 가진 젊은 청년 록키 발보아는 필라델피아 빈민촌에 살면서 4회전 복서를 업으로 삼아 근근히 살아간다. 복싱만으로는 생계를 유지할 수 없어 고리대금 업자의 하수인 노릇을 하기도 하며 뒷골목의 주먹 노릇도 하는 그는 짝사랑하는 애드리언에게 열심히 관심을 보이면서 성실하게 살아 가려고 애쓴다. 그러던 어느 날 록키에게 기회가 오게 된다. 헤비급 세계 챔피언 아폴로 크리드가 미국 독립 200주년을 기념하는 이벤트로서 이름 없는 복서에게 도전권는 이벤트를 기획하고, 록키가 도전자로 선발이 되는데...",
+        "poster_path": "/vpo99XjnIdkM9QDlQRTj5XEuUOH.jpg",
+        "release_date": "1976-11-21",
+        "original_title": "Rocky",
+        "title": "록키",
+        "vote_average": 7.787
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 65,
+    "fields": {
+        "adult": false,
+        "movie_id": 320288,
+        "backdrop_path": "/cjRUhKyt2Jo3V1KNzc5tpPNfccG.jpg",
+        "genre_ids": "[878, 28, 12]",
+        "overview": "어린 시절 비극적 교통사고로 능력을 알게 된 진 그레이는 자비에 영재학교에서 새로운 가족을 맞이하게 된다. 엄청난 잠재능력을 지닌 그녀는 엑스맨으로 성장해 우주에서 구조 임무를 수행하던 중 목숨을 잃을 뻔한 사고를 겪고, 폭주하는 힘과 억눌려왔던 어둠에 눈을 뜨게 된 그녀는 엑스맨의 가장 강력하고 파괴적인 적, 다크 피닉스로 변하게 된다. 프로페서 X는 물론 매그니토까지 능가하는 두려운 존재가 된 그녀 앞에 힘을 이용하려는 미스터리한 외계 존재가 나타나 그녀를 뒤흔들고, 엑스맨은 사랑하는 친구이자 가장 강력한 적이 된 다크 피닉스와 맞서야 하는데...",
+        "poster_path": "/rNRfYkuRvM0z1RWHPbc2I8HCdvd.jpg",
+        "release_date": "2019-06-05",
+        "original_title": "Dark Phoenix",
+        "title": "엑스맨: 다크 피닉스",
+        "vote_average": 5.98
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 66,
+    "fields": {
+        "adult": false,
+        "movie_id": 27205,
+        "backdrop_path": "/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
+        "genre_ids": "[28, 878, 12]",
+        "overview": "타인의 꿈에 들어가 생각을 훔치는 특수 보안요원 코브. 그를 이용해 라이벌 기업의 정보를 빼내고자 하는 사이토는 코브에게 생각을 훔치는 것이 아닌, 생각을 심는 ‘인셉션’ 작전을 제안한다. 성공 조건으로 국제적인 수배자가 되어있는 코브의 신분을 바꿔주겠다는 거부할 수 없는 제안을 하고, 사랑하는 아이들에게 돌아가기 위해 그 제안을 받아들인다. 최강의 팀을 구성, 표적인 피셔에게 접근해서 ‘인셉션’ 작전을 실행하지만 예기치 못한 사건들과 마주하게 되는데… 꿈 VS 현실! 시간, 규칙, 타이밍 모든 것이 완벽해야만 하는, 단 한 번도 성공한 적 없는 ‘인셉션’ 작전이 시작된다!",
+        "poster_path": "/zTgjeblxSLSvomt6F6UYtpiD4n7.jpg",
+        "release_date": "2010-07-15",
+        "original_title": "Inception",
+        "title": "인셉션",
+        "vote_average": 8.368
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 67,
+    "fields": {
+        "adult": false,
+        "movie_id": 405774,
+        "backdrop_path": "/pDKFL1zcHzEpmz4MJA5JJnRbJeD.jpg",
+        "genre_ids": "[27, 53, 18]",
+        "overview": "미지의 재앙이 인류를 휩쓴다. 세상이 뒤집힌 지 5년. 용케 살아남은 여자와 그녀의 아이들이 또다시 위기에 처한다. 안전한 곳을 향해, 그들은 필사적인 모험을 감행한다.",
+        "poster_path": "/dB7jNL5I3hb7b1zsGD5OEoSl2BQ.jpg",
+        "release_date": "2018-12-13",
+        "original_title": "Bird Box",
+        "title": "버드 박스",
+        "vote_average": 6.8
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 68,
+    "fields": {
+        "adult": false,
+        "movie_id": 206647,
+        "backdrop_path": "/8lBViysvNJBPkl6zG1LVAaW3qhj.jpg",
+        "genre_ids": "[28, 12, 53]",
+        "overview": "멕시코에서 일어난 폭발 테러 이후 MI6는 영국 정부에 의해 해체 위기에 놓인다. 자신의 과거와 연관된 암호를 추적하던 제임스 본드는 사상 최악의 조직 스펙터와 자신이 연관되어 있다는 사실을 알게 되고, 궁지에 몰린 MI6조차 그를 포기하면서 절체절명의 위기에 직면하는데...",
+        "poster_path": "/reI1K84d4lgMwfWs583PmpWQsQ5.jpg",
+        "release_date": "2015-10-26",
+        "original_title": "Spectre",
+        "title": "007 스펙터",
+        "vote_average": 6.543
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 69,
+    "fields": {
+        "adult": false,
+        "movie_id": 335983,
+        "backdrop_path": "/VuukZLgaCrho2Ar8Scl9HtV3yD.jpg",
+        "genre_ids": "[878, 28]",
+        "overview": "진실을 위해서라면 몸을 사리지 않고 사회의 부조리를 취재하는 정의로운 열혈 기자 에디 브록. 거대 기업 라이프 파운데이션의 생체실험에 의혹을 품고 뒤를 쫓던 그는 이들의 사무실에 잠입했다가 실험실에서 외계 생물체 심비오트의 기습 공격을 받게 된다. 심비오트가 숙주의 몸과 정신을 지배할 때 능력을 발휘하는 베놈은 에디의 몸에 기생하며 갖가지 소동을 일으킨다. 한편 비밀리에 인간과 심비오트를 결합해 새로운 생명체를 만들려는 시도를 계속하던 라이프 파운데이션의 회장 드레이크 또한 심비오트의 숙주가 된다.",
+        "poster_path": "/x4ojC59pYfPlAP4mmy2LSkCCuK2.jpg",
+        "release_date": "2018-09-28",
+        "original_title": "Venom",
+        "title": "베놈",
+        "vote_average": 6.8
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 70,
+    "fields": {
+        "adult": false,
+        "movie_id": 106,
+        "backdrop_path": "/YL3GPOiDcNraIJOVDCZsoOBoDy.jpg",
+        "genre_ids": "[878, 28, 12, 53]",
+        "overview": "더치와 특수부대 동료들은 CIA와 계약을 맺어 중앙 아메리카 정글에서 게릴라들에게 붙잡힌 조종사를 구하러 간다. 임무는 순조롭게 진행되었으나 그들은 귀환 도중 무언가로 부터 공격을 받는다. 보이지 않는 적은 정글 속에 숨어서 그들의 사체를 전리품으로 수집해간다.  이 외계 괴물은 더치의 동료들을 하나씩 죽이면서 유희를 벌이는데...",
+        "poster_path": "/AjYcJsuiqW4sHFEmh5SVSy5PswH.jpg",
+        "release_date": "1987-06-12",
+        "original_title": "Predator",
+        "title": "프레데터",
+        "vote_average": 7.526
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 71,
+    "fields": {
+        "adult": false,
+        "movie_id": 490132,
+        "backdrop_path": "/2Xe9lISpwXKhvKiHttbFfVRERQX.jpg",
+        "genre_ids": "[18, 36]",
+        "overview": "1962년 미국, 입담과 주먹만 믿고 살아가던 토니 발레롱가는 교양과 우아함 그 자체인 천재 피아니스트 돈 셜리의 운전기사 면접을 보게 된다. 백악관에도 초청되는 등 미국 전역에서 콘서트 요청을 받으며 명성을 떨치고 있는 돈 셜리는 위험하기로 소문난 미국 남부 투어 공연을 떠나기로 결심하고, 투어 기간 동안 자신의 보디가드 겸 운전기사로 토니를 고용한다. 거친 인생을 살아온 토니와 교양과 기품을 지키며 살아온 돈. 생각, 행동, 말투, 취향까지 달라도 너무 다른 두 사람은 그들을 위한 여행안내서 그린북에 의존해 특별한 남부 투어를 시작하는데...",
+        "poster_path": "/dyqQ12gZGwl5Y0R9UsLBDkZWOUA.jpg",
+        "release_date": "2018-11-16",
+        "original_title": "Green Book",
+        "title": "그린 북",
+        "vote_average": 8.2
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 72,
+    "fields": {
+        "adult": false,
+        "movie_id": 126889,
+        "backdrop_path": "/2qluV8y79LnBBHaMpwewCjQ1Htk.jpg",
+        "genre_ids": "[878, 27, 9648]",
+        "overview": "2천명의 승객과 12명의 승무원을 실은 커버넌트호는 새로운 행성의 개척과 이주를 위해 항해 중이다. 인공지능 로봇 월터가 홀로 깨어 승무원들의 건강을 관리하던 중 예기치 못한 사고로 선장이 사망하고 승무원들이 깨어난다. 이들은 커버넌트호를 정비하던 중 인근의 행성으로부터 알 수 없는 신호를 감지한다. 여행에 지친 승무원들은 다니엘스의 반대에도 불구하고 행성을 탐사하기로 결정한다. 이들은 정체불명의 생명체에 감염되어 위기에 빠지지만 10년 전 사라졌던 프로메테우스호의 인공지능 로봇 데이비드의 도움을 받아 상황을 모면하는데...",
+        "poster_path": "/qTiZhRh4y152Gj5jvEXMPmQZ71m.jpg",
+        "release_date": "2017-05-09",
+        "original_title": "Alien: Covenant",
+        "title": "에이리언: 커버넌트",
+        "vote_average": 6.105
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 73,
+    "fields": {
+        "adult": false,
+        "movie_id": 845111,
+        "backdrop_path": "/qGJASuD3fs9ZBxuEZoxCLVidVq8.jpg",
+        "genre_ids": "[12, 28, 18]",
+        "overview": "",
+        "poster_path": "/oxPdfTJLfCZauJiUdhHe5lA4bhD.jpg",
+        "release_date": "2023-12-13",
+        "original_title": "Les trois mousquetaires : Milady",
+        "title": "삼총사: 밀라디",
+        "vote_average": 6.516
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 74,
+    "fields": {
+        "adult": false,
+        "movie_id": 141,
+        "backdrop_path": "/8eLXy49T36e0e1YhYvUQOCXNRhm.jpg",
+        "genre_ids": "[14, 18, 9648]",
+        "overview": "1988년, 어딘가 암울하고 삐딱하게 보이는 고교생 도니 다코는 가족들과도 잘 어울리지 못하는 내성적인 성격의 소년이다. 어느 날, 자고 있던 그는 이상한 목소리를 따라 정원으로 나가게 되고, 그 곳에서 거대한 토끼 괴물을 만난다. 프랭크라는 이름을 가진 그는 도니에게 28일 6시간 43분 12초 후 할로윈 데이에 세상은 멸망할 것이라고 말한다. 다음날 아침 골프장에 누워 있다 잠을 깬 도니는 자신의 팔뚝에 선명하게 쓰여진 '28:06:43:12'라는 숫자를 발견한다. 집으로 돌아간 도니는 지난 밤 2층에 있는 자신의 침실에 출처 불명의 제트기 엔진이 추락하는 대형 사고가 있었음을 알고 프랭크의 존재에 대해 의식하기 시작한다. 의문의 대형사고를 몽유병 덕에 피한 도니의 주변에는 점점 기괴한 사건이 연발하고, 학교 친구들은 그런 도니를 이상한 존재로 여긴다. 그러던 어느 날 새로운 전학생 그레첸이 전학 오면서 도니의 학창 생활에 빛이 비치기 시작한다. 그러나 밤에만 나타나던 프랭크는 파멸의 날이 하루하루 다가올수록 점점 더 자주 도니에게 나타나 알 수 없는 말들을 늘어놓으며 도니를 혼란시킨다. 파멸의 날이 다가올수록 학교와 마을은 점점 공황 상태에 빠지고, 어느 순간 도니는 자신의 주위에 일어나는 이 모든 일이 우연이 아님을 깨닫는다. 그러나 도니의 갖은 노력에도 불구하고 그와 그 주위에 있는 사람들은 점점 암흑 속으로 빠져드는데...",
+        "poster_path": "/uREa7oOO1gxuCUiUOFzHOVv7h5d.jpg",
+        "release_date": "2001-01-19",
+        "original_title": "Donnie Darko",
+        "title": "도니 다코",
+        "vote_average": 7.8
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 75,
+    "fields": {
+        "adult": false,
+        "movie_id": 381288,
+        "backdrop_path": "/9pkZesKMnblFfKxEhQx45YQ2kIe.jpg",
+        "genre_ids": "[27, 53]",
+        "overview": "23개의 인격을 가진 남자 케빈(제임스 맥어보이). 어릴 때 엄마에게 학대를 당한 그는 자신을 보호하기 위해 인격들의 리더인 배리, 미성숙한 9살 소년 헤드윅, 여성 패트리샤, 강박증이 있는 데니스 등 23개의 인격을 만들어냈다. 유일하게 자신을 이해하는 플레처 박사(베티 버클리)와 상담을 나누며 인격들을 컨트롤하던 그에게 어느 날 비스트라는 24번째 인격에 대한 믿음이 생겨난다. 비스트를 불러내고자 하는 인격들은 세명의 10대 소녀 케이시, 클레어, 마샤를 납치해 감금한다. 케이시는 과거 아버지와 사냥했던 경험과 삼촌에게 학대당했던 기억을 상기하며 탈출 방법을 찾아나간다.",
+        "poster_path": "/pF58P50otT55n4H1ELw1qtUrTcS.jpg",
+        "release_date": "2017-01-19",
+        "original_title": "Split",
+        "title": "23 아이덴티티",
+        "vote_average": 7.343
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 76,
+    "fields": {
+        "adult": false,
+        "movie_id": 400928,
+        "backdrop_path": "/6MmYsaK6poR8f4R8jsBnJBU5tfd.jpg",
+        "genre_ids": "[18, 35]",
+        "overview": "해변가 조용한 마을에서 삼촌 프랭크(크리스 에반스)와 함께 살아가는 7살 수학 천재 소녀 메리(맥케나 그레이스).  메리가 학교에 들어가면서 그녀의 천부적 재능은 세상에 알려지기 시작하고,  세계적인 수학계 저명인사이자 메리의 할머니인 에블린(린제이 던칸)은 그녀가 세상을 바꿀 수학자가 되기를 희망한다.  바닷가에서 뛰어놀기 보다 어려운 수학문제 풀기를 즐거워하는 메리 그리고,  그녀에게 세상이 필요로 하는 수학자의 길을 열어주고자 하는 할머니.  촉망받는 천재 수학자였지만 불행한 죽음을 맞은 여동생과 약속한 메리의 평범하고 행복한 삶을 위해 이를 반대하는 삼촌 프랭크. 이들의 바람은 결국 특별한 천재 소녀 메리를 둘러싼 법적 분쟁으로 번지는데…  7살 사랑스러운 천재 소녀 메리의 선택은 어느 쪽일까?  과연 그녀는 행복해질 수 있을까?",
+        "poster_path": "/rn0TQDEXJyvwX49Ht33t3N3zq6y.jpg",
+        "release_date": "2017-04-07",
+        "original_title": "Gifted",
+        "title": "어메이징 메리",
+        "vote_average": 8.036
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 77,
+    "fields": {
+        "adult": false,
+        "movie_id": 526896,
+        "backdrop_path": "/gG9fTyDL03fiKnOpf2tr01sncnt.jpg",
+        "genre_ids": "[28, 878, 14]",
+        "overview": "희귀혈액병을 앓고 있는 생화학자 모비우스는 동료인 마르틴과 함께 치료제 개발에 몰두한다. 흡혈 박쥐를 연구하던 중 마침내 치료제 개발에 성공한 모비우스는 새 생명과 강력한 힘을 얻게 되지만, 동시에 흡혈을 하지 않고는 생명을 유지할 수 없게 된다. 그러던 중 모비우스와 같은 병을 앓고 있던 그의 친구 마일로도 모비우스와 같은 힘을 얻게 되는데…",
+        "poster_path": "/8uiV88A5eB7PjMTtY6lQBUZ0Cpl.jpg",
+        "release_date": "2022-03-30",
+        "original_title": "Morbius",
+        "title": "모비우스",
+        "vote_average": 6.045
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 78,
+    "fields": {
+        "adult": false,
+        "movie_id": 16320,
+        "backdrop_path": "/csGprKcRxt7SDpsrKiwxpgLdEsx.jpg",
+        "genre_ids": "[878, 28, 12, 53]",
+        "overview": "지금으로부터 500년후의 미래. 은하계 내전의 참전군인 출신인 말콤 레이놀즈 선장은 자신의 우주선 세레니티 호와 충성심에 가득찬 부하들을 데리고 돈되는 일이라면 무엇이든 하는 해결사로서 생활한다. 어느날 레이놀즈 일행은 젊은 의사 사이먼과 그의 여동생 리버를 탑승객으로 태우게 되는데, 둘은 우주연합으로부터 도망치는 중이다. 세레니티 일행들은 곧 초능력을 가진 리버가 엄청난 비밀을 가지고 있으며, 따라서 이 둘을 탑승시킨 것이 위험천만한 일임을 깨닫게 되는데...",
+        "poster_path": "/ckDo5vnRKehJ2qu8U95c7QcvGUm.jpg",
+        "release_date": "2005-09-25",
+        "original_title": "Serenity",
+        "title": "세레니티",
+        "vote_average": 7.379
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 79,
+    "fields": {
+        "adult": false,
+        "movie_id": 329865,
+        "backdrop_path": "/iTyh3hqTUjiRqQo8Uz1w1KtQti9.jpg",
+        "genre_ids": "[18, 878, 9648]",
+        "overview": "어느 날 전 세계 12개 지역에 외계 비행물체 셸이 동시다발로 출현한다. 450m에 달하는 거대 비행체가 가만히 서 있을 뿐 어떤 행동도 하지 않자 각국 정부는 각자의 방식으로 외계인과 접촉을 시작하지만, 완전히 다른 언어 체계 때문에 첫 단계부터 난항을 겪는다. 미국 정부의 요청을 받은 언어학자 루이스와 물리학자 이안은 말과 글이 통하지 않는 상황에서, 신체의 모든 기관과 감정을 이용해 미지의 생명체와 대화를 시도하고 서로의 문자를 배워나간다. 마침내 대화의 물꼬가 트이게 되지만 그때부터 루이스는 이해하기 어려운 환상을 연이어 보기 시작하는데...",
+        "poster_path": "/1jhYawjt748tAkuk2DzJJafvI2V.jpg",
+        "release_date": "2016-11-10",
+        "original_title": "Arrival",
+        "title": "컨택트",
+        "vote_average": 7.6
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 80,
+    "fields": {
+        "adult": false,
+        "movie_id": 1924,
+        "backdrop_path": "/v6MVBFnQOscITvmAy5N5ras2JKZ.jpg",
+        "genre_ids": "[878, 28, 12]",
+        "overview": "크립톤 행성의 조엘(Jor-El: 마론 브란도 분)은 행성이 곧 폭발할 것이라는 사실을 알고, 수많은 은하계의 지식을 담은 푸른 수정과 함께 아들인 카렐(Baby Clark Kent: 아론 스모린스키 분)을 지구로 보낸다. 카렐이 타고 온 작은 우주선은 조나단 부부(Jonathan Kent: 글렌 포드 분 / Ma Kent: 필리스 색터 분) 앞에 떨어지고, 아이가 없던 그들이 카렐을 데려와 클락이라 부르며 키운다.  어느 덧 청년으로 성장한 클락(Clark Kent/Superman: 크리스토퍼 리브 분)은 알지못하는 힘에 끌려 북쪽으로 가게 되고, 그 곳에서 아버지 조엘로부터 그 동안의 궁금증을 풀고, 다시 지구로 돌아오게 된다. 지구로 돌아온 클락은 데일리 플리닛지의 기자로 살아가며, 위험한 순간마다 슈퍼맨으로 변신해 사람들을 구해낸다. 슈퍼맨의 활약이 커지면서 신문사마다 다투어 그의 기사를 실었고 클락은 같은 신문사의 여기자 로이스 레인(Lois Lane: 마곳 키더 분)을 짝사랑하게 되는데.",
+        "poster_path": "/qwqXgd7FS0UhjU7SY5aNz6vV3G5.jpg",
+        "release_date": "1978-12-14",
+        "original_title": "Superman",
+        "title": "슈퍼맨",
+        "vote_average": 7.1
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 81,
+    "fields": {
+        "adult": false,
+        "movie_id": 339846,
+        "backdrop_path": "/t6TL7V9IsT4Ktx6YO8b1UYj3agd.jpg",
+        "genre_ids": "[35, 28, 80]",
+        "overview": "미치 뷰캐넌 이 대장으로 있는 해양구조대에 올림픽 수영 메달리스트 맷 브로디 가 합류한다. 이기적인 성격의 맷은 미치와 항상 티격태격하게 된다. 한편 해변에서는 플라카라고 불리는 마약이 자꾸만 발견되고 시의원이 죽는 사고도 벌어진다. 이것은 해변의 땅값을 떨어뜨린 뒤 몽땅 사들여 사유지화 하려는 거대 클럽의 사장 리즈 빅토리아의 음모였으며 이미 공무원들까지 매수된 상태였다. 눈치빠른 미치는 맷을 비롯하여 섬머, C.J, 로니 등 대원들과 함께 리즈의 음모를 파헤치며 해변을 지켜내기 위한 작전을 개시한다.",
+        "poster_path": "/6HE4xd8zloDqmjMZuhUCCw2UcY1.jpg",
+        "release_date": "2017-05-25",
+        "original_title": "Baywatch",
+        "title": "베이워치: SOS 해상 구조대",
+        "vote_average": 6.093
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 82,
+    "fields": {
+        "adult": false,
+        "movie_id": 5548,
+        "backdrop_path": "/pRSTtNlcADoQkfeBGtFQNE1FDpb.jpg",
+        "genre_ids": "[28, 53, 878]",
+        "overview": "멀지 않은 미래, 미국의 공업도시 디트로이트는 범죄 집단의 소굴이 되어가고, 시 경찰의 힘이 무력해져간다. 그러던 어느날 유능한 경찰관 머피(피터 웰러)가 범인들을 쫓다 뇌사상태에 빠진다. 사이보그 제작을 실험하고 있던 방위산업체의 과학자들은 즉각적으로 머피의 몸을 티타늄으로 보강하고 지워진 기억 위에 정교하게 짜여진 프로그램을 집어넣어 극비리에 최첨단의 사이보그를 탄생시키는데...",
+        "poster_path": "/ktOrQjOklsEhr75KItQloX1hc9Q.jpg",
+        "release_date": "1987-07-17",
+        "original_title": "RoboCop",
+        "title": "로보캅",
+        "vote_average": 7.3
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 83,
+    "fields": {
+        "adult": false,
+        "movie_id": 103,
+        "backdrop_path": "/6aoyUbvu0419XLKLIMoH0TkEicH.jpg",
+        "genre_ids": "[80, 18]",
+        "overview": "트래비스는 베트남전에서 귀환한 후 불면증에 시달리며 사회에 적응하지 못하고 있다. 그래서 그는 택시 운전기사로 일하며 뉴욕의 밤거리를 다니며 타락한 사회를 보고 자신이 직접 이 악들을 제거하려고 마음 먹는다. 어느 날 트래비스는 우연히 12살 짜리 창녀 아이리스를 만나게 되고 그녀의 인생을 구하려 하지만 그녀는 집으로 돌아가길 꺼려 한다. 자신은 아무 것도 할 수 없다는 생각에 무기력해진 트래비스는 4개의 권총을 구입하고 상원의원 팔렌타인을 저격하러 나선다. 하지만 엉뚱하게도 사창가에서 피비린내 나는 총격전을 벌인 끝에 아이리스를 묶어두고 있던 포주 스포츠를 살해하고 마는데...",
+        "poster_path": "/nJFKg6pyfmkLKttiLQKQuLZBLKH.jpg",
+        "release_date": "1976-02-09",
+        "original_title": "Taxi Driver",
+        "title": "택시 드라이버",
+        "vote_average": 8.152
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 84,
+    "fields": {
+        "adult": false,
+        "movie_id": 821937,
+        "backdrop_path": "/6a3aiSYNqABoV1Fq8n10LMOBxhH.jpg",
+        "genre_ids": "[28, 53]",
+        "overview": "가난한 트럭기사 홍은 소중한 딸과 함께 행복하게 살아간다. 어느 날 딸이 낯선 남자들에게 납치되고, 홍은 딸을 찾기 위해 동분서주하지만 딸은 결국 싸늘한 주검으로 발견된다. 분노한 홍은 자신의 숨겨 왔던 과거의 모습으로 돌아가는데…",
+        "poster_path": "/3EuGrvxWaW8DTzmt3Qcx1QA8J9D.jpg",
+        "release_date": "2022-05-20",
+        "original_title": "578: Phát Đạn Của Kẻ Điên",
+        "title": "578 매그넘",
+        "vote_average": 5.347
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 85,
+    "fields": {
+        "adult": false,
+        "movie_id": 615777,
+        "backdrop_path": "/oCKZAdUROqdlTcUOstqJ1gM8JQt.jpg",
+        "genre_ids": "[18, 35]",
+        "overview": "황홀하면서도 위태로운 고대 도시 바빌론에 비유되는 할리우드에서 전성기를 누리고 있는 당대 최고의 스타 잭 콘래드.  누구나 잭과 같은 성공을 꿈꾸지만 아무나 이룰 수 없던 그 때, 화려한 데뷔를 위해 당차게 야망을 좇는 넬리 라로이와 열정적인 청년 매니 토레스가 영화 같은 삶을 꿈꾸며 할리우드에 입성한다. 하지만 할리우드에서는 기존 영화 산업의 틀을 깬 새로운 변화가 시작되고 그 격변의 한가운데에서 잭과 넬리, 그리고 매니는 살아남아 각자의 꿈을 이루기 위해 고군분투하는데...",
+        "poster_path": "/6JQtIajMe70HWtBf7uZ1ZyWiW1F.jpg",
+        "release_date": "2022-12-22",
+        "original_title": "Babylon",
+        "title": "바빌론",
+        "vote_average": 7.412
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 86,
+    "fields": {
+        "adult": false,
+        "movie_id": 15,
+        "backdrop_path": "/ruF3Lmd4A8MHbnEBE6lxPMbsHGL.jpg",
+        "genre_ids": "[9648, 18]",
+        "overview": "1940년 뉴욕 인콰이어러지를 비롯, 수 많은 신문들의 발행인이었던 찰스 포스터 케인이 죽는다. 그는 당시 70세로 세계에서 손꼽히는 부자였으며, 죽음 직전에는 플로리다의 대저택에서 은둔 생활을 하고 있었다. 생전에 많은 정치인과도 친분을 맺고 있었고, 미국 정책에 막강한 영향력을 발휘하기도 했던 그는 자신에 대한 여러 얘기들에 대해 \"나는 현재 미국인이고 과거에도 미국인이었으며 앞으로도 항상 미국인일 것이다\"라고 일축하곤 했다. 잡지 편집장 록스톤은 그의 죽음을 취재하고자 기자 톰슨에게 케인이 죽기 전에 말했다는 장미꽃 봉오리가 무슨 뜻인지 알아오라고 한다. 톰슨은 케인의 주변 인물을 샅샅이 취재하기 시작하는데...",
+        "poster_path": "/3E3Ng1JEYSk3uewUd6OZOc00CdJ.jpg",
+        "release_date": "1941-04-17",
+        "original_title": "Citizen Kane",
+        "title": "시민 케인",
+        "vote_average": 8.01
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 87,
+    "fields": {
+        "adult": false,
+        "movie_id": 699280,
+        "backdrop_path": "/l6trIrFvJbQIvHYpaFCKuwqLUbS.jpg",
+        "genre_ids": "[99]",
+        "overview": "미셸 오바마가 회고록 《비커밍》의 출간 투어를 시작한다. 저마다 절절한 사연을 지닌 독자와의 만남. 그 속에서 빛나는 전 퍼스트레이디의 삶과 희망을 담은 다큐멘터리.",
+        "poster_path": "/f0vo1yoEVlbpJ0Fkn0FgU7dTrO8.jpg",
+        "release_date": "2020-05-06",
+        "original_title": "Becoming",
+        "title": "미셸 오바마의 비커밍",
+        "vote_average": 7.415
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 88,
+    "fields": {
+        "adult": false,
+        "movie_id": 1700,
+        "backdrop_path": "/cgo3OmF84touDrrLkQ1DQ3MRFyO.jpg",
+        "genre_ids": "[18, 53]",
+        "overview": "'미져리'란 이름의 순애보적 여인상을 등장시킨 대중 소설 시리즈로 여러해 동안 인기를 누려온 소설가 폴 셸던(제임스 칸)은 연작 속의 여주인공이 죽는 마지막 완결편을 끝으로 시리즈를 마감하고, 오랫 동안 쓰고자 했던 진지한 작품 완결 후 차를 몰아 뉴욕을 출발한 폴은 산 길을 채 벗어나기도 전에 휘몰아쳐 온 눈보라를 만나 길 밖 벼랑으로 핸들을 꺾고 만다. 심한 부상으로 의식 불명이 된 폴을 때마침 구해내는 수수께끼의 인물 애니 윌킨스(캐시 배이츠)는 미저리 시리즈의 애독자로 폴의 재능을 동경해 온 간호사 출신의 여자다. 애니의 집으로 옮겨져 그녀의 헌신적인 간호로 의식을 회복하는 폴. 그러나 그의 몸은 양다리가 참혹하게 부러지고 어깨마저 심하게 다친 처참한 상태다. 애니는 눈보라로 길이 막혀 그를 병원에 데려가지 못했으며 전화마저 불통이어서 외부에 아무런 연락도 취하지 못하고 있다고 말한다. 그러나 눈이 녹고 길이 뚫려도 애니는 폴을 병원에 보내기 위한 아무런 조치도 취하지 않는다. 마을에 나가 미저리 시리즈의 최신판을 사다 읽은 애니는 마지막에 미저리가 죽는다는 걸 알고 폴에게 분노의 광기를 발산하는데...",
+        "poster_path": "/23Y65uWaVMpqfbZTN3CT0aei4D5.jpg",
+        "release_date": "1990-11-30",
+        "original_title": "Misery",
+        "title": "미저리",
+        "vote_average": 7.756
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 89,
+    "fields": {
+        "adult": false,
+        "movie_id": 284052,
+        "backdrop_path": "/3zvZ699gMW2RhWc0GisIukzq0Ls.jpg",
+        "genre_ids": "[28, 12, 14]",
+        "overview": "오만함과 실력 모두 최고인 신경외과 의사 닥터 스티븐 스트레인지는 운전 중에 핸드폰을 한 대가로 두 손의 신경이 끊어지는 심각한 부상을 입고 큰 상심에 빠진다. 게다가 모난 말들로 사랑하는 여인 크리스틴 팔머마저 그의 곁을 떠나게 만든다. 그는 치료를 위해 히말라야의 영적 지도자, 에인션트 원을 만나 마지막 희망을 걸고 수련을 시작한다. 스트레인지는 빠르게 마법을 터득해 나가는 동시에 세계의 작동원리와 우주를 정복하려는 도르마무 일당의 계략을 알게 된다. 모든 것을 초월한 최강의 히어로로 거듭나는데...",
+        "poster_path": "/xA7ic72L0mejJX1SYMU38F7wwiF.jpg",
+        "release_date": "2016-10-25",
+        "original_title": "Doctor Strange",
+        "title": "닥터 스트레인지",
+        "vote_average": 7.423
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 90,
+    "fields": {
+        "adult": false,
+        "movie_id": 1701,
+        "backdrop_path": "/1fldJZ43ftMj3gKbhf8idjI7fWO.jpg",
+        "genre_ids": "[28, 53, 80]",
+        "overview": "최정예 특공대원 카메론 포우(니콜라스 케이지 분)는 제대하던 날 아내와 귀가하다가, 자신의 아내를 노리는 폭력배로부터 위협을 받는다. 불행하게도 카메론은 그들 중 한 명을 죽이게 된다. 사랑하는 아내와 아내의 뱃속에서 자라고 있는 딸을 지키기 위해서였다. 그로부터 8년 뒤, 모범수로 가석방된 카메론은 결코 타지 말았어야 할 죄수 수송기에 몸을 싣는다. 이 수송기는, 미국 전역의 형무소에 격리수용된 악명높은 죄수들만 따로 통합 수용하기 위하여 세워진 새 형무소로 흉악범들을 이송하는 임무를 띤 ‘콘 에어’ 수송기였다.    모범수인 카메론은 그 형무소까지 가지 않고 중간 기착지에서 내리도록 되어 있다. 콘 에어가 이륙하는 순간 카메론은 예상하지 못한 위기를 직감한다. 8명의 죄수들이 콘 에어를 공중납치해버린 것이다. 죄수들의 행동 대장은 ‘바이러스’란 별명을 가진 사이러스 그리섬(존 말코비치 분)이다. 카메론은 사태의 심각성과 신변의 위험을 깨닫지만 기내에 동승한 연방 보안 요원과 간수들이 속속 당하는 것을 보고만 있어야 할 만큼 속수무책이다. 연방 보안관이자 진압 대장인 빈스 라킨(존 쿠삭 분)과 FBI요원 그리고 특전반은 콘 에어가 착륙할 사막의 중간 기착지에 매복한 뒤 기습소탕작전을 준비하고 있다. 수송기에 탑승할 중간 기착지의 죄수들이 대기하고 있는 가운데 콘 에어가 서서히 착륙한다. 그러나 내리기로 되어 있던 카메론은 보이지 않고, 라킨의 상관은 기내의 보안요원이 전부 살해된 것으로 판단하고 콘 에어 수송기를 공중 폭파시키라는 명령을 내리는데..",
+        "poster_path": "/1WGzV906MDSr4IFOtWxJC8wrhRu.jpg",
+        "release_date": "1997-06-05",
+        "original_title": "Con Air",
+        "title": "콘 에어",
+        "vote_average": 6.748
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 91,
+    "fields": {
+        "adult": false,
+        "movie_id": 424139,
+        "backdrop_path": "/hO1oTBGNxO5fBKVEuWnSpICJH7c.jpg",
+        "genre_ids": "[27, 53]",
+        "overview": "마이클이 특별 정신병원에 갇히게 된 지 40년이라는 세월이 지났다. 살아남은 로리(제이미 리 커티스)도 이제 할머니가 되었지만, 그날의 악몽을 잊을 수가 없다. 어느 날, 한 다큐멘터리 팀이 마이클을 인터뷰하러 가는데, 이를 계기로 그가 탈출하게 된다. 그리고 40년 전에 죽이지 못한 로리를 찾아 다시 고향마을로 돌아온다.",
+        "poster_path": "/wnJeyVsUbhnen4hZbYoJdjJHK2c.jpg",
+        "release_date": "2018-10-18",
+        "original_title": "Halloween",
+        "title": "할로윈",
+        "vote_average": 6.554
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 92,
+    "fields": {
+        "adult": false,
+        "movie_id": 869,
+        "backdrop_path": "/rF0Y0fYVsNFEvGve8Nq0Ij9EDCM.jpg",
+        "genre_ids": "[53, 878, 28, 12]",
+        "overview": "서기 2029년, 우주정거장에서는 인류의 종의 기원을 밝히기 위한 연구가 진행 중이다. 인간들은 훈련 받은 침팬지를 이용해 비밀을 밝힐 소 우주선을 은하계로 내려보낸다. 하지만 우주선이 레이더에서 사라지는 사고가 발생하고, 공군 대위 레오 데이비슨(마크 월버그)이 긴급 출동하지만 계기판이 작동을 멈추고 이상한 힘에 이끌려 우주선은 이름 모를 행성의 늪지대에 추락한다.  레오가 도착한 행성은 원시의 모습을 가지고 있는 암울한 곳으로, 그곳에 살고 있는 인간들은 유인원에게 길들여져 멸시당하고 노예와 같은 비참한 생활을 하고 있는데…",
+        "poster_path": "/gUYQbokoI2Pwng3JM9igtEmCcNo.jpg",
+        "release_date": "2001-07-25",
+        "original_title": "Planet of the Apes",
+        "title": "혹성탈출",
+        "vote_average": 5.744
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 93,
+    "fields": {
+        "adult": false,
+        "movie_id": 49047,
+        "backdrop_path": "/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg",
+        "genre_ids": "[878, 53, 18]",
+        "overview": "허블 우주 망원경을 수리하기 위해 우주를 탐사하던 라이언 스톤 박사는 폭파된 인공위성의 잔해와 부딪히면서 우주 공간에 홀로 남겨진다. 탑승했던 왕복선은 파괴됐고 산소는 희박해져간다. 홀로 남겨졌다는 공포가 그녀를 휘감아 가던 순간, 그녀의 앞에 베테랑 동료 우주비행사인 매트 코왈스키가 구세주처럼 나타난다. 인공위성의 잔해가 지구를 한 바퀴 돌아 다시 덮쳐오기까지 걸리는 시간은 단 90분. 그 전에 그들은 우주 왕복선과 가까이 있는 ISS로 이동해서 소유즈를 활용해 지구로 귀환하기로 하는데...",
+        "poster_path": "/u8ffl7CRAS12KA8eQEtkLuHg8Fm.jpg",
+        "release_date": "2013-10-03",
+        "original_title": "Gravity",
+        "title": "그래비티",
+        "vote_average": 7.164
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 94,
+    "fields": {
+        "adult": false,
+        "movie_id": 383498,
+        "backdrop_path": "/3P52oz9HPQWxcwHOwxtyrVV1LKi.jpg",
+        "genre_ids": "[28, 35, 12]",
+        "overview": "암 치료를 위한 비밀 실험에 참여한 후, 강력한 힐링팩터 능력을 지닌 슈퍼히어로 데드풀로 거듭난 웨이드 윌슨은 여자친구 바네사와 더없이 행복한 시간을 보낸다. 그러나 행복도 잠시, 눈 앞에서 소중한 연인을 잃어버리고 삶의 의미를 상실하지만 자기 치유 능력 때문에 죽고 싶어도 죽지를 못한다. 밑바닥까지 내려간 데드풀은 더 나은 사람이 되기로 결심한다. 한편 미래에서 온 케이블은 러셀을 집요하게 쫓는다. 데드풀은 팀 엑스포스를 결성하고, 뭘 해도 운이 따르는 도미노가 엑스포스에 합류하는데...",
+        "poster_path": "/kDiOsE2FqZC26ScZDGdkkmlhZGJ.jpg",
+        "release_date": "2018-05-10",
+        "original_title": "Deadpool 2",
+        "title": "데드풀 2",
+        "vote_average": 7.488
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 95,
+    "fields": {
+        "adult": false,
+        "movie_id": 597891,
+        "backdrop_path": "/ufy3U0Kf9fvbgm6DEhJS68RERys.jpg",
+        "genre_ids": "[28]",
+        "overview": "무자비한 암살자로 키워진 케이트. 마지막이라 결심한 임무에 실패한다. 누군가 치명적인 독을 먹였기 때문. 죽음까지 남은 시간도, 복수할 수 있는 시간도 단 하루. 그녀가 질주를 시작한다.",
+        "poster_path": "/s3LyA1giMDHNlu0B4GokCsniRlk.jpg",
+        "release_date": "2021-09-10",
+        "original_title": "Kate",
+        "title": "케이트",
+        "vote_average": 6.645
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 96,
+    "fields": {
+        "adult": false,
+        "movie_id": 2666,
+        "backdrop_path": "/bmAzESah8IUNRQX5MqeyUrhE5Pr.jpg",
+        "genre_ids": "[9648, 878]",
+        "overview": "브랜든 리의 유작 [크로우]에서 독특한 시각스타일을 보여줬던 알렉스 프로야스가 4년간의 침묵 끝에 내놓은 신작. 윌리엄 허트, 제니퍼 코넬리, 키퍼 서덜런드 등이 출연하며 미국 개봉시 평단의 찬사를 받았다.  기억상실증에 걸려 과연 자신이 누구인지조차 알 수 없는 주인공 자기 소지품에 나타난 행적을 쫓기 시작한다. 아내, 심리학자, 형사 등을 만나면서 그는 조금씩 기억을 되찾고 이 도시의 끔찍한 비밀을 깨닫는다.",
+        "poster_path": "/b4c1hDBjfpVsjDFOszCiJQtibYw.jpg",
+        "release_date": "1998-02-27",
+        "original_title": "Dark City",
+        "title": "다크 시티",
+        "vote_average": 7.322
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 97,
+    "fields": {
+        "adult": false,
+        "movie_id": 68730,
+        "backdrop_path": "/2tE0A6WjLowwQOUY8se1Xlf3O6U.jpg",
+        "genre_ids": "[18, 36]",
+        "overview": "17세기, 선교를 떠난 ‘페레이라’ 신부(리암 니슨)의 실종 소식을 들은 ‘로드리게스’(앤드류 가필드)와  ‘가르페’(아담 드라이버) 신부는 사라진 스승을 찾고 복음을 전파하기 위해  목숨을 걸고 일본으로 떠난다.  천주교에 대한 박해가 한창인 그 곳에서,  두 신부는 어렵게 믿음을 이어가고 있는 사람들과 마주하게 된다.  생각보다 훨씬 더 처참한 광경을 목격한 두 신부는  고통과 절망에 빠진 이들에게 침묵하는 신을 원망하며 온전한 믿음마저 흔들리게 되는데…",
+        "poster_path": "/ww6q47tBUePDeRDJulnA8g3lIlt.jpg",
+        "release_date": "2016-12-22",
+        "original_title": "Silence",
+        "title": "사일런스",
+        "vote_average": 7.1
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 98,
+    "fields": {
+        "adult": false,
+        "movie_id": 16281,
+        "backdrop_path": "/8aqTmCHLkktH7RZNALeaOMneHSl.jpg",
+        "genre_ids": "[27, 35]",
+        "overview": "1982년에 스티븐 킹 원작의 단편 다섯 개를 조지 로메로 감독이 옴니버스 형식으로 영화로 만든 작품.\r 내용은 크리프스 쇼라는 만화책의 광팬인 아이가 아버지한테 혼이 난 뒤 쓰레기통에 버려진 만화책이 크리프스라는 해골 귀신에 의해 저절로 페이지가 넘어가면서 다섯 편의 이야기를 하는 것",
+        "poster_path": "/4SoyTCEpsgLjX6yAyMsx3AsAyRQ.jpg",
+        "release_date": "1982-11-10",
+        "original_title": "Creepshow",
+        "title": "크립쇼",
+        "vote_average": 6.931
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 99,
+    "fields": {
+        "adult": false,
+        "movie_id": 111,
+        "backdrop_path": "/sctvs9cUwJD15qlTlrsh2BXsK75.jpg",
+        "genre_ids": "[28, 80, 18]",
+        "overview": "1980년 5월 쿠바가 마리엘 항을 개항하여 반카스트로 지지자들이 미국 플로리다에 입항한다. 토니 몬타나와 마니리베라도 이민 수용소로 보내진다. 3개월 후 마니가 수용소에 있는 레벤가라는 자를 살해해 주면 신분증을 입수해 주겠다는 일을 받아 수용소에 폭동을 일으켜 레벤가를 암살한다. 접시닦이로 근근히 살아가던 토니는 프랭크의 부하로부터 콜롬비아 마약상과의 거래일을 맡았다가 위험천만한 위기를 넘긴다. 그 사건을 계기로, 토니는 프랭크의 신임을 얻고 그의 부하가 되지만, 수 개월 후 결국 자신을 없애려는 프랭크를 죽이고 조직을 장악, 보스 자리에 오르는데...",
+        "poster_path": "/zx7sXrMISbs8RI4URbjPyKocRgP.jpg",
+        "release_date": "1983-12-09",
+        "original_title": "Scarface",
+        "title": "스카페이스",
+        "vote_average": 8.169
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 100,
+    "fields": {
+        "adult": false,
+        "movie_id": 9482,
+        "backdrop_path": "/baJHUXBcoaHnMf2sjwegbuhIjEV.jpg",
+        "genre_ids": "[878]",
+        "overview": "{서기 2천년대에 세상이 바뀌었다. 기후(Climate), 국가(Nation) 그 모든 것이 격변했다. 지표는 오염되어 매마른 사막으로 변하고 그 저주받은 땅(The Cursed Earth)을 피해 수 백 수 천만의 사람들이 몇 안되는 거대 도시에 모여살게 되자 거리는 폭력으로 얼룩졌다. 정부는 치안 능력을 상실하고 법은 무너졌다. 혼란 속에서 새 질서가 탄생했다. 한 손으로 정의를 구현하며 다른 한 손으로 처벌권을 행사하는 새로운 엘리트 집단이 다스리는 사회, 새 통치자들은 경찰이자 배심원이었으며 심판자였다. 사람들은 그를 판사(The Judges)라 불렀다.}  서기 2139년, 그 옛날 뉴욕이었던 메가 씨티 원. 인구 6500만의 이 도시는 폭동과 소요로 들썩거리고 있다. 이 곳의 법과 질서를 전복하려는 무서운 음모에 의해 가장 강력한 심판자로 두려움의 대상인 대상인 드레드(실베스터 스탤론 분)가 살인 누명을 쓴다. 그를 도우려는 선임 판사(막스 본 시도우 분)와 동료 허쉬(다이안 레인 분)의 노력도 소용없이, 드레드는 무기형을 언도 받고 도시에서 추방되는데.  [스포일러] 이 음모의 배후 인물은 사악한 천재 리코(아만드 아산테 분). '야누스 프로젝트'란 비밀실험에 의해 탄생한 드레드는 유전자 결합에 의해 탄생한 인물이다. 그런데, 저지 드레드를 위한 완벽한 유전자 결합 과정에서 악의 화신 리코도 태어난다. 저지 드레드와 리코는 대결의 운명을 안고 태어난 것이다. 흉악한 범죄자 리코는 탈옥한 뒤 부패한 대법관과 짜고 메가시티원을 지배할 음모를 꾸민 것이다.",
+        "poster_path": "/lv1gzLJCf1S9WhfXxNm3OlVA1L2.jpg",
+        "release_date": "1995-06-30",
+        "original_title": "Judge Dredd",
+        "title": "저지 드레드",
+        "vote_average": 5.8
+    }
+}
+]
