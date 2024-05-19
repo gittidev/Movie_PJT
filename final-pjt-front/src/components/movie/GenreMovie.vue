@@ -2,7 +2,6 @@
     <div>
         <div style="display: flex;">
 
-      
         <h1>장르별 영화</h1>
         <div class="genres-list">
             <!-- 버튼 가로스크롤 구현 -->

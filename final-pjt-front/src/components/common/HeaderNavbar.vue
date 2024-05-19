@@ -24,7 +24,7 @@
                 <RouterLink :to="{name:'community'}" class="nav-link link-font" >포트럭</RouterLink>
               </li>
               
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown" style="z-index: 999999;">
                 <a href="#" class="nav-link dropdown-toggle link-font" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     추천
                 </a>

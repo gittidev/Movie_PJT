@@ -16,7 +16,6 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useUserStore } from "@/stores/users";
-import CommunityInfoCard from "@/components/community/CommunityInfoCard.vue";
 import MovieComment from "@/components/community/MovieComment.vue";
 
 const store = useUserStore();

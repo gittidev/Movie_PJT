@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h3>커뮤니티 목록</h3>
-    
-    <CommunityCard
+    <CommunityCardItem
       v-for="community in store.communities"
       :key="community.id"
       :community="community"
@@ -12,7 +10,7 @@
 
 <script setup>
 import { useUserStore } from "@/stores/users";
-import CommunityCard from "./CommunityCard.vue";
+import CommunityCardItem from "@/components/community/CommunityCardItem.vue";
 
 const store = useUserStore();
 </script>

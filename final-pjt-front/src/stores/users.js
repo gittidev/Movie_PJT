@@ -19,6 +19,7 @@ export const useUserStore = defineStore('user', () => {
     })
       .then(res => {
         communities.value = res.data
+        // console.log(communities.value)
       })
       .catch(err => console.err)
   }
