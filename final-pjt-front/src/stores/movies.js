@@ -1,9 +1,12 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 import axios from "axios";
+import { useUserStore } from './users';
 import { useRouter } from 'vue-router'
 
 export const useMovieStore = defineStore("movie", () => {
+  const userStore = useUserStore();
+  const TOKEN = userStore.token
   const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
   const TMDB_URL = "https://api.themoviedb.org/3/movie";
   const API_URL= 'http://127.0.0.1:8000'

@@ -15,11 +15,11 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import { useCounterStore } from "@/stores/counter";
+import { useUserStore } from "@/stores/users";
 import CommunityInfoCard from "@/components/community/CommunityInfoCard.vue";
 import MovieComment from "@/components/community/MovieComment.vue";
 
-const store = useCounterStore();
+const store = useUserStore();
 const route = useRoute();
 const community = ref(null);
 

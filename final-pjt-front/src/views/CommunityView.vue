@@ -17,12 +17,12 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { onMounted } from "vue";
-import { useCounterStore } from "@/stores/counter";
+import { useUserStore } from "@/stores/users";
 import CommunityCreate from "@/components/community/CommunityCreate.vue";
 import CommunityCreateDetail from "@/components/community/CommunityCreateDetail.vue";
 import CommunityList from "@/components/community/CommunityList.vue";
 
-const store = useCounterStore();
+const store = useUserStore();
 
 onMounted(() => {
   store.getCommunities();

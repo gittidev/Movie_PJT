@@ -49,9 +49,9 @@
 <script setup>
 import KakaoLogin from "@/components/KakaoLogin.vue";
 import { ref } from "vue";
-import { useCounterStore } from "@/stores/counter";
+import { useUserStore } from "@/stores/users";
 
-const store = useCounterStore();
+const store = useUserStore();
 
 const username = ref(null);
 const password1 = ref(null);

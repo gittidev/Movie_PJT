@@ -2,6 +2,7 @@
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 //캐러셀
 
 import App from './App.vue'
@@ -11,13 +12,22 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/js/bootstrap'
+
+//pinia persistedstate - localstorage 설정
+
+
 // kakao login
 const kakaoKey = import.meta.env.VITE_APP_KAKAO_KEY;
 window.Kakao.init(kakaoKey);
 
 const app = createApp(App)
+const pinia = createPinia()
 
-app.use(createPinia())
+pinia.use(piniaPluginPersistedstate)
+app.use(pinia)
+
+
+// app.use(createPinia())
 app.use(router)
 
 app.mount('#app')

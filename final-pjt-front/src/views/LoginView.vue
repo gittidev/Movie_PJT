@@ -33,11 +33,11 @@
 <script setup>
 import KakaoLogin from "@/components/KakaoLogin.vue";
 import { ref } from "vue";
-import { useCounterStore } from "@/stores/counter";
+import { useUserStore } from "@/stores/users";
 
 const username = ref(null);
 const password = ref(null);
-const store = useCounterStore();
+const store = useUserStore();
 
 const logIn = function () {
   const payload = {

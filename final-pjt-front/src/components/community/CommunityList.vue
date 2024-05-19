@@ -11,10 +11,10 @@
 </template>
 
 <script setup>
-import { useCounterStore } from "@/stores/counter";
+import { useUserStore } from "@/stores/users";
 import CommunityCard from "./CommunityCard.vue";
 
-const store = useCounterStore();
+const store = useUserStore();
 </script>
 
 <style scoped></style>
