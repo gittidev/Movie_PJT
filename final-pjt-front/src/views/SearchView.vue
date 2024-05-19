@@ -9,8 +9,7 @@
               v-model="searchQuery"
               class="search-input"
               v-on:keyup.enter="searchMovies"
-              placeholder="영화를 검색하세요"
-            />
+              placeholder="영화를 검색하세요"/>
           </div>
           <button type="button" @click="searchMovies" class="btn">검색</button>
         </div>

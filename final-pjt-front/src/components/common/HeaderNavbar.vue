@@ -43,6 +43,12 @@
               <li class="nav-item">
                 <RouterLink :to="{name:'signup'}" class="nav-link link-font">회원가입</RouterLink>
               </li>
+              <li class="nav-item">
+                <button class="nav-link link-font">로그아웃</button>
+              </li>
+              <li class="nav-item">
+                <button :to="{name:'signup'}" class="nav-link link-font">회원탈퇴</button>
+              </li>
             </ul>
           </div> 
         </div> 

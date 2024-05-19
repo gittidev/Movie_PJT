@@ -11,6 +11,9 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from .serializers import CommunityListSerializer, CommunitySerializer, MovieListSerializer
 from .models import Community, Movie
 
+from rest_framework.views import APIView
+from django.contrib.auth import get_user_model
+
 # 영화목록 가져오기/로그인 하지 않아도 가져올수 있음
 @api_view(['GET'])
 def movies_list(request):
@@ -48,3 +51,26 @@ def community_detail(request, community_pk):
 
 
 
+# 영화별 좋아요 기능 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def movie_likes(request, movie_pk):
+    movie = Movie.objects.get(pk=movie_pk)
+    if request.user in movie.like_users.all():
+        movie.like_users.remove(request.user)
+        liked = False
+    else:
+        movie.like_users.add(request.user)
+        liked = True
+    return Response({'liked': liked, 'likes_count': movie.like_users.count()}, status=status.HTTP_200_OK)
+
+# 회원 탈퇴 기능(final_pjt의 urls.py와 연동)
+User = get_user_model()
+
+class UserDeleteView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        user = request.user
+        user.delete()
+        return Response({"detail": "User account deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
