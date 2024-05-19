@@ -3,13 +3,13 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
+
+
 export const useUserStore = defineStore('user', () => {
   const state = reactive({
     user: null,
     isAuthenticated: false,
   })
-
-  const communities = ref([])
   const API_URL = 'http://127.0.0.1:8000'
   const router = useRouter() 
   const token = ref(null)
@@ -26,15 +26,15 @@ export const useUserStore = defineStore('user', () => {
       }
     })
       .then((response) => {
+        router.push({ name: 'movie' })
         alert('회원가입이 완료되었습니다.')
-        // console.log('회원가입 완료')
-        router.push({ name: 'longin' })
+       
       })
-      .catch(err => alert('아이디 또는 비밀번호가 이미 존재합니다.'))
+      .catch(err => 
+        { console.error('Error:', err.response ? err.response.data : err.message);})
   }
 
   //회원탈퇴 
-
   const deleteUser = function () {
     axios({
       method: 'delete',
@@ -50,6 +50,8 @@ export const useUserStore = defineStore('user', () => {
       .catch(err => console.log(err))
   }
 
+
+
   // 로그인
   const logIn = function (payload) {
     const username = payload.username
@@ -64,14 +66,13 @@ export const useUserStore = defineStore('user', () => {
     })
       .then(res => {
         token.value = res.data.key
-        console.log(res.data)
+        // console.log(res.data)
         state.isAuthenticated = true
         getUserInfo()
         router.push({ name: 'movie' })// 로그인 후 영화소개 화면으로 전환
       })
       .catch(err => console.log(err))
   }
-
 
   // 사용자 정보 가져오기
   const getUserInfo = function () {
@@ -104,7 +105,7 @@ export const useUserStore = defineStore('user', () => {
   };
 
 
-  return {token, API_URL, signUp, deleteUser, logIn, logOut };
+  return {state, API_URL, token, signUp, deleteUser, logIn, logOut };
 }, {
   persist: {
     enabled: true,

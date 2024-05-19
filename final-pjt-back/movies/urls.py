@@ -5,6 +5,6 @@ urlpatterns = [
     path('communities/', views.community_list),
     path('communities/<int:community_pk>/', views.community_detail),
     path('movies/', views.movies_list),
-    path('<int:movie_pk>/likes/', views.movie_likes),
+    path('<int:movie_id>/likes/', views.movie_likes),
     path('random_recommend/', views.random_recommend),
 ]

@@ -16,14 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from accounts.views import UserDeleteView
+from accounts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('marshmovie/', include('movies.urls')),
     path('accounts/', include('dj_rest_auth.urls')),
     path('accounts/signup/', include('dj_rest_auth.registration.urls')),
-    path('accounts/delete/', UserDeleteView.as_view(), name='account-delete'),
+    path('accounts/delete/', views.delete_user, name='account-delete'),
+    path('accounts/profile/<int:user_pk>', views.get_profile_detail, name='profile'),
 ]
 
 # 로그인 기능이 accounts/login인 것처럼 로그아웃 기능은 accounts/logout으로 url을 연결하면 된다고 함

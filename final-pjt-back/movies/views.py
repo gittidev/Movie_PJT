@@ -25,7 +25,7 @@ def movies_list(request):
         serializer = MovieListSerializer(movies, many=True)
         return Response(serializer.data)
 
-# 커뮤니티 목록 가져오기
+# 커뮤니티 목록 가져오기/생성하기
 @api_view(['GET', 'POST'])
 def community_list(request):
     if request.method == 'GET':
@@ -38,9 +38,10 @@ def community_list(request):
             return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
         serializer = CommunitySerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # 커뮤니티 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -70,8 +71,8 @@ def community_detail(request, community_pk):
 # 영화별 좋아요 기능 추가
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def movie_likes(request, movie_pk):
-    movie = Movie.objects.get(pk=movie_pk)
+def movie_likes(request, movie_id):
+    movie = Movie.objects.get(movie_id=movie_id)
     if request.user in movie.like_users.all():
         movie.like_users.remove(request.user)
         liked = False

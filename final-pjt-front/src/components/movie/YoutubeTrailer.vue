@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h3>{{ movie.title }} 공식 예고편</h3>
+      <div class="trailer-title">{{ movie.title }} 공식 예고편</div>
       <div class="trailer-handler">
         <div v-if="isLoading" class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
@@ -70,6 +70,14 @@
   </script>
   
   <style scoped>
+
+  .trailer-title{
+    margin: 2rem 3rem;
+    font-size: 2.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: rgb(0, 255, 162);
+  }
   .modal-content {
     max-width: 820px;
   }
@@ -78,7 +86,7 @@
     width: 720px;
     height: 450px;
     display: block;
-    margin: 0 auto;
+    margin: 2rem auto;
   }
   
   .spinner-border {

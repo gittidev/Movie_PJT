@@ -18,14 +18,17 @@ class Movie(models.Model):
 
 class Community(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    user = models.ManyToManyField(settings.AUTH_USER_MODEL, symmetrical=False, related_name='myCommunity')
     title = models.CharField(max_length=30)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    create_user = models.ManyToManyField(settings.AUTH_USER_MODEL, symmetrical=False, related_name='myCommunity')
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_communities')
+
 
 class Comment(models.Model):
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_comments')
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     like_dislike= models.BooleanField(default = True)

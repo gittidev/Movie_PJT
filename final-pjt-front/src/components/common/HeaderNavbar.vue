@@ -37,18 +37,31 @@
             </ul>
             <ul class="" ></ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <!-- 로그인 되어있을 때 화면 -->
+        
+              <li v-if="!isAuthenticated" class="nav-item">
                 <RouterLink :to="{name:'login'}" class="nav-link link-font" >로그인</RouterLink>
               </li>
-              <li class="nav-item">
+              <li v-if="!isAuthenticated" class="nav-item">
                 <RouterLink :to="{name:'signup'}" class="nav-link link-font">회원가입</RouterLink>
               </li>
-              <li class="nav-item">
+
+              
+              <!-- 로그인 안되어있을때 화면 -->
+              <span v-else>
+                <li class="nav-item">
+                <button class="nav-link link-font" @click="goProfile">프로필</button>
+                </li>
+                <li class="nav-item">
                 <button class="nav-link link-font" data-bs-toggle="modal" data-bs-target="#logout">로그아웃</button>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link link-font" data-bs-toggle="modal" data-bs-target="#deleteUser">회원탈퇴</button>
-              </li>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link link-font" data-bs-toggle="modal" data-bs-target="#deleteUser">회원탈퇴</button>
+                </li>
+              </span>
+                
+            
+        
             </ul>
           </div> 
         </div> 
@@ -59,9 +72,25 @@
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { computed } from 'vue';
+import { RouterLink, RouterView, useRouter } from "vue-router";
+import { useUserStore } from '@/stores/users'
 
+const store = useUserStore()
+const router = useRouter()
+const isAuthenticated=computed(() => store.state.isAuthenticated)
+const user=computed(() => store.state.user);
 
+// console.log(user.value)
+
+// 프로필 이동 함수
+const goProfile = function () {
+  if (user.value && user.value.pk) {
+    router.push({ name: 'profile', params: { userId: user.value.pk } });
+  } else {
+    console.error('User is not authenticated or user ID is missing.');
+  }
+}
 
 
 </script>

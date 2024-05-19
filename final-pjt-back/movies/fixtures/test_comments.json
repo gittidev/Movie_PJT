@@ -7,7 +7,10 @@
             "user": 2,
             "content": "Content of comment 1.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1
+            ]
         }
     },
     {
@@ -18,7 +21,11 @@
             "user": 3,
             "content": "Content of comment 2.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2
+            ]
         }
     },
     {
@@ -29,7 +36,12 @@
             "user": 4,
             "content": "Content of comment 3.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3
+            ]
         }
     },
     {
@@ -40,7 +52,13 @@
             "user": 5,
             "content": "Content of comment 4.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3,
+                4
+            ]
         }
     },
     {
@@ -51,7 +69,8 @@
             "user": 6,
             "content": "Content of comment 5.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": []
         }
     },
     {
@@ -62,7 +81,10 @@
             "user": 7,
             "content": "Content of comment 6.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1
+            ]
         }
     },
     {
@@ -73,7 +95,11 @@
             "user": 8,
             "content": "Content of comment 7.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2
+            ]
         }
     },
     {
@@ -84,7 +110,12 @@
             "user": 9,
             "content": "Content of comment 8.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3
+            ]
         }
     },
     {
@@ -95,7 +126,13 @@
             "user": 10,
             "content": "Content of comment 9.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3,
+                4
+            ]
         }
     },
     {
@@ -106,7 +143,8 @@
             "user": 11,
             "content": "Content of comment 10.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": []
         }
     },
     {
@@ -117,7 +155,10 @@
             "user": 12,
             "content": "Content of comment 11.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1
+            ]
         }
     },
     {
@@ -128,7 +169,11 @@
             "user": 13,
             "content": "Content of comment 12.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2
+            ]
         }
     },
     {
@@ -139,7 +184,12 @@
             "user": 14,
             "content": "Content of comment 13.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3
+            ]
         }
     },
     {
@@ -150,7 +200,13 @@
             "user": 15,
             "content": "Content of comment 14.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3,
+                4
+            ]
         }
     },
     {
@@ -161,7 +217,8 @@
             "user": 16,
             "content": "Content of comment 15.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": []
         }
     },
     {
@@ -172,7 +229,10 @@
             "user": 17,
             "content": "Content of comment 16.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1
+            ]
         }
     },
     {
@@ -183,7 +243,11 @@
             "user": 18,
             "content": "Content of comment 17.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2
+            ]
         }
     },
     {
@@ -194,7 +258,12 @@
             "user": 19,
             "content": "Content of comment 18.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3
+            ]
         }
     },
     {
@@ -205,7 +274,13 @@
             "user": 20,
             "content": "Content of comment 19.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": [
+                1,
+                2,
+                3,
+                4
+            ]
         }
     },
     {
@@ -216,7 +291,8 @@
             "user": 21,
             "content": "Content of comment 20.",
             "created_at": "2024-05-20T12:00:00Z",
-            "like_dislike": true
+            "like_dislike": true,
+            "like_users": []
         }
     }
 ]

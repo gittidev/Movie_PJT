@@ -25,12 +25,6 @@ class CommunityListSerializer(serializers.ModelSerializer):
 
 class CommunitySerializer(serializers.ModelSerializer):
     movie_title = serializers.CharField(source='movie.title', read_only=True)
-    movie_poster = serializers.SerializerMethodField()
     class Meta:
         model = Community
         fields = '__all__'
-        
-    def get_movie_poster(self, obj):
-        base_url = "https://image.tmdb.org/t/p/w500"
-        poster_path = obj.movie.poster_path
-        return f"{base_url}{poster_path}"

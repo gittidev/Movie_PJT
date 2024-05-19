@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/js/bootstrap'
 
-//pinia persistedstate - localstorage 설정
+
 
 
 // kakao login
@@ -23,6 +23,7 @@ window.Kakao.init(kakaoKey);
 const app = createApp(App)
 const pinia = createPinia()
 
+//pinia persistedstate - localstorage 설정
 pinia.use(piniaPluginPersistedstate)
 app.use(pinia)
 

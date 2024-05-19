@@ -67,7 +67,7 @@ const signUp = function () {
     email: email.value,
     nickname: nickname.value,
   };
-  console.log(payload)
+  // console.log(payload)
   store.signUp(payload);
 };
 </script>
