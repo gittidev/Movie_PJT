@@ -44,7 +44,7 @@ export const useCommunityStore = defineStore('community', () => {
   }
 
 
-  return { communities, getCommunities, createCommunity }
+  return { communities, token, getCommunities, createCommunity }
 }, {
   persist: {
     enabled: true,

@@ -18,17 +18,16 @@
               </div>
               <div>
                 <!-- 선택한 항목 기본 선택 상태 방지 위해, required 속성 -->
-                <select required class="d-grid gap-2 col-12 mx-auto form-control" aria-labelledby="navbarDropdown" v-model="likeMovies" @click="getMymovie">  
-                <option value="" selected>좋아요한 영화를 선택하세요</option> 
-                <option value="1">1번영화</option> 
-                <option value="2">2번영화</option> 
+                <select required class="d-grid gap-2 col-12 mx-auto form-control" aria-labelledby="navbarDropdown" v-model="selectedMovie" @click="getMymovie">  
+                <option value="" disabled selected>POT을 생성할 영화를 선택하세요</option> 
+                <option v-for="movie in likeMovies" :key="movie.id" :value="movie.id">{{ movie.title }}</option>
                 <!-- 영화의 제목이 아니라, id값을 넘겨 주어야 한다.(DB의 id값) -->
               </select>
               </div> 
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn" style="background-color:red; color : white;" @click="create">
+            <button type="button" class="btn" style="background-color:red; color : white;" @click="createPOT">
               POT 생성하기
             </button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
@@ -52,14 +51,34 @@ const API_URL= 'http://127.0.0.1:8000'
 const store = useCommunityStore()
 const router = useRouter()
 
-
+console.log(store.token)
 const modalRef=ref(null)
 const likeMovies=ref([])
+const selectedMovie=ref('')
+
 const communitytitle= ref('')
 const communitycontent= ref('')
 
-const create = function () {
-  const movie_id= parseInt(likeMovies.value,10)
+
+// 영화정보 가져오기
+const getMymovie=function () {
+    axios({
+      method: "get",
+      url: `${API_URL}/marshmovie/movies/likes`,
+      headers: {
+        Authorization: `Token ${store.token}` // 토큰을 헤더에 포함
+      }})
+      .then((response) => {
+        likeMovies.value=response.data
+        console.log(likeMovies.value)
+      })
+      .catch((err) => console.log(err));
+  } 
+
+
+//커뮤니티 생성하기
+const createPOT = function () {
+  const movie_id= parseInt(selectedMovie.value,10)
   const payload = {
     title : communitytitle.value,
     content : communitycontent.value,
@@ -70,25 +89,6 @@ const create = function () {
   router.push({name:'communitydetail', params:{communityId:movie_id}})
   // 생성 후 router.push 이용해서 상세 페이지로 이동하기 구현필요
 }
-
-
-// 영화정보 가져오기
-const getMymovie=function () {
-  if (store.token) {
-    axios({
-      method: "get",
-      url: `${API_URL}/marshmovie/movies/likes`,
-    })
-      .then((response) => {
-        console.log(response.data)
-      })
-      .catch((err) => console.log(err.message));
-  } else {
-    router.push({name:'login'})
-    alert('로그인이 필요합니다.')
-  }};
-
-
 </script>
 
 

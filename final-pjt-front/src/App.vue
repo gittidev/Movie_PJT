@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+  <CommunityCreateDetail />
 </template>
 
 <script setup>
@@ -41,6 +42,7 @@ import { RouterLink, RouterView } from "vue-router";
 import { onMounted } from 'vue'
 import { useMovieStore } from "@/stores/movies";
 import { useUserStore } from "@/stores/users";
+import CommunityCreateDetail from "@/components/community/CommunityCreateDetail.vue";
 
 const Moviestore = useMovieStore()
 const Userstore = useUserStore()

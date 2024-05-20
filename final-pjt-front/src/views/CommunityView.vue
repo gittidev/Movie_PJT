@@ -11,7 +11,7 @@
       </div>
       <div class="col-3">
         <CommunityCreate class="communitycreate" />
-        <CommunityCreateDetail />
+       
       </div>
     </div>
     <div class="row row-handler">
@@ -38,7 +38,7 @@ import { RouterLink } from "vue-router";
 import { onMounted } from "vue";
 import { useCommunityStore } from "@/stores/community";
 import CommunityCreate from "@/components/community/CommunityCreate.vue";
-import CommunityCreateDetail from "@/components/community/CommunityCreateDetail.vue";
+
 import CommunityList from "@/components/community/CommunityList.vue";
 
 const store = useCommunityStore();

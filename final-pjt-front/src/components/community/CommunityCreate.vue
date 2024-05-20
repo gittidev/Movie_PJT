@@ -3,7 +3,12 @@
   <div>
     <div class="create-handler">
 
-      <button class='create btn' @click="openModal" data-bs-toggle="modal" data-bs-target="#pot">
+      <button class='create btn' v-if="store.token" data-bs-toggle="modal" data-bs-target="#pot" @click="checkLogin" >
+        Pot 생성하기
+      </button>
+
+
+      <button v-else class='create btn' data-bs-toggle="modal" @click="checkLogin" >
         Pot 생성하기
       </button>
     </div>
@@ -12,8 +17,24 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import  { useUserStore } from '@/stores/users'
+import {useRouter} from 'vue-router'
 
-import {ref} from 'vue'
+const API_URL= 'http://127.0.0.1:8000'
+const store = useUserStore()
+const router = useRouter()
+
+
+
+
+const checkLogin=function () {
+  if (!store.token) {
+    alert('로그인이 필요합니다.')
+    router.push({name:'login'})
+  } 
+}
+
 
 </script>
 
