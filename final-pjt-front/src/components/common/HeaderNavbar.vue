@@ -95,7 +95,9 @@ const goProfile = function () {
 
 <style scoped>
 
-
+.navbar {
+  width: 100%;
+}
 
 header{
   z-index: 9;
@@ -121,7 +123,6 @@ img {
 }
 
 .dropdown-handler {
-  margin: 1rem;
   padding :1rem;
   background-color: rgb(0, 0, 0,0.7);
   border-radius: 15px 15px;

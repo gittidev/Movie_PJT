@@ -4,7 +4,6 @@
 
         <div class='carousel-handler'>
 
-
             <div class="carousel-container">
                 <Carousel id="gallery" :items-to-show="1" :wrap-around="true" v-model="currentSlide" :transition="0">
                     <Slide v-for="todayMovie in store.todayMovies" :key="todayMovie.id">

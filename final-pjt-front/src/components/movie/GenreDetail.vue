@@ -1,15 +1,5 @@
 <template>
-    <div>
-        <!-- <Carousel id="thumbnails" :items-to-show="3" :wrap-around="true" v-model="currentSlide" ref="carousel"
-        :autoplay="5" :transition="10000">
-            <Slide v-for="movie in genreMovies" :key="movie.id">
-                <div class="carousel__item img-handler" >
-                    <img class='first-img ' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
-                </div>
-            </Slide>
-        </Carousel> -->
- 
-          
+    <div>          
         <Carousel v-bind="settings" :breakpoints="breakpoints">
           <Slide v-for="movie in genreMovies" :key="movie.id">
             <div class="carousel__item img-handler" >
@@ -18,7 +8,7 @@
           </Slide>
 
           <template #addons>
-            <Navigation />
+            <Navigation/>
           </template>
         </Carousel>
     
@@ -140,5 +130,6 @@ img{
     object-fit:cover;
     border-radius: 10px;
 }
+
 
 </style>
