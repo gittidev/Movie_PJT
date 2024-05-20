@@ -1,13 +1,29 @@
 <template>
     <div>
-        <Carousel id="thumbnails" :items-to-show="3" :wrap-around="true" v-model="currentSlide" ref="carousel"
+        <!-- <Carousel id="thumbnails" :items-to-show="3" :wrap-around="true" v-model="currentSlide" ref="carousel"
         :autoplay="5" :transition="10000">
             <Slide v-for="movie in genreMovies" :key="movie.id">
                 <div class="carousel__item img-handler" >
                     <img class='first-img ' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
                 </div>
             </Slide>
+        </Carousel> -->
+ 
+          
+        <Carousel v-bind="settings" :breakpoints="breakpoints">
+          <Slide v-for="movie in genreMovies" :key="movie.id">
+            <div class="carousel__item img-handler" >
+                    <img class='first-img ' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
+            </div>
+          </Slide>
+
+          <template #addons>
+            <Navigation />
+          </template>
         </Carousel>
+    
+
+
     </div>
   </template>
   
@@ -15,6 +31,7 @@
 import { useMovieStore } from "@/stores/movies";
 import { ref, onMounted, watch, onUpdated } from "vue";
 import { useRoute,useRouter } from "vue-router";
+import emptyPopcornBox from '@/assets/empty_popcorn_box2.png';
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
 const store = useMovieStore();
@@ -42,16 +59,15 @@ const fetchMovies = async (id) => {
 };
 
 
-
-
+// 영화 포스터 이미지 가져오기
 const getMoviePoster = movie => {
   if (movie.poster_path) {
     return imgBaseURL + movie.poster_path;
   } else {
-    return ""; // 포스터 경로가 없는 경우 빈 문자열 반환 나중에 빈 이미지 asset 찾아서 반영하기
+    return emptyPopcornBox; // 포스터 경로가 없는 경우 빈 문자열 반환 나중에 빈 이미지 asset 찾아서 반영하기
   }
+};
 
-}
 
 onMounted(() => {
   currentSlide.value = 0;
@@ -72,31 +88,42 @@ const goDetail = function (movieId) {
 }
 
 
-
-
 </script>
 
-<script> 
+<script>
 import { defineComponent } from 'vue'
-import { Carousel, Slide } from 'vue3-carousel'
+import { Carousel, Navigation, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
 
 export default defineComponent({
-    name: 'Gallery',
-    components: {
-        Carousel,
-        Slide,
-        Navigation,
+  name: 'Breakpoints',
+  components: {
+    Carousel,
+    Slide,
+    Navigation,
+  },
+  data: () => ({
+    // carousel settings
+    settings: {
+      itemsToShow: 1,
+      snapAlign: 'center',
     },
-    data: () => ({
-        currentSlide: 0,
-    }),
-    methods: {
-        slideTo(val) {
-            this.currentSlide = val
-        },
+    // breakpoints are mobile first
+    // any settings not specified will fallback to the carousel settings
+    breakpoints: {
+      // 700px and up
+      700: {
+        itemsToShow: 3.5,
+        snapAlign: 'center',
+      },
+      // 1024 and up
+      1024: {
+        itemsToShow: 4,
+        snapAlign: 'start',
+      },
     },
+  }),
 })
 </script>
 
@@ -105,11 +132,13 @@ export default defineComponent({
 .img-handler{
     width: 28rem;
     height: 40rem;
+    border-radius: 10px;
 }
 img{
     width: 100%;
     height: 100%;
     object-fit:cover;
+    border-radius: 10px;
 }
 
 </style>

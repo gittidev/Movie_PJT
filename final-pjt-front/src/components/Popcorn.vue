@@ -25,10 +25,10 @@ const popcornIconPath = popcornIcon
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 50px;
-  height: 50px;
+  width: 5rem;
+  height: 5rem;
   background-color: black;
-  border-radius: 30px;
+  border-radius: 5rem;
   padding: 10px;
 }
 

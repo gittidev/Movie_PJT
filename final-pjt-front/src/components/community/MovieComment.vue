@@ -1,28 +1,63 @@
 <template>
-  <div>영화커뮤니티별 코멘트</div>
-  <div class="comment container">
+  <div style="margin: 2rem 1rem;">
+    <h3>POTLUCK</h3>
+    <div class="comment container">
     <div class="row">
-      커뮤니티에 생성된 댓글이 보일 예정
+
     </div>
     <div v-for="_ in 10" class="row">
-      <div class="col-8">
+      <div class="col-10">
         <!-- 필요하면 당사자 프로필 이동 기능도..? -->
-        <img src="" alt="프로필이미지">
-        <p>comment 달림ddddddddddddddddddddddddddddddddddddslgaldskdgadskng.dskmg;.kmds;<div class="lg"></div>jg</p>
+        <img :src="defaultProfile" alt="프로필이미지">
+        <span>가져온 코멘트 포문 돌리기</span>
+        <div>
+        <button class="btn btn-primary">수정하기</button>
+        <button class="btn btn-primary">삭제하기</button>
+        </div>
+        <!-- 내가 작성한 것만 보이게 -->
       </div> 
-      <div class="col-4">
-        마시멜로 좋아요
+      <div class="col-2">
+        <img :src="marsh3" alt="좋아요">
+        <img :src="marsh2" alt="싫어요">
       </div>
     </div>
+
   </div>
+
+
+    
+  </div>
+
 </template>
 
-<script setup></script>
+<script setup>
+import defaultProfile from '@/assets/profile.png';
+import marsh2 from '@/assets/marsh2.png';
+import marsh3 from '@/assets/marsh3.png';
+
+
+
+</script>
+
+
+
 
 <style scoped>
+
+h3 {
+  font-family: 'PyeongChangPeace-Bold';
+}
+img {
+  width: 3rem;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
 .comment {
   border: 1px solid;
-
   margin: 1rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
 }
 </style>

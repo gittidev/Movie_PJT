@@ -20,9 +20,11 @@
         <div v-if="movies.length === 0" style="color: white">
           검색 결과가 없어요 ㅠ
         </div>
+
+        <!-- 결과가 있으면 이미지 보여주기 -->
         <div v-else v-for="movie of movies" :key="movie.id" style="color: white">
             <div class="card card-handler">
-              <img :src="getMoviePoster(movie)" alt="" />
+              <img :src="getMoviePoster(movie)" alt="" @click="goDetail(movie.id)"/>
             </div>
           </div>
           </div>
@@ -34,6 +36,10 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
+import emptyPopcornBox from '@/assets/empty_popcorn_box2.png';
+
+const router= useRouter()
 
 const tmdbkey = import.meta.env.VITE_APP_TMDB_KEY;
 const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
@@ -74,9 +80,17 @@ const getMoviePoster = movie => {
   if (movie.poster_path) {
     return imgBaseURL + movie.poster_path;
   } else {
-    return ""; // 포스터 경로가 없는 경우 빈 문자열 반환
+    return emptyPopcornBox; // 포스터 경로가 없는 경우 빈 문자열 반환 나중에 빈 이미지 asset 찾아서 반영하기
   }
 };
+
+
+// 상세정보 이동하기
+const goDetail = function (movieId) {
+    console.log('클릭')
+    router.push({ name: 'moviedetail', params: { movieId: movieId } });
+}
+
 </script>
 
 <style scoped>
@@ -86,13 +100,11 @@ const getMoviePoster = movie => {
 
 .search-section {
   width: 100%;
-  /* height: 300px; 필요한 경우 섹션 높이를 지정 */
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   /* 각 섹션을 구분하는 테두리 */
   padding: 20px;
   /* 내부 여백 */
   box-sizing: border-box;
-  /* 패딩 포함하여 박스 크기 계산 */
 }
 
 .bar-handler {
@@ -105,10 +117,18 @@ const getMoviePoster = movie => {
   height: 4rem;
   width: 100%;
 }
+.card-handler {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
 
 img {
   width: 18rem;
-  height: 18rem;
+  height: 24rem;
+  border-radius: 10px;
 }
 
 button {

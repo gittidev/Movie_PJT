@@ -2,42 +2,53 @@
     <div>
         <div class="card">
 
-            <div class="container" style="margin: 3rem 1rem;">
+            <div class="container" style="margin: auto; margin-top: 4rem;">
                 <div class="row">
                     <!-- row 1 (total : 12) -->
                     <div class="col-6">
                         <img :src="getMoviePoster(movieDetail)" alt="#" style="width: 100%;">
                     </div>
                     <div class="col-6">
-                        <h2> {{ movieDetail.title }} </h2>
-                        <p>{{ movieDetail.original_title }}</p>
+                        <h1> {{ movieDetail.title }} </h1>
+                        <div class="row">
+                            <div class="col-6">
+                            <p>{{ movieDetail.original_title }}</p>
                         <p>{{ movieDetail.release_date }}</p>
+                        <p>평점 : {{ movieDetail.vote_average }}</p>
                         <button class="btn"
                             style="padding: 0rem 1rem; margin: 0.5rem; background-color: #FF6363; height: 2rem;"
                             v-for="genre of movieDetail.genres" :key="genre.id">
                             {{ genre.name }}
                         </button>
-                        <p>평점 : {{ movieDetail.vote_average }}</p>
-                        <p>{{ movieDetail.overview }}
-                        </p>
+                        </div>
+                        <div class="col">
+                                <!-- 좋아요 눌렀을때 pot 보이게 생성 -->
+                                <CommunityCreate v-if='isLiked' class="communitycreate" />
+                        </div>
 
-                        <button class="btn btn-primary" @click="movieLikes(movieDetail.id)">{{ isLiked ? '좋아요 취소' : '좋아요' }}</button>
-                        <p>좋아요 수: {{ likesCount }}</p>
-                        <!-- 좋아요 눌렀을때 pot 보이게 생성하게 할건지 생각하기 또는 클릭시 좋아요 안눌렀으면, pot 생성안되게 처리 할건지 생각 -->
-                        <CommunityCreate v-if='isLiked' class="communitycreate" />
-                        <CommunityCreateDetail />
+
+                        </div>
+                        
+                      
+                        <p>
+                            {{ movieDetail.overview }}
+                        </p>
+                       
+                        <div class="row">
+                            <div class="col-5"> 좋아요 수: {{ likesCount }}</div>
+                            <div class="col">
+                                <button class="btn btn-warning" @click="movieLikes(movieDetail.id)">{{ isLiked ? '좋아요 취소' : '좋아요' }}</button>
+                            </div>
+                     
+                        </div>
+                        <!-- <CommunityCreateDetail /> -->
                     </div>
 
                     <!-- row 3 (total : 12) -->
                     <div class="col-12">
                         col-12 차지
                     </div>
-                    <div class="col" style="background-color: #FAF5E4;">
-                        (col, 남는 자리 자동 할당)
-                    </div>
-                    <div class="col-3" style="background-color: #FF6363;">
-                        가능합니다..<br>(col-3)
-                    </div>
+              
 
                     <!-- row 유튜브링크 -->
                     <div class="col-12">
@@ -58,6 +69,8 @@ import { useRoute } from "vue-router";
 import CommunityCreate from "@/components/community/CommunityCreate.vue";
 import CommunityCreateDetail from "@/components/community/CommunityCreateDetail.vue";
 import YoutubeTrailer from "@/components/movie/YoutubeTrailer.vue";
+import emptyPopcornBox from '@/assets/empty_popcorn_box2.png';
+
 
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
@@ -114,7 +127,7 @@ const getMoviePoster = movie => {
     if (movie.poster_path) {
         return imgBaseURL + movie.poster_path;
     } else {
-        return ""; // 포스터 경로가 없는 경우 빈 문자열 반환 나중에 빈 이미지 asset 찾아서 반영하기
+        return emptyPopcornBox; // 포스터 경로가 없는 경우 빈 문자열 반환 나중에 빈 이미지 asset 찾아서 반영하기
     }
 
 }
@@ -163,6 +176,15 @@ const movieLikes = async function (movieId) {
 
 
 <style scoped>
+
+h1{
+    font-family: 'KCC-Hanbit';
+    font-weight: 800;
+}
+div {
+    font-family: 'Pretendard-Regular';
+    font-size: 1.5rem;
+}
 .communitycreate{
     width: 1rem;
 }

@@ -10,10 +10,7 @@
 
           <div class="modal-body" style="text-align: center;">
             무비에게 물어봐
-            오늘 기분을 알려주세요
             <div class="popcorn-img-bg">
-        
-
             </div>
               <button type="button" class="btn" style="background-color:#ff9d3d; color : white;" @click="startRandom">
               오늘의 영화 뽑기
@@ -31,6 +28,7 @@
 </template>
 
 <script setup>
+
 
 </script>
 

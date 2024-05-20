@@ -7,16 +7,17 @@
           </div>
 
           <div class="modal-body" style="text-align: center;">
-            <div class="d-grid gap-2 col-12 mx-auto">
+            <div class="d-grid col-12 mx-auto">
                 <label for="username">POT 이름</label>
                 <input class="form-control mx-auto" type="text" v-model.trim="communitytitle" placeholder="생성할 POT 이름을 적어주세요"/>
               </div>
 
-              <div class="d-grid gap-2 col-12 mx-auto">
+              <div class="d-grid col-12 mx-auto">
                 <label for="username">POT에 놀러와</label>
-                <input class="form-control mx-auto" type="text" v-model.trim="communitycontent" placeholder="생성할 POT에 대한 설명을 적어주세요"/>
+                <input class="form-control mx-auto" type="textarea" v-model.trim="communitycontent" placeholder="생성할 POT에 대한 설명을 적어주세요"/>
               </div>
-              <div>
+
+              <div class="d-grid col-12 mx-auto">
                 <!-- 선택한 항목 기본 선택 상태 방지 위해, required 속성 -->
                 <select required class="d-grid gap-2 col-12 mx-auto form-control" aria-labelledby="navbarDropdown" v-model="selectedMovie" @click="getMymovie">  
                 <option value="" disabled selected>POT을 생성할 영화를 선택하세요</option> 
@@ -63,19 +64,19 @@ const userStore = useUserStore()
 
 
 // 영화정보 가져오기
-const getMymovie=function () {
-    axios({
-      method: "get",
-      url: `${API_URL}/marshmovie/movies/likes`,
-      headers: {
-        Authorization: `Token ${store.token}` // 토큰을 헤더에 포함
-      }})
-      .then((response) => {
-        likeMovies.value=response.data
-        console.log(likeMovies.value)
-      })
-      .catch((err) => console.log(err));
-  } 
+const getMymovie = async function () {
+    try {
+        const response = await axios({
+            method: "get",
+            url: `${API_URL}/marshmovie/movies/likes`,
+            headers: {
+                Authorization: `Token ${store.token}` // 토큰을 헤더에 포함
+            }
+        });
+        likeMovies.value = response.data;
+        console.log(likeMovies.value);
+    } catch (err) {
+        console.log(error)}}
 
 
 // console.log(selectedMovie)

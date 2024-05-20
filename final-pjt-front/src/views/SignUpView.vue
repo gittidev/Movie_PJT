@@ -14,11 +14,6 @@
             placeholder="사용할 이메일을 입력하세요(선택사항)"/>
           </div>
           <div class="d-grid gap-2 m-2 col-12 mx-auto">
-            <label for="nickname">사용자명</label>
-            <input class="form-control" type="text" id="nickname" v-model.trim="nickname" 
-            placeholder="사용할 닉네임을 알려주세요(선택사항)">
-          </div>
-          <div class="d-grid gap-2 m-2 col-12 mx-auto">
             <label for="password1">비밀번호 </label>
             <input class="form-control" type="password" id="password1" v-model.trim="password1" 
             placeholder="사용할 비밀번호를 입력하세요"/>

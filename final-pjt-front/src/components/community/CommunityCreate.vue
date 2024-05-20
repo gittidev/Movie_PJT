@@ -1,12 +1,10 @@
 <template>
 
-  <div>
+  <div style="margin-top: 3rem;">
     <div class="create-handler">
-
       <button class='create btn' v-if="store.token" data-bs-toggle="modal" data-bs-target="#pot" @click="checkLogin" >
         Pot 생성하기
       </button>
-
 
       <button v-else class='create btn' data-bs-toggle="modal" @click="checkLogin" >
         Pot 생성하기

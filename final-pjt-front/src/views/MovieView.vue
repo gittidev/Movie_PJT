@@ -37,7 +37,6 @@ onMounted(() => {
 
 .movie-section {
   width: 100%;
-  border: 1px solid #ccc; /* 각 섹션을 구분하는 테두리 */
   padding: 20px; /* 내부 여백 */
   box-sizing: border-box; /* 패딩 포함하여 박스 크기 계산 */
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="display: flex;">
+        <div style="display: flex; flex-wrap: wrap;">
 
         <h1>장르별 영화</h1>
         <div class="genres-list">
@@ -35,6 +35,13 @@ const showGenre = (id) => {
 </script>
 
 <style scoped>
+
+h1 {
+    font-family: 'PyeongChangPeace-Bold';
+    font-size: 3rem;
+    margin-right: 2rem;
+}
+
 .genres-list {
     display: flex;
 }

@@ -1,27 +1,40 @@
 <template>
   <div class="container" v-if="community">
+    
     <div class="row">
-    <h1>{{ community.title }}</h1>
+      <div class="col-8">
+        <h1>{{ community.title }}</h1>
+      </div>
+      <div class="col-4" style="text-align: right;">
+        <button class="btn btn-primary">수정하기</button>
+        <button class="btn btn-primary">삭제하기</button>
+      </div>
     </div>
 
+   
     <div class="row">
-      <div class="col-6" style="border:red 1px solid">
-        <p>{{ community.title }}</p>
-        <p>{{ community.movie_title }}</p>
-        <p>{{ community.content }}</p>
-        <p>{{ community.created_at }}</p>
-
+      <div class="col col-sm-8 comunity-info card" style="border:red 1px solid">
+        <p class="">POT : {{ community.title }}</p>
+        <p>MOVIE : {{ community.movie_title }}</p>
+        <p>POT 설명 : {{ community.content }}</p>
       </div>
-      <div class="col-6">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="파티에 참여해봐" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+      <div class="col col-sm-4">
+        <div class="mb-3">
           <div>
-            파티는 익명의 공간이예요. 좋아하는 영화를 기준으로 자유롭게 파티에서 놀아봐요!
+          파티는 익명의 공간이예요.
+          <br>
+          좋아하는 영화 POT에서 자유롭게 놀아봐요!
           </div>
+          <input type="textarea" class="form-control" placeholder="파티에 참여해봐" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+      
         </div>
        
       </div>
+    </div>
+    
+    <div class="row">
+      <p>생성일 : {{ community.created_at }}</p>
     </div>
     <div class="row">
       <MovieComment />
@@ -62,9 +75,33 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-.container {
-  margin: 2rem auto;
+button {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Pretendard-Regular';
+  font-size: 20px;
+  border-radius: 10px;
 }
 
+h1 {
+  font-family: 'SOYOMapleBoldTTF';
+  margin: 10px;
+}
+
+.container {
+  margin: auto;
+  margin-top: 7rem;
+  font-family: 'Pretendard-Regular';
+}
+
+div {
+  font-size: 20px;
+}
+
+.comunity-info {
+  box-sizing: border-box;
+  font-family: 'Pretendard-Regular';
+  font-size: 30px;
+  padding:2rem 2rem ;
+}
 </style>

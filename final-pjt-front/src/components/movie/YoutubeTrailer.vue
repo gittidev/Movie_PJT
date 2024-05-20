@@ -71,20 +71,23 @@
   
   <style scoped>
 
+
   .trailer-title{
+    font-family: 'RixInooAriDuriR';
+    text-align: center;
     margin: 2rem 3rem;
     font-size: 2.5rem;
     border-radius: 1rem;
     padding: 1rem;
-    background-color: rgb(0, 255, 162);
+    background-color: rgb(246, 255, 0);
   }
   .modal-content {
     max-width: 820px;
   }
   
   .trailer-iframe {
-    width: 720px;
-    height: 450px;
+    width: 800px;
+    height: 500px;
     display: block;
     margin: 2rem auto;
   }

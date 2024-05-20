@@ -1,6 +1,8 @@
 <template>
   <div class="communityitem">
+    
     <div class="container card">
+
       <div class="row">
         <div class="col-5">
           <img :src="community.movie_poster" alt="...">
@@ -9,20 +11,16 @@
           <h1>{{ community.title }}</h1>
           <p>{{ community.movie_title }}</p>
           <p class="card-text">{{ community.content }}</p>
-          <!-- 사용자의 좋아요 영화 목록에 해당영화가 있을때 보임 -->
-          <button class='btn' @click="goPOT(community.id)">
-            POT에 참여하기
-          </button>
-
-          <div class="update">
-            <button class='btn' @click="goPOT(community.id)">
-              POT 수정하기
-            </button>
-          </div>
-      
-          <!-- <RouterLink :to="{ name: 'communitydetail', params: { communityId: community.id } }">
-        
-      </RouterLink> -->
+          <div style="display: flex; margin-block-end: 0;" >
+              <button class='btn' @click="goPOT(community.id)">
+                POT에 참여하기
+              </button>
+              <div class="update">
+                <button class='btn' @click="goPOT(community.id)">
+                  POT 수정하기
+                </button>
+              </div>
+              </div>
         </div>
       </div>
     </div>
@@ -55,7 +53,7 @@ img {
 }
 
 .communityitem{
-  margin-top: 2rem;
+  margin-top: rem;
 }
 .community-card {
   background-color: aliceblue;

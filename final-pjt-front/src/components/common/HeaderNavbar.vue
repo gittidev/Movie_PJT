@@ -95,22 +95,22 @@ const goProfile = function () {
 
 <style scoped>
 
-/*  눈누 폰트  */
-@font-face {
-    font-family: 'PyeongChangPeace-Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
+
 
 header{
-  z-index: 1;
-  position: relative;
+  z-index: 9;
   height: 5rem;
   background-color:rgb(0, 0, 0);
   backdrop-filter: blur(50px);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
+nav {
+  position: relative;
+  z-index: 10;
+}
 img {
   height: 4rem;
   margin: 0;
@@ -143,7 +143,7 @@ ul > li {
   margin: 0 1rem;
   bottom: 0;
   color : rgb(255, 255, 255);
-  font-family: 'PyeongChangPeace-Bold';
+  font-family: 'SOYOMapleBoldTTF';
   font-size: 20px;
 }
 

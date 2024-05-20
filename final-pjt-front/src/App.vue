@@ -1,8 +1,12 @@
 <template>
   <div class="app-body">
     <HeaderNavbar class="header"/>
+   
     <!-- 라우터 뷰 구성 -->
-    <RouterView/>
+    <div class="router-view">
+      <RouterView/>
+    </div>
+    
     <!-- logOut Modal -->
     <div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -62,11 +66,13 @@ const deleteUser =() =>{
 </script>
 
 <style>
-
 .app-body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
+.router-view {
+  margin-top: 70px;
+}
 /* 라이트 다크 테마 토글 */
 </style>

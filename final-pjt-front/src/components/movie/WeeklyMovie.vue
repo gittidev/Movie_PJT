@@ -40,7 +40,6 @@ const goDetail = function (movieId) {
 </script>
 
 
-
 <script>
 import { defineComponent } from 'vue'
 import { Carousel, Slide } from 'vue3-carousel'
@@ -65,21 +64,24 @@ export default defineComponent({
 })
 </script>
 
-<script setup>
-
-
-
-</script>
 
 <style scoped>
+
+h1 {
+    font-family: 'PyeongChangPeace-Bold';
+    font-size: 3rem;
+}
 
 .img-handler{
     width: 28rem;
     height: 40rem;
+    border-radius: 10px;
+    margin: 1rem
 }
 img{
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     object-fit:cover;
 }
 

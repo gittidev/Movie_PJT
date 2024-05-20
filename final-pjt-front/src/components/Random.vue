@@ -2,14 +2,14 @@
   <div >
     <div id='random' class='modal fade' ref="modalRef" aria-labelledby="random" tabindex = "-1" aria-hidden="true" >
       <div class="modal-dialog">
-        <div class="modal-content" style="background-color: #242424;">
+        <div class="random-content" style="background-color: #242424;">
           <div class="modal-header">
       
-            <button type="button" class="btn-close btn-secondary" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-secondary" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-
-          <div class="modal-body" style="text-align: center;">
-            오늘의 영화를 뽑아보세요!
+          <div class="random-body" style="text-align: center;">
+            <p>오늘의 영화를</p>
+            <p>뽑아보세요!</p>
             <div class="popcorn-img-bg">
               <img :src="popcornIconPath" alt="popcron그림" class="popcorn-img">
 
@@ -69,7 +69,11 @@ const fetchTrailer=()=>{
 
 <style scoped>
 
+.modal-handler {
+  
+}
 .popcorn-img-bg {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,11 +84,21 @@ const fetchTrailer=()=>{
   margin: 2rem;
 }
 
-.modal-body {
+.random-body {
+  font-family: 'RixInooAriDuriR';
   color: rgb(255, 255, 255);
+  font-size: 3rem;
+  
 }
 
-.modal-content > * {
+.random-content > * {
   border: none;
+}
+
+button {
+  font-family: 'LOTTERIACHAB';
+  font-size: 2rem;
+  border-radius: 3rem;
+  padding: 1rem;
 }
 </style>
