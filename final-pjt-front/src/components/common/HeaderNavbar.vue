@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
           <RouterLink :to="{name:'home'}"> 
-              <img src="@/assets/MarchMovie_Title.png" alt="MarshMovieLogo" class="logo"/> 
+              <img src="@/assets/MarshMovie_logo.png" alt="MarshMovieLogo" class="logo"/> 
           </RouterLink>
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
