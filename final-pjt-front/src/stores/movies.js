@@ -58,7 +58,7 @@ export const useMovieStore = defineStore("movie", () => {
       .catch((err) => console.log(err));
   };
 
-  // 이번주 영화 = 랭킹 순위로 추천// 불러온 이후 랜덤으로 배열 배치 = >[추가기능]
+  // 이번주 영화 = 랭킹 순위로 추천
   const getWeeklyMovies = function () {
     return axios({
       method: "get",
@@ -102,7 +102,7 @@ export const useMovieStore = defineStore("movie", () => {
       .catch((err) => console.log(err));
   };
 
-  //  장르별 영화는 DB를 기준으로 가져옴
+  //  장르별 영화는 자체DB를 기준으로 가져옴
   const getDatabaseMovie = function () {
     axios({
       method: "get",
@@ -139,7 +139,7 @@ export const useMovieStore = defineStore("movie", () => {
       strategies: [
         {
           key: 'user',
-          storage: sessionStorage,  // sessionStorage를 사용하여 로그인 상태를 저장// 창 끄거나 탭 종료시 로그아웃됨
+          storage: localStorage,  // sessionStorage를 사용하여 로그인 상태를 저장// 창 끄거나 탭 종료시 로그아웃됨
           paths: ['token']  // 'token' 상태를 지속성 있게 유지합니다.
         }
       ]

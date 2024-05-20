@@ -1,10 +1,10 @@
 <template>
     <div>
-        <Carousel id="thumbnails" :items-to-show="4.5" :wrap-around="true" v-model="currentSlide" ref="carousel"
-        :autoplay="0.1" :transition="10000">
+        <Carousel id="thumbnails" :items-to-show="3" :wrap-around="true" v-model="currentSlide" ref="carousel"
+        :autoplay="5" :transition="10000">
             <Slide v-for="movie in genreMovies" :key="movie.id">
-                <div class="carousel__item img-handler">
-                    <img class='first-img ' :src="getMoviePoster(movie)" alt="#">
+                <div class="carousel__item img-handler" >
+                    <img class='first-img ' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
                 </div>
             </Slide>
         </Carousel>
@@ -14,11 +14,12 @@
 <script setup>
 import { useMovieStore } from "@/stores/movies";
 import { ref, onMounted, watch, onUpdated } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute,useRouter } from "vue-router";
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
 const store = useMovieStore();
 const route = useRoute();
+const router = useRouter()
 
 const genreId = ref('12');
 const genreMovies = ref([]);
@@ -34,11 +35,13 @@ const fetchMovies = async (id) => {
       const genreIds = movie.genre_ids.map(String); // 모든 요소를 문자열로 변환
       return genreIds.includes(id);
     });
-    // console.log('Filtered movies:', genreMovies.value);
+    console.log('Filtered movies:', genreMovies.value);
   } else {
     console.log('No movies found');
   }
 };
+
+
 
 
 const getMoviePoster = movie => {
@@ -60,6 +63,15 @@ watch(() => route.params.genreId, (newGenreId) => {
   genreId.value = newGenreId;
   fetchMovies(newGenreId);
 });
+
+// 상세페이지 이동
+const goDetail = function (movieId) {
+    console.log('클릭')
+    router.push({ name: 'moviedetail', params: { movieId: movieId } });
+    // router.push({ name: 'login' });
+}
+
+
 
 
 </script>

@@ -90,31 +90,67 @@ const getMoviePoster = movie => {
 }
 
 
-const isLiked = ref(false);
+const isLiked = ref(null);
 const likesCount = ref(0);
 
+
+watch(isLiked, (newValue, oldValue) => {
+  if (newValue !== null) {
+    // console.log(isLiked.value)
+  }
+})
 // 영화 좋아요 기능//보낼때 정수로 변환해서 보내기
-const movieLikes = function (movieId) {
+// const movieLikes = function (movieId) {
+//     const movie_pk = parseInt(movieId, 10);
+//     const store = useUserStore();
+//     const token = store.token;
+//     axios({
+//         method: 'post',
+//         url: `${store.API_URL}/marshmovie/${movie_pk}/likes/`,
+//         headers: {
+//             Authorization: `Token ${token}` // 토큰을 헤더에 포함
+//         }
+//     })
+//         .then((response) => {
+//             console.log(response)
+//             isLiked.value = response.data.liked;
+//             likesCount.value = response.data.likes_count;
+//             console.log(isLiked.value)
+//             alert('좋아요 상태 변경 완료')
+//         })
+//         .catch(err => { alert('Error:', err.response ? err.response.data : err.message); })
+// }
+
+
+const temp = function (movieId) {
     const movie_pk = parseInt(movieId, 10);
     const store = useUserStore();
     const token = store.token;
-    axios({
-        method: 'post',
-        url: `${store.API_URL}/marshmovie/${movie_pk}/likes/`,
-        headers: {
-            Authorization: `Token ${token}` // 토큰을 헤더에 포함
-        }
-    })
-        .then((response) => {
-            console.log(response)
+
+    return axios({
+            method: 'post',
+            url: `${store.API_URL}/marshmovie/${movie_pk}/likes/`,
+            headers: {
+                Authorization: `Token ${token}` // 토큰을 헤더에 포함
+            }
+        }).then((response) =>{
+            console.log(response);
             isLiked.value = response.data.liked;
             likesCount.value = response.data.likes_count;
-            console.log(isLiked.value)
-            alert('좋아요 상태 변경 완료')
-        })
-        .catch(err => { alert('Error:', err.response ? err.response.data : err.message); })
+            console.log(isLiked.value);
+            alert('좋아요 상태 변경 완료');
+        }).catch ((err) => {
+        alert('Error:', err.response ? err.response.data : err.message);
+    });
 }
 
+const movieLikes = async function (movieId) {
+    const movie_pk = parseInt(movieId, 10);
+    const store = useUserStore();
+    const token = store.token;
+
+    await temp(movieId)
+};
 </script>
 <style scoped>
 .communitycreate{

@@ -50,7 +50,6 @@ const getMoviePoster = movie => {
 const goDetail = function (movieId) {
     console.log('클릭')
     router.push({ name: 'moviedetail', params: { movieId: movieId } });
-    // router.push({ name: 'login' });
 }
 
 </script>

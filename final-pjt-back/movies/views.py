@@ -17,6 +17,8 @@ from .models import Community, Movie
 from rest_framework.views import APIView
 from django.contrib.auth import get_user_model
 
+User = get_user_model()
+
 # 영화목록 가져오기/로그인 하지 않아도 가져올수 있음
 @api_view(['GET'])
 def movies_list(request):
@@ -80,6 +82,25 @@ def movie_likes(request, movie_id):
         movie.like_users.add(request.user)
         liked = True
     return Response({'liked': liked, 'likes_count': movie.like_users.count()}, status=status.HTTP_200_OK)
+
+
+## 좋아요한 영화 가져오기[Pot 생성용 필터링]
+@api_view(['GET'])
+def get_like_movies(request):
+    user = request.user
+    if not user.is_authenticated:
+        return Response({'error': 'Authentication required'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    my_like_movies = user.like_movies.all()
+    if my_like_movies.exists():
+        serializer = MovieListSerializer(my_like_movies, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'No movies found'}, status=status.HTTP_404_NOT_FOUND)
+
+##영화 Detail로 들어갈때 DB에 추가하는 기능
+
+
 
 ## 랜덤 영화 추천 기능
 @api_view(['GET'])
