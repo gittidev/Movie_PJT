@@ -43,6 +43,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import  { useCommunityStore } from '@/stores/community'
+import  { useUserStore } from '@/stores/users'
 import {useRouter} from 'vue-router'
 import axios from "axios";
 
@@ -51,13 +52,15 @@ const API_URL= 'http://127.0.0.1:8000'
 const store = useCommunityStore()
 const router = useRouter()
 
-console.log(store.token)
 const modalRef=ref(null)
 const likeMovies=ref([])
 const selectedMovie=ref('')
 
 const communitytitle= ref('')
 const communitycontent= ref('')
+
+const userStore = useUserStore()
+console.log(userStore.state.user.id)
 
 
 // 영화정보 가져오기
@@ -76,19 +79,32 @@ const getMymovie=function () {
   } 
 
 
+// console.log(selectedMovie)
+
 //커뮤니티 생성하기
 const createPOT = function () {
-  const movie_id= parseInt(selectedMovie.value,10)
+  const movie_id = parseInt(selectedMovie.value, 10);
+  // console.log(movie_id);
   const payload = {
-    title : communitytitle.value,
-    content : communitycontent.value,
-    movie : movie_id
-  }
-  console.log(payload)
+    title: communitytitle.value,
+    content: communitycontent.value,
+    movie: movie_id,
+    create_user: userStore.state.user.pk,
+  };
+  // console.log(payload);
   store.createCommunity(payload)
-  router.push({name:'communitydetail', params:{communityId:movie_id}})
-  // 생성 후 router.push 이용해서 상세 페이지로 이동하기 구현필요
-}
+    .then(newCommunity => {
+      const communityId = newCommunity.id;   // 생성 후 router.push 이용해서 상세 페이지로 이동하기
+      console.log(communityId);
+      router.push({ name: 'communitydetail', params: { communityId: communityId } });
+    })
+    .catch(err => {
+      console.error('Error creating community:', err);})
+};
+
+
+
+
 </script>
 
 

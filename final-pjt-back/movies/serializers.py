@@ -28,3 +28,11 @@ class CommunitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Community
         fields = '__all__'
+
+
+
+class CommunityCreateSerializer(serializers.ModelSerializer):
+    movie_title = serializers.CharField(source='movie.title', read_only=True)
+    class Meta:
+        model = Community
+        exclude = ['like_users']

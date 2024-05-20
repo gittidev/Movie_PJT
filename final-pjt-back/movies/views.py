@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import get_object_or_404, get_list_or_404
 
-from .serializers import CommunityListSerializer, CommunitySerializer, MovieListSerializer
+from .serializers import CommunityListSerializer, CommunitySerializer, CommunityCreateSerializer ,MovieListSerializer
 from .models import Community, Movie
 
 from rest_framework.views import APIView
@@ -27,20 +27,24 @@ def movies_list(request):
         serializer = MovieListSerializer(movies, many=True)
         return Response(serializer.data)
 
-# 커뮤니티 목록 가져오기/생성하기
-@api_view(['GET', 'POST'])
+# 커뮤니티 목록 가져오기
+@api_view(['GET'])
 def community_list(request):
     if request.method == 'GET':
         communities = Community.objects.all()
         serializer = CommunityListSerializer(communities, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
+# 커뮤니티 생성하기
+@api_view(['POST'])
+def create_community(request):
+    if request.method == 'POST':
+        serializer = CommunityCreateSerializer (data=request.data)
         if not request.user.is_authenticated:
             return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
-        serializer = CommunitySerializer(data=request.data)
+        
         if serializer.is_valid(raise_exception=True):
-            serializer.save(user=request.user)
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

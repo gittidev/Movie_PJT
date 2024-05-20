@@ -6,10 +6,12 @@ const API_URL = 'http://127.0.0.1:8000';
 
 
 
+
 export const useCommunityStore = defineStore('community', () => {
   const store = useUserStore()
   const token = store.token
   const communities = ref([])
+  const newCommunity = ref([])
   
   // 커뮤니티 정보 가져오기
   const getCommunities = function () {
@@ -26,25 +28,33 @@ export const useCommunityStore = defineStore('community', () => {
 
   // 커뮤니티 생성하기
   const createCommunity = function (payload) {
-    const { title, content, movie } = payload
-    axios({
+    const { title, content, movie, create_user } = payload;
+    return axios({
       method: 'post',
-      url: `${API_URL}/marshmovie/communities/`,
+      url: `${API_URL}/marshmovie/communities/create/`,
       headers: {
-        Authorization: `Token ${token}` // 토큰을 헤더에 포함
+        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        'Content-Type': 'application/json'
       },
       data: {
-        title, content, movie
+        title: title,
+        content: content,
+        movie: movie,
+        create_user: create_user
       }
     })
-      .then(res => {
-        console.log(res.data)
+      .then(response => {
+        newCommunity.value= response.data
+        return newCommunity.value
       })
-      .catch(err => console.err)
-  }
+      .catch(err => {
+        console.error(err.response.data); // 오류 메시지를 출력
+      });
+  };
+  
 
 
-  return { communities, token, getCommunities, createCommunity }
+  return { communities, token, newCommunity, getCommunities, createCommunity }
 }, {
   persist: {
     enabled: true,

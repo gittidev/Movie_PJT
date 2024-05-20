@@ -11,6 +11,7 @@
                     <div class="col-6">
                         <h2> {{ movieDetail.title }} </h2>
                         <p>{{ movieDetail.original_title }}</p>
+                        <p>{{ movieDetail.release_date }}</p>
                         <button class="btn"
                             style="padding: 0rem 1rem; margin: 0.5rem; background-color: #FF6363; height: 2rem;"
                             v-for="genre of movieDetail.genres" :key="genre.id">
@@ -65,7 +66,11 @@ const route = useRoute();
 const movieId = ref(0);
 const movieDetail = ref({})
 
+const isLiked = ref(null);
+const likesCount = ref(0);
+
 movieId.value = route.params.movieId;
+
 
 
 
@@ -80,6 +85,9 @@ onMounted(() => {
 });
 
 
+
+
+
 const getMoviePoster = movie => {
     if (movie.poster_path) {
         return imgBaseURL + movie.poster_path;
@@ -89,9 +97,8 @@ const getMoviePoster = movie => {
 
 }
 
+//DB에 추가로 저장하기
 
-const isLiked = ref(null);
-const likesCount = ref(0);
 
 
 watch(isLiked, (newValue, oldValue) => {
@@ -99,29 +106,6 @@ watch(isLiked, (newValue, oldValue) => {
     // console.log(isLiked.value)
   }
 })
-// 영화 좋아요 기능//보낼때 정수로 변환해서 보내기
-// const movieLikes = function (movieId) {
-//     const movie_pk = parseInt(movieId, 10);
-//     const store = useUserStore();
-//     const token = store.token;
-//     axios({
-//         method: 'post',
-//         url: `${store.API_URL}/marshmovie/${movie_pk}/likes/`,
-//         headers: {
-//             Authorization: `Token ${token}` // 토큰을 헤더에 포함
-//         }
-//     })
-//         .then((response) => {
-//             console.log(response)
-//             isLiked.value = response.data.liked;
-//             likesCount.value = response.data.likes_count;
-//             console.log(isLiked.value)
-//             alert('좋아요 상태 변경 완료')
-//         })
-//         .catch(err => { alert('Error:', err.response ? err.response.data : err.message); })
-// }
-
-
 const temp = function (movieId) {
     const movie_pk = parseInt(movieId, 10);
     const store = useUserStore();
@@ -152,6 +136,9 @@ const movieLikes = async function (movieId) {
     await temp(movieId)
 };
 </script>
+
+
+
 <style scoped>
 .communitycreate{
     width: 1rem;

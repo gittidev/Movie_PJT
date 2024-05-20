@@ -119,7 +119,8 @@ export const useMovieStore = defineStore("movie", () => {
       .catch((err) => console.log(err));
   };
 
-  
+
+
   return {
     TMDB_TOKEN,
     API_URL,
