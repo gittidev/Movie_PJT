@@ -60,7 +60,6 @@ const communitytitle= ref('')
 const communitycontent= ref('')
 
 const userStore = useUserStore()
-console.log(userStore.state.user.id)
 
 
 // 영화정보 가져오기

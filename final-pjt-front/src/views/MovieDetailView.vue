@@ -62,22 +62,44 @@ import YoutubeTrailer from "@/components/movie/YoutubeTrailer.vue";
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
 const store = useMovieStore();
+const userstore = useUserStore()
 const route = useRoute();
 const movieId = ref(0);
 const movieDetail = ref({})
-
-const isLiked = ref(null);
-const likesCount = ref(0);
-
+const token = userstore.token
+// console.log(token)
 movieId.value = route.params.movieId;
 
 
-
-
+//DB에 추가로 저장하기
 const fetchMovies = async (movieid) => {
     await store.getMovieDetail(movieid); // 데이터를 가져올 때까지 대기
     movieDetail.value = store.movieDetail
     console.log(movieDetail.value)
+    const genreIdsString = `[${movieDetail.value.genres.map(genre => genre.id).join(', ')}]`
+    axios({
+        method: 'post',
+        url: `${store.API_URL}/marshmovie/db_check/${movieid}/`,
+        headers: {
+            Authorization: `Token ${token}`
+        },
+        data: {
+            adult: movieDetail.value.adult,
+            movie_id: movieDetail.value.id,
+            title: movieDetail.value.title,
+            backdrop_path: movieDetail.value.backdrop_path,
+            genre_ids: genreIdsString,
+            overview: movieDetail.value.overview,
+            poster_path: movieDetail.value.poster_path,
+            release_date: movieDetail.value.release_date,
+            original_title: movieDetail.value.original_title,
+            vote_average: movieDetail.value.vote_average,
+        }
+    })
+        .then(res => {
+            console.log('DB 추가 완료!')
+        })
+        .catch(err => {console.log(err.response.data)})
 };
 
 onMounted(() => {
@@ -87,7 +109,7 @@ onMounted(() => {
 
 
 
-
+// 영화포스터 가져오기
 const getMoviePoster = movie => {
     if (movie.poster_path) {
         return imgBaseURL + movie.poster_path;
@@ -97,15 +119,16 @@ const getMoviePoster = movie => {
 
 }
 
-//DB에 추가로 저장하기
-
-
+// 좋아요 기능 반영하기
+const isLiked = ref(null);
+const likesCount = ref(0);
 
 watch(isLiked, (newValue, oldValue) => {
   if (newValue !== null) {
     // console.log(isLiked.value)
   }
 })
+
 const temp = function (movieId) {
     const movie_pk = parseInt(movieId, 10);
     const store = useUserStore();

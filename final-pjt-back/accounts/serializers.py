@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from django.contrib.auth import get_user_model
-# from .models import User
+from .models import User
 
 User = get_user_model()
 
@@ -10,6 +10,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
         class Meta:
             model = User
             fields = '__all__'
+
+
 class CustomRegisterSerializer(RegisterSerializer):
 # 필요한 필드들을 추가합니다.
         email = serializers.EmailField(required=False, allow_blank=True)
@@ -27,4 +29,3 @@ class CustomRegisterSerializer(RegisterSerializer):
                 'nickname': self.validated_data.get('nickname', ''),
             }
             
-
