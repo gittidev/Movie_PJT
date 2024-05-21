@@ -15,8 +15,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/js/bootstrap'
 
 
-
-
 // kakao login
 const kakaoKey = import.meta.env.VITE_APP_KAKAO_KEY;
 window.Kakao.init(kakaoKey);
@@ -31,5 +29,6 @@ app.use(pinia)
 
 // app.use(createPinia())
 app.use(router)
+
 
 app.mount('#app')

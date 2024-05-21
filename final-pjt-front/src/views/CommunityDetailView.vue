@@ -35,8 +35,9 @@
     <div class="row">
       <MovieComment />
     </div>
-
-    <CommunityUpdate style="z-index: 9999;"/>
+    
+    <!-- 커뮤니티 정보 업데이트 모달창   emit으로 상태를 전파 받아 수정이 완료되면 모달이 닫힌다--> 
+    <CommunityUpdate style="z-index: 9999; " :community = "community"/>
   </div>
   
 </template>
