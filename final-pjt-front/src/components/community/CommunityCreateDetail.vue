@@ -14,7 +14,7 @@
 
               <div class="d-grid col-12 mx-auto">
                 <label for="username">POT에 놀러와</label>
-                <input class="form-control mx-auto" type="textarea" v-model.trim="communitycontent" placeholder="생성할 POT에 대한 설명을 적어주세요"/>
+                <textarea class="form-control mx-auto" type="input" v-model.trim="communitycontent" placeholder="생성할 POT에 대한 설명을 적어주세요"/>
               </div>
 
               <div class="d-grid col-12 mx-auto">
@@ -82,7 +82,7 @@ const getMymovie = async function () {
 // console.log(selectedMovie)
 
 //커뮤니티 생성하기
-const createPOT = function () {
+const createPOT = async function () {
   const movie_id = parseInt(selectedMovie.value, 10);
   // console.log(movie_id);
   const payload = {
@@ -92,18 +92,16 @@ const createPOT = function () {
     create_user: userStore.state.user.pk,
   };
   // console.log(payload);
-  store.createCommunity(payload)
-    .then(newCommunity => {
-      const communityId = newCommunity.id;   // 생성 후 router.push 이용해서 상세 페이지로 이동하기
-      console.log(communityId);
-      router.push({ name: 'communitydetail', params: { communityId: communityId } });
-    })
-    .catch(err => {
-      console.error('Error creating community:', err);})
+  try {
+    const newCommunity =  await store.createCommunity(payload);
+    const communityId = newCommunity.id;
+    console.log(communityId);
+    router.push({ name: 'communitydetail', params: { communityId: communityId } });
+     // 생성 후 router.push 이용해서 상세 페이지로 이동하기
+  } catch (err) {
+    console.error('Error creating community:', err);
+  }
 };
-
-
-
 
 </script>
 
