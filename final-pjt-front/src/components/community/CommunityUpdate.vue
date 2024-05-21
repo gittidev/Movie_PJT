@@ -11,7 +11,7 @@
                         </div>
 
                         <div class="d-grid col-12 mx-auto mt-3">
-                            <textarea class="form-control mx-auto" type="textarea" v-model="updatecontent"
+                            <textarea cols="30" rows="10" class="form-control mx-auto" type="textarea" v-model="updatecontent"
                                 placeholder="수정할 POT에 대한 설명을 적어주세요"/>
                         </div>
 

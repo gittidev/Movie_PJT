@@ -132,7 +132,8 @@ export const useCommunityStore = defineStore('community', () => {
       method: 'get',
       url: `${API_URL}/marshmovie/communities/${communityId}/comments/`,
     })
-      .then(res => {
+    .then(res => {
+        // console.log(res.data)
         commentList.value = res.data
       })
       .catch(err => console.error(err))
@@ -156,7 +157,7 @@ export const useCommunityStore = defineStore('community', () => {
     })
       .then(response => {
         console.log(response)
-        // newComment.value= response.data
+        newComment.value= response.data
       })
       .catch(error => {
         console.error(error); // 오류 메시지를 출력
@@ -182,7 +183,7 @@ export const useCommunityStore = defineStore('community', () => {
       });
   };
 
-  return { communities, token, newCommunity, communityInfo,  loginUser, getCommunities, createCommunity, getCommunityInfo, updateCommunity, deleteCommunity, createComment, deleteComment }
+  return { communities, token, newCommunity, commentList ,communityInfo,  loginUser, getCommunities, createCommunity, getCommunityInfo, updateCommunity, deleteCommunity, getCommentList, createComment, deleteComment }
 }, {
   persist: {
     enabled: true,

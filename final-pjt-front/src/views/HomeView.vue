@@ -3,17 +3,16 @@
   <div class="main-body">
     <div class="container main-container" >
 
+
       <div class="row section1">
         <!-- row 1 (total : 12) -->
-            <div class="col-8 section1-txt">
-
-            <h2>맛있는 영화 Time</h2>
-            <h3>snack time movie</h3>
-            
-          </div>
-          <div class="col">
-            <img class='logo' src="@/assets/MarshMovie_logo.png" alt="메인이미지">
-          </div>
+        <div class="col-12">
+          <img class='logo' src="@/assets/MarshMovie_logo.png" alt="메인이미지">
+        </div>
+      </div>
+      <div class="row section1-sub">
+        <h2>맛있는 영화 Time</h2>
+        <h3>snack movie</h3>
       </div>
 
       <div class="row section2" style="background-color: #DEB6AB;">
@@ -22,11 +21,14 @@
         </div>
         <div class="col col-md-4 section2-txt">
           <div>
+            <p>
             환영합니다, 캠퍼 여러분!
-          </div>
-          <div>
+          </p>
+          <p>
             Marshmovie는 캠핑장의 따뜻한 분위기 속에서 영화를 사랑하는 사람들이 모여 서로의 이야기를 나누는 특별한 공간입니다. 
+          </p>
           </div>
+      
           <div>
             이곳에서는 매일 새로운 캠퍼들과 함께 영화에 대한
             열정을 공유하고, 숨겨진 보석 같은 영화들을 추천받을 수 있습니다. 
@@ -37,8 +39,19 @@
             불멍을 하며 나누는 한 편의 영화 이야기처럼, 이곳에서 여러분의
             영화 여행이 더욱 특별해집니다.
           </div>
-           
+          
         </div>
+        
+      </div>
+
+      <button class="btn btn-primary">포트럭 참여하기</button>
+
+<div style="height:5rem;">
+
+</div>
+      <div class="row section2-sub">
+        <h2>골라먹는</h2>
+        <h3>snack movie</h3>
       </div>
 
       <div class="row section3">
@@ -56,7 +69,6 @@
         </div>
     </div>
 
-   
   <div class="side">
       <random />
       <chatbot />
@@ -92,22 +104,32 @@ import FloatingItem from "@/components/FloatingItem.vue";
   margin-top: 130px;
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
   height: 720px;
   background: #ff0000ca;
   border-radius: 30px;
-  background-image: url("@/assets/popcorn-bomb.png");
-  background-size: 40rem 40rem; /* 또는 'contain' 사용 */
+  background-image: url("@/assets/floating_marsh.png");
+  background-size: 47rem 47rem; /* 또는 'contain' 사용 */
   background-position: center;
   background-repeat: no-repeat;
 
 }
 
-.section1-txt{
-  font-family: 'RixInooAriDuriR';
-  text-align: center;
+h2 {
   margin: auto;
-
+  font-family: 'RixInooAriDuriR';
+  font-size: var(--font-size-lg);
+  text-shadow: 0px 0 #000000, 1px 1px rgb(255, 255, 0), 4px 0 rgb(255, 255, 0), 0 0px rgb(0, 0, 0);
 }
+
+h3 {
+  margin: auto;
+  font-family: 'RixInooAriDuriR';
+  font-size: var(--font-size-md);
+  text-shadow: 0px 0 #000000, 1px 1px rgb(255, 255, 0), 4px 0 rgb(255, 255, 0), 0 0px rgb(0, 0, 0);
+}
+
 
 .section2 {
   margin-top: 40px;
@@ -131,8 +153,13 @@ import FloatingItem from "@/components/FloatingItem.vue";
 
 .camping {
   position: absolute;
-  top :130px;
+  top :110px;
   
+}
+
+button {
+  position: absolute;
+  top:30px;
 }
 .camping > img {
   width: 30rem;
@@ -153,7 +180,16 @@ div {
 
 .logo {
   margin: auto;
-  width: 10rem;
+  width: 40rem;
+}
+
+
+@media (max-width: 768px) {
+  .logo {
+    margin-top: 10px;
+    margin: auto;
+    max-width: 500px; /* 화면 너비가 768px 이하인 경우 이미지 최대 너비를 500px로 조정 */
+  }
 }
 
 .popcorn-handler {
