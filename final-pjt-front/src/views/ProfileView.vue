@@ -12,7 +12,7 @@
             
             <div class="col">
               <button v-if="loginUser.pk==profileUserId" class="btn btn-primary">회원정보 수정</button>
-              <button v-if="loginUser.pk==profileUserId" class="btn btn-primary">비밀번호 변경</button>
+              <RouterLink v-if="loginUser.pk==profileUserId" :to="{ name: 'passwordchange'}" class="btn btn-primary">비밀번호 변경</RouterLink>
             </div>
           </div>
         </div>
@@ -37,6 +37,7 @@ import { useRoute } from 'vue-router';
 import { useUserStore } from '@/stores/users'
 import { ref, onMounted } from "vue";
 import axios from 'axios'
+import { RouterLink } from 'vue-router'
 
 const store = useUserStore()
 const isAuthenticated=store.state.isAuthenticated
