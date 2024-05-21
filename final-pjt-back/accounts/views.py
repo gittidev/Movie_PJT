@@ -48,12 +48,10 @@ def get_profile_detail(request, user_pk):
         return Response({"error": "권한이 없습니다"}, status=401)
 
 # 유저 프로필 정보 수정
-# PUT = 전체 객체 전달하는 방식
-# PATCH = 일부 객체만 전달하여 수정하는 방식
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])
-def update_profile(request):
-    user = request.user
+def update_profile(request, user_pk):
+    user = User.objects.get(pk=user_pk)
     serializer = UserProfileSerializer(user, data=request.data, partial=True)
 
     if serializer.is_valid():

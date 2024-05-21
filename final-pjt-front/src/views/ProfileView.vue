@@ -11,7 +11,7 @@
             <p v-if="loginUser.pk==profileUserId"> E-MAIL : {{profileUser.email}}</p>
             
             <div class="col">
-              <button v-if="loginUser.pk==profileUserId" class="btn btn-primary">회원정보 수정</button>
+              <RouterLink v-if="loginUser.pk==profileUserId" :to="{ name: 'profileupdate', params: { userId: profileUserId } }" class="btn btn-primary">회원정보 수정</RouterLink>
               <RouterLink v-if="loginUser.pk==profileUserId" :to="{ name: 'passwordchange'}" class="btn btn-primary">비밀번호 변경</RouterLink>
             </div>
           </div>
