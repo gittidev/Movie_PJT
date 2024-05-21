@@ -6,8 +6,8 @@
         <h1>{{ community.title }}</h1>
       </div>
       <div class="col-4" style="text-align: right;">
-        <button class="btn btn-primary">수정하기</button>
-        <button class="btn btn-primary">삭제하기</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update">수정하기</button>
+        <button @click="potDelete(community.id)" class="btn btn-primary">삭제하기</button>
       </div>
     </div>
 
@@ -25,24 +25,20 @@
           <br>
           좋아하는 영화 POT에서 자유롭게 놀아봐요!
           </div>
-          <input type="textarea" class="form-control" placeholder="파티에 참여해봐" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+          <input v-model="comment" type="textarea" class="form-control" placeholder="파티에 참여해봐!" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="createComment">Button</button>
       
         </div>
        
       </div>
     </div>
-    
-    <div class="row">
-      <p>생성일 : {{ community.created_at }}</p>
-    </div>
     <div class="row">
       <MovieComment />
     </div>
 
-    
+    <CommunityUpdate style="z-index: 9999;"/>
   </div>
-
+  
 </template>
 
 <script setup>
@@ -52,26 +48,39 @@ import { useRoute } from "vue-router";
 import { useUserStore } from "@/stores/users";
 import { useCommunityStore } from '@/stores/community'
 import MovieComment from "@/components/community/MovieComment.vue";
+import CommunityUpdate from '@/components/community/CommunityUpdate.vue';
+
 
 const userStore = useUserStore();
 const communityStore = useCommunityStore()
 const route = useRoute();
-const community = ref(null);
+const community = communityStore.communityInfo
+const comment = ref('')
+const communityId = route.params.communityId
+
+
 
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
 onMounted(() => {
-  // const communityId = parseInt(communityStore.newCommunity.id, 10)
-  axios({
-    method: "get",
-    url: `${userStore.API_URL}/marshmovie/communities/${route.params.communityId}/`,
-  })
-    .then((res) => {
-      community.value = res.data;
-    })
-    .catch((err) => console.log(err));
+  communityStore.getCommunityInfo(communityId)
 });
 
 // 페이지 랜더링 되면서 DB 기준 영화 상세 정보도 가져옴
+//해당 영화정보로 이동하기 기능
+
+
+//POT 삭제하기
+const potDelete = function (communityId) {
+  // 정말 삭제하시겠습니까? 라고 물어보는거 추가하기
+  communityStore.deleteCommunity(communityId)
+}
+
+
+//댓글 생성하기
+const createComment =  function () {
+  
+}
+
 </script>
 
 <style scoped>

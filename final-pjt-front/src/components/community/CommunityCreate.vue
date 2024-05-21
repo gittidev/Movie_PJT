@@ -2,6 +2,7 @@
 
   <div style="margin-top: 3rem;">
     <div class="create-handler">
+      <!-- 로그인 되어있을때만 보임 -->
       <button class='create btn' v-if="store.token" data-bs-toggle="modal" data-bs-target="#pot" @click="checkLogin" >
         Pot 생성하기
       </button>
