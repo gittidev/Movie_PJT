@@ -9,11 +9,13 @@ const API_URL = 'http://127.0.0.1:8000';
 
 export const useCommunityStore = defineStore('community', () => {
   const store = useUserStore()
+  const loginUser = store.user
   const token = store.token
   const communities = ref([])
   const newCommunity = ref([])
-  
-  // 커뮤니티 정보 가져오기
+  const communityInfo = ref({})
+
+  // 커뮤니티 목록 정보 가져오기
   const getCommunities = function () {
     axios({
       method: 'get',
@@ -25,6 +27,18 @@ export const useCommunityStore = defineStore('community', () => {
       .catch(err => console.error(err))
   }
 
+  //단일 커뮤니티 정보 가져오기
+    const getCommunityInfo = function (communityId) {
+      axios({
+        method: 'get',
+        url: `${API_URL}/marshmovie/communities/${communityId}/`,
+      })
+        .then(response => {
+          communityInfo.value = response.data
+        })
+        .catch(error => console.error(error))
+    }
+  
 
   // 커뮤니티 생성하기
   const createCommunity = function (payload) {
@@ -47,6 +61,32 @@ export const useCommunityStore = defineStore('community', () => {
         newCommunity.value= response.data
         return newCommunity.value
       })
+      .catch(error => {
+        console.error(error.response.data); // 오류 메시지를 출력
+      });
+  };
+  
+
+  //커뮤니티 수정하기(로그인한 사용자가 생성자와 같을떄 component에서 체크)
+  const updateCommunity = function (payload, communityId) {
+    const { title, content , movie_title } = payload;
+    return axios({
+      method: 'put',
+      url: `${API_URL}/marshmovie/communities/${communityId}/`,
+      headers: {
+        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        'Content-Type': 'application/json'
+      },
+      data: {
+        title: title,
+        content: content,
+        movie_title: movie_title,
+      }
+    })
+      .then(response => {
+        communityInfo.value= response.data
+        return communityInfo.value
+      })
       .catch(err => {
         console.error(err.response.data); // 오류 메시지를 출력
       });
@@ -54,7 +94,28 @@ export const useCommunityStore = defineStore('community', () => {
   
 
 
-  return { communities, token, newCommunity, getCommunities, createCommunity }
+  //커뮤니티 삭제하기(로그인한 사용자가 생성자와 같을떄 component에서 체크)
+
+  const deleteCommunity = function (communityId) {
+    return axios({
+      method: 'delete',
+      url: `${API_URL}/marshmovie/communities/${communityId}/`,
+      headers: {
+        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        alert('삭제완료')
+      })
+      .catch(err => {
+        console.error(err.response.data); // 오류 메시지를 출력
+      });
+  };
+  
+
+
+  return { communities, token, newCommunity, communityInfo,  loginUser, getCommunities, createCommunity, getCommunityInfo, updateCommunity, deleteCommunity }
 }, {
   persist: {
     enabled: true,

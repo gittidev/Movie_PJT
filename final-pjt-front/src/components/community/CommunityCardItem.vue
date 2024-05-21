@@ -15,12 +15,7 @@
               <button class='btn' @click="goPOT(community.id)">
                 POT에 참여하기
               </button>
-              <div class="update">
-                <button class='btn' @click="goPOT(community.id)">
-                  POT 수정하기
-                </button>
-              </div>
-              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -33,8 +28,7 @@ import { useRouter } from "vue-router";
 
 const router=useRouter()
 
-
-
+//POT으로 이동하기
 const goPOT = (communityId) => {
   console.log('click')
   router.push({ name: 'communitydetail', params: { communityId: communityId } })

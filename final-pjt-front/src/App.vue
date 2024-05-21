@@ -38,6 +38,7 @@
     </div>
   </div>
   <CommunityCreateDetail />
+
 </template>
 
 <script setup>
@@ -68,7 +69,7 @@ const deleteUser =() =>{
 <style>
 .app-body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .router-view {
