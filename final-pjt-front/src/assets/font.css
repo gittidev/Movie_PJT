@@ -1,4 +1,12 @@
 /* 폰트 모음 */
+
+:root {
+    --font-size-lg: 5vw;
+    --font-size-md: 4vw;
+    --font-size-sm: 3vw;
+    
+}
+
 /*  눈누 폰트  */
 @font-face {
     font-family: 'PyeongChangPeace-Bold';

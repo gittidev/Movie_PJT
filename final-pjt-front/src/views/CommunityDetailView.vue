@@ -6,32 +6,41 @@
         <h1>{{ community.title }}</h1>
       </div>
       <div class="col-4" style="text-align: right;">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update">수정하기</button>
-        <button @click="potDelete(community.id)" class="btn btn-primary">삭제하기</button>
+        <button v-if="community.create_user == loginUser.pk"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update">수정하기</button>
+        <button v-if="community.create_user == loginUser.pk"  @click="potDelete(community.id)" class="btn btn-primary">삭제하기</button>
       </div>
     </div>
 
-   
+
     <div class="row">
-      <div class="col col-sm-8 comunity-info card" style="border:red 1px solid">
+      <div class="col col-sm-8 comunity-info card" style="border:red 1px solid; position: relative;">
         <p class="">POT : {{ community.title }}</p>
         <p>MOVIE : {{ community.movie_title }}</p>
         <p>POT 설명 : {{ community.content }}</p>
+        <div style="position: absolute; right: 1rem; bottom: 0.5rem;">
+          <img :src="marsh3" alt="좋아요" @click="like-community">
+          <img :src="marsh2" alt="싫어요" @click="dislike-community">
+        </div>
       </div>
       <div class="col col-sm-4">
         <div class="mb-3">
           <div>
-          파티는 익명의 공간이예요.
+          포트럭은 익명의 공간이예요.
           <br>
           좋아하는 영화 POT에서 자유롭게 놀아봐요!
           </div>
           <!-- 댓글 생성하기 -->
-          <textarea cols="30" rows="10" v-model="commentContent" type="input" class="form-control" placeholder="파티에 참여해봐! * 생성시 삭제만 가능해요! 자유로운 익명으로 소통하세요!" aria-label="Recipient's username" aria-describedby="button-addon2">
-          </textarea>
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="createComment">Button</button>
+
+          <form @submit.prevent="createComment">
+            <textarea cols="30" rows="10" v-model="commentContent" type="input" class="form-control" placeholder="파티에 참여해봐!&#13;&#10;* 생성시 삭제만 가능해요! 자유롭게 익명으로 소통하세요!" aria-label="Recipient's username" aria-describedby="button-addon2">
+            </textarea>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="createComment">pot</button>
       
+          </form>
+
+
+
         </div>
-       
       </div>
     </div>
     <div class="row">
@@ -51,6 +60,8 @@ import { useUserStore } from "@/stores/users";
 import { useCommunityStore } from '@/stores/community'
 import MovieComment from "@/components/community/MovieComment.vue";
 import CommunityUpdate from '@/components/community/CommunityUpdate.vue';
+import marsh2 from '@/assets/marsh2.png';
+import marsh3 from '@/assets/marsh3.png';
 
 
 const userStore = useUserStore();
@@ -62,14 +73,26 @@ const commentContent=ref('')
 
 const community = communityStore.communityInfo
 const communityId = parseInt(route.params.communityId,10)
+const loginUser = userStore.state.user
+
+console.log(loginUser.pk)
+console.log(community.create_user)
+
+//커뮤니티 좋아요
+const likeCommunity=function () {
+
+  
+}
+
+//커뮤니티 싫어요
+const dislikeCommunity = function () {
+  
+}
 
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
 onMounted(() => {
   communityStore.getCommunityInfo(communityId)
 });
-
-// 페이지 랜더링 되면서 DB 기준 영화 상세 정보도 가져옴
-//해당 영화정보로 이동하기 기능
 
 
 //POT 삭제하기
@@ -79,29 +102,25 @@ const potDelete = function (communityId) {
   router.push({name:'community'})
 }
 
-//댓글 전체 목록 불러오기
-// const getCommentList = function () {
-//   communityStore.getCommentList(communityId)
-// }
 
-// onMounted(()=>{
-//   getCommentList()
-// })
-
-
-
-
-//댓글 생성하기
-const createComment =  function() {
+// 댓글 생성하기
+const createComment = () => {
   const payload = {
     content: commentContent.value,
-    user :userStore.state.user.pk, 
+    user: userStore.state.user.pk,
   };
-  // console.log(payload.content)
-  // console.log(userStore.state.user.pk)
-  communityStore.createComment(payload,communityId)
-  commentContent.value=''
-}
+
+  communityStore.createComment(payload, communityId)
+    .then(() => {
+      commentContent.value = '';
+      alert('댓글생성완료')
+      communityStore.getCommentList(communityId);
+    })
+    .catch((error) => {
+      error.value = 'Failed to create comment';
+      console.error(error);
+    });
+};
 
 
 
@@ -136,5 +155,11 @@ div {
   font-family: 'Pretendard-Regular';
   font-size: 30px;
   padding:2rem 2rem ;
+}
+
+img {
+  width: 3rem;
+  border-radius: 1rem;
+  margin: 1rem;
 }
 </style>

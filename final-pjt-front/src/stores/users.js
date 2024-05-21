@@ -13,7 +13,7 @@ export const useUserStore = defineStore('user', () => {
   })
   const API_URL = 'http://127.0.0.1:8000'
   const router = useRouter() 
-  const token = ref(null)
+  const token = ref(localStorage.getItem('token') || null);
   
   //회원가입
   const signUp = function (payload) {
@@ -29,7 +29,6 @@ export const useUserStore = defineStore('user', () => {
       .then((response) => {
         router.push({ name: 'movie' })
         alert('회원가입이 완료되었습니다.')
-       
       })
       .catch(err => 
         { console.error('Error:', err.response ? err.response.data : err.message);})
@@ -67,7 +66,7 @@ export const useUserStore = defineStore('user', () => {
     })
       .then(res => {
         token.value = res.data.key
-        // console.log(res.data)
+        localStorage.setItem('token', token.value);
         state.isAuthenticated = true
         getUserInfo()
         router.push({ name: 'movie' })// 로그인 후 영화소개 화면으로 전환
@@ -79,6 +78,7 @@ export const useUserStore = defineStore('user', () => {
 
   // 사용자 정보 가져오기
   const getUserInfo = function () {
+    if (!token.value) return;
     axios({
       method: 'get',
       url: `${API_URL}/accounts/user/`, // 사용자 정보를 가져오는 API 엔드포인트
@@ -103,6 +103,7 @@ export const useUserStore = defineStore('user', () => {
     token.value = null; //토큰 초기화
     state.isAuthenticated = false //사용자 상태관리
     state.user = null
+    localStorage.removeItem('token');
     router.push({ name: 'login' }); // 로그아웃 후 로그인 화면으로 전환
 
   };
@@ -138,7 +139,7 @@ export const useUserStore = defineStore('user', () => {
   return {state, API_URL, token, signUp, deleteUser, logIn, logOut, changePassword };
 }, {
   persist: {
-    enabled: true,
+    // enabled: true,
     strategies: [
       {
         key: 'user',

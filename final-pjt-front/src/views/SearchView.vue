@@ -9,7 +9,7 @@
               v-model="searchQuery"
               class="search-input"
               v-on:keyup.enter="searchMovies"
-              placeholder="영화를 검색하세요"/>
+              placeholder="영화 제목을 검색하세요"/>
           </div>
           <button type="button" @click="searchMovies" class="btn">검색</button>
         </div>
@@ -17,8 +17,9 @@
     </div>
     <div class="search-section">
       <div style="display: flex; flex-wrap: wrap; justify-content: center">
-        <div v-if="movies.length === 0" style="color: white">
-          검색 결과가 없어요 ㅠ
+        <div v-if="movies.length === 0">
+          <h2>검색 결과가 없어요</h2>
+          <img src="@/assets/empty_popcorn_box2.png" alt="">
         </div>
 
         <!-- 결과가 있으면 이미지 보여주기 -->
@@ -94,8 +95,13 @@ const goDetail = function (movieId) {
 </script>
 
 <style scoped>
+
+input {
+  padding : 1rem;
+}
 .search-body {
   padding: 3rem;
+  font-family: 'Pretendard-Regular';
 }
 
 .search-section {
@@ -113,6 +119,7 @@ const goDetail = function (movieId) {
 }
 
 .search-input {
+  font-family: 'Pretendard-Regular';
   border-radius: 10px 0 0 10px;
   height: 4rem;
   width: 100%;
@@ -141,5 +148,9 @@ button {
 button:hover {
   background-color: rgb(0, 200, 160);
   transition: 500ms;
+}
+
+h2 {
+  font-family: 'Pretendard-Regular';
 }
 </style>
