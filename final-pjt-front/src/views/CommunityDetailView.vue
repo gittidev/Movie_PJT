@@ -27,7 +27,6 @@
           </div>
           <input type="textarea" class="form-control" placeholder="파티에 참여해봐" aria-label="Recipient's username" aria-describedby="button-addon2">
           <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-      
         </div>
        
       </div>

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Community, Movie
+from .models import Community, Movie, Comment
 
 
 # 영화 전체 정보 가져오기
@@ -35,10 +35,23 @@ class CommunityCreateSerializer(serializers.ModelSerializer):
     movie_title = serializers.CharField(source='movie.title', read_only=True)
     class Meta:
         model = Community
-        exclude = ['like_users']
+        exclude = ['like_users', 'dislike_users']
 
 # 영화 생성 기능[DB에 없는 추가 영화]
 class MovieCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         exclude = ['like_users',]
+
+# 생성된 댓글 전체 목록 가져오기
+class CommentListSerializer(serializers.ModelSerializer):
+    community_title = serializers.CharField(source='community.title', read_only=True)
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+# 댓글 생성기능
+class CommentCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        exclude = ['community', 'user']

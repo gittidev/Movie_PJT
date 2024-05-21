@@ -11,7 +11,6 @@
         <img :src="defaultProfile" alt="프로필이미지">
         <span>가져온 코멘트 포문 돌리기</span>
         <div>
-        <button class="btn btn-primary">수정하기</button>
         <button class="btn btn-primary">삭제하기</button>
         </div>
         <!-- 내가 작성한 것만 보이게 -->

@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from accounts.models import User
 
 # Create your models here.
 class Movie(models.Model):
@@ -23,12 +22,10 @@ class Community(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     create_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_communities')
-
+    dislike_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='dislike_communities')
 
 class Comment(models.Model):
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_comments')
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    like_dislike= models.BooleanField(default = True)
