@@ -7,10 +7,8 @@ from rest_framework import status
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 
-from django.shortcuts import get_object_or_404, get_list_or_404
 from accounts.serializers import CustomUserSerializer, UserProfileSerializer
 
-from rest_framework.views import APIView
 from django.contrib.auth import get_user_model
 
 #  추가로 필요한 기능, 회원정보 수정, 회원 비밀번호 변경
@@ -62,3 +60,23 @@ def update_profile(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# 비밀번호 변경
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def change_password(request):
+    user = request.user
+    new_password1 = request.data.get('new_password1')
+    new_password2 = request.data.get('new_password2')
+    old_password = request.data.get('old_password')
+
+    if not user.check_password(old_password):
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    if new_password1 != new_password2:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+    user.set_password(new_password1)
+    user.save()
+
+    return Response(status=status.HTTP_200_OK)
