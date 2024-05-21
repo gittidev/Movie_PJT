@@ -1,33 +1,38 @@
 <template>
   <div class="login">
-      <div class="card login-body" style="width: 25rem; height:30rem; padding: 1rem;">
-        <div class="card-body">
-            <form @submit.prevent="logIn">
-              <div class="d-grid gap-2 col-12 mx-auto">
-                <label for="username">username: </label>
-                <input class="form-control mx-auto" type="text" id="username" v-model.trim="username" />
-              </div>
-              <div class="d-grid gap-2 m-2 col-12 mx-auto">
-                <label for="password">password: </label>
-                <input  class="form-control"
-                  type="password"
-                  id="password"
-                  v-model.trim="password"
-                />
-              </div>
-
-              <div class="d-grid gap-2 m-3 col-12 mx-auto">
-              <input type="submit"  class="btn btn-primary" value="login" />
-              </div>
-              
-              <div class="d-grid gap-2 m-3 col-12 mx-auto">
-                <KakaoLogin />
-              </div>
-            </form>
+    <div class="card login-body" style="width: 25rem; height: 30rem; padding: 1rem">
+      <div class="card-body">
+        <form @submit.prevent="logIn">
+          <div class="d-grid gap-2 col-12 mx-auto">
+            <label for="username">username: </label>
+            <input
+              class="form-control mx-auto"
+              type="text"
+              id="username"
+              v-model.trim="username"
+            />
           </div>
-        </div>
-      </div>
+          <div class="d-grid gap-2 m-2 col-12 mx-auto">
+            <label for="password">password: </label>
+            <input
+              class="form-control"
+              type="password"
+              id="password"
+              v-model.trim="password"
+            />
+          </div>
 
+          <div class="d-grid gap-2 m-3 col-12 mx-auto">
+            <input type="submit" class="btn btn-primary" value="login" />
+          </div>
+
+          <div class="d-grid gap-2 m-3 col-12 mx-auto">
+            <KakaoLogin />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -64,5 +69,4 @@ const logIn = function () {
   height: 40rem;
   text-align: center;
 }
-
 </style>

@@ -2,6 +2,7 @@ import { ref,reactive } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
+import axiosInstance from '@/axiosInstance'
 
 
 
@@ -71,7 +72,9 @@ export const useUserStore = defineStore('user', () => {
         getUserInfo()
         router.push({ name: 'movie' })// 로그인 후 영화소개 화면으로 전환
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        alert('가입된 정보와 일치하지 않습니다.')
+      })
   }
 
   // 사용자 정보 가져오기
@@ -104,8 +107,35 @@ export const useUserStore = defineStore('user', () => {
 
   };
 
+  // 비밀번호 변경
+  const changePassword = function (payload) {
+    const newPassword1 = payload.newPassword1
+    const newPassword2 = payload.newPassword2
+    const oldPassword = payload.oldPassword
 
-  return {state, API_URL, token, signUp, deleteUser, logIn, logOut };
+    axiosInstance({
+      method: 'post',
+      url: `/accounts/password/change/`,
+      headers: {
+        Authorization: `Token ${token.value}`
+      },
+      data: {
+        new_password1: newPassword1,
+        new_password2: newPassword2,
+        old_password: oldPassword
+      }
+    })
+      .then(res => {
+        alert('비밀번호가 변경되었습니다.')
+        router.push({ name: 'home' })
+      })
+      .catch(err => {
+        alert('새 비밀번호와 확인 칸의 비밀번호가 일치하지 않거나, 새 비밀번호에 특수문자가 들어있지 않습니다.')
+      })
+  }
+
+
+  return {state, API_URL, token, signUp, deleteUser, logIn, logOut, changePassword };
 }, {
   persist: {
     enabled: true,
