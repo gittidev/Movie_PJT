@@ -25,7 +25,9 @@
           <br>
           좋아하는 영화 POT에서 자유롭게 놀아봐요!
           </div>
-          <input v-model="comment" type="textarea" class="form-control" placeholder="파티에 참여해봐!" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <!-- 댓글 생성하기 -->
+          <textarea cols="30" rows="10" v-model="commentContent" type="input" class="form-control" placeholder="파티에 참여해봐! * 생성시 삭제만 가능해요! 자유로운 익명으로 소통하세요!" aria-label="Recipient's username" aria-describedby="button-addon2">
+          </textarea>
           <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="createComment">Button</button>
       
         </div>
@@ -36,14 +38,13 @@
       <MovieComment />
     </div>
     
-    <!-- 커뮤니티 정보 업데이트 모달창   emit으로 상태를 전파 받아 수정이 완료되면 모달이 닫힌다--> 
+    <!-- 커뮤니티 정보 업데이트 모달창 --> 
     <CommunityUpdate style="z-index: 9999; " :community = "community"/>
   </div>
   
 </template>
 
 <script setup>
-import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useUserStore } from "@/stores/users";
@@ -55,11 +56,12 @@ import CommunityUpdate from '@/components/community/CommunityUpdate.vue';
 const userStore = useUserStore();
 const communityStore = useCommunityStore()
 const route = useRoute();
-const community = communityStore.communityInfo
-const comment = ref('')
-const communityId = route.params.communityId
 const router = useRouter()
 
+const commentContent=ref('')
+
+const community = communityStore.communityInfo
+const communityId = parseInt(route.params.communityId,10)
 
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
 onMounted(() => {
@@ -77,11 +79,31 @@ const potDelete = function (communityId) {
   router.push({name:'community'})
 }
 
+//댓글 전체 목록 불러오기
+// const getCommentList = function () {
+//   communityStore.getCommentList(communityId)
+// }
+
+// onMounted(()=>{
+//   getCommentList()
+// })
+
+
+
 
 //댓글 생성하기
-const createComment =  function () {
-  
+const createComment =  function() {
+  const payload = {
+    content: commentContent.value,
+    user :userStore.state.user.pk, 
+  };
+  // console.log(payload.content)
+  // console.log(userStore.state.user.pk)
+  communityStore.createComment(payload,communityId)
+  commentContent.value=''
 }
+
+
 
 </script>
 

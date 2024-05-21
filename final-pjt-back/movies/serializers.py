@@ -54,4 +54,4 @@ class CommentListSerializer(serializers.ModelSerializer):
 class CommentCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        exclude = ['community', 'user']
+        fields = '__all__'
