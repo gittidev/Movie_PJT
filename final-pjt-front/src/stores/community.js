@@ -107,9 +107,11 @@ export const useCommunityStore = defineStore('community', () => {
     })
       .then(response => {
         alert('삭제완료')
+        console.log(token)
       })
       .catch(err => {
-        console.error(err.response.data); // 오류 메시지를 출력
+        console.error('Error:', err.response ? err.response.data : err.message); // 오류 메시지를 상세히 출력
+        console.log(token);
       });
   };
   

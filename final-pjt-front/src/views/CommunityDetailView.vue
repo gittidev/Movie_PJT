@@ -59,6 +59,7 @@ const comment = ref('')
 const communityId = route.params.communityId
 const router = useRouter()
 
+// console.log(communityId)
 
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
 onMounted(() => {
@@ -71,9 +72,15 @@ onMounted(() => {
 
 //POT 삭제하기
 const potDelete = function (communityId) {
-  // 정말 삭제하시겠습니까? 라고 물어보는거 추가하기
-  communityStore.deleteCommunity(communityId)
-  router.push({name:'community'})
+  const result = confirm('정말 삭제하시겠습니까?')
+  
+  if (result) {
+    communityStore.deleteCommunity(communityId)
+    router.push({name:'community'})
+  } else {
+
+  }
+ 
 }
 
 
