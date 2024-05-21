@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/signup/', include('dj_rest_auth.registration.urls')),
     path('accounts/delete/', views.delete_user, name='account-delete'),
     path('accounts/profile/<int:user_pk>', views.get_profile_detail, name='profile'),
+    path('accounts/', include('accounts.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # 로그인 기능이 accounts/login인 것처럼 로그아웃 기능은 accounts/logout으로 url을 연결하면 된다고 함

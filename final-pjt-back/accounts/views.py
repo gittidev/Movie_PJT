@@ -8,7 +8,7 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import get_object_or_404, get_list_or_404
-from accounts.serializers import CustomUserSerializer
+from accounts.serializers import CustomUserSerializer, UserProfileSerializer
 
 from rest_framework.views import APIView
 from django.contrib.auth import get_user_model
@@ -48,3 +48,17 @@ def get_profile_detail(request, user_pk):
         return Response(serializer.data)
     else:
         return Response({"error": "권한이 없습니다"}, status=401)
+
+# 유저 프로필 정보 수정
+# PUT = 전체 객체 전달하는 방식
+# PATCH = 일부 객체만 전달하여 수정하는 방식
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def update_profile(request):
+    user = request.user
+    serializer = UserProfileSerializer(user, data=request.data, partial=True)
+
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

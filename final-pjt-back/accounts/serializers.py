@@ -28,4 +28,8 @@ class CustomRegisterSerializer(RegisterSerializer):
                 'email': self.validated_data.get('email', ''),
                 'nickname': self.validated_data.get('nickname', ''),
             }
-            
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'nickname', 'profile_image')
