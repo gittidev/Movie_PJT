@@ -10,4 +10,9 @@ urlpatterns = [
     path('<int:movie_id>/likes/', views.movie_likes),
     path('random_recommend/', views.random_recommend),
     path('db_check/<int:movie_id>/', views.db_check), #DB와 OPEN API 비교하여 영화 정보 저장하기
+    path('communities/<int:community_pk>/comments/', views.comment_list),
+    path('communities/<int:community_pk>/comments/create/', views.comment_create),
+    path('comments/<int:comment_pk>/delete/', views.comment_delete),
+    path('<int:community_pk>/likes/', views.community_likes),
+    path('<int:community_pk>/dislikes/', views.community_dislikes),
 ]

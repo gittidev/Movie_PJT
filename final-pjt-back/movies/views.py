@@ -10,8 +10,10 @@ from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import get_object_or_404, get_list_or_404
 
-from .serializers import CommunityListSerializer, CommunitySerializer, CommunityCreateSerializer, MovieListSerializer, MovieCreateSerializer
-from .models import Community, Movie
+from .serializers import CommunityListSerializer, CommunitySerializer, CommunityCreateSerializer
+from .serializers import MovieListSerializer, MovieCreateSerializer
+from .serializers import CommentListSerializer, CommentCreateSerializer
+from .models import Community, Movie, Comment
 
 from rest_framework.views import APIView
 from django.contrib.auth import get_user_model
@@ -30,25 +32,21 @@ def movies_list(request):
 # 커뮤니티 목록 가져오기
 @api_view(['GET'])
 def community_list(request):
-    if request.method == 'GET':
-        communities = Community.objects.all()
-        serializer = CommunityListSerializer(communities, many=True)
-        return Response(serializer.data)
+    communities = Community.objects.all()
+    serializer = CommunityListSerializer(communities, many=True)
+    return Response(serializer.data)
 
 
 # 커뮤니티 생성하기
 @api_view(['POST'])
 def create_community(request):
-    if request.method == 'POST':
-        serializer = CommunityCreateSerializer (data=request.data)
-        if not request.user.is_authenticated:
-            return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
-        
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    serializer = CommunityCreateSerializer (data=request.data)
+    if not request.user.is_authenticated:
+        return Response({'detail': '자격 증명 인증(Authentication credentials)이(가) 필요합니다.'}, status=status.HTTP_401_UNAUTHORIZED)
+    
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 # 커뮤니티 수정 삭제
@@ -130,3 +128,62 @@ def random_recommend(request):
         return Response(response_data)
     else:
         return Response({'error': 'No movies found'}, status=404)
+
+# 댓글 목록 불러오기
+@api_view(['GET'])
+def comment_list(request, community_pk):
+    comments = Comment.objects.filter(community_id=community_pk)
+    serializer = CommentListSerializer(comments, many=True)
+    return Response(serializer.data)
+
+# 댓글 생성
+@api_view(['POST'])
+def comment_create(request, community_pk):
+    if not request.user.is_authenticated:
+        return Response({'detail': '자격 증명 인증(Authentication credentials)이(가) 필요합니다.'}, status=status.HTTP_401_UNAUTHORIZED)
+    data = request.data.copy()
+    community = Community.objects.get(pk=community_pk)
+    data['community'] = community.id
+    serializer = CommentCreateSerializer (data=data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save(user=request.user)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+# 댓글 삭제
+@api_view(['DELETE'])
+def comment_delete(request, comment_pk):
+    comment = get_object_or_404(Comment, pk=comment_pk)
+    if not request.user.is_authenticated:
+        return Response({'detail': '자격 증명 인증(Authentication credentials)이(가) 필요합니다.'}, status=status.HTTP_401_UNAUTHORIZED)
+    comment.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+# 커뮤니티 좋아요 기능
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def community_likes(request, community_id):
+    community = Community.objects.get(id=community_id)
+    if request.user in community.dislike_users.all():
+        return Response({'detail': '싫어요 버튼을 누르셨으면, 좋아요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
+    if request.user in community.like_users.all():
+        community.like_users.remove(request.user)
+        liked = False
+    else:
+        community.like_users.add(request.user)
+        liked = True
+    return Response({'liked': liked, 'likes_count': community.like_users.count()}, status=status.HTTP_200_OK)
+
+# 커뮤니티 싫어요 기능
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def community_dislikes(request, community_id):
+    community = Community.objects.get(id=community_id)
+    if request.user in community.like_users.all():
+        return Response({'detail': '좋아요 버튼을 누르셨으면, 싫어요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
+    if request.user in community.dislike_users.all():
+        community.dislike_users.remove(request.user)
+        disliked = False
+    else:
+        community.dislike_users.add(request.user)
+        disliked = True
+    return Response({'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)

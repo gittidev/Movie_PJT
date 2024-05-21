@@ -44,7 +44,7 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useUserStore } from "@/stores/users";
 import { useCommunityStore } from '@/stores/community'
 import MovieComment from "@/components/community/MovieComment.vue";
@@ -57,7 +57,7 @@ const route = useRoute();
 const community = communityStore.communityInfo
 const comment = ref('')
 const communityId = route.params.communityId
-
+const router = useRouter()
 
 
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
@@ -73,6 +73,7 @@ onMounted(() => {
 const potDelete = function (communityId) {
   // 정말 삭제하시겠습니까? 라고 물어보는거 추가하기
   communityStore.deleteCommunity(communityId)
+  router.push({name:'community'})
 }
 
 
