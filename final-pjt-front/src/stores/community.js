@@ -9,11 +9,14 @@ const API_URL = 'http://127.0.0.1:8000';
 
 export const useCommunityStore = defineStore('community', () => {
   const store = useUserStore()
-  const loginUser = store.user
+  const loginUser = store.state.user
   const token = store.token
   const communities = ref([])
   const newCommunity = ref([])
   const communityInfo = ref({})
+  const commentList = ref([])
+  const newComment = ref('')
+
 
   // 커뮤니티 목록 정보 가져오기
   const getCommunities = function () {
@@ -109,13 +112,77 @@ export const useCommunityStore = defineStore('community', () => {
         alert('삭제완료')
       })
       .catch(err => {
-        console.error(err.response.data); // 오류 메시지를 출력
+        console.error(error.response.data); // 오류 메시지를 출력
       });
   };
   
 
 
-  return { communities, token, newCommunity, communityInfo,  loginUser, getCommunities, createCommunity, getCommunityInfo, updateCommunity, deleteCommunity }
+  //커뮤니티 좋아요 기능
+
+
+
+  //커뮤니티 싫어요 기능
+
+
+
+  //댓글 목록 불러오기
+  const getCommentList = function (communityId) {
+    axios({
+      method: 'get',
+      url: `${API_URL}/marshmovie/communities/${communityId}/comments/`,
+    })
+      .then(res => {
+        commentList.value = res.data
+      })
+      .catch(err => console.error(err))
+  }
+
+
+  //댓글 생성하기
+  const createComment = function (payload, communityId) {
+    const { content, user } = payload;
+    return axios({
+      method: 'post',
+      url: `${API_URL}/marshmovie/communities/${communityId}/comments/create/`,
+      headers: {
+        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        'Content-Type': 'application/json'
+      },
+      data: {
+        content: content ,
+        user :  user,
+      }
+    })
+      .then(response => {
+        console.log(response)
+        // newComment.value= response.data
+      })
+      .catch(error => {
+        console.error(error); // 오류 메시지를 출력
+      });
+  };
+  
+
+  //댓글 삭제하기
+  const deleteComment = function (commentId) {
+    return axios({
+      method: 'delete',
+      url: `${API_URL}/marshmovie/comments/${commentId}/delete`,
+      headers: {
+        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        alert('삭제완료')
+      })
+      .catch(err => {
+        console.error(err.response.data); // 오류 메시지를 출력
+      });
+  };
+
+  return { communities, token, newCommunity, communityInfo,  loginUser, getCommunities, createCommunity, getCommunityInfo, updateCommunity, deleteCommunity, createComment, deleteComment }
 }, {
   persist: {
     enabled: true,

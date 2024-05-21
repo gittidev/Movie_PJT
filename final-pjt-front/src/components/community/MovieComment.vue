@@ -35,8 +35,31 @@ import defaultProfile from '@/assets/profile.png';
 import marsh2 from '@/assets/marsh2.png';
 import marsh3 from '@/assets/marsh3.png';
 
+import { onMounted, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useUserStore } from "@/stores/users";
+import { useCommunityStore } from '@/stores/community'
+
+const userStore = useUserStore();
+const communityStore = useCommunityStore()
+const route = useRoute();
+const token = userStore.token
 
 
+const community = communityStore.communityInfo
+const communityId = route.params.communityId
+
+const comment = ref('')
+
+// 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
+onMounted(() => {
+  communityStore.getCommunityInfo(communityId)
+});
+
+//댓글 삭제하기
+const deleteComment =  function (commentId) {
+  communityStore.deleteComment(commentId)
+}
 </script>
 
 
