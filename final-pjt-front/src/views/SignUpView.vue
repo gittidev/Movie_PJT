@@ -8,11 +8,13 @@
             <input class="form-control mx-auto" type="text" id="username" v-model.trim="username" 
             placeholder="사용할 아이디를 입력하세요"/>
           </div>
+          
           <div class="d-grid gap-2 m-2 col-12 mx-auto">
             <label for="email">이메일</label>
             <input class="form-control" type="email" id="email" v-model.trim="email" 
             placeholder="사용할 이메일을 입력하세요(선택사항)"/>
           </div>
+
           <div class="d-grid gap-2 m-2 col-12 mx-auto">
             <label for="password1">비밀번호 </label>
             <input class="form-control" type="password" id="password1" v-model.trim="password1" 
@@ -25,18 +27,16 @@
             placeholder="비밀번호를 재입력해주세요"/>
           </div>
 
+          <div class="d-grid gap-2 m-3 col-12 mx-auto">
+            <input type="submit" class="btn btn-primary" value="회원가입" />
+          </div>
+        </form>
 
-
-      <div class="d-grid gap-2 m-3 col-12 mx-auto">
-        <input type="submit" class="btn btn-primary" value="회원가입" />
-      </div>
-      </form>
-
-      <div class="d-grid gap-2 m-3 col-12 mx-auto">
-        <KakaoLogin />
+        <div class="d-grid gap-2 m-3 col-12 mx-auto">
+          <KakaoLogin />
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
 </template>
