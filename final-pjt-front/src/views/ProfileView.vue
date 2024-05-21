@@ -1,16 +1,32 @@
 <template> <!-- 컴포넌트 재사용을 위하여, 프로필 유저의 id값은 useRoute로 사용 -->
-    <div>
-      <div>
-        <p>{{profileUser.nickname}} 프로필 페이지</p>
-        <p> 사용자 ID : {{profileUserId}}</p>
-        <p> 사용자 연락처 : {{profileUser.email}}</p>
+    <div class="profile-body">
+      <div class="profile-hander">
+        <div class="row">
+          <div class="col-4">
+            <img src="@/assets/profile.png" alt="기본이미지" style="width: 10rem;">
+          </div>
+          <div class="col">
+            <h1>{{profileUser.nickname}}님의 공간입니다</h1>
+            <p v-if="loginUser.pk==profileUserId"> ID : {{profileUserId}}</p>
+            <p v-if="loginUser.pk==profileUserId"> E-MAIL : {{profileUser.email}}</p>
+            
+            <div class="col">
+              <button v-if="loginUser.pk==profileUserId" class="btn btn-primary">회원정보 수정</button>
+              <button v-if="loginUser.pk==profileUserId" class="btn btn-primary">비밀번호 변경</button>
+            </div>
+          </div>
+        </div>
+        <div class="col list-handler">
+          <p>좋아요한 영화 목록</p>
+          <p>생성한 커뮤니티 목록</p>
+        </div>
+        
+      
       </div>
-        <button class="btn btn-primary">회원정보 수정</button>
-        <button class="btn btn-primary">비밀번호 변경</button>
+
 
       <div>
-        <p>좋아요한 영화 목록</p>
-        <p>생성한 커뮤니티 목록</p>
+
       </div>
 
     </div>
@@ -27,10 +43,13 @@ const isAuthenticated=store.state.isAuthenticated
 //로그인한 유저
 const loginUser=store.state.user
 
+
 // 현재 프로필의 유저 아이디
 const route = useRoute()
 const profileUserId = route.params.userId
 const profileUser = ref([])
+// console.log(loginUser.pk)
+// console.log(profileUserId)
 
 const getProfileUserInfo = function () {
   const API_URL=store.API_URL
@@ -61,5 +80,24 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.profile-body {
+  position: relative;
+}
+
+.profile-hander {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  margin-top: 2rem;
+}
+button {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.list-handler {
+  margin: 10px;
+}
 
 </style>
