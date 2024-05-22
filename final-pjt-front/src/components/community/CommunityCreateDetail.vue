@@ -101,9 +101,9 @@ const createPOT = async function () {
     // console.log(communityId);
     await router.push({ name: 'communitydetail', params: { communityId: newcommunityId } });
 
-    communitytitle= ''
-    communitycontent= ''
-    selectedMovie=''
+    communitytitle.value= ''
+    communitycontent.value= ''
+    selectedMovie.value=''
     // 생성 후 router.push 이용해서 상세 페이지로 이동하기
   } catch (err) {
     console.log('Error creating community:', err.data);
