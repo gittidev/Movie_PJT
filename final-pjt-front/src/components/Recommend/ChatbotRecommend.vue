@@ -7,14 +7,113 @@
                     {{ message.content }}
                 </div>
             </div>
-            <div id="user-input">
-                <input v-model="userInput" @keyup.enter="sendMessage" type="text" placeholder="메시지를 입력하세요..." />
-                <button @click="sendMessage">전송</button>
-            </div>
         </div>
         <div id="info-container">
             <h3>Movie Search Option</h3>
             <p>아래 항목들을 선택하면 그에 맞춰 영화를 추천해 드려요!</p>
+            <br>
+            <h3>장르(1개 이상)</h3>
+            <div id="checkbox-container">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="action" value="액션" v-model="selectedGenres">
+                    <label for="action">액션</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="adventure" value="모험" v-model="selectedGenres">
+                    <label for="adventure">모험</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="animation" value="애니메이션" v-model="selectedGenres">
+                    <label for="animation">애니메이션</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="comedy" value="코미디" v-model="selectedGenres">
+                    <label for="comedy">코미디</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="crime" value="범죄" v-model="selectedGenres">
+                    <label for="crime">범죄</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="documentary" value="다큐멘터리" v-model="selectedGenres">
+                    <label for="documentary">다큐멘터리</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="drama" value="드라마" v-model="selectedGenres">
+                    <label for="drama">드라마</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="family" value="가족" v-model="selectedGenres">
+                    <label for="family">가족</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="fantasy" value="판타지" v-model="selectedGenres">
+                    <label for="fantasy">판타지</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="history" value="역사" v-model="selectedGenres">
+                    <label for="history">역사</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="horror" value="공포" v-model="selectedGenres">
+                    <label for="horror">공포</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="music" value="음악" v-model="selectedGenres">
+                    <label for="music">음악</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="romance" value="로맨스" v-model="selectedGenres">
+                    <label for="romance">로맨스</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="SF" value="SF" v-model="selectedGenres">
+                    <label for="SF">SF</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="thriller" value="스릴러" v-model="selectedGenres">
+                    <label for="thriller">스릴러</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="war" value="전쟁" v-model="selectedGenres">
+                    <label for="war">전쟁</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="western" value="서부" v-model="selectedGenres">
+                    <label for="western">서부</label>
+                </div>
+            </div>
+            <br>
+            <h3>나이(선택)</h3>
+            <div id="age-container">
+                <label for="age">나이 :</label>
+                <input type="text" id="age" v-model="age">
+            </div>
+            <br>
+            <h3>성별(선택)</h3>
+            <div id="gender-container">
+                <div>
+                    남성 <input type="radio" name="gender" value="남성" v-model="selectedGender">
+                </div>
+                <div>
+                    여성 <input type="radio" name="gender" value="여성" v-model="selectedGender">
+                </div>
+            </div>
+            <br>
+            <h3>오늘의 기분(선택)</h3>
+            <div id="checkbox-container">
+                <div class="checkbox-group">
+                    나쁨 <input type="radio" name="mood" value="나쁨" v-model="selectedMood">
+                </div>
+                <div class="checkbox-group">
+                    보통 <input type="radio" name="mood" value="보통" v-model="selectedMood">
+                </div>
+                <div class="checkbox-group">
+                    좋음 <input type="radio" name="mood" value="좋음" v-model="selectedMood">
+                </div>
+            </div>
+            <br>
+            <button class="submitBtn btn btn-primary" @click="sendDataQuery">제출</button>
         </div>
     </div>
 </template>
@@ -27,8 +126,12 @@ export default {
         return {
             userInput: '',
             messages: [],
+            selectedGenres: [],
+            age: '',
+            selectedGender: '',
+            selectedMood: '',
             OPEN_API_URL: 'https://api.openai.com/v1/chat/completions',
-            API_KEY: 'sk-proj-2y5MeZ5AwEShg3zqkkbET3BlbkFJMURTlOkcUQlACUtQ8OdU',
+            API_KEY: import.meta.env.VITE_APP_OPEN_AI_KEY,
         };
     },
     methods: {
@@ -43,7 +146,7 @@ export default {
             };
 
             const data = {
-                model: 'gpt-4', // api_key의 접근권한이 아직 gpt-3까지라, gpt-4로 설정해도 버전은 3이 실행됨
+                model: 'gpt-4', // api_key의 접근권한이 버전 3이라, 실제로는 3이 실행됨
                 messages: [
                     { role: 'user', content: userMsg }
                 ]
@@ -56,18 +159,28 @@ export default {
                 data
             })
                 .then(res => {
-                    const responseMessage = res.data.choices[0].message.content;
-                    this.addChat('bot', responseMessage);
+                    if (res.data && res.data.choices && res.data.choices[0] && res.data.choices[0].message) {
+                        const responseMessage = res.data.choices[0].message.content;
+                        this.addChat('bot', responseMessage);
+                    } else {
+                        console.error('Unexpected response structure:', res.data);
+                    }
                 })
                 .catch(err => {
                     console.error('Error:', err);
                 });
         },
-        sendMessage() {
-            if (!this.userInput.trim()) return;
-            this.addChat('user', this.userInput.trim());
-            this.chatReceive(this.userInput.trim());
-            this.userInput = '';
+        sendDataQuery() {
+            const genres = this.selectedGenres.length > 0 ? this.selectedGenres.join(', ') : '장르를 선택하지 않음';
+            const mood = this.selectedMood ? this.selectedMood : '기분을 선택하지 않음';
+            const gender = this.selectedGender ? this.selectedGender : '성별을 선택하지 않음';
+            const age = this.age ? `${this.age}살` : '나이를 선택하지 않음';
+
+            const queryDetails = `선택한 장르: ${genres}, 오늘의 기분: ${mood}, 나이: ${age}, 성별: ${gender}. 영화 추천해줘!`;
+            const displayMessage = '선택한 조건에 부합하는 영화 찾아줘!';
+            
+            this.addChat('user', displayMessage);
+            this.chatReceive(queryDetails);
         },
         scrollToBottom() {
             this.$nextTick(() => {
@@ -95,6 +208,7 @@ body {
     height: 90vh;
     margin: 0;
     width: 100%;
+    padding: 30px;
 }
 
 #chat-container {
@@ -140,6 +254,27 @@ body {
     color: white;
     padding: 10px 15px;
     cursor: pointer;
+}
+
+#checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-group {
+    width: 33%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+#age-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#age-container label {
+    margin-right: 10px;
 }
 
 .message {
