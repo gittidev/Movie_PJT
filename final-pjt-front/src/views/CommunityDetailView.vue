@@ -1,6 +1,10 @@
 <template>
-  <div class="container" v-if="community">
-    
+  <div class="container">
+    <div v-if="isLoading">
+      <p>Loading...</p>
+    </div> 
+    <div v-else>
+      
     <div class="row">
       <div class="col-8">
         <h1>{{ community.title }}</h1>
@@ -38,8 +42,6 @@
       
           </form>
 
-
-
         </div>
       </div>
     </div>
@@ -51,10 +53,12 @@
     <CommunityUpdate style="z-index: 9999; " :community = "community"/>
   </div>
   
+    </div>
+
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useUserStore } from "@/stores/users";
 import { useCommunityStore } from '@/stores/community'
@@ -63,6 +67,7 @@ import CommunityUpdate from '@/components/community/CommunityUpdate.vue';
 import marsh2 from '@/assets/marsh2.png';
 import marsh3 from '@/assets/marsh3.png';
 
+const isLoading = ref(true);
 
 const userStore = useUserStore();
 const communityStore = useCommunityStore()
@@ -71,15 +76,19 @@ const router = useRouter()
 
 const commentContent=ref('')
 
-const community = communityStore.communityInfo
+const community = computed(() => {
+  return communityStore.communityInfo
+})
+
 const communityId = parseInt(route.params.communityId,10)
 const loginUser = userStore.state.user
-
-console.log(loginUser.pk)
-console.log(community.create_user)
+// console.log(communityId)
+// console.log(loginUser.pk)
+// console.log(community.create_user)
 
 //커뮤니티 좋아요
 const likeCommunity = function () {
+
   axios({
     method: 'post',
     url: `${userStore.API_URL}/marshmovie/communities/${communityId}/likes/`,
@@ -112,9 +121,27 @@ const dislikeCommunity = function () {
     })
 }
 
+
+
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
 onMounted(() => {
   communityStore.getCommunityInfo(communityId)
+  
+  
+
+    .then(response => {
+      community.value = response.data;
+      isLoading.value = false;
+    })
+    .catch(error => {
+      console.error('Error fetching community info:', error);
+    })
+    .finally(() => {
+      isLoading.value = false;
+
+    });
+
+  // communityStore.getCommunityInfo(communityId)
 });
 
 

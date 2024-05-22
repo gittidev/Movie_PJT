@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router'
 
 export const useMovieStore = defineStore("movie", () => {
   const userStore = useUserStore();
-  const TOKEN = userStore.token
+  const TOKEN = ref(userStore.token)
   const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
   const TMDB_URL = "https://api.themoviedb.org/3/movie";
   const API_URL= 'http://127.0.0.1:8000'
@@ -122,7 +122,7 @@ export const useMovieStore = defineStore("movie", () => {
       method: 'post',
       url: `${API_URL}/marshmovie/${movie_pk}/likes/`,
       headers: {
-          Authorization: `Token ${TOKEN}` // 토큰을 헤더에 포함
+          Authorization: `Token ${userStore.token}` // 토큰을 헤더에 포함
       },
     })
       .then((response) =>{
