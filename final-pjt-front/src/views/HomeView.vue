@@ -1,4 +1,6 @@
 <template>
+
+  <div>
   <!--서비스 소개 화면 -->
   <div class="main-body">
     <div class="container main-container" >
@@ -15,24 +17,22 @@
         <h3>snack movie</h3>
       </div>
 
-      <div class="row section2" style="background-color: #DEB6AB;">
-        <div class="col col-md-8 camping">
+      <div class="row section2 d-flex flex-wrap" style=" background-color: #DEB6AB;">
+        <div class="col-sm-12 col-md-8 camping">
           <img src="@/assets/camping.png" alt="캠핑이미지">
         </div>
-        <div class="col col-md-4 section2-txt">
-          <div>
-            <p>
+        <div class="col col-md-4 section2-txt d-sm-block" style="text-align: center; margin: auto;">
+          <p >
             환영합니다, 캠퍼 여러분!
           </p>
           <p>
             Marshmovie는 캠핑장의 따뜻한 분위기 속에서 영화를 사랑하는 사람들이 모여 서로의 이야기를 나누는 특별한 공간입니다. 
           </p>
-          </div>
+
       
           <div>
             이곳에서는 매일 새로운 캠퍼들과 함께 영화에 대한
             열정을 공유하고, 숨겨진 보석 같은 영화들을 추천받을 수 있습니다. 
-            Marshmovie에서 나만의 영화 모험을 시작해 보세요. 
           </div>
 
           <div>
@@ -46,7 +46,7 @@
 
       <button class="btn btn-primary">포트럭 참여하기</button>
 
-<div style="height:5rem;">
+<div style="height:5em;">
 
 </div>
       <div class="row section2-sub">
@@ -54,21 +54,21 @@
         <h3>snack movie</h3>
       </div>
 
-      <div class="row section3">
+      <div class="row section3" style="margin-bottom: 10em;">
           <div class="col-4">
-        아이콘
-        </div>
-        <div class="col-4">
-          아이콘
-        </div>
+              <img src="" alt="">
+          </div>
+          <div class="col-4">
+            <img src="" alt="">
+          </div>
 
-        <!-- row 3 (total : 12) -->
-        <div class="col-4">
-          아이콘
-        </div>
+          <!-- row 3 (total : 12) -->
+          <div class="col-4">
+            <img src="" alt="">
+          </div>
         </div>
     </div>
-
+    
   <div class="side">
       <random />
       <chatbot />
@@ -77,6 +77,8 @@
       </div>
     </div>
   </div>
+  </div>
+
 </template>
 
 <script setup>
@@ -84,8 +86,7 @@ import Popcorn from "@/components/Popcorn.vue";
 import ChatbotIcon from "@/components/ChatbotIcon.vue";
 import Random from "@/components/Random.vue";
 import Chatbot from "@/components/Chatbot.vue";
-import FloatingItem from "@/components/FloatingItem.vue";
-
+import { RouterLink, RouterView, useRouter } from "vue-router";
 
 </script>
 
@@ -116,6 +117,10 @@ import FloatingItem from "@/components/FloatingItem.vue";
 
 }
 
+.section1-sub {
+  margin : 4rem 0rem;
+}
+
 h2 {
   margin: auto;
   font-family: 'RixInooAriDuriR';
@@ -143,12 +148,12 @@ h3 {
 
 .section2-txt{
   position: absolute;
-  top :100px;
+  top :80px;
   right: 100px;
   font-family: 'KCC-Hanbit';
   text-align: center;
   margin: auto;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 
 .camping {
@@ -166,9 +171,9 @@ button {
 }
 
 .section3 {
-  margin-top: 40px;
+  margin: 40px 0px;
   width: 100%;
-  position: relative;
+  height: 360px;
   background: #b3ff00ca;
   border-radius: 30px;
 }

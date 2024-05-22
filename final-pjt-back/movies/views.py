@@ -173,28 +173,50 @@ def community_likes(request, community_id):
     community = Community.objects.get(id=community_id)
     if request.user in community.dislike_users.all():
         return Response({'detail': '싫어요 버튼을 누르셨으면, 좋아요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
-    if request.user in community.like_users.all():
-        community.like_users.remove(request.user)
-        liked = False
     else:
-        community.like_users.add(request.user)
-        liked = True
-    return Response({'liked': liked, 'likes_count': community.like_users.count()}, status=status.HTTP_200_OK)
+        if request.user in community.like_users.all():
+            community.like_users.remove(request.user)
+            liked = False
+        else:
+            community.like_users.add(request.user)
+            liked = True
+        return Response({'liked': liked, 'likes_count': community.like_users.count()}, status=status.HTTP_200_OK)
 
 # 커뮤니티 싫어요 기능
+# @api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+# def community_dislikes(request, community_id):
+#     community = Community.objects.get(id=community_id)
+#     if request.user not in community.like_users.all():
+#         return Response({'detail': '좋아요 버튼을 누르셨으면, 싫어요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
+#     else:
+#         if request.user in community.dislike_users.all():
+#             community.dislike_users.remove(request.user)
+#             disliked = False
+#         else:
+#             community.dislike_users.add(request.user)
+#             disliked = True
+#         return Response({'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def community_dislikes(request, community_id):
     community = Community.objects.get(id=community_id)
-    if request.user in community.like_users.all():
-        return Response({'detail': '좋아요 버튼을 누르셨으면, 싫어요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
-    if request.user in community.dislike_users.all():
-        community.dislike_users.remove(request.user)
-        disliked = False
+    if request.user not in community.like_users.all():
+        if request.user in community.dislike_users.all():
+            community.dislike_users.remove(request.user)
+            disliked = False
+        else:
+            community.dislike_users.add(request.user)
+            disliked = True
+        return Response({'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)
     else:
-        community.dislike_users.add(request.user)
-        disliked = True
-    return Response({'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)
+        return Response({'detail': '좋아요 버튼을 누르셨으면, 싫어요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
+
+
+        
+
+
 
 # db 사이즈를 전송
 @api_view(['GET'])
