@@ -11,6 +11,9 @@ from accounts.serializers import CustomUserSerializer, UserProfileSerializer
 
 from django.contrib.auth import get_user_model
 
+from movies.models import Movie, Community
+from movies.serializers import MovieListSerializer, CommunitySerializer
+
 #  추가로 필요한 기능, 회원정보 수정, 회원 비밀번호 변경
 
 
@@ -78,3 +81,19 @@ def change_password(request):
     user.save()
 
     return Response(status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_liked_movies(request):
+    user = request.user
+    liked_movies = user.like_movies.all()
+    serializer = MovieListSerializer(liked_movies, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_created_communities(request):
+    user = request.user
+    created_communities = Community.objects.filter(create_user=user)
+    serializer = CommunitySerializer(created_communities, many=True)
+    return Response(serializer.data)
