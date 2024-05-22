@@ -15,8 +15,8 @@ export const useMovieStore = defineStore("movie", () => {
   const weeklyMovies = ref([]);
   const Movies = ref([]);
   const genres = ref([]);
-  const movieLike =  ref(false)
   const movieLikeCount = ref(0)
+  const movieDetail = ref([])
 
   // 장르가져오기 앱 mounted 됐을때 가져옴
   const getGenres = function () {
@@ -77,13 +77,11 @@ export const useMovieStore = defineStore("movie", () => {
     })
       .then((res) => {
         weeklyMovies.value = res.data.results;
-        // console.log(weeklyMovies.value)
       })
       .catch((err) => console.log(err));
   };
 
   //TMDB 사용해서 상세정보 가져오기
-  const movieDetail = ref([])
   const getMovieDetail = function (movieId) {
     return axios({
       method: "get",
@@ -97,9 +95,7 @@ export const useMovieStore = defineStore("movie", () => {
       },
     })
       .then((res) => {
-        // console.log(res.data)
         movieDetail.value = res.data;
-        // console.log(moviedetail.value)
       })
       .catch((err) => console.log(err));
   };
@@ -116,11 +112,9 @@ export const useMovieStore = defineStore("movie", () => {
           genre.genre_ids = JSON.parse(genre.genre_ids).map(String);
         });
         Movies.value = res.data;
-        // console.log(Movies.value);
       })
       .catch((err) => console.log(err));
   };
-
 
   //영화 좋아요 기능
   const movieLikes =  function (movie_pk) {
@@ -130,24 +124,13 @@ export const useMovieStore = defineStore("movie", () => {
       headers: {
           Authorization: `Token ${TOKEN}` // 토큰을 헤더에 포함
       },
-      // data :{
-      //   user_id : request_user_id
-      // }
   }).then((response) =>{
       console.log(response.data.liked);
-      movieLike.value = response.data.liked;
-      movieLikeCount.value = response.data.likes_count;
-      console.log(movieLike.value);
-      console.log(movieLikeCount.value);
       alert('좋아요 상태 변경 완료');
   }).catch ((err) => {
   alert('Error:', err.response ? err.response.data : err.message);
 });
-
 }
-
-
-
   return {
     TMDB_TOKEN,
     API_URL,
@@ -162,7 +145,6 @@ export const useMovieStore = defineStore("movie", () => {
     getMovieDetail,
     movieDetail,
     movieLikes,
-    movieLike,
-    movieLikeCount,
+    movieLikeCount,    
   }}, { persist:true });
   

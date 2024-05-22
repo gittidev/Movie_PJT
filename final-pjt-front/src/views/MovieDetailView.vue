@@ -87,31 +87,15 @@ movieId.value = route.params.movieId;
 const isLiked = ref(false);
 const likesCount = ref(0);
 
+const dbmovie = ref([])
 
-
-// 윈도우의 로컬스토리지의 유저 정보를 json형식으로 파싱합니다.
-const user = JSON.parse(window.localStorage.getItem('user'));
-const requestUserId = user.state.user.pk
-console.log(typeof user.state.user.pk)
-
-
-// Update the token and user info from localStorage or store
-const updateUserInfo = () => {
-    if (user && user.state && user.state.user) {
-        token.value = userstore.token || user.token;
-        userstore.getUserInfo(user.state.user); // Make sure this method sets the user info in the store
-    } else {
-        token.value = null;
-        userstore.clearUserInfo(); // Make sure this method clears the user info in the store
-    }
-};
 
 
 //DB에 추가로 저장하기
 const fetchMovies = async (movieid) => {
     await store.getMovieDetail(movieid); // 데이터를 가져올 때까지 대기
     movieDetail.value = store.movieDetail
-    console.log(movieDetail.value)
+    // console.log(movieDetail.value)
     const genreIdsString = `[${movieDetail.value.genres.map(genre => genre.id).join(', ')}]`
     axios({
         method: 'post',
@@ -133,23 +117,38 @@ const fetchMovies = async (movieid) => {
         }
     })
         .then(res => {
-            console.log('DB 추가 완료!')
+            console.log('DB와 비교후 추가 완료되었음')
         })
         .catch(err => {console.log(err.response.data)})
 };
 
+
+//개별영화 정보 가져오기 //좋아요 정보 가져오기 위함
+const getDbMovieDetail = function (movie_id) {
+    return axios({
+      method: 'get',
+      url: `${userstore.API_URL}/marshmovie/movies/${movie_id}/`,
+      headers: {
+          Authorization: `Token ${userstore.token}` // 토큰을 헤더에 포함
+      },
+  }).then((response) =>{
+      dbmovie.value=response.data
+      console.log(dbmovie.value)
+  }).catch ((err) => {
+  alert('Error:', err.response ? err.response.data : err.message);
+});
+  }
+
+
 onMounted(() => {
-    updateUserInfo();
+
     fetchMovies(movieId.value);
   //마운트 시점에 최초로 좋아요 정보 가져옴
     userstore.getUserInfo()
-    isLiked.value = store.movieLike;
-    likesCount.value = store.movieLikeCount;
-    console.log('Initial isLiked:', isLiked.value);
-    console.log('Initial likesCount:', likesCount.value);
+    getDbMovieDetail(movieId.value)
+    // isLiked.value = store.movieLike;
+    likesCount.value = dbmovie.like_users.length;
 });
-
-
 
 
 // 영화포스터 가져오기
@@ -161,8 +160,6 @@ const getMoviePoster = movie => {
     }
 
 }
-
-
 
 // 좋아요 기능 반영하기
 const movieLikes = async function (movieId) {
@@ -177,6 +174,11 @@ watch(() => store.movieLike, newValue => {
 watch(() => store.movieLikeCount, newValue => {
     likesCount.value = newValue;
 });
+
+
+
+
+
 
 
 
