@@ -129,12 +129,16 @@ export const useMovieStore = defineStore("movie", () => {
       url: `${API_URL}/marshmovie/${movie_pk}/likes/`,
       headers: {
           Authorization: `Token ${TOKEN}` // 토큰을 헤더에 포함
-      }
+      },
+      // data :{
+      //   user_id : request_user_id
+      // }
   }).then((response) =>{
       console.log(response.data.liked);
       movieLike.value = response.data.liked;
-      // movieLikeCount.value = response.data.likes_count;
+      movieLikeCount.value = response.data.likes_count;
       console.log(movieLike.value);
+      console.log(movieLikeCount.value);
       alert('좋아요 상태 변경 완료');
   }).catch ((err) => {
   alert('Error:', err.response ? err.response.data : err.message);
@@ -159,17 +163,6 @@ export const useMovieStore = defineStore("movie", () => {
     movieDetail,
     movieLikes,
     movieLike,
-
-
-  }}, {
-    persist: {
-      enabled: true,
-      strategies: [
-        {
-          key: 'user',
-          storage: localStorage,  // sessionStorage를 사용하여 로그인 상태를 저장// 창 끄거나 탭 종료시 로그아웃됨
-          paths: ['token']  // 'token' 상태를 지속성 있게 유지합니다.
-        }
-      ]
-    }
-});
+    movieLikeCount,
+  }}, { persist:true });
+  

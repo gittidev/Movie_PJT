@@ -147,15 +147,4 @@ export const useUserStore = defineStore('user', () => {
   getUserInfo()
 
   return { state, API_URL, token, signUp, deleteUser, logIn, logOut, changePassword, getUserInfo };
-}, {
-  persist: {
-    // enabled: true,
-    strategies: [
-      {
-        key: 'user',
-        storage: localStorage,  // sessionStorage를 사용하여 로그인 상태를 저장// 창 끄거나 탭 종료시 로그아웃됨
-        paths: ['token']  // 'token' 상태를 지속성 있게 유지합니다.
-      }
-    ]
-  }
-});
+}, { persist:true });

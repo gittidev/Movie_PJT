@@ -42,7 +42,7 @@ const fetchMovies = async (id) => {
       const genreIds = movie.genre_ids.map(String); // 모든 요소를 문자열로 변환
       return genreIds.includes(id);
     });
-    console.log('Filtered movies:', genreMovies.value);
+    // console.log('Filtered movies:', genreMovies.value);
   } else {
     console.log('No movies found');
   }

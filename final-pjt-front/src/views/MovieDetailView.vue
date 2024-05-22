@@ -80,7 +80,7 @@ const userstore = useUserStore()
 const route = useRoute();
 const movieId = ref(0);
 const movieDetail = ref({})
-const token = userstore.token
+const token = ref(userstore.token)
 // console.log(token)
 movieId.value = route.params.movieId;
 
@@ -88,6 +88,23 @@ const isLiked = ref(false);
 const likesCount = ref(0);
 
 
+
+// 윈도우의 로컬스토리지의 유저 정보를 json형식으로 파싱합니다.
+const user = JSON.parse(window.localStorage.getItem('user'));
+const requestUserId = user.state.user.pk
+console.log(typeof user.state.user.pk)
+
+
+// Update the token and user info from localStorage or store
+const updateUserInfo = () => {
+    if (user && user.state && user.state.user) {
+        token.value = userstore.token || user.token;
+        userstore.getUserInfo(user.state.user); // Make sure this method sets the user info in the store
+    } else {
+        token.value = null;
+        userstore.clearUserInfo(); // Make sure this method clears the user info in the store
+    }
+};
 
 
 //DB에 추가로 저장하기
@@ -100,7 +117,7 @@ const fetchMovies = async (movieid) => {
         method: 'post',
         url: `${store.API_URL}/marshmovie/db_check/${movieid}/`,
         headers: {
-            Authorization: `Token ${token}`
+            Authorization: `Token ${token.value}`
         },
         data: {
             adult: movieDetail.value.adult,
@@ -122,8 +139,9 @@ const fetchMovies = async (movieid) => {
 };
 
 onMounted(() => {
+    updateUserInfo();
     fetchMovies(movieId.value);
-    //마운트 시점에 최초로 좋아요 정보 가져옴
+  //마운트 시점에 최초로 좋아요 정보 가져옴
     userstore.getUserInfo()
     isLiked.value = store.movieLike;
     likesCount.value = store.movieLikeCount;
@@ -144,8 +162,9 @@ const getMoviePoster = movie => {
 
 }
 
-// 좋아요 기능 반영하기
 
+
+// 좋아요 기능 반영하기
 const movieLikes = async function (movieId) {
     const movie_pk = parseInt(movieId, 10);
     await store.movieLikes(movie_pk)
@@ -158,9 +177,6 @@ watch(() => store.movieLike, newValue => {
 watch(() => store.movieLikeCount, newValue => {
     likesCount.value = newValue;
 });
-
-
-
 
 
 
