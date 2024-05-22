@@ -18,8 +18,8 @@
         <p>MOVIE : {{ community.movie_title }}</p>
         <p>POT 설명 : {{ community.content }}</p>
         <div style="position: absolute; right: 1rem; bottom: 0.5rem;">
-          <img :src="marsh3" alt="좋아요" @click="like-community">
-          <img :src="marsh2" alt="싫어요" @click="dislike-community">
+          <img :src="marsh3" alt="좋아요" @click="likeCommunity">
+          <img :src="marsh2" alt="싫어요" @click="dislikeCommunity">
         </div>
       </div>
       <div class="col col-sm-4">
@@ -79,14 +79,37 @@ console.log(loginUser.pk)
 console.log(community.create_user)
 
 //커뮤니티 좋아요
-const likeCommunity=function () {
-
-  
+const likeCommunity = function () {
+  axios({
+    method: 'post',
+    url: `${userStore.API_URL}/marshmovie/communities/${communityId}/likes/`,
+    headers: {
+      'Authorization': `Token ${userStore.token}`,
+    }
+  })
+    .then(res => {
+      alert('이 커뮤니티를 좋아합니다!')
+    })
+    .catch(err => {
+      alert('싫어요 버튼을 누르셨다면 좋아요 버튼이 눌리지 않습니다!(바꿔주세요)')
+    })
 }
 
 //커뮤니티 싫어요
 const dislikeCommunity = function () {
-  
+  axios({
+    method: 'post',
+    url: `${userStore.API_URL}/marshmovie/communities/${communityId}/dislikes/`,
+    headers: {
+      'Authorization': `Token ${userStore.token}`,
+    }
+  })
+    .then(res => {
+      alert('이 커뮤니티가 맘에 들지 않으셨군요 ㅠㅠ')
+    })
+    .catch(err => {
+      alert('좋아요 버튼을 누르셨다면 싫어요 버튼이 눌리지 않습니다!')
+    })
 }
 
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
