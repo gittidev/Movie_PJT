@@ -16,4 +16,5 @@ urlpatterns = [
     path('comments/<int:comment_pk>/delete/', views.comment_delete),
     path('communities/<int:community_pk>/likes/', views.community_likes),
     path('communities/<int:community_pk>/dislikes/', views.community_dislikes),
+    path('get_db_size/', views.get_db_size),
 ]

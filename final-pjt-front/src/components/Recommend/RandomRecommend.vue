@@ -14,13 +14,34 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useMovieStore } from '@/stores/movies'
 import popcornIcon from '@/assets/popcorn.gif';
+import axios from 'axios';
 
 const popcornIconPath = popcornIcon
-const modalRef=ref(null)
 
+const store = useMovieStore()
 
+const dbSize = ref(0)
+
+const fetchDbSize = function () {
+  axios({
+    method: 'get',
+    url: `${store.API_URL}/marshmovie/get_db_size/`
+  })
+    .then(response => {
+      dbSize.value = response.data.dbsize
+      console.log(dbSize.value)
+    })
+    .catch(error => {
+      console.error('There was an error fetching the DB size:', error)
+    })
+}
+
+onMounted(() => {
+  fetchDbSize()
+})
 </script>
 
 <style scoped>

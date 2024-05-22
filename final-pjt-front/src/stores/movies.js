@@ -124,13 +124,16 @@ export const useMovieStore = defineStore("movie", () => {
       headers: {
           Authorization: `Token ${TOKEN}` // 토큰을 헤더에 포함
       },
-  }).then((response) =>{
-      console.log(response.data.liked);
-      alert('좋아요 상태 변경 완료');
-  }).catch ((err) => {
-  alert('Error:', err.response ? err.response.data : err.message);
-});
-}
+    })
+      .then((response) =>{
+        console.log(response.data.liked);
+        alert('좋아요 상태 변경 완료');
+      })
+      .catch ((err) => {
+        alert('Error:', err.response ? err.response.data : err.message);
+      })
+  }
+  
   return {
     TMDB_TOKEN,
     API_URL,
