@@ -73,8 +73,8 @@ h1 {
 }
 
 .img-handler{
-    width: 28rem;
-    height: 40rem;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
     margin: 1rem
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main-body">
         <h1>오늘의 영화</h1>
 
         <div class='carousel-handler'>
@@ -16,7 +16,7 @@
                     </Slide>
                 </Carousel>
             </div>
-            <div>
+            <div class="caruosel-handler2">
                 <Carousel id="thumbnails" :items-to-show="7" :wrap-around="true" v-model="currentSlide" ref="carousel"
                     :autoplay="2500" :transition="4500">
                     <Slide v-for="todayMovie in store.todayMovies" :key="todayMovie.id">
@@ -26,6 +26,7 @@
                     </Slide>
                 </Carousel>
             </div>
+
         </div>
     </div>
 </template>
@@ -92,7 +93,10 @@ h1 {
     border-radius: 10px;
 }
 
-
+.main-body {
+    box-sizing: border-box;
+    padding :10px;
+}
 
 .carousel-handler {
     align-items: center;
@@ -100,9 +104,12 @@ h1 {
     border-radius: 10px;
 }
 
+.carousel-handler {
+    padding-bottom : 2rem;
+}
 .slideImg {
-    width: 20rem; 
-    height: 28rem;
+    width: 18rem; 
+    height: 24rem;
     border-radius: 10px;
 }
 

@@ -26,6 +26,7 @@ export const useCommunityStore = defineStore('community', () => {
     })
       .then(res => {
         communities.value = res.data
+        console.log(communities.value)
       })
       .catch(err => console.error(err))
   }
@@ -117,15 +118,6 @@ export const useCommunityStore = defineStore('community', () => {
   };
   
 
-
-  //커뮤니티 좋아요 기능
-
-
-
-  //커뮤니티 싫어요 기능
-
-
-
   //댓글 목록 불러오기
   const getCommentList = function (communityId) {
     axios({
@@ -185,15 +177,4 @@ export const useCommunityStore = defineStore('community', () => {
 
   return { communities, token, newCommunity, commentList ,communityInfo,  loginUser, getCommunities, createCommunity, getCommunityInfo, updateCommunity, deleteCommunity, getCommentList, createComment, deleteComment }
 }, { persist: true })
-//   persist: {
-//     enabled: true,
-//     strategies: [
-//       {
-//         key: 'user',
-//         storage: localStorage,  // sessionStorage를 사용하여 로그인 상태를 저장// 창 끄거나 탭 종료시 로그아웃됨
-//         paths: ['token']  // 'token' 상태를 지속성 있게 유지합니다.
-//       }
-//     ]
-//   }
-// });
 

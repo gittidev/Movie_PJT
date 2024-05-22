@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div v-if="isLoading">
-            Loading...
+        <div v-if="isLoading" style="display: flex; align-items: center; justify-content: center;">
+            <img src="@/assets/empty_popcorn_box2.png" alt="" style="width: 50%; display: block;">
+            <h2 style="font-family: 'LOTTERIACHAB';  display: block;">로딩 중...</h2>
         </div>
         <div v-else>
             <div class="card">
@@ -43,6 +44,10 @@
                         <!-- row 3 (total : 12) -->
                         <div class="col-12">
                             커뮤니티 목록 
+                            <div v-for="community of communities">
+                                제목 : {{community.title}}
+                                내용 : {{community.content}}
+                            </div>
                         </div>
 
                         <!-- row 유튜브링크 -->
@@ -62,20 +67,25 @@ import { useMovieStore } from "@/stores/movies";
 import { useUserStore } from "@/stores/users";
 import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
+import { useCommunityStore } from "@/stores/community";
 import CommunityCreate from "@/components/community/CommunityCreate.vue";
 import emptyPopcornBox from '@/assets/empty_popcorn_box2.png';
 
-const isLoading=ref(true)
 
+
+const isLoading=ref(true)
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
 const store = useMovieStore();
 const userstore = useUserStore();
+const communitystore = useCommunityStore();
 const route = useRoute();
 const movieId = ref(0);
 const movieDetail = ref({});
 const token = ref(userstore.token);
-movieId.value = route.params.movieId;
+const communities = ref([])
+
+
 
 //프론트 페이지 구현을 위한 변수
 const isLiked = ref(false);
@@ -87,6 +97,8 @@ const movieLikeUsers = ref([]);
 
 //현재 로컬스토리지에 저장된 로그인된 사용자 데이터
 const loginUserPK=userstore.state.user.pk
+
+movieId.value = route.params.movieId;
 
 //DB에 추가로 저장하기
 const fetchMovies = async (movieid) => {
@@ -145,9 +157,24 @@ const getDbMovieDetail = async function (movie_id) {
         isLoading.value = false;
     } catch (err) {
         console.error('Error:', err.response ? err.response.data : err.message);
-        alert('Error:', err.response ? err.response.data : err.message);
+
     }
 }
+//영화별 커뮤니티 가져오기
+const fetchCommunities = async function() {
+    try {
+        await communitystore.getCommunities();
+        communities.value = communitystore.communities.filter(community => community.movie === dbmovie.value.id);
+        // console.log(communities.value)
+    } catch (err) {
+        console.error('Error fetching communities:', err.response ? err.response.data : err.message);
+    }
+}
+
+
+
+
+
 
 onMounted(async () => {
     try {
@@ -155,11 +182,18 @@ onMounted(async () => {
         // 마운트 시점에 최초로 좋아요 정보 가져옴
         await userstore.getUserInfo();
         await getDbMovieDetail(movieId.value);
+        await fetchCommunities();
     } catch (err) {
         console.error('Error during onMounted:', err.response ? err.response.data : err.message);
         alert('페이지 로딩 중 오류가 발생했습니다.');
     }
 });
+
+communities.value = communitystore.communities.filter(function(community) {
+    return community.movie === movieId;
+});
+
+console.log(communities.value)
 
 // 영화포스터 가져오기
 const getMoviePoster = movie => {
@@ -196,6 +230,17 @@ watch(() => liked, newValue => {
 watch(isLiked, (newVal, oldVal) => {
     console.log(`isLiked changed from ${oldVal} to ${newVal}`);
 });
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <style scoped>

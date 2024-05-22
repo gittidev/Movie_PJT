@@ -2,7 +2,7 @@
 
   <div>
     <div class="popcorn-box">
-      <div class='popcorn' @click="openModal" data-bs-toggle="modal" data-bs-target="#random">
+      <div class='popcorn'>
       <img :src="popcornIconPath" alt="popcron그림">
     </div>
     </div>

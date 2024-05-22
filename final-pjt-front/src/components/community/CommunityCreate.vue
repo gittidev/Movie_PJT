@@ -45,8 +45,8 @@ const checkLogin=function () {
 
 .create {
   box-sizing: border-box;
-  width: 15rem;
-  height: 5rem;
+  width: 9em;
+  height: 4em;
   color: rgb(0, 0, 0);
   background-color: rgb(255, 0, 0);
   font-size: 1.5rem;

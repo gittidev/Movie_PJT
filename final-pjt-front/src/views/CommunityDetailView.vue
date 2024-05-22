@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-    <div v-if="isLoading">
-      <p>Loading...</p>
-    </div> 
+    <div v-if="isLoading" style="display: flex; align-items: center; justify-content: center;">
+            <img src="@/assets/empty_popcorn_box2.png" alt="" style="width: 50%; display: block;">
+            <h2 style="font-family: 'LOTTERIACHAB';  display: block;">로딩 중...</h2>
+    </div>
     <div v-else>
       
     <div class="row">
@@ -12,6 +13,8 @@
       <div class="col-4" style="text-align: right;">
         <button v-if="community.create_user == loginUser.pk"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update">수정하기</button>
         <button v-if="community.create_user == loginUser.pk"  @click="potDelete(community.id)" class="btn btn-primary">삭제하기</button>
+        
+      
       </div>
     </div>
 
@@ -21,9 +24,10 @@
         <p class="">POT : {{ community.title }}</p>
         <p>MOVIE : {{ community.movie_title }}</p>
         <p>POT 설명 : {{ community.content }}</p>
+        <!-- 커뮤니티 좋아요 싫어요 기능 -->
         <div style="position: absolute; right: 1rem; bottom: 0.5rem;">
-          <img :src="marsh3" alt="좋아요" @click="likeCommunity">
-          <img :src="marsh2" alt="싫어요" @click="dislikeCommunity">
+          <img :src="marsh3" alt="좋아요" @click="likeCommunity(communityId)">
+          <img :src="marsh2" alt="싫어요" @click="dislikeCommunity(communityId)">
         </div>
       </div>
       <div class="col col-sm-4">
@@ -38,7 +42,7 @@
           <form @submit.prevent="createComment">
             <textarea cols="30" rows="10" v-model="commentContent" type="input" class="form-control" placeholder="파티에 참여해봐!&#13;&#10;* 생성시 삭제만 가능해요! 자유롭게 익명으로 소통하세요!" aria-label="Recipient's username" aria-describedby="button-addon2">
             </textarea>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="createComment">pot</button>
+            <button class="btn btn-outline-secondary pot-button" type="button" id="button-addon2" @click="createComment">pot</button>
       
           </form>
 
@@ -58,6 +62,7 @@
 </template>
 
 <script setup>
+import axios from 'axios';
 import { onMounted, ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useUserStore } from "@/stores/users";
@@ -82,13 +87,10 @@ const community = computed(() => {
 
 const communityId = parseInt(route.params.communityId,10)
 const loginUser = userStore.state.user
-// console.log(communityId)
-// console.log(loginUser.pk)
-// console.log(community.create_user)
+
 
 //커뮤니티 좋아요
-const likeCommunity = function () {
-
+const likeCommunity = function (communityId) {
   axios({
     method: 'post',
     url: `${userStore.API_URL}/marshmovie/communities/${communityId}/likes/`,
@@ -105,7 +107,7 @@ const likeCommunity = function () {
 }
 
 //커뮤니티 싫어요
-const dislikeCommunity = function () {
+const dislikeCommunity = function (communityId) {
   axios({
     method: 'post',
     url: `${userStore.API_URL}/marshmovie/communities/${communityId}/dislikes/`,
@@ -126,28 +128,16 @@ const dislikeCommunity = function () {
 // 페이지 랜더링 되면서 커뮤니티 정보를 가져옴
 onMounted(() => {
   communityStore.getCommunityInfo(communityId)
-  
-  
+  console.log(community.value)
+  isLoading.value = false;
 
-    .then(response => {
-      community.value = response.data;
-      isLoading.value = false;
-    })
-    .catch(error => {
-      console.error('Error fetching community info:', error);
-    })
-    .finally(() => {
-      isLoading.value = false;
 
-    });
-
-  // communityStore.getCommunityInfo(communityId)
 });
 
 
 //POT 삭제하기
 const potDelete = function (communityId) {
-  // 정말 삭제하시겠습니까? 라고 물어보는거 추가하기
+  
   communityStore.deleteCommunity(communityId)
   router.push({name:'community'})
 }
@@ -178,11 +168,12 @@ const createComment = () => {
 
 <style scoped>
 button {
-  margin: 1rem;
-  padding: 0.5rem 1rem;
+  margin: 0.5em;
+  padding: 0.5em 1rem;
   font-family: 'Pretendard-Regular';
   font-size: 20px;
   border-radius: 10px;
+  width: 7em;
 }
 
 h1 {
@@ -211,5 +202,9 @@ img {
   width: 3rem;
   border-radius: 1rem;
   margin: 1rem;
+}
+
+.pot-button {
+  width: 8rem;
 }
 </style>

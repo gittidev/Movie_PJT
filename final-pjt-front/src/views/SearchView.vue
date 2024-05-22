@@ -141,8 +141,10 @@ img {
 button {
   border-radius: 0px 10px 10px 0px;
   background-color: rgb(255, 77, 77);
-  width: 4rem;
+  width: 8em;
   height: 4rem;
+  font-family: 'Pretendard-Regular';
+  font-size: large;
 }
 
 button:hover {
