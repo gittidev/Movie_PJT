@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div id="app-container">
         <div id="chat-container">
-            <div id="chat-messages">
+            <div id="chat-messages" ref="chatMessages">
                 <div v-for="(message, index) in messages" :key="index" class="message"
                     :class="message.type + '-message'">
                     {{ message.content }}
@@ -11,6 +11,10 @@
                 <input v-model="userInput" @keyup.enter="sendMessage" type="text" placeholder="메시지를 입력하세요..." />
                 <button @click="sendMessage">전송</button>
             </div>
+        </div>
+        <div id="info-container">
+            <h3>Movie Search Option</h3>
+            <p>아래 항목들을 선택하면 그에 맞춰 영화를 추천해 드려요!</p>
         </div>
     </div>
 </template>
@@ -38,16 +42,18 @@ export default {
                 'Content-Type': 'application/json'
             };
 
-            const messages = [
-                { role: 'user', content: userMsg },
-                { role: 'system', content: this.messages[this.messages.length - 1]?.content || '' }
-            ];
+            const data = {
+                model: 'gpt-4', // api_key의 접근권한이 아직 gpt-3까지라, gpt-4로 설정해도 버전은 3이 실행됨
+                messages: [
+                    { role: 'user', content: userMsg }
+                ]
+            };
 
             axios({
                 method: 'post',
                 url: this.OPEN_API_URL,
                 headers,
-                data: { model: 'gpt-3.5-turbo', messages }
+                data
             })
                 .then(res => {
                     const responseMessage = res.data.choices[0].message.content;
@@ -82,26 +88,31 @@ body {
     margin: 0;
 }
 
-.message {
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 5px;
-    background-color: #e6e6e6;
-    align-self: flex-end;
-}
-
-.bot-message {
-    background-color: #f0f0f0;
-    align-self: flex-start;
+#app-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 90vh;
+    margin: 0;
+    width: 100%;
 }
 
 #chat-container {
-    width: 800px;
-    height: 600px;
+    width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
-    margin-top: 50px;
+}
+
+#info-container {
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #f9f9f9;
+    overflow-y: auto;
 }
 
 #chat-messages {
@@ -129,5 +140,27 @@ body {
     color: white;
     padding: 10px 15px;
     cursor: pointer;
+}
+
+.message {
+    border-top: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 5px;
+    background-color: #e6e6e6;
+    align-self: flex-end;
+    max-width: 60%; /* 최대 너비 */
+    min-width: auto; /* 최소 너비 */
+    border-radius: 25px;
+    word-wrap: break-word; /* 단어가 너무 길 경우 줄 바꿈 */
+}
+
+.bot-message {
+    background-color: #faea8f;
+    padding: 15px;
+    align-self: flex-start;
+    max-width: 60%;
+    min-width: auto;
+    border-radius: 25px;
+    word-wrap: break-word;
 }
 </style>
