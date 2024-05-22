@@ -196,7 +196,15 @@ def community_dislikes(request, community_id):
         disliked = True
     return Response({'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)
 
+# db 사이즈를 전송
 @api_view(['GET'])
 def get_db_size(request):
     dbsize = Movie.objects.count()
     return Response({'dbsize': dbsize})
+
+# 랜덤한 넘버를 pk로 가진 movie의 movie_id 전송
+@api_view(['GET'])
+def movie_id_info(request, random_number):
+    movie = Movie.objects.get(pk=random_number)
+    data = {'value': movie.movie_id}
+    return Response(data, status=status.HTTP_200_OK)

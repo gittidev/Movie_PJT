@@ -17,4 +17,5 @@ urlpatterns = [
     path('communities/<int:community_pk>/likes/', views.community_likes),
     path('communities/<int:community_pk>/dislikes/', views.community_dislikes),
     path('get_db_size/', views.get_db_size),
+    path('movie-id-info/<int:random_number>/', views.movie_id_info),
 ]
