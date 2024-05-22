@@ -33,7 +33,7 @@ export const useUserStore = defineStore('user', () => {
         state.isAuthenticated = true;
       })
       .catch(err => {
-        console.error(err);
+        console.log('사용자 정보를 가져오기 위해 로그인이 필요합니다');
         state.isAuthenticated = false;
         state.user = null;
       });

@@ -19,7 +19,7 @@
 
               <div class="d-grid col-12 mx-auto">
                 <!-- 선택한 항목 기본 선택 상태 방지 위해, required 속성 -->
-                <select required class="d-grid gap-2 col-12 mx-auto form-control" aria-labelledby="navbarDropdown" v-model="selectedMovie" @click="getMymovie">  
+                <select required class="d-grid gap-2 col-12 mx-auto form-control" aria-labelledby="navbarDropdown" v-model="selectedMovie">
                 <option value="" disabled selected>POT을 생성할 영화를 선택하세요</option> 
                 <option v-for="movie in likeMovies" :key="movie.id" :value="movie.id">{{ movie.title }}</option>
                 <!-- 영화의 제목이 아니라, id값을 넘겨 주어야 한다.(DB의 id값) -->
@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import  { useCommunityStore } from '@/stores/community'
 import  { useUserStore } from '@/stores/users'
 import {useRouter} from 'vue-router'
@@ -62,7 +62,6 @@ const communitycontent= ref('')
 
 const userStore = useUserStore()
 
-
 // 영화정보 가져오기
 const getMymovie = async function () {
     try {
@@ -76,44 +75,46 @@ const getMymovie = async function () {
         likeMovies.value = response.data;
         console.log(likeMovies.value);
     } catch (err) {
-        console.log(error)}}
+        console.log(err)}
+}
 
+// 모달이 열릴 때 호출
+const openModal = () => {
+    getMymovie();
+};
 
-// console.log(selectedMovie)
+// watch를 이용해 modalRef 변경 감지
+watch(modalRef, (newValue) => {
+    if (newValue) {
+        newValue.addEventListener('shown.bs.modal', openModal);
+    }
+});
 
-//커뮤니티 생성하기
+// 커뮤니티 생성하기
 const createPOT = async function () {
   const movie_id = parseInt(selectedMovie.value, 10);
-  // console.log(userStore.state.user.pk)
-  // console.log(movie_id);
   const payload = {
     title: communitytitle.value,
     content: communitycontent.value,
     movie: movie_id,
     create_user: userStore.state.user.pk,
   };
-  // console.log(payload);
   try {
     const newCommunity =  await store.createCommunity(payload);
     const newcommunityId = newCommunity.id;
-    console.log(newcommunityId)
+    console.log(newcommunityId);
   
-    // console.log(communityId);
     await router.push({ name: 'communitydetail', params: { communityId: newcommunityId } });
 
-    communitytitle= ''
-    communitycontent= ''
-    selectedMovie=''
-    // 생성 후 router.push 이용해서 상세 페이지로 이동하기
+    communitytitle.value= null
+    communitycontent.value= null
+    selectedMovie.value=null
   } catch (err) {
-    console.log('Error creating community:', err.data);
-    const movie_id = parseInt(selectedMovie.value, 10);
+    console.log('Error creating community:', err);
   }
 };
 
 </script>
-
-
 
 <style scoped>
 

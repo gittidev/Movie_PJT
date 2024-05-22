@@ -1,62 +1,59 @@
 <template>
     <div>
         <div v-if="isLoading">
-            isLoading...
+            Loading...
         </div>
         <div v-else>
-
-        
-        <div class="card">
-
-            <div class="container" style="margin: auto; margin-top: 4rem;">
-                <div class="row">
-                    <!-- row 1 (total : 12) -->
-                    <div class="col-6">
-                        <img :src="getMoviePoster(movieDetail)" alt="#" style="width: 100%;">
-                    </div>
-                    <div class="col-6">
-                        <h1> {{ movieDetail.title }} </h1>
-                        <div class="row">
-                            <div class="col-6">
-                                <p>{{ movieDetail.original_title }}</p>
-                                <p>{{ movieDetail.release_date }}</p>
-                                <p>평점 : {{ movieDetail.vote_average }}</p>
-                                <button class="btn"
-                                    style="padding: 0rem 1rem; margin: 0.5rem; background-color: #FF6363; height: 2rem;"
-                                    v-for="genre of movieDetail.genres" :key="genre.id">
-                                    {{ genre.name }}
-                                </button>
+            <div class="card">
+                <div class="container" style="margin: auto; margin-top: 4rem;">
+                    <div class="row">
+                        <!-- row 1 (total : 12) -->
+                        <div class="col-6">
+                            <img :src="getMoviePoster(movieDetail)" alt="#" style="width: 100%;">
+                        </div>
+                        <div class="col-6">
+                            <h1> {{ movieDetail.title }} </h1>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>{{ movieDetail.original_title }}</p>
+                                    <p>{{ movieDetail.release_date }}</p>
+                                    <p>평점 : {{ movieDetail.vote_average }}</p>
+                                    <button class="btn"
+                                        style="padding: 0rem 1rem; margin: 0.5rem; background-color: #FF6363; height: 2rem;"
+                                        v-for="genre of movieDetail.genres" :key="genre.id">
+                                        {{ genre.name }}
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <!-- 좋아요 눌렀을때 pot 보이게 생성 -->
+                                    <CommunityCreate v-if='isLiked' class="communitycreate" />
+                                </div>
                             </div>
-                            <div class="col">
-                                <!-- 좋아요 눌렀을때 pot 보이게 생성 -->
-                                <CommunityCreate v-if='isLiked' class="communitycreate" />
+                            <p>
+                                {{ movieDetail.overview }}
+                            </p>
+                            <div class="row">
+                                <div class="col-5"> 좋아요 수: {{ likesCount }}</div>
+                                <div class="col">
+                                    <button class="btn btn-warning" @click="toggleMovieLike">{{ isLiked ? '좋아요 취소' : '좋아요' }}</button>
+                                </div>
                             </div>
                         </div>
-                        <p>
-                            {{ movieDetail.overview }}
-                        </p>
-                        <div class="row">
-                            <div class="col-5"> 좋아요 수: {{ likesCount }}</div>
-                            <div class="col">
-                                <button class="btn btn-warning" @click="toggleMovieLike">{{ isLiked ? '좋아요 취소' : '좋아요' }}</button>
-                            </div>
+
+                        <!-- row 3 (total : 12) -->
+                        <div class="col-12">
+                            커뮤니티 목록 
                         </div>
-                    </div>
 
-                    <!-- row 3 (total : 12) -->
-                    <div class="col-12">
-                       커뮤니티 목록 
-                    </div>
-
-                    <!-- row 유튜브링크 -->
-                    <div class="col-12">
-                        <!-- <YoutubeTrailer :movie="movieDetail" /> -->
+                        <!-- row 유튜브링크 -->
+                        <div class="col-12">
+                            <!-- <YoutubeTrailer :movie="movieDetail" /> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script setup>
@@ -89,45 +86,44 @@ const dbmovie = ref([]);
 const movieLikeUsers = ref([]);
 
 //현재 로컬스토리지에 저장된 로그인된 사용자 데이터
-const loginUserPk = JSON.parse(window.localStorage.getItem('user')).state.user.pk;
+const loginUserPK=userstore.state.user.pk
 
 //DB에 추가로 저장하기
 const fetchMovies = async (movieid) => {
-    await store.getMovieDetail(movieid);
-    movieDetail.value = store.movieDetail;
-    const genreIdsString = `[${movieDetail.value.genres.map(genre => genre.id).join(', ')}]`;
-    axios({
-        method: 'post',
-        url: `${store.API_URL}/marshmovie/db_check/${movieid}/`,
-        headers: {
-            Authorization: `Token ${token.value}`
-        },
-        data: {
-            adult: movieDetail.value.adult,
-            movie_id: movieDetail.value.id,
-            title: movieDetail.value.title,
-            backdrop_path: movieDetail.value.backdrop_path,
-            genre_ids: genreIdsString,
-            overview: movieDetail.value.overview,
-            poster_path: movieDetail.value.poster_path,
-            release_date: movieDetail.value.release_date,
-            original_title: movieDetail.value.original_title,
-            vote_average: movieDetail.value.vote_average,
-        }
-    })
-    .then(res => {
-        isLoading.value=true
-        console.lod('db추가완료')
-    })
-    .catch(err => {
-        isLoading.value=false
-        console.log(err.response.data);
-    });
+    try {
+        await store.getMovieDetail(movieid);
+        movieDetail.value = store.movieDetail;
+        const genreIdsString = `[${movieDetail.value.genres.map(genre => genre.id).join(', ')}]`;
+        await axios({
+            method: 'post',
+            url: `${store.API_URL}/marshmovie/db_check/${movieid}/`,
+            headers: {
+                Authorization: `Token ${token.value}`
+            },
+            data: {
+                adult: movieDetail.value.adult,
+                movie_id: movieDetail.value.id,
+                title: movieDetail.value.title,
+                backdrop_path: movieDetail.value.backdrop_path,
+                genre_ids: genreIdsString,
+                overview: movieDetail.value.overview,
+                poster_path: movieDetail.value.poster_path,
+                release_date: movieDetail.value.release_date,
+                original_title: movieDetail.value.original_title,
+                vote_average: movieDetail.value.vote_average,
+            }
+        });
+        isLoading.value = false;
+        console.log('db추가완료');
+    } catch (err) {
+        console.error('Error:', err.response ? err.response.data : err.message);
+        alert('새로운 영화 정보 저장을 위해 로그인 필요하거나, 이미 DB에 저장된 정보입니다.');
+    }
 };
 
-//영화 좋아요 목록에 현재 유저가 있는지 반환
+// 영화 좋아요 목록에 현재 유저가 있는지 반환
 const liked = function () {
-    if (movieLikeUsers.value.some(user => user === loginUserPk)) {
+    if (movieLikeUsers.value.some(user => user === loginUserPK)) {
         isLiked.value = true;
     } else {
         isLiked.value = false;
@@ -135,31 +131,34 @@ const liked = function () {
 };
 
 //개별영화 정보 가져오기 //좋아요 정보 가져오기 위함
-const getDbMovieDetail = function (movie_id) {
-    return axios({
-      method: 'get',
-      url: `${userstore.API_URL}/marshmovie/movies/${movie_id}/`,
-      headers: {
-          Authorization: `Token ${userstore.token}` // 토큰을 헤더에 포함
-      },
-  }).then((response) =>{
-      dbmovie.value = response.data;
-      movieLikeUsers.value = response.data.like_users;
-      console.log(response.data)
-      likesCount.value = response.data.like_users.length; //좋아요를 누른 사람의 개수
-      liked();
-
-  }).catch((err) => {
-      alert('Error:', err.response ? err.response.data : err.message);
-  });
+const getDbMovieDetail = async function (movie_id) {
+    try {
+        const response = await axios({
+            method: 'get',
+            url: `${userstore.API_URL}/marshmovie/movies/${movie_id}/`,
+        });
+        dbmovie.value = response.data;
+        movieLikeUsers.value = response.data.like_users;
+        console.log(response.data, '좋아요한 영화 정보를 가져왔습니다.');
+        likesCount.value = response.data.like_users.length; //좋아요를 누른 사람의 개수
+        liked();
+        isLoading.value = false;
+    } catch (err) {
+        console.error('Error:', err.response ? err.response.data : err.message);
+        alert('Error:', err.response ? err.response.data : err.message);
+    }
 }
 
-onMounted(() => {
-    fetchMovies(movieId.value);
-    // 마운트 시점에 최초로 좋아요 정보 가져옴
-    userstore.getUserInfo();
-    getDbMovieDetail(movieId.value);
-    
+onMounted(async () => {
+    try {
+        await fetchMovies(movieId.value);
+        // 마운트 시점에 최초로 좋아요 정보 가져옴
+        await userstore.getUserInfo();
+        await getDbMovieDetail(movieId.value);
+    } catch (err) {
+        console.error('Error during onMounted:', err.response ? err.response.data : err.message);
+        alert('페이지 로딩 중 오류가 발생했습니다.');
+    }
 });
 
 // 영화포스터 가져오기
@@ -174,26 +173,29 @@ const getMoviePoster = movie => {
 // 좋아요 기능 반영하기
 const toggleMovieLike = async function () {
     const movie_pk = parseInt(movieId.value, 10);
-    await store.movieLikes(movie_pk)
-    // history.go(0);
-    // 현재 좋아요 상태를 토글
-    isLiked.value = !isLiked.value
-    getDbMovieDetail(movieId.value);
+    if (userstore.token) {
+        try {
+            await store.movieLikes(movie_pk)
+            // 현재 좋아요 상태를 토글
+            isLiked.value = !isLiked.value;
+            await getDbMovieDetail(movieId.value);
+        } catch (err) {
+            console.error('Error toggling movie like:', err.response ? err.response.data : err.message);
+            alert('좋아요를 반영하는 중 오류가 발생했습니다.');
+        }
+    } else {
+        alert('로그인이 필요합니다');
+    }
 };
-
-watch(isLiked, (newVal, oldVal) => {
-    console.log(`isLiked changed from ${oldVal} to ${newVal}`);
-});
 
 watch(() => liked, newValue => {
     isLiked.value = newValue;
+    console.log(`isLiked changed to ${newValue}`);
 });
 
 watch(isLiked, (newVal, oldVal) => {
     console.log(`isLiked changed from ${oldVal} to ${newVal}`);
 });
-
-
 </script>
 
 <style scoped>
