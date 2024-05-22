@@ -195,3 +195,8 @@ def community_dislikes(request, community_id):
         community.dislike_users.add(request.user)
         disliked = True
     return Response({'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_db_size(request):
+    dbsize = Movie.objects.count()
+    return Response({'dbsize': dbsize})
