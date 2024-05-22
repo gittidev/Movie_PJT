@@ -51,8 +51,10 @@ import CommunityCreateDetail from "@/components/community/CommunityCreateDetail.
 
 const Moviestore = useMovieStore()
 const Userstore = useUserStore()
+
 onMounted(() => {
   Moviestore.getGenres()
+  Userstore.getUserInfo()
 })
 
 const logOut = ()=>{
