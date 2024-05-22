@@ -15,6 +15,8 @@ export const useMovieStore = defineStore("movie", () => {
   const weeklyMovies = ref([]);
   const Movies = ref([]);
   const genres = ref([]);
+  const movieLike =  ref(false)
+  const movieLikeCount = ref(0)
 
   // 장르가져오기 앱 mounted 됐을때 가져옴
   const getGenres = function () {
@@ -120,6 +122,27 @@ export const useMovieStore = defineStore("movie", () => {
   };
 
 
+  //영화 좋아요 기능
+  const movieLikes =  function (movie_pk) {
+    return axios({
+      method: 'post',
+      url: `${API_URL}/marshmovie/${movie_pk}/likes/`,
+      headers: {
+          Authorization: `Token ${TOKEN}` // 토큰을 헤더에 포함
+      }
+  }).then((response) =>{
+      console.log(response.data.liked);
+      movieLike.value = response.data.liked;
+      // movieLikeCount.value = response.data.likes_count;
+      console.log(movieLike.value);
+      alert('좋아요 상태 변경 완료');
+  }).catch ((err) => {
+  alert('Error:', err.response ? err.response.data : err.message);
+});
+
+}
+
+
 
   return {
     TMDB_TOKEN,
@@ -133,7 +156,11 @@ export const useMovieStore = defineStore("movie", () => {
     getDatabaseMovie,
     Movies,
     getMovieDetail,
-    movieDetail
+    movieDetail,
+    movieLikes,
+    movieLike,
+
+
   }}, {
     persist: {
       enabled: true,

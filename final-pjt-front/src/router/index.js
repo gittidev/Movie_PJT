@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { useUserStore } from '@/stores/users';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -94,5 +95,13 @@ const router = createRouter({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  const store = useUserStore();
+  store.getUserInfo(); // 모든 페이지 전환 시 사용자 정보 가져오기
+  next();
+});
+
+
 
 export default router;
