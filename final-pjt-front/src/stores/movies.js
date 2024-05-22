@@ -11,6 +11,7 @@ export const useMovieStore = defineStore("movie", () => {
   const TMDB_URL = "https://api.themoviedb.org/3/movie";
   const API_URL= 'http://127.0.0.1:8000'
 
+  const router=useRouter()
   const todayMovies = ref([]);
   const weeklyMovies = ref([]);
   const Movies = ref([]);
@@ -96,6 +97,7 @@ export const useMovieStore = defineStore("movie", () => {
     })
       .then((res) => {
         movieDetail.value = res.data;
+        
       })
       .catch((err) => console.log(err));
   };
@@ -118,20 +120,22 @@ export const useMovieStore = defineStore("movie", () => {
 
   //영화 좋아요 기능
   const movieLikes =  function (movie_pk) {
-    return axios({
-      method: 'post',
-      url: `${API_URL}/marshmovie/${movie_pk}/likes/`,
-      headers: {
-          Authorization: `Token ${userStore.token}` // 토큰을 헤더에 포함
-      },
-    })
-      .then((response) =>{
-        console.log(response.data.liked);
-        alert('좋아요 상태 변경 완료');
+      return axios({
+        method: 'post',
+        url: `${API_URL}/marshmovie/${movie_pk}/likes/`,
+        headers: {
+            Authorization: `Token ${userStore.token}` // 토큰을 헤더에 포함
+        },
       })
-      .catch ((err) => {
-        alert('Error:', err.response ? err.response.data : err.message);
-      })
+        .then((response) =>{
+          console.log(response.data.liked);
+          alert('좋아요 상태 변경 완료');
+        })
+        .catch ((err) => {
+          router.push({name : 'login'});
+          alert('로그인이 필요합니다.');  
+          
+        })
   }
   
   return {
