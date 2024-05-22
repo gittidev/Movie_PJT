@@ -1,4 +1,4 @@
-import { ref,reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
@@ -11,29 +11,57 @@ export const useUserStore = defineStore('user', () => {
     user: null,
     isAuthenticated: false,
   })
+
   const API_URL = 'http://127.0.0.1:8000'
-  const router = useRouter() 
+  const router = useRouter()
   const token = ref(localStorage.getItem('token') || null);
-  
+
+
+  // 사용자 정보 가져오기
+  const getUserInfo = function () {
+    if (!token.value) return;
+
+    axios({
+      method: 'get',
+      url: `${API_URL}/accounts/user/`,
+      headers: {
+        Authorization: `Token ${token.value}`,
+      },
+    })
+      .then(res => {
+        state.user = res.data;
+        state.isAuthenticated = true;
+      })
+      .catch(err => {
+        console.error(err);
+        state.isAuthenticated = false;
+        state.user = null;
+      });
+  };
+
   //회원가입
-  const signUp = function (payload) {
-    const { username, password1, password2, email, nickname } = payload
+  const signUp = (payload) => {
+    const { username, password1, password2, email, nickname } = payload;
 
     axios({
       method: 'post',
       url: `${API_URL}/accounts/signup/`,
       data: {
-        username, password1, password2, email, nickname
-      }
+        username,
+        password1,
+        password2,
+        email,
+        nickname,
+      },
     })
-      .then((response) => {
-        router.push({ name: 'movie' })
-        alert('회원가입이 완료되었습니다.')
-      })
-      .catch(err => 
-        { console.error('Error:', err.response ? err.response.data : err.message);})
-  }
-
+    .then(() => {
+      router.push({ name: 'movie' });
+      alert('회원가입이 완료되었습니다.');
+    })
+    .catch(err => {
+      console.error('Error:', err.response ? err.response.data : err.message);
+    });
+  };
   //회원탈퇴 
   const deleteUser = function () {
     axios({
@@ -41,7 +69,8 @@ export const useUserStore = defineStore('user', () => {
       url: `${API_URL}/accounts/delete/`,
       headers: {
         Authorization: `Token ${token.value}` // 토큰을 헤더에 포함
-      }})
+      }
+    })
       .then(() => {
         alert('회원탈퇴가 완료되었습니다.')
         logOut()
@@ -66,34 +95,15 @@ export const useUserStore = defineStore('user', () => {
     })
       .then(res => {
         token.value = res.data.key
+
         localStorage.setItem('token', token.value);
         state.isAuthenticated = true
         getUserInfo()
-        router.push({ name: 'movie' })// 로그인 후 영화소개 화면으로 전환
+
+        router.push({ name: 'movie' }); // 로그인 후 영화소개 화면으로 전환
       })
       .catch(err => {
         alert('가입된 정보와 일치하지 않습니다.')
-      })
-  }
-
-  // 사용자 정보 가져오기
-  const getUserInfo = function () {
-    if (!token.value) return;
-    axios({
-      method: 'get',
-      url: `${API_URL}/accounts/user/`, // 사용자 정보를 가져오는 API 엔드포인트
-      headers: {
-        Authorization: `Token ${token.value}` // 토큰을 헤더에 포함
-      }
-    })
-      .then(res => {
-        state.user = res.data // 사용자 데이터 저장
-        console.log(state.user) 
-      })
-      .catch(err => {
-        console.log(err)
-        state.isAuthenticated = false
-        state.user = null
       })
   }
 
@@ -101,11 +111,10 @@ export const useUserStore = defineStore('user', () => {
   //로그아웃
   const logOut = function () {
     token.value = null; //토큰 초기화
-    state.isAuthenticated = false //사용자 상태관리
-    state.user = null
+    state.isAuthenticated = false; //사용자 상태관리
+    state.user = null;
     localStorage.removeItem('token');
     router.push({ name: 'login' }); // 로그아웃 후 로그인 화면으로 전환
-
   };
 
   // 비밀번호 변경
@@ -135,8 +144,9 @@ export const useUserStore = defineStore('user', () => {
       })
   }
 
+  getUserInfo()
 
-  return {state, API_URL, token, signUp, deleteUser, logIn, logOut, changePassword };
+  return { state, API_URL, token, signUp, deleteUser, logIn, logOut, changePassword, getUserInfo };
 }, {
   persist: {
     // enabled: true,

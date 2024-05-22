@@ -46,13 +46,14 @@
 
                     <!-- row 3 (total : 12) -->
                     <div class="col-12">
-                        col-12 차지
+                       커뮤니티 목록 들어갈 예정
+
                     </div>
               
 
                     <!-- row 유튜브링크 -->
                     <div class="col-12">
-                        <YoutubeTrailer :movie="movieDetail" />
+                        <!-- <YoutubeTrailer :movie="movieDetail" /> -->
                     </div>
                 </div>
             </div>
@@ -82,6 +83,11 @@ const movieDetail = ref({})
 const token = userstore.token
 // console.log(token)
 movieId.value = route.params.movieId;
+
+const isLiked = ref(false);
+const likesCount = ref(0);
+
+
 
 
 //DB에 추가로 저장하기
@@ -117,6 +123,12 @@ const fetchMovies = async (movieid) => {
 
 onMounted(() => {
     fetchMovies(movieId.value);
+    //마운트 시점에 최초로 좋아요 정보 가져옴
+    userstore.getUserInfo()
+    isLiked.value = store.movieLike;
+    likesCount.value = store.movieLikeCount;
+    console.log('Initial isLiked:', isLiked.value);
+    console.log('Initial likesCount:', likesCount.value);
 });
 
 
@@ -133,44 +145,25 @@ const getMoviePoster = movie => {
 }
 
 // 좋아요 기능 반영하기
-const isLiked = ref(null);
-const likesCount = ref(0);
-
-watch(isLiked, (newValue, oldValue) => {
-  if (newValue !== null) {
-    // console.log(isLiked.value)
-  }
-})
-
-const temp = function (movieId) {
-    const movie_pk = parseInt(movieId, 10);
-    const store = useUserStore();
-    const token = store.token;
-
-    return axios({
-            method: 'post',
-            url: `${store.API_URL}/marshmovie/${movie_pk}/likes/`,
-            headers: {
-                Authorization: `Token ${token}` // 토큰을 헤더에 포함
-            }
-        }).then((response) =>{
-            console.log(response);
-            isLiked.value = response.data.liked;
-            likesCount.value = response.data.likes_count;
-            console.log(isLiked.value);
-            alert('좋아요 상태 변경 완료');
-        }).catch ((err) => {
-        alert('Error:', err.response ? err.response.data : err.message);
-    });
-}
 
 const movieLikes = async function (movieId) {
     const movie_pk = parseInt(movieId, 10);
-    const store = useUserStore();
-    const token = store.token;
-
-    await temp(movieId)
+    await store.movieLikes(movie_pk)
 };
+
+watch(() => store.movieLike, newValue => {
+    isLiked.value = newValue;
+});
+
+watch(() => store.movieLikeCount, newValue => {
+    likesCount.value = newValue;
+});
+
+
+
+
+
+
 </script>
 
 
