@@ -8,6 +8,13 @@ class MovieListSerializer(serializers.ModelSerializer):
         model = Movie
         fields = '__all__'
 
+
+# 개별 영화 정보 가져오기
+class MovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = '__all__'
+
 # 생성된 커뮤니티 전체 목록 가져오기
 class CommunityListSerializer(serializers.ModelSerializer):
     movie_title = serializers.CharField(source='movie.title', read_only=True)

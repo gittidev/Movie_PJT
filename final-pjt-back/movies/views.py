@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404, get_list_or_404
 
 from .serializers import CommunityListSerializer, CommunitySerializer, CommunityCreateSerializer
-from .serializers import MovieListSerializer, MovieCreateSerializer
+from .serializers import MovieListSerializer, MovieCreateSerializer, MovieSerializer
 from .serializers import CommentListSerializer, CommentCreateSerializer
 from .models import Community, Movie, Comment
 
@@ -26,6 +26,14 @@ def movies_list(request):
     if request.method == 'GET':
         movies = Movie.objects.all()
         serializer = MovieListSerializer(movies, many=True)
+        return Response(serializer.data)
+
+# 개별 영화 정보 가져오기/ 좋아요 반영 위해서 /로그인 하지 않아도 가져올수 있음
+@api_view(['GET'])
+def movie_detail(request, movie_id):
+    movie = get_object_or_404(Movie, movie_id=movie_id)
+    if request.method == 'GET':
+        serializer = MovieSerializer(movie)
         return Response(serializer.data)
 
 
@@ -56,7 +64,6 @@ def community_detail(request, community_pk):
 
     if request.method == 'GET':
         serializer = CommunitySerializer(community)
-        print(serializer.data)
         return Response(serializer.data)
 
     elif request.method == 'PUT':
@@ -78,6 +85,7 @@ def community_detail(request, community_pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def movie_likes(request, movie_id):
+
     movie = Movie.objects.get(movie_id=movie_id)
     if request.user in movie.like_users.all():
         movie.like_users.remove(request.user)
