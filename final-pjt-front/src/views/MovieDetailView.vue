@@ -1,5 +1,11 @@
 <template>
     <div>
+        <div v-if="isLoading">
+            isLoading...
+        </div>
+        <div v-else>
+
+        
         <div class="card">
 
             <div class="container" style="margin: auto; margin-top: 4rem;">
@@ -50,6 +56,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script setup>
@@ -60,6 +67,8 @@ import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import CommunityCreate from "@/components/community/CommunityCreate.vue";
 import emptyPopcornBox from '@/assets/empty_popcorn_box2.png';
+
+const isLoading=ref(true)
 
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
 
@@ -107,9 +116,11 @@ const fetchMovies = async (movieid) => {
         }
     })
     .then(res => {
-        // DB와 비교 후 추가 완료
+        isLoading.value=true
+        console.lod('db추가완료')
     })
     .catch(err => {
+        isLoading.value=false
         console.log(err.response.data);
     });
 };
@@ -134,8 +145,10 @@ const getDbMovieDetail = function (movie_id) {
   }).then((response) =>{
       dbmovie.value = response.data;
       movieLikeUsers.value = response.data.like_users;
+      console.log(response.data)
       likesCount.value = response.data.like_users.length; //좋아요를 누른 사람의 개수
       liked();
+
   }).catch((err) => {
       alert('Error:', err.response ? err.response.data : err.message);
   });
@@ -146,6 +159,7 @@ onMounted(() => {
     // 마운트 시점에 최초로 좋아요 정보 가져옴
     userstore.getUserInfo();
     getDbMovieDetail(movieId.value);
+    
 });
 
 // 영화포스터 가져오기
@@ -160,15 +174,11 @@ const getMoviePoster = movie => {
 // 좋아요 기능 반영하기
 const toggleMovieLike = async function () {
     const movie_pk = parseInt(movieId.value, 10);
-    await store.movieLikes(movie_pk);
+    await store.movieLikes(movie_pk)
+    // history.go(0);
     // 현재 좋아요 상태를 토글
-    isLiked.value = !isLiked.value;
-    // 좋아요 수 업데이트
-    if (isLiked.value) {
-        likesCount.value += 1;
-    } else {
-        likesCount.value -= 1;
-    }
+    isLiked.value = !isLiked.value
+    getDbMovieDetail(movieId.value);
 };
 
 watch(isLiked, (newVal, oldVal) => {
@@ -179,9 +189,11 @@ watch(() => liked, newValue => {
     isLiked.value = newValue;
 });
 
-watch(() => liked, newValue => {
-    likesCount.value = newValue;
+watch(isLiked, (newVal, oldVal) => {
+    console.log(`isLiked changed from ${oldVal} to ${newVal}`);
 });
+
+
 </script>
 
 <style scoped>

@@ -84,7 +84,7 @@ const getMymovie = async function () {
 //커뮤니티 생성하기
 const createPOT = async function () {
   const movie_id = parseInt(selectedMovie.value, 10);
-  console.log(userStore.state.user.pk)
+  // console.log(userStore.state.user.pk)
   // console.log(movie_id);
   const payload = {
     title: communitytitle.value,
@@ -95,10 +95,16 @@ const createPOT = async function () {
   // console.log(payload);
   try {
     const newCommunity =  await store.createCommunity(payload);
-    const communityId = newCommunity.id;
+    const newcommunityId = newCommunity.id;
+    console.log(newcommunityId)
+  
     // console.log(communityId);
-    router.push({ name: 'communitydetail', params: { communityId: communityId } });
-     // 생성 후 router.push 이용해서 상세 페이지로 이동하기
+    await router.push({ name: 'communitydetail', params: { communityId: newcommunityId } });
+
+    communitytitle= ''
+    communitycontent= ''
+    selectedMovie=''
+    // 생성 후 router.push 이용해서 상세 페이지로 이동하기
   } catch (err) {
     console.log('Error creating community:', err.data);
     const movie_id = parseInt(selectedMovie.value, 10);

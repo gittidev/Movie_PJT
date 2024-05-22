@@ -20,7 +20,7 @@ export const useCommunityStore = defineStore('community', () => {
 
   // 커뮤니티 목록 정보 가져오기
   const getCommunities = function () {
-    axios({
+    return axios({
       method: 'get',
       url: `${API_URL}/marshmovie/communities/`,
     })
@@ -32,7 +32,7 @@ export const useCommunityStore = defineStore('community', () => {
 
   //단일 커뮤니티 정보 가져오기
     const getCommunityInfo = function (communityId) {
-      axios({
+      return axios({
         method: 'get',
         url: `${API_URL}/marshmovie/communities/${communityId}/`,
       })
@@ -50,7 +50,7 @@ export const useCommunityStore = defineStore('community', () => {
       method: 'post',
       url: `${API_URL}/marshmovie/communities/create/`,
       headers: {
-        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        Authorization: `Token ${store.token}`, // 토큰을 헤더에 포함
         'Content-Type': 'application/json'
       },
       data: {
@@ -77,7 +77,7 @@ export const useCommunityStore = defineStore('community', () => {
       method: 'put',
       url: `${API_URL}/marshmovie/communities/${communityId}/`,
       headers: {
-        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        Authorization: `Token ${store.token}`, // 토큰을 헤더에 포함
         'Content-Type': 'application/json'
       },
       data: {
@@ -147,7 +147,7 @@ export const useCommunityStore = defineStore('community', () => {
       method: 'post',
       url: `${API_URL}/marshmovie/communities/${communityId}/comments/create/`,
       headers: {
-        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        Authorization: `Token ${store.token}`, // 토큰을 헤더에 포함
         'Content-Type': 'application/json'
       },
       data: {
@@ -171,7 +171,7 @@ export const useCommunityStore = defineStore('community', () => {
       method: 'delete',
       url: `${API_URL}/marshmovie/comments/${commentId}/delete`,
       headers: {
-        Authorization: `Token ${token}`, // 토큰을 헤더에 포함
+        Authorization: `Token ${store.token}`, // 토큰을 헤더에 포함
         'Content-Type': 'application/json'
       }
     })
