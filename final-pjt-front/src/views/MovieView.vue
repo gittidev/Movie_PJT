@@ -8,7 +8,9 @@
     </div>
     <div class="movie-section">
       <GenreMovie/>
+      
     </div>
+    
   </div>
 </template>
 

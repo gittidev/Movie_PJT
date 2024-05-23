@@ -1,5 +1,8 @@
 <template>
     <div>
+
+    
+    <div>
         <div style="display: flex; flex-wrap: wrap;">
 
         <h1>장르별 영화</h1>
@@ -14,8 +17,14 @@
     </div>
         <div class="genre-carousel">
             <RouterView />
+            &nbsp;
         </div>
+       
+       
     </div>
+    
+</div>
+
 </template>
 
 <script setup>
