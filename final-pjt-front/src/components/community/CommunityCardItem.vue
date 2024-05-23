@@ -7,12 +7,12 @@
         <div class="col-5">
           <img :src="community.movie_poster" alt="...">
         </div>
-        <div class="col">
+        <div class="col" style="font-family: 'KCC-Hanbit';">
           <h1>{{ community.title }}</h1>
           <p>{{ community.movie_title }}</p>
           <p class="card-text">{{ community.content }}</p>
           <div style="display: flex; margin-block-end: 0;" >
-              <button class='btn' @click="goPOT(community.id)">
+              <button class='btn' @click="goPOT(community.id)" >
                 POT에 참여하기
               </button>
           </div>
@@ -59,7 +59,10 @@ img {
 
 button {
   background-color: rgb(128, 0, 255);
-
+  font-family: 'SOYOMapleBoldTTF';
+  color:white;
+  padding: 10px;
+  margin: 10px
 }
 
 button:hover {

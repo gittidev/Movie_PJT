@@ -46,8 +46,8 @@
                             <div style="font-family: 'KCC-Hanbit;">
                                 <h2>POT 목록</h2>
                             </div>
-                            
-                            <div v-for="community of communities" class="card" style="min-height: 50px; height: auto; padding : 20px;">
+                            <div v-if="communities.length">
+                                <div v-for="community of communities" class="card" style="min-height: 50px; height: auto; padding : 20px;">
                                 
                                 <div>POT : {{community.title}}
                                     <button @click="goCommunity(community.id)" class="btn btn-primary" style="margin-left: 20px;"> POT 참여하기 </button>
@@ -57,6 +57,14 @@
                                 </p>
                                 
                             </div>
+
+                            </div>
+                            <div v-else>
+                                <p>현재 생성된 POT 이 없어요[좋아요를 누르면 해당영화의 POT을 생성할 수 있습니다]</p>
+                                <RouterLink :to="{name:'community'}" class="btn btn-secondary"> POT 생성하러 가기 </RouterLink>
+                            </div>
+                            
+               
                         </div>
 
                         <!-- row 유튜브링크 -->
@@ -67,8 +75,9 @@
                 </div>
             </div>
         </div>
-        <div class="footer">
-            
+        <div class="footer" >
+            <span>ⓒ 2024. 광주2반 9팀</span>
+            <span> 박보람, 박동민</span>
         </div>
     </div>
 </template>

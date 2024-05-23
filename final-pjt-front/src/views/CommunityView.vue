@@ -8,7 +8,7 @@
                 
                 <!-- 내가 좋아요 한 영화 목록을 기준으로 생성된 POT을 보여줌 --> <!-- 영화의 제목이 아니라, id값을 넘겨 주어야 한다.(DB의 id값) -->
                 <p>커뮤니티를 조회할 영화 목록을 선택하세요</p>
-                <select required class="d-grid gap-2 col-12 mx-auto form-control" aria-labelledby="navbarDropdown" v-model="selectedMovie" @change="getMymovie()">  
+                <select required class="d-grid gap-2 col-12 mx-auto form-control" aria-labelledby="navbarDropdown" v-model="selectedMovie" @change="getMymovie()" style="min-height: 40px;">  
                 <option value="" disabled selected>조회할 영화를 선택하세요</option> 
                 <option v-for="movie in likeMovies" :key="movie.id" :value="movie.id">{{ movie.title }}</option>  
                  </select>
@@ -96,15 +96,16 @@ div {
   font-family: 'Pretendard-Regular';
 }
 
-
 .input-handler {
   text-align: center;
-  /* height: 5rem; */
+  font-size: 25px;
+  height: 50px;
 }
 .search-input {
   width: 80%;
   border-radius: 5px;
   height: 3rem;
+  font-size: 25px;
 }
 
 .community {
