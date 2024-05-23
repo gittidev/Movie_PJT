@@ -56,11 +56,11 @@ export const useUserStore = defineStore('user', () => {
       },
     })
     .then(() => {
-      router.push({ name: 'movie' });
+      router.push({ name: 'login' });
       alert('회원가입이 완료되었습니다.');
     })
     .catch(err => {
-      console.error('Error:', err.response ? err.response.data : err.message);
+      alert('입력 정보를 확인하세요.')
     });
   };
   //회원탈퇴 

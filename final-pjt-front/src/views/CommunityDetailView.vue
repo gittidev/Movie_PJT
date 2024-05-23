@@ -28,8 +28,9 @@
         <p>당신은 이 포트럭을 {{ likeState }}</p>
         <!-- 커뮤니티 좋아요 싫어요 기능 -->
         <div style="position: absolute; right: 1rem; bottom: 0.5rem;">
-          <img :src="marsh3" alt="좋아요" @click="likeCommunity()">
-          <img :src="marsh2" alt="싫어요" @click="dislikeCommunity()">
+            <img :src="marsh3" alt="좋아요" @click="likeCommunity()">
+    
+            <img :src="marsh2" alt="싫어요" @click="dislikeCommunity()">    
         </div>
       </div>
       <div class="col col-sm-4">

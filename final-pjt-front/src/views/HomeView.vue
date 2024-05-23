@@ -10,13 +10,13 @@
           </div>
         </div>
         <div class="row section1-sub">
-          <div class="col-12 text-center">
+          <div class="col-12 text-center" >
             <h2>맛있는 영화 Time</h2>
             <h3>snack movie</h3>
           </div>
         </div>
 
-        <div class="row section2 d-flex flex-wrap" style="background-color: #DEB6AB;">
+        <div class="row section2 d-flex flex-wrap" style="background-color: #DEB6AB; margin-top: 150px">
           <div class="col-sm-12 col-md-8 camping">
             <img src="@/assets/camping.png" alt="캠핑이미지" class="img-fluid">
           </div>
@@ -29,31 +29,31 @@
         </div>
 
 
-        <div class="row section2-sub" style="margin-top: 100px">
+        <div class="row section2-sub" style="margin-top: 100px; margin-bottom: 100px;">
           <div class="col-12">
             <h2>골라먹는</h2>
             <h3>snack movie</h3>
           </div>
         </div>
-
-        <div class="row section3" style="margin-bottom: 5rem;">
-          <div class="col-12 col-md-4 icon1 ">
-            <RouterLink :to="{ name: 'movie' }">
+        &nbsp;
+        <div class="row section3" style="margin-bottom: 100px;">
+          <div class="col-12 col-md-4 icon1" style="margin-top: 50px;">
+              <RouterLink :to="{ name: 'movie' }">
               <img src="@/assets/popcorn-bomb.png" alt="오늘의 영화" class="img-fluid" style="width: 50%;">
               <h5>오늘의 영화</h5>
             </RouterLink>
           </div>
 
-          <div class="col-12 col-md-4 icon2 text-center">
+          <div class="col-12 col-md-4 icon2 text-center" style="margin-top: 50px;">
             <RouterLink :to="{ name: 'community' }">
               <img src="@/assets/fire.png" alt="POTLUCK" class="img-fluid" style="width: 40%; margin-top: 10px;">
               <h5>POTLUCK</h5>
             </RouterLink>
           </div>
 
-          <div class="col-12 col-md-4 icon3 text-center">
+          <div class="col-12 col-md-4 icon3 text-center" style="margin-top: 30px;">
             <RouterLink :to="{ name: 'marshchat' }">
-              <img src="@/assets/marsh-icon.png" alt="마쉬에게 물어봐" class="img-fluid" style="width: 25%; margin-top: 1em;">
+              <img src="@/assets/marsh-icon.png" alt="마쉬에게 물어봐" class="img-fluid" style="width: 25%; margin-top: 10px;">
               <h5>마쉬에게</h5>
               <h5>물어봐</h5>
             </RouterLink>
@@ -67,9 +67,7 @@
       </div>
 
     </div>
-    <div class="footer" style="padding: -10px;">
-          dkjflk
-        </div>
+
 
     <div class="side">
       <div class="popcorn-handler">
@@ -123,20 +121,20 @@ import { RouterLink } from "vue-router";
 h2 {
   margin: auto;
   font-family: 'RixInooAriDuriR';
-  font-size: var(--font-size-lg);
+  font-size:80px;
   text-shadow: 0px 0 #000000, 1px 1px rgb(255, 255, 0), 4px 0 rgb(255, 255, 0), 0 0px rgb(0, 0, 0);
 }
 
 h3 {
   margin: auto;
   font-family: 'RixInooAriDuriR';
-  font-size: var(--font-size-md);
+  font-size: 70px;
   text-shadow: 0px 0 #000000, 1px 1px rgb(255, 255, 0), 4px 0 rgb(255, 255, 0), 0 0px rgb(0, 0, 0);
 }
 
 h5 {
   font-family: 'RixInooAriDuriR';
-  font-size: var(--font-size-sm);
+  font-size: 50px;
 }
 
 .section2 {
@@ -180,10 +178,9 @@ button {
 
 .section3 {
   position: relative;
-  margin: 40px 0px;
   width: 100%;
-  min-height: 300px;
-  padding: 2rem;
+  min-height: 350px;
+  padding: 10px;
   height: auto;
   background: #b3ff00ca;
   border-radius: 30px;

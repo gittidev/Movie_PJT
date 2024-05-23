@@ -5,7 +5,7 @@
             <h2 style="font-family: 'LOTTERIACHAB'; display: block;">로딩 중...</h2>
         </div>
         <div v-else>
-            <div class="card">
+            <div>
                 <div class="container" style="margin: auto; margin-top: 4rem;">
                     <div class="row">
                         <!-- row 1 (total : 12) -->
@@ -42,21 +42,33 @@
                         </div>
 
                         <!-- row 3 (total : 12) -->
-                        <div class="col-12">
-                            커뮤니티 목록 
-                            <div v-for="community of communities">
-                                제목 : {{community.title}}
-                                내용 : {{community.content}}
+                        <div class="col-12" style="margin-top: 30px;">
+                            <div style="font-family: 'KCC-Hanbit;">
+                                <h2>POT 목록</h2>
+                            </div>
+                            
+                            <div v-for="community of communities" class="card" style="min-height: 50px; height: auto; padding : 20px;">
+                                
+                                <div>POT : {{community.title}}
+                                    <button @click="goCommunity(community.id)" class="btn btn-primary" style="margin-left: 20px;"> POT 참여하기 </button>
+                                </div>
+                                <p>
+                                    {{community.content}}
+                                </p>
+                                
                             </div>
                         </div>
 
                         <!-- row 유튜브링크 -->
-                        <div class="col-12">
+                        <div class="col-12" style="margin-bottom: 100px;">
                             <YoutubeTrailer :movie="movieDetail" />
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="footer">
+            
         </div>
     </div>
 </template>
@@ -66,10 +78,12 @@ import axios from 'axios'
 import { useMovieStore } from "@/stores/movies";
 import { useUserStore } from "@/stores/users";
 import { ref, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute, useRouter, RouterLink  } from "vue-router";
 import { useCommunityStore } from "@/stores/community";
 import CommunityCreate from "@/components/community/CommunityCreate.vue";
 import emptyPopcornBox from '@/assets/empty_popcorn_box2.png';
+import YoutubeTrailer from '@/components/movie/YoutubeTrailer.vue';
+
 
 const isLoading = ref(true)
 const imgBaseURL = "https://image.tmdb.org/t/p/w500";
@@ -83,6 +97,11 @@ const movieId = ref(0);
 const movieDetail = ref({});
 const token = ref(userstore.token);
 const communities = ref([])
+//커뮤니티로 이동
+const goCommunity = function (communityId) {
+    router.push({name:'communitydetail', params:{communityId:communityId}})
+}
+
 
 // 프론트 페이지 구현을 위한 변수
 const isLiked = ref(false);
