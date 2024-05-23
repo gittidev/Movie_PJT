@@ -230,14 +230,65 @@
 
 
 - ### 랜덤 추천
+    - RandomRecommend component에서 '오늘의 영화 뽑기' 버튼을 클릭하면 modal이 열린다.
+    - onMounted로 modal창이 열리며 영화 DB의 크기를 계산하고 가져온다.
+    - '번호 뽑기' 버튼을 클릭하면 generateRandomNumber함수를 실행한다.
+        - 0부터 DB 크기 사이의 랜덤한 수 하나를 뽑아 보여준다.
+        - DB에 있는 영화들 중 해당 수를 pk값으로 가진 영화의 movie_id를 가져온다.
+    - '영화 정보 보러 가기' 버튼을 클릭하면 가져온 movie_id 값을 갖는 영화의 상세 정보 페이지로 이동한다.
+        - MovieDetailView로 이동되지만, 로그인이 되어 있지 않으면 정보 확인이 불가능하다.
     <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
-        ├─final-pjt-back
-  
-                └─views
+        // RandomRecommend.vue > template
 
+        <button
+            type="button"
+            class="btn"
+            style="background-color:#ff9d3d; color : white;"
+            @click="generateRandomNumber"
+            data-bs-toggle="modal"
+            data-bs-target="#random-number"
+        >
+            오늘의 영화 뽑기
+        </button>
+
+        // RandomRecommen.vue > script
+
+        const fetchDbSize = function () {
+        axios({
+            method: 'get',
+            url: `${store.API_URL}/marshmovie/get_db_size/`
+        })
+            .then(response => {
+            dbSize.value = response.data.dbsize
+            })
+            .catch(error => {
+            console.error('There was an error fetching the DB size:', error)
+            })
+        }
+
+        const generateRandomNumber = function () {
+            if (dbSize.value > 0) {
+                randomNumber.value = Math.floor(Math.random() * dbSize.value) + 1;
+            }
+
+            const loadMovieId = function () {
+                axios({
+                    method: 'get',
+                    url: `${store.API_URL}/marshmovie/movie-id-info/${randomNumber.value}/`
+                })
+                .then(res => {
+                    movieId.value = res.data.value
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            }
+
+            loadMovieId()
+        }
     </detail>
 
 - ### 챗봇 추천
