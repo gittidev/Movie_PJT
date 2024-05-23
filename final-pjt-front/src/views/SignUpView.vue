@@ -31,10 +31,6 @@
             <input type="submit" class="btn btn-primary" value="회원가입" />
           </div>
         </form>
-
-        <div class="d-grid gap-2 m-3 col-12 mx-auto">
-          <KakaoLogin />
-        </div>
       </div>
     </div>
   </div>
@@ -42,7 +38,6 @@
 </template>
 
 <script setup>
-import KakaoLogin from "@/components/KakaoLogin.vue";
 import { ref } from "vue";
 import { useUserStore } from "@/stores/users";
 
