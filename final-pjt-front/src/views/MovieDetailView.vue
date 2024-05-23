@@ -52,7 +52,7 @@
 
                         <!-- row 유튜브링크 -->
                         <div class="col-12">
-                            <!-- <YoutubeTrailer :movie="movieDetail" /> -->
+                            <YoutubeTrailer :movie="movieDetail" />
                         </div>
                     </div>
                 </div>
