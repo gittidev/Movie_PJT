@@ -74,8 +74,8 @@ const getMymovie = async function () {
 // 선택한 영화에 따른 커뮤니티 목록 필터링
 const filteredCommunities = computed(() => {
   if (selectedMovie.value) {
-    console.log(store.communities)
-    console.log(selectedMovie.value)
+    // console.log(store.communities)
+    // console.log(selectedMovie.value)
     return store.communities.filter(community => community.movie === selectedMovie.value);
   }
   return store.communities;
