@@ -43,7 +43,7 @@ const fetchDbSize = function () {
   })
     .then(response => {
       dbSize.value = response.data.dbsize
-      console.log(dbSize.value)
+      // console.log(dbSize.value)
     })
     .catch(error => {
       console.error('There was an error fetching the DB size:', error)
