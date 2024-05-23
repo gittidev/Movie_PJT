@@ -5,7 +5,7 @@
         <h1>베스트리뷰 추천</h1>
         <div style="border: 1px solid gray;">
 
-        <div v-for="community of communities" :key="community.id">
+        <div v-for="community of filteredCommunities" :key="community.id">
 
             <div class="communityitem" style="margin: 1em 1em">
                 <div class="container card">
@@ -49,7 +49,7 @@ const communities = ref([]);
 // 영화 좋아요 수에 따른 커뮤니티 목록 필터링//slice 사용하여 복사본을 정렬, 원본 변경 없음 
 const filteredCommunities = computed(() => {
   if (store.communities.length) {
-    return [...store.communities].sort((a, b) => a.like_users.length - b.like_users.length);
+    return [...store.communities].sort((a, b) => b.like_users.length - a.like_users.length);
   }
   return store.communities;
 });
