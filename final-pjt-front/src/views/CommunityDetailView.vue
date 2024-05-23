@@ -24,10 +24,12 @@
         <p class="">POT : {{ community.title }}</p>
         <p>MOVIE : {{ community.movie_title }}</p>
         <p>POT 설명 : {{ community.content }}</p>
+        <br>
+        <p>당신은 이 포트럭을 {{ likeState }}</p>
         <!-- 커뮤니티 좋아요 싫어요 기능 -->
         <div style="position: absolute; right: 1rem; bottom: 0.5rem;">
-          <img :src="marsh3" alt="좋아요" @click="likeCommunity(communityId)">
-          <img :src="marsh2" alt="싫어요" @click="dislikeCommunity(communityId)">
+          <img :src="marsh3" alt="좋아요" @click="likeCommunity()">
+          <img :src="marsh2" alt="싫어요" @click="dislikeCommunity()">
         </div>
       </div>
       <div class="col col-sm-4">
@@ -88,9 +90,21 @@ const community = computed(() => {
 const communityId = parseInt(route.params.communityId,10)
 const loginUser = userStore.state.user
 
+const isLiked = ref(false)
+const isDisLiked = ref(false)
+const likeState = computed(() => {
+  if (isLiked.value && !isDisLiked.value) {
+    return '좋아합니다 :)'
+  } else if (!isLiked.value && isDisLiked.value) {
+    return '싫어합니다 ㅠㅠ'
+  } else {
+    return '???'
+  }
+})
+
 
 //커뮤니티 좋아요
-const likeCommunity = function (communityId) {
+const likeCommunity = function () {
   axios({
     method: 'post',
     url: `${userStore.API_URL}/marshmovie/communities/${communityId}/likes/`,
@@ -98,16 +112,21 @@ const likeCommunity = function (communityId) {
       'Authorization': `Token ${userStore.token}`,
     }
   })
-    .then(res => {
-      alert('이 커뮤니티를 좋아합니다!')
-    })
-    .catch(err => {
-      alert('싫어요 버튼을 누르셨다면 좋아요 버튼이 눌리지 않습니다!(바꿔주세요)')
-    })
+  .then(res => {
+    // 응답이 성공적인지 체크 (200-299 범위의 상태 코드)
+    if (res.status >= 200 && res.status < 300) {
+      isLiked.value = res.data.liked
+    } else {
+      return Promise.reject(res.data);  // 실패한 응답이라면 catch부분으로 이동
+    }
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 //커뮤니티 싫어요
-const dislikeCommunity = function (communityId) {
+const dislikeCommunity = function () {
   axios({
     method: 'post',
     url: `${userStore.API_URL}/marshmovie/communities/${communityId}/dislikes/`,
@@ -115,12 +134,16 @@ const dislikeCommunity = function (communityId) {
       'Authorization': `Token ${userStore.token}`,
     }
   })
-    .then(res => {
-      alert('이 커뮤니티가 맘에 들지 않으셨군요 ㅠㅠ')
-    })
-    .catch(err => {
-      alert('좋아요 버튼을 누르셨다면 싫어요 버튼이 눌리지 않습니다!')
-    })
+  .then(res => {
+    if (res.status >= 200 && res.status < 300) {
+      isDisLiked.value = res.data.disliked
+    } else {
+      return Promise.reject(res.data)
+    }
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 
@@ -130,8 +153,7 @@ onMounted(() => {
   communityStore.getCommunityInfo(communityId)
   console.log(community.value)
   isLoading.value = false;
-
-
+  console.log(likeState)
 });
 
 
