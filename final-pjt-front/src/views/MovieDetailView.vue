@@ -66,7 +66,7 @@ import axios from 'axios'
 import { useMovieStore } from "@/stores/movies";
 import { useUserStore } from "@/stores/users";
 import { ref, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useCommunityStore } from "@/stores/community";
 import CommunityCreate from "@/components/community/CommunityCreate.vue";
 import emptyPopcornBox from '@/assets/empty_popcorn_box2.png';
@@ -80,6 +80,7 @@ const store = useMovieStore();
 const userstore = useUserStore();
 const communitystore = useCommunityStore();
 const route = useRoute();
+const router = useRouter()
 const movieId = ref(0);
 const movieDetail = ref({});
 const token = ref(userstore.token);
@@ -96,12 +97,15 @@ const dbmovie = ref([]);
 const movieLikeUsers = ref([]);
 
 //현재 로컬스토리지에 저장된 로그인된 사용자 데이터
-const loginUserPK=userstore.state.user.pk
+const loginUserPK=ref('')
+ 
+
 
 movieId.value = route.params.movieId;
 
 //DB에 추가로 저장하기
 const fetchMovies = async (movieid) => {
+    
     try {
         await store.getMovieDetail(movieid);
         movieDetail.value = store.movieDetail;
@@ -128,8 +132,8 @@ const fetchMovies = async (movieid) => {
         isLoading.value = false;
         console.log('db추가완료');
     } catch (err) {
-        console.error('Error:', err.response ? err.response.data : err.message);
-        alert('새로운 영화 정보 저장을 위해 로그인 필요하거나, 이미 DB에 저장된 정보입니다.');
+        alert('로그인이 필요합니다.')
+        // alert('새로운 영화 정보 저장을 위해 로그인 필요하거나, 이미 DB에 저장된 정보입니다.');
     }
 };
 
@@ -183,8 +187,15 @@ onMounted(async () => {
         await userstore.getUserInfo();
         await getDbMovieDetail(movieId.value);
         await fetchCommunities();
+
+
+        if (!userstore.token) {
+            alert('로그인이 필요합니다.')
+            router.push({name:'login'})
+        } else {
+            loginUserPK.value=userstore.state.user.pk
+        }
     } catch (err) {
-        console.error('Error during onMounted:', err.response ? err.response.data : err.message);
         alert('페이지 로딩 중 오류가 발생했습니다.');
     }
 });

@@ -19,8 +19,9 @@ export const useUserStore = defineStore('user', () => {
 
   // 사용자 정보 가져오기
   const getUserInfo = function () {
-    if (!token.value) return;
-
+    if (!token.value) {
+      return;
+    } 
     axios({
       method: 'get',
       url: `${API_URL}/accounts/user/`,
