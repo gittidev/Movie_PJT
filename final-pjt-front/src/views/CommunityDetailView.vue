@@ -25,12 +25,20 @@
         <p>MOVIE : {{ community.movie_title }}</p>
         <p>POT 설명 : {{ community.content }}</p>
         <br>
-        <p>당신은 이 포트럭을 {{ likeState }}</p>
+        
         <!-- 커뮤니티 좋아요 싫어요 기능 -->
         <div style="position: absolute; right: 1rem; bottom: 0.5rem;">
+          <div style="width: 300px;">
+            <p>당신은 이 POT을 {{ likeState }} </p>
+            <p>[좋아요/싫어요 하나만 선택하세요!]</p>
+          </div>
+          
+          
+          <div style="text-align: right;">
             <img :src="marsh3" alt="좋아요" @click="likeCommunity()">
-    
             <img :src="marsh2" alt="싫어요" @click="dislikeCommunity()">    
+          </div>
+            
         </div>
       </div>
       <div class="col col-sm-4">
