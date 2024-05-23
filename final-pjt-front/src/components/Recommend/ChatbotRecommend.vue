@@ -1,6 +1,7 @@
 <template>
-    <div id="app-container">
-        <div id="chat-container">
+    <div id="app-container" class='container' style="margin: auto;">
+        <div class="row">
+            <div id="chat-container" class='col-6 col-md-8'>
             <div id="chat-messages" ref="chatMessages">
                 <div v-for="(message, index) in messages" :key="index" class="message"
                     :class="message.type + '-message'">
@@ -8,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <div id="info-container">
+        <div id="info-container" class="col-6 col-md-4">
             <h3>Movie Search Option</h3>
             <p>아래 항목들을 선택하면 그에 맞춰 영화를 추천해 드려요!</p>
             <br>
@@ -115,6 +116,9 @@
             <br>
             <button class="submitBtn btn btn-primary" @click="sendDataQuery">제출</button>
         </div>
+
+        </div>
+        
     </div>
 </template>
 
@@ -209,7 +213,9 @@ body {
     margin: 0;
     width: 100%;
     padding: 30px;
+    font-family: 'KCC-Hanbit';
 }
+
 
 #chat-container {
     width: 70%;
@@ -217,6 +223,7 @@ body {
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
+    border-radius: 10px 0px 0px 10px;
 }
 
 #info-container {
@@ -227,6 +234,7 @@ body {
     border-left: none;
     background-color: #f9f9f9;
     overflow-y: auto;
+    border-radius: 0px 10px 10px 0px;
 }
 
 #chat-messages {

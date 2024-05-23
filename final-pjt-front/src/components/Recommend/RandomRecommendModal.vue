@@ -79,6 +79,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+#random-number {
+  /* font-family: 'SOYOMapleBoldTTF'; */
+  font-family: 'KCC-Hanbit';
+}
 .modal-body {
   color: rgb(255, 255, 255);
 }
