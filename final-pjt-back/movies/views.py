@@ -169,18 +169,18 @@ def comment_delete(request, comment_pk):
 # 커뮤니티 좋아요 기능
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def community_likes(request, community_id):
-    community = Community.objects.get(id=community_id)
-    if request.user in community.dislike_users.all():
-        return Response({'detail': '싫어요 버튼을 누르셨으면, 좋아요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
-    else:
+def community_likes(request, community_pk):
+    community = Community.objects.get(id=community_pk)
+    if request.user not in community.dislike_users.all():
         if request.user in community.like_users.all():
             community.like_users.remove(request.user)
             liked = False
         else:
             community.like_users.add(request.user)
             liked = True
-        return Response({'liked': liked, 'likes_count': community.like_users.count()}, status=status.HTTP_200_OK)
+        return Response({'detail': '이 페이지가 마음에 드셨다니 다행이네요 :)', 'liked': liked, 'likes_count': community.like_users.count()}, status=status.HTTP_200_OK)
+    else:
+        return Response({'detail': '싫어요 버튼을 누르셨으면, 좋아요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
 
 # 커뮤니티 싫어요 기능
 # @api_view(['POST'])
@@ -200,8 +200,8 @@ def community_likes(request, community_id):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def community_dislikes(request, community_id):
-    community = Community.objects.get(id=community_id)
+def community_dislikes(request, community_pk):
+    community = Community.objects.get(id=community_pk)
     if request.user not in community.like_users.all():
         if request.user in community.dislike_users.all():
             community.dislike_users.remove(request.user)
@@ -209,7 +209,7 @@ def community_dislikes(request, community_id):
         else:
             community.dislike_users.add(request.user)
             disliked = True
-        return Response({'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)
+        return Response({'detail': '이 커뮤니티가 마음에 들지 않으셨군요 ㅠㅠ', 'disliked': disliked, 'dislikes_count': community.dislike_users.count()}, status=status.HTTP_200_OK)
     else:
         return Response({'detail': '좋아요 버튼을 누르셨으면, 싫어요 버튼을 누르실 수 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
 
