@@ -7,12 +7,12 @@
 
         <div v-for="community of filteredCommunities" :key="community.id">
 
-            <div class="communityitem" style="margin: 1em 1em">
+            <div class="communityitem" style="margin: 1em 1em;">
                 <div class="container card">
 
                     <div class="row">
                         <div class="col-5">
-                            <img :src="community.movie_poster" alt="...">
+                            <img :src="community.movie_poster" alt="..." style="width: 70%; height:  100%;">
                         </div>
                         <div class="col">
                             <h1>{{ community.title }}</h1>
