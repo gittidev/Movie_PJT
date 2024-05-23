@@ -1,0 +1,31 @@
+OSDisk 볼륨에 대한 폴더 경로의 목록입니다.
+볼륨 일련 번호는 C8E1-AAF4입니다.
+C:.
+├─.vscode
+├─final-pjt-back
+│  ├─accounts
+│  │  ├─migrations
+│  │  │  └─__pycache__
+│  │  └─__pycache__
+│  ├─final_pjt
+│  │  └─__pycache__
+│  ├─media
+│  │  └─profile_images
+│  └─movies
+│      ├─fixtures
+│      ├─migrations
+│      │  └─__pycache__
+│      └─__pycache__
+└─final-pjt-front
+    ├─.vscode
+    ├─public
+    └─src
+        ├─assets
+        ├─components
+        │  ├─common
+        │  ├─community
+        │  ├─movie
+        │  └─Recommend
+        ├─router
+        ├─stores
+        └─views
