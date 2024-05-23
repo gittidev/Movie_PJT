@@ -142,15 +142,18 @@
 
 
 ## 영화 추천 기능(기능 상세 설명)
-- 장르별 추천
+- ### 장르별 추천
     - v-for을 사용하여 genreList에 담긴 장르의 값을 담은 버튼들을 만든다.
-    - 버튼을 클릭하면 해당 장르의 영화 포스터들을 불러온다.
-    - 영화 포스터를 클릭하면 영화의 상세 정보가 담긴 페이지로 이동한다.
+    - 버튼을 클릭하면 RouterLink를 통해 genreId를 갖고 genredetail로 이동한다.
+    - 해당 장르인 영화들(genreMovies)의 포스터를 carousel 형태로 출력한다.
+    - bootstrap의 Navigation component를 사용하여 포스터를 넘길 수 있게 한다.
+    - 영화 포스터를 클릭하면 해당 영화의 상세 정보가 담긴 페이지로 이동한다.
     <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
         // GenreMovie.vue > template
+
         <button
             class="btn scroll-item"
             v-for="genre of genresList"
@@ -161,11 +164,13 @@
         </button>
 
         // GenreMovie.vue > script
+
         const showGenre = (id) => {
             router.push({ name: 'genredetail', params: { genreId: id } });
         }
 
         // GenreDetail.vue > template
+
         <div>          
             <Carousel v-bind="settings" :breakpoints="breakpoints">
                 <Slide v-for="movie in genreMovies" :key="movie.id">
@@ -181,6 +186,7 @@
         </div>
 
         // GenreDetail.vue > script
+
         const getMoviePoster = movie => {
             if (movie.poster_path) {
                 return imgBaseURL + movie.poster_path
@@ -196,8 +202,34 @@
     </detail>
 
 
-- 영화 상세정보 접근시 DB와 비교
-    - 
+- ### 영화 상세정보 접근시 DB와 비교
+    - 로그인 후 기능 이용을 전제로 하고 있기에, 로그인 여부를 체크한다.
+    - 해당 영화의 movie_id를 받아와 DB에 존재하는지 체크한다.
+    - 존재한다면(try) 영화가 이미 존재한다는 메시지를 보낸다.
+    - 존재하지 않는다면 요청시 받은 데이터를 이용해 유효성 검사를 진행한다.
+    - 유효한 경우에만 DB에 정보를 저장하고 되돌아간 다음, 상세 정보가 담긴 페이지를 출력한다.
+    <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        // movies > views.py
+
+        @api_view(['POST'])
+        @permission_classes([IsAuthenticated])
+        def db_check(request, movie_id):
+            try:
+                movie = Movie.objects.get(movie_id=movie_id)
+                return Response({'message': 'Movie already exists.'}, status=status.HTTP_200_OK)
+            except Movie.DoesNotExist:
+                serializer = MovieCreateSerializer(data=request.data)
+                if serializer.is_valid():
+                    serializer.save()
+                    return Response(status=status.HTTP_201_CREATED)
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    </detail>
+
+
+- ### 랜덤 추천
     <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
@@ -208,19 +240,7 @@
 
     </detail>
 
-
-- 랜덤 추천
-    <details>
-       <summary>기술 구현 코드</summary>
-       <div markdown>
-
-        ├─final-pjt-back
-  
-                └─views
-
-    </detail>
-
-- 챗봇 추천
+- ### 챗봇 추천
     <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
@@ -233,7 +253,7 @@
     </detail>
 
 
--  기타
+-  ### 기타(기억에 남는 부분 > 커뮤니티 좋아요 기능)
     <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
