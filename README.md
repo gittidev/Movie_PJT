@@ -51,9 +51,21 @@
     - Python 3.6.7
     - django 2.1.8
 - Javscript
-    - ECMA5 +
+    - ES6
     - Vue.js
-      -라이브러리 :  
+    - dependencies
+        - "axios": "^1.6.8",
+        - "bootstrap": "^5.3.3",
+        - "bootstrap-icons": "^1.11.3",
+        - "js-cookie": "^3.0.5",
+        - "pinia": "^2.1.7",
+        - "pinia-plugin-persistedstate": "^3.2.1",
+        - "vue": "^3.4.21",
+        - "vue-router": "^4.3.0",
+        - "vue3-carousel": "^0.3.3"
+        - "vite": "^5.2.8"
+
+
 - Database
     - sqlite3
    
@@ -73,7 +85,8 @@
   ![image](assets/component2.png)
 
 
-
+- 요구사항 
+    ![image](assets/Specification.png)
 
 
 
