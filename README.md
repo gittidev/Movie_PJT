@@ -292,27 +292,45 @@
     </detail>
 
 - ### 챗봇 추천
+    - 화면 오른쪽에서 검색에 필요한 정보들을 선택한다.
+    - 버튼을 눌러 체크한 정보들을 전달한다.
+        - 미리 선언해 둔 빈 데이터에 체크한 정보들을 담는다.
+        - gpt에게는 정보와 함께 영화를 추천해달라는 메시지를 보낸다.
+        - 사용자에게는 화면에 '선택한 조건에 부합하는 영화 찾아줘!'라는 문구를 보여준다.
+        - 검색이 끝나면 GPT의 답변을 사용자에게 보여준다.
     <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
-        ├─final-pjt-back
-  
-                ├─stores
-                └─views
+        // 빈 데이터를 선언
+        data() {
+            return {
+                userInput: '',
+                messages: [],
+                selectedGenres: [],
+                age: '',
+                selectedGender: '',
+                selectedMood: '',
+                OPEN_API_URL: 'https://api.openai.com/v1/chat/completions',
+                API_KEY: import.meta.env.VITE_APP_OPEN_AI_KEY,
+            };
+        },
 
-    </detail>
+        // 클릭하면 GPT에게 체크한 정보를 담아 전달
+        <button class="submitBtn btn btn-primary" @click="sendDataQuery">제출</button>
 
+        sendDataQuery() {
+            const genres = this.selectedGenres.length > 0 ? this.selectedGenres.join(', ') : '장르를 선택하지 않음';
+            const mood = this.selectedMood ? this.selectedMood : '기분을 선택하지 않음';
+            const gender = this.selectedGender ? this.selectedGender : '성별을 선택하지 않음';
+            const age = this.age ? `${this.age}살` : '나이를 선택하지 않음';
 
--  ### 기타(기억에 남는 부분 > 커뮤니티 좋아요 기능)
-    <details>
-       <summary>기술 구현 코드</summary>
-       <div markdown>
-
-        ├─final-pjt-back
-  
-                └─views
-
+            const queryDetails = `선택한 장르: ${genres}, 오늘의 기분: ${mood}, 나이: ${age}, 성별: ${gender}. 영화 추천해줘!`;
+            const displayMessage = '선택한 조건에 부합하는 영화 찾아줘!';
+            
+            this.addChat('user', displayMessage);
+            this.chatReceive(queryDetails);
+        }
     </detail>
 
 ## 👍 배운점 및 느낀점
@@ -328,8 +346,3 @@
 ## 📁 오픈소스 출처
 - TMDB : https://developer.themoviedb.org/reference/intro/getting-started 
 - GPT : https://openai.com/index/openai-api/
-
-
-
-
-
