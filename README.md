@@ -43,8 +43,6 @@
         - DB의 크기를 계산 후 해당 범위 내에서 숫자 1개를 랜덤으로 추출하여 그 숫자를 기반으로 영화를 추천한다.
     - 챗봇 추천
         - 장르, 나이, 성별, 오늘의 기분을 입력하여 챗봇에게 영화를 추천받는다.
--
--
 
 ## 3. 개발환경
 - Python
@@ -144,23 +142,170 @@
 
 
 ## 영화 추천 기능(기능 상세 설명)
-- 장르별 추천
-   <details>
+- ### 장르별 추천
+    - v-for을 사용하여 genreList에 담긴 장르의 값을 담은 버튼들을 만든다.
+    - 버튼을 클릭하면 RouterLink를 통해 genreId를 갖고 genredetail로 이동한다.
+    - 해당 장르인 영화들(genreMovies)의 포스터를 carousel 형태로 출력한다.
+    - bootstrap의 Navigation component를 사용하여 포스터를 넘길 수 있게 한다.
+    - 영화 포스터를 클릭하면 해당 영화의 상세 정보가 담긴 페이지로 이동한다.
+    <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        // GenreMovie.vue > template
+
+        <button
+            class="btn scroll-item"
+            v-for="genre of genresList"
+            :key="genre.id"
+            @click="showGenre(genre.id)"
+        >
+            {{ genre.name }}
+        </button>
+
+        // GenreMovie.vue > script
+
+        const showGenre = (id) => {
+            router.push({ name: 'genredetail', params: { genreId: id } });
+        }
+
+        // GenreDetail.vue > template
+
+        <div>          
+            <Carousel v-bind="settings" :breakpoints="breakpoints">
+                <Slide v-for="movie in genreMovies" :key="movie.id">
+                    <div class="carousel__item img-handler" >
+                    <img class='first-img' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
+                    </div>
+                </Slide>
+
+                <template #addons>
+                    <Navigation/>
+                </template>
+            </Carousel>
+        </div>
+
+        // GenreDetail.vue > script
+
+        const getMoviePoster = movie => {
+            if (movie.poster_path) {
+                return imgBaseURL + movie.poster_path
+            } else {
+                return emptyPopcornBox
+            }
+        }
+
+        const goDetail = function (movieId) {
+            console.log('클릭')
+            router.push({ name: 'moviedetail', params: { movieId: movieId } })
+        }
+    </detail>
+
+
+- ### 영화 상세정보 접근시 DB와 비교
+    - 로그인 후 기능 이용을 전제로 하고 있기에, 로그인 여부를 체크한다.
+    - 해당 영화의 movie_id를 받아와 DB에 존재하는지 체크한다.
+    - 존재한다면(try) 영화가 이미 존재한다는 메시지를 보낸다.
+    - 존재하지 않는다면 요청시 받은 데이터를 이용해 유효성 검사를 진행한다.
+    - 유효한 경우에만 DB에 정보를 저장하고 되돌아간 다음, 상세 정보가 담긴 페이지를 출력한다.
+    <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        // movies > views.py
+
+        @api_view(['POST'])
+        @permission_classes([IsAuthenticated])
+        def db_check(request, movie_id):
+            try:
+                movie = Movie.objects.get(movie_id=movie_id)
+                return Response({'message': 'Movie already exists.'}, status=status.HTTP_200_OK)
+            except Movie.DoesNotExist:
+                serializer = MovieCreateSerializer(data=request.data)
+                if serializer.is_valid():
+                    serializer.save()
+                    return Response(status=status.HTTP_201_CREATED)
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    </detail>
+
+
+- ### 랜덤 추천
+    - RandomRecommend component에서 '오늘의 영화 뽑기' 버튼을 클릭하면 modal이 열린다.
+    - onMounted로 modal창이 열리며 영화 DB의 크기를 계산하고 가져온다.
+    - '번호 뽑기' 버튼을 클릭하면 generateRandomNumber함수를 실행한다.
+        - 0부터 DB 크기 사이의 랜덤한 수 하나를 뽑아 보여준다.
+        - DB에 있는 영화들 중 해당 수를 pk값으로 가진 영화의 movie_id를 가져온다.
+    - '영화 정보 보러 가기' 버튼을 클릭하면 가져온 movie_id 값을 갖는 영화의 상세 정보 페이지로 이동한다.
+        - MovieDetailView로 이동되지만, 로그인이 되어 있지 않으면 정보 확인이 불가능하다.
+    <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        // RandomRecommend.vue > template
+
+        <button
+            type="button"
+            class="btn"
+            style="background-color:#ff9d3d; color : white;"
+            @click="generateRandomNumber"
+            data-bs-toggle="modal"
+            data-bs-target="#random-number"
+        >
+            오늘의 영화 뽑기
+        </button>
+
+        // RandomRecommen.vue > script
+
+        const fetchDbSize = function () {
+        axios({
+            method: 'get',
+            url: `${store.API_URL}/marshmovie/get_db_size/`
+        })
+            .then(response => {
+            dbSize.value = response.data.dbsize
+            })
+            .catch(error => {
+            console.error('There was an error fetching the DB size:', error)
+            })
+        }
+
+        const generateRandomNumber = function () {
+            if (dbSize.value > 0) {
+                randomNumber.value = Math.floor(Math.random() * dbSize.value) + 1;
+            }
+
+            const loadMovieId = function () {
+                axios({
+                    method: 'get',
+                    url: `${store.API_URL}/marshmovie/movie-id-info/${randomNumber.value}/`
+                })
+                .then(res => {
+                    movieId.value = res.data.value
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            }
+
+            loadMovieId()
+        }
+    </detail>
+
+- ### 챗봇 추천
+    <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
         ├─final-pjt-back
-        │  ├─accounts
-        │  │  ├─migrations
-   
-                ├─router
+  
                 ├─stores
                 └─views
 
-   </detail>
+    </detail>
 
-- 영화 상세정보 접근시 DB와 비교
-   <details>
+
+-  ### 기타(기억에 남는 부분 > 커뮤니티 좋아요 기능)
+    <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
@@ -168,49 +313,12 @@
   
                 └─views
 
-   </detail>
-
-
-- 랜덤 추천
-   <details>
-       <summary>기술 구현 코드</summary>
-       <div markdown>
-
-        ├─final-pjt-back
-  
-                └─views
-
-   </detail>
-
-- 챗봇 추천
-   <details>
-       <summary>기술 구현 코드</summary>
-       <div markdown>
-
-        ├─final-pjt-back
-  
-                ├─stores
-                └─views
-
-   </detail>
-
-
--  기타
-   <details>
-       <summary>기술 구현 코드</summary>
-       <div markdown>
-
-        ├─final-pjt-back
-  
-                └─views
-
-   </detail>
+    </detail>
 
 ## 👍 배운점 및 느낀점
 
 - 박보람 : 기초가 많이 부족함을 느꼈습니다. 특히 lifecycle hook 에 대한 이해 없이 렌더링 시점의 오류를 잡기 위해 많은 시간을 쏟았습니다.<br>
-장르별 영화 추천을 위해 컴포넌트 구조를 짤때 화면 구조에 대한 이해도가 향상 하였습니다. 또한, 프론트에서 back으로 axios 요청을 보낼때, 사용자 인증 정보를 state 관리를 통하여 전달하는 과정에서 token 값을 다룰때 변수에 담는 부분에서 오류가 자주 발생하였습니다. 기능별로 컴포넌트를 쪼개려고 시도하였는데, 불필요하게 컴포넌트가 많아지면서 오히려 작업과정에 오류가 발생하였던 점이 아쉬움이 남습니다. 기획 및 설계과정에서 좀 더 잘 접근해야할 필요성을 느꼈습니다.
-
+장르별 영화 추천을 위해 컴포넌트 구조를 짤때 라우터 뷰의 children 관계에 대한 이해가 부족하여 기능을 구현하는 데 어려움을 겪었습니다. 이 문제는 movie component 하위에 genreDetail을 배치함으로써 해결했는데, 비록 시간은 오래 걸렸지만 이 과정에서 화면 구조에 대한 이해도를 높일 수 있었습니다.<br>또한, 프론트에서 back으로 axios 요청을 보낼때, 사용자 인증 정보를 state 관리를 통하여 전달하는 과정에서 token 값을 다룰때 변수에 담는 부분에서 오류가 자주 발생하였습니다. 기능별로 컴포넌트를 쪼개려고 시도하였는데, 불필요하게 컴포넌트가 많아지면서 오히려 작업과정에 오류가 발생하였던 점이 아쉬움이 남습니다. 기획 및 설계과정에서 좀 더 잘 접근해야할 필요성을 느꼈습니다.
 
 - 박동민 : 함께 작업하는 사람들과의 협업이 상당히 중요하다는 점을 느꼈습니다. Postman을 사용해 Django에서 작성한 코드의 정상 작동을 확인했음에도 불구하고, Vue와 함께 작동시켜 결과를 확인해보면 에러가 나는 경우가 상당히 많았습니다. 또 git을 사용하다보니 conflict가 나는 경우가 많아 서로가 어느 부분을 수정했는지에 대해서도 파악할 필요가 있었습니다.<br>에러 메시지를 많이 보면서 문제점을 해결하기 위해 노력하다보니 개발자 도구를 사용하는 법도 늘었고, 명확한 답을 얻기 위해 구체적으로 질문하는 습관도 갖게 되었습니다.<br>과정은 힘들었지만 완성된 결과물을 보고 나니 뿌듯했고, 좀 더 발전시켜 누가 봐도 잘 만들었다 싶은 사이트로 발전시켜보고 싶다는 생각이 들었습니다.
 

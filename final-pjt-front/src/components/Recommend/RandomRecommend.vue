@@ -11,7 +11,7 @@
         <img :src="popcornIconPath" alt="popcron그림" class="popcorn-img">
 
       </div>
-      <button type="button" class="btn" style="background-color:#ff9d3d; color : white;" @click="generateRandomNumber" data-bs-toggle="modal" data-bs-target="#random-number">
+      <button type="button" class="btn" style="background-color:#ff9d3d; color : white;" data-bs-toggle="modal" data-bs-target="#random-number">
       오늘의 영화 뽑기
       </button>
     </div>
