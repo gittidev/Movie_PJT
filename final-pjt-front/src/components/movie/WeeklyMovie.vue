@@ -2,7 +2,7 @@
     <div>
         <h1>킬링 타임[고전 명작]</h1>
         <Carousel id="thumbnails" :items-to-show="4.5" :wrap-around="true" v-model="currentSlide" ref="carousel"
-                :autoplay="0.1" :transition="10000">
+                :autoplay="0.2" :transition="10000">
                 <Slide v-for="weeklyMovie in store.weeklyMovies" :key="weeklyMovie.id">
                     <div class="carousel__item img-handler" style="color :white;">
                         <img :src="getMoviePoster(weeklyMovie)" alt="#" @click="goDetail(weeklyMovie.id)">
@@ -34,7 +34,6 @@ const getMoviePoster = movie => {
 const goDetail = function (movieId) {
     console.log('클릭')
     router.push({ name: 'moviedetail', params: { movieId: movieId } });
-    // router.push({ name: 'login' });
 }
 
 </script>
