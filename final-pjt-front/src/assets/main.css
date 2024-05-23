@@ -8,6 +8,19 @@ body {
     position: relative;
   }
 
+
+
+  body::after{
+    /* 소스만 다운받고 화면은 나태내지 않는다. (숨김 처리) */
+      position:absolute; 
+      width:0; 
+      height:0; 
+      overflow:hidden; 
+      z-index:-1;
+      
+      /* load images */
+      content:url(@/assets/floating_marsh.png) url(@/assets/camping.png)/* 필요한 이미지 소스들 다운 */
+  }
   #app{
 
     /* Ensure content takes at least full height minus footer height */
