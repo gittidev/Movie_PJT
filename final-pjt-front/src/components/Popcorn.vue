@@ -12,9 +12,7 @@
 </template>
 
 <script setup>
-import Random from "@/components/Random.vue";
 import popcornIcon from '@/assets/popcorn.gif';
-import {ref} from 'vue'
 const popcornIconPath = popcornIcon
 
 </script>

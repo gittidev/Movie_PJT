@@ -71,9 +71,10 @@
     
   <div class="side">
       <random />
-      <chatbot />
+      <chatbot /> 
+
       <div class="popcorn-handler">
-        <Popcorn/>
+        <router-link :to="{name:'random'}" ><Popcorn/></router-link>
       </div>
     </div>
   </div>

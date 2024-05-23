@@ -93,6 +93,7 @@ const router = createRouter({
       name: "profileupdate",
       component: () => import("../views/ProfileUpdateView.vue"),
     },
+    
   ],
 });
 
