@@ -48,11 +48,12 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import Cookies from 'js-cookie'
 import { useUserStore } from '@/stores/users'
 
 const route = useRoute()
+const router = useRouter()
 const profileUserId = route.params.userId
 const store = useUserStore()
 
@@ -98,6 +99,7 @@ const profileUpdate = () => {
     })
         .then(response => {
             console.log('Profile updated successfully:', response.data)
+            router.push({name:'profile', params:{userId:profileUserId }})
         })
         .catch(error => {
             console.error('Error updating profile:', error)

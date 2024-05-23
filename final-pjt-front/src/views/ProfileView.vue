@@ -3,8 +3,8 @@
     <div class="profile-hander">
       <div class="row">
         <div class="col-4">
-          <img v-if="profileUser.profile_image" :src="profileImageUrl" alt="프로필 이미지" style="width: 10rem;">
-          <img v-else src="@/assets/profile.png" alt="기본이미지" style="width: 10rem;">
+          <img v-if="profileUser.profile_image" :src="profileImageUrl" alt="프로필 이미지" style="width: 13rem; border-radius: 10px;">
+          <img v-else src="@/assets/profile.png" alt="기본이미지" style="width: 10rem; border-radius: 10px;">
         </div>
         <div class="col">
           <h1>{{profileUser.nickname}}님의 공간입니다</h1>
@@ -128,22 +128,30 @@ const profileImageUrl = computed(() => {
 <style scoped>
 .profile-body {
   position: relative;
+
 }
 
 .profile-hander {
+  margin: auto;
+  font-family: 'SOYOMapleBoldTTF';
   position: absolute;
   top: 2rem;
   left: 2rem;
   margin-top: 2rem;
+  border: solid 1px gray;
+  border-radius: 10px;
+  padding: 20px;
 }
-button {
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 1rem;
+.btn {
+  margin: 0rem 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .list-handler {
   margin: 10px;
 }
-
+img {
+  margin: 10px;
+}
 </style>

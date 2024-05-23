@@ -119,6 +119,7 @@ export const useMovieStore = defineStore("movie", () => {
   };
 
   //영화 좋아요 기능
+  const isLiked = ref(false)
   const movieLikes =  function (movie_pk) {
       return axios({
         method: 'post',
@@ -152,6 +153,7 @@ export const useMovieStore = defineStore("movie", () => {
     getMovieDetail,
     movieDetail,
     movieLikes,
-    movieLikeCount,    
+    movieLikeCount,
+    isLiked,    
   }}, { persist:true });
   
