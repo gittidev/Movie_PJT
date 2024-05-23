@@ -65,7 +65,7 @@
 - 영화 추천의 경우 주어진 영화와 비슷한 영화를 추천하는 방식으로 설계되었다
 
 - DB ERD
-  
+  ![image](assets/MovieProject.png)
 
 
 - Components
