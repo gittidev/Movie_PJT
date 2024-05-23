@@ -87,13 +87,10 @@
       </div>
 
       <div class="side">
-        <random />
-        <chatbot />
-
         <div class="popcorn-handler">
-          <router-link :to="{ name: 'random' }">
+          <RouterLink :to="{ name: 'random' }">
             <Popcorn />
-          </router-link>
+          </RouterLink>
         </div>
       </div>
 
@@ -108,10 +105,7 @@
 
 <script setup>
 import Popcorn from "@/components/Popcorn.vue";
-import ChatbotIcon from "@/components/ChatbotIcon.vue";
-import Random from "@/components/Random.vue";
-import Chatbot from "@/components/Chatbot.vue";
-import { RouterLink, RouterView, useRouter } from "vue-router";
+import { RouterLink } from "vue-router";
 
 </script>
 
