@@ -2,7 +2,7 @@
 
   <div>
     <div class="chatbot-box">
-      <div class='chatbot' @click="openModal" data-bs-toggle="modal" data-bs-target="#chatbot">
+      <div class='chatbot'>
       <img :src="chatIconPath" alt="chatbot그림">
     </div>
     </div>
@@ -12,9 +12,8 @@
 </template>
 
 <script setup>
-import Random from "@/components/Random.vue";
 import chatbotIcon from '@/assets/chatbot.svg';
-import {ref} from 'vue'
+
 const chatIconPath = chatbotIcon
 
 </script>
