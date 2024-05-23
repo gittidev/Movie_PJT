@@ -43,8 +43,6 @@
         - DB의 크기를 계산 후 해당 범위 내에서 숫자 1개를 랜덤으로 추출하여 그 숫자를 기반으로 영화를 추천한다.
     - 챗봇 추천
         - 장르, 나이, 성별, 오늘의 기분을 입력하여 챗봇에게 영화를 추천받는다.
--
--
 
 ## 3. 개발환경
 - Python
@@ -145,22 +143,62 @@
 
 ## 영화 추천 기능(기능 상세 설명)
 - 장르별 추천
-   <details>
+    - v-for을 사용하여 genreList에 담긴 장르의 값을 담은 버튼들을 만든다.
+    - 버튼을 클릭하면 해당 장르의 영화 포스터들을 불러온다.
+    - 영화 포스터를 클릭하면 영화의 상세 정보가 담긴 페이지로 이동한다.
+    <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
-        ├─final-pjt-back
-        │  ├─accounts
-        │  │  ├─migrations
-   
-                ├─router
-                ├─stores
-                └─views
+        // GenreMovie.vue > template
+        <button
+            class="btn scroll-item"
+            v-for="genre of genresList"
+            :key="genre.id"
+            @click="showGenre(genre.id)"
+        >
+            {{ genre.name }}
+        </button>
 
-   </detail>
+        // GenreMovie.vue > script
+        const showGenre = (id) => {
+            router.push({ name: 'genredetail', params: { genreId: id } });
+        }
+
+        // GenreDetail.vue > template
+        <div>          
+            <Carousel v-bind="settings" :breakpoints="breakpoints">
+                <Slide v-for="movie in genreMovies" :key="movie.id">
+                    <div class="carousel__item img-handler" >
+                    <img class='first-img' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
+                    </div>
+                </Slide>
+
+                <template #addons>
+                    <Navigation/>
+                </template>
+            </Carousel>
+        </div>
+
+        // GenreDetail.vue > script
+        const getMoviePoster = movie => {
+            if (movie.poster_path) {
+                return imgBaseURL + movie.poster_path
+            } else {
+                return emptyPopcornBox
+            }
+        }
+
+        const goDetail = function (movieId) {
+            console.log('클릭')
+            router.push({ name: 'moviedetail', params: { movieId: movieId } })
+        }
+    </detail>
+
 
 - 영화 상세정보 접근시 DB와 비교
-   <details>
+    - 
+    <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
@@ -168,11 +206,11 @@
   
                 └─views
 
-   </detail>
+    </detail>
 
 
 - 랜덤 추천
-   <details>
+    <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
@@ -180,10 +218,10 @@
   
                 └─views
 
-   </detail>
+    </detail>
 
 - 챗봇 추천
-   <details>
+    <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
@@ -192,11 +230,11 @@
                 ├─stores
                 └─views
 
-   </detail>
+    </detail>
 
 
 -  기타
-   <details>
+    <details>
        <summary>기술 구현 코드</summary>
        <div markdown>
 
@@ -204,13 +242,12 @@
   
                 └─views
 
-   </detail>
+    </detail>
 
 ## 👍 배운점 및 느낀점
 
 - 박보람 : 기초가 많이 부족함을 느꼈습니다. 특히 lifecycle hook 에 대한 이해 없이 렌더링 시점의 오류를 잡기 위해 많은 시간을 쏟았습니다.<br>
-장르별 영화 추천을 위해 컴포넌트 구조를 짤때 화면 구조에 대한 이해도가 향상 하였습니다. 또한, 프론트에서 back으로 axios 요청을 보낼때, 사용자 인증 정보를 state 관리를 통하여 전달하는 과정에서 token 값을 다룰때 변수에 담는 부분에서 오류가 자주 발생하였습니다. 기능별로 컴포넌트를 쪼개려고 시도하였는데, 불필요하게 컴포넌트가 많아지면서 오히려 작업과정에 오류가 발생하였던 점이 아쉬움이 남습니다. 기획 및 설계과정에서 좀 더 잘 접근해야할 필요성을 느꼈습니다.
-
+장르별 영화 추천을 위해 컴포넌트 구조를 짤때 라우터 뷰의 children 관계에 대한 이해가 부족하여 기능을 구현하는 데 어려움을 겪었습니다. 이 문제는 movie component 하위에 genreDetail을 배치함으로써 해결했는데, 비록 시간은 오래 걸렸지만 이 과정에서 화면 구조에 대한 이해도를 높일 수 있었습니다.<br>또한, 프론트에서 back으로 axios 요청을 보낼때, 사용자 인증 정보를 state 관리를 통하여 전달하는 과정에서 token 값을 다룰때 변수에 담는 부분에서 오류가 자주 발생하였습니다. 기능별로 컴포넌트를 쪼개려고 시도하였는데, 불필요하게 컴포넌트가 많아지면서 오히려 작업과정에 오류가 발생하였던 점이 아쉬움이 남습니다. 기획 및 설계과정에서 좀 더 잘 접근해야할 필요성을 느꼈습니다.
 
 - 박동민 : 함께 작업하는 사람들과의 협업이 상당히 중요하다는 점을 느꼈습니다. Postman을 사용해 Django에서 작성한 코드의 정상 작동을 확인했음에도 불구하고, Vue와 함께 작동시켜 결과를 확인해보면 에러가 나는 경우가 상당히 많았습니다. 또 git을 사용하다보니 conflict가 나는 경우가 많아 서로가 어느 부분을 수정했는지에 대해서도 파악할 필요가 있었습니다.<br>에러 메시지를 많이 보면서 문제점을 해결하기 위해 노력하다보니 개발자 도구를 사용하는 법도 늘었고, 명확한 답을 얻기 위해 구체적으로 질문하는 습관도 갖게 되었습니다.<br>과정은 힘들었지만 완성된 결과물을 보고 나니 뿌듯했고, 좀 더 발전시켜 누가 봐도 잘 만들었다 싶은 사이트로 발전시켜보고 싶다는 생각이 들었습니다.
 
