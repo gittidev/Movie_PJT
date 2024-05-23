@@ -3,7 +3,7 @@
         <Carousel v-bind="settings" :breakpoints="breakpoints">
           <Slide v-for="movie in genreMovies" :key="movie.id">
             <div class="carousel__item img-handler" >
-              <img class='first-img' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
+                <img class='first-img ' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
             </div>
           </Slide>
 
@@ -117,9 +117,10 @@ export default defineComponent({
 <style scoped>
 
 .img-handler{
-    width: 28rem;
-    height: 40rem;
+  width: 100%;
+    height: 100%;
     border-radius: 10px;
+    margin: 10px;
 }
 img{
     width: 100%;
@@ -127,6 +128,5 @@ img{
     object-fit:cover;
     border-radius: 10px;
 }
-
 
 </style>

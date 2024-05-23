@@ -6,7 +6,7 @@
     <div class="movie-section">
       <WeeklyMovie />
     </div>
-    <div>
+    <div class="movie-section">
       <GenreMovie/>
     </div>
   </div>

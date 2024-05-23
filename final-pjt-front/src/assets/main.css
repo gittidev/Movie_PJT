@@ -1,39 +1,36 @@
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body::after {
+  /* 소스만 다운받고 화면은 나태내지 않는다. (숨김 처리) */
+  position: absolute; 
+  width: 0; 
+  height: 0; 
+  overflow: hidden; 
+  z-index: -1;
+
+  /* load images */
+  content: url(@/assets/floating_marsh.png) url(@/assets/camping.png); /* 필요한 이미지 소스들 다운 */
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
 
 
-
-  body::after{
-    /* 소스만 다운받고 화면은 나태내지 않는다. (숨김 처리) */
-      position:absolute; 
-      width:0; 
-      height:0; 
-      overflow:hidden; 
-      z-index:-1;
-      
-      /* load images */
-      content:url(@/assets/floating_marsh.png) url(@/assets/camping.png)/* 필요한 이미지 소스들 다운 */
-  }
-  #app{
-
-    /* Ensure content takes at least full height minus footer height */
-    min-height: calc(100% - 50px); /* Adjust 50px according to the footer height */
-  }
-
-  footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50px; /* Adjust this height */
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    line-height: 50px; /* Adjust this line height to match the footer height */
-  }
+.footer {
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
