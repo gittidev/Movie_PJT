@@ -65,50 +65,148 @@
 - 영화 추천의 경우 주어진 영화와 비슷한 영화를 추천하는 방식으로 설계되었다
 
 - DB ERD
+  
 
 
 - Components
+  ![image](assets/component1.png)
+  ![image](assets/component2.png)
 
-- 요구사항 명세
+
+
+
 
 
 - 프로젝트 구조
    <details>
-       <summary>코드 확인</summary>
+       <summary>구조 확인</summary>
        <div markdown>
 
-         // 수정 전
-         def filter_genre(request):
-         genre = request.GET.get('genre')
-         movies = list(Movie.objects.filter(genres_id=genre).values())
-         context = {
-             'movies': movies,
-         }
-         return JsonResponse(context)
-   
-         // 수정 후
-         def filter_genre(request):
-         genre = request.GET.get('genre')
-         movies = list(Movie.objects.filter(genres__id=genre).values())
-         context = {
-             'movies': movies,
-         }
-         return JsonResponse(context)
+        ├─final-pjt-back
+        │  ├─accounts
+        │  │  ├─migrations
+        │  │  │  └─__pycache__
+        │  │  └─__pycache__
+        │  ├─final_pjt
+        │  │  └─__pycache__
+        │  ├─media
+        │  │  └─profile_images
+        │  └─movies
+        │      ├─fixtures
+        │      ├─migrations
+        │      │  └─__pycache__
+        │      └─__pycache__
+        └─final-pjt-front
+            ├─.vscode
+            ├─public
+            └─src
+                ├─assets
+                ├─components
+                │  ├─common
+                │  ├─community
+                │  ├─movie
+                │  └─Recommend
+                ├─router
+                ├─stores
+                └─views
+
    </detail>
 
 
--
+### 🎯 요구 사항
+- 구현성공 ⭕
+- 구현실패 ❌
+- 필수 요구사항 ✅
+- 추가로 구현 한 기능 💖
+
+1. 영화 데이터 ⭕ ✅
+2. 영화 추천 알고리즘 ⭕ ✅
+3. API ⭕ ✅
+4. 커뮤니티 ⭕ ✅
+5. README ⭕ ✅
+6. Ai Chat bot 기능 ⭕💖
+7. 랜덤 영화 추천 알고리즘 ⭕💖
+8. 좋아요 생성된 커뮤니티 기반 영화추천 알고리즘 ⭕💖
+
+
 
 ## 영화 추천 기능(기능 상세 설명)
-- 
-- 
-- 
-- 
-: json viewer를 활용할것
-##### 2.이중 for문에서 List 초기화 하기
-: for문을 기준으로 어느 부분에서 list와 dictionary를 초기화해야할지 감이 잡히지 않았다.
+- 장르별 추천
+   <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
 
-## 배운점 및 느낀점
+        ├─final-pjt-back
+        │  ├─accounts
+        │  │  ├─migrations
+   
+                ├─router
+                ├─stores
+                └─views
+
+   </detail>
+
+- 영화 상세정보 접근시 DB와 비교
+   <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        ├─final-pjt-back
+  
+                └─views
+
+   </detail>
+
+
+- 랜덤 추천
+   <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        ├─final-pjt-back
+  
+                └─views
+
+   </detail>
+
+- 챗봇 추천
+   <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        ├─final-pjt-back
+  
+                ├─stores
+                └─views
+
+   </detail>
+
+
+-  기타
+   <details>
+       <summary>기술 구현 코드</summary>
+       <div markdown>
+
+        ├─final-pjt-back
+  
+                └─views
+
+   </detail>
+
+## 👍 배운점 및 느낀점
+
+- 박보람 : 기초가 많이 부족함을 느꼈습니다. 특히 lifecycle hook 에 대한 이해 없이 렌더링 시점의 오류를 잡기 위해 많은 시간을 쏟았습니다.
+장르별 영화 추천을 위해 컴포넌트 구조를 짤때 화면 구조에 대한 이해도가 향상 하였습니다. 또한, 프론트에서 back으로 axios 요청을 보낼때, 사용자 인증 정보를 state 관리를 통하여 전달하는 과정에서 token 값을 다룰때 변수에 담는 부분에서 오류가 자주 발생하였습니다. 기능별로 컴포넌트를 쪼개려고 시도하였는데, 불필요하게 컴포넌트가 많아지면서 오히려 작업과정에 오류가 발생하였던 점이 아쉬움이 남습니다. 기획 및 설계과정에서 좀 더 잘 접근해야할 필요성을 느꼈습니다.
+
+
+- 박동민 : 
+
+
+
+
+## 📁 오픈소스 출처
+- TMDB : https://developer.themoviedb.org/reference/intro/getting-started 
+- GPT : https://openai.com/index/openai-api/
 
 
 
