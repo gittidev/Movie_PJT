@@ -3,7 +3,7 @@
         <Carousel v-bind="settings" :breakpoints="breakpoints">
           <Slide v-for="movie in genreMovies" :key="movie.id">
             <div class="carousel__item img-handler">
-                    <img class='first-img ' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
+                <img class='first-img ' :src="getMoviePoster(movie)" alt="#" @click="goDetail(movie.movie_id)">
             </div>
           </Slide>
 
